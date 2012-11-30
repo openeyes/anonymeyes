@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 
-from anoneyes.models import Patient, EthnicGroup, Management, Outcome
+from anonymeyes.models import Patient, EthnicGroup, Management, Outcome
 
 class ManagementAdminForm(forms.ModelForm):
     class Meta:

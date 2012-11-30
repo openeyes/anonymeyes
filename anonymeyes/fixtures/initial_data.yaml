@@ -1,127 +1,127 @@
 # Ethnic Group
 - fields: {name: Unknown}
-  model: anoneyes.ethnicgroup
+  model: anonymeyes.ethnicgroup
   pk: 1
 - fields: {name: British}
-  model: anoneyes.ethnicgroup
+  model: anonymeyes.ethnicgroup
   pk: 2
 - fields: {name: Irish}
-  model: anoneyes.ethnicgroup
+  model: anonymeyes.ethnicgroup
   pk: 3
   
   # Eye
 - fields: {name: None}
-  model: anoneyes.eye
+  model: anonymeyes.eye
   pk: 1
 - fields: {name: Left}
-  model: anoneyes.eye
+  model: anonymeyes.eye
   pk: 2
 - fields: {name: Right}
-  model: anoneyes.eye
+  model: anonymeyes.eye
   pk: 3
 - fields: {name: Both}
-  model: anoneyes.eye
+  model: anonymeyes.eye
   pk: 4
   
 # Management Type
 - fields: {name: Medication}
-  model: anoneyes.managementtype
+  model: anonymeyes.managementtype
   pk: 1
 - fields: {name: Complication}
-  model: anoneyes.managementtype
+  model: anonymeyes.managementtype
   pk: 2
 - fields: {name: Surgery}
-  model: anoneyes.managementtype
+  model: anonymeyes.managementtype
   pk: 3
 
 # Lens Status
 - fields: {name: Central}
-  model: anoneyes.lensstatus
+  model: anonymeyes.lensstatus
   pk: 1
 - fields: {name: Subluxed}
-  model: anoneyes.lensstatus
+  model: anonymeyes.lensstatus
   pk: 2
 - fields: {name: Dislocated}
-  model: anoneyes.lensstatus
+  model: anonymeyes.lensstatus
   pk: 3
 - fields: {name: Microspherophakia}
-  model: anoneyes.lensstatus
+  model: anonymeyes.lensstatus
   pk: 4
 - fields: {name: Aphakic}
-  model: anoneyes.lensstatus
+  model: anonymeyes.lensstatus
   pk: 5
 - fields: {name: Pseudophakic}
-  model: anoneyes.lensstatus
+  model: anonymeyes.lensstatus
   pk: 6
 
 # Diagnosis
 - fields: {name: Primary congenital glaucoma - neonatal onset (0-1 months)}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 1
 - fields: {name: Primary congenital glaucoma - infantile (2-24 months)}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 2
 - fields: {name: Primary congenital glaucoma - juvenile (>2 years)}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 3
 - fields: {name: juvenile open angle glaucoma}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 4
 - fields: {name: Glaucoma associated with ocular congenital anomalies}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 5
 - fields: {name: Glaucoma associated with congenital systemic disease or syndrome}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 6
 - fields: {name: Glaucoma associated with acquired condition}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 7
 - fields: {name: Glaucoma following congenital cataract surgery}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 8
 - fields: {name: Undetermined}
-  model: anoneyes.diagnosis
+  model: anonymeyes.diagnosis
   pk: 9
 
 # Visual Acuity Method
 - fields: {name: Unable to Test}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 1
 - fields: {name: Forced Choice}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 2
 - fields: {name: Cardiff Card}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 3
 - fields: {name: Single Kays}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 4
 - fields: {name: Crowded Kays}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 5
 - fields: {name: Lea Symbols}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 6
 - fields: {name: Snellen}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 7
 - fields: {name: LogMar}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 8
 - fields: {name: Other}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 9
 - fields: {name: Not Known}
-  model: anoneyes.visualacuitymethod
+  model: anonymeyes.visualacuitymethod
   pk: 10
 
 # IOP Control
 - fields: {name: Yes without meds}
-  model: anoneyes.iopcontrol
+  model: anonymeyes.iopcontrol
   pk: 1
 - fields: {name: Yes with meds}
-  model: anoneyes.iopcontrol
+  model: anonymeyes.iopcontrol
   pk: 2
 - fields: {name: No}
-  model: anoneyes.iopcontrol
+  model: anonymeyes.iopcontrol
   pk: 3
