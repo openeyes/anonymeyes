@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 
-from anonymeyes.models import EthnicGroup, Eye, Diagnosis, LensStatus, VisualAcuityMethod, IOPControl, Patient, Management, Outcome
+from anonymeyes.models import EthnicGroup, Eye, Diagnosis, LensStatus, VisualAcuityMethod, IOPControl, ManagementType, Patient, Management, Outcome
 
 admin.site.register(EthnicGroup)
 admin.site.register(Eye)
@@ -9,6 +9,7 @@ admin.site.register(Diagnosis)
 admin.site.register(LensStatus)
 admin.site.register(VisualAcuityMethod)
 admin.site.register(IOPControl)
+admin.site.register(ManagementType)
 
 class ManagementAdminForm(forms.ModelForm):
     class Meta:
