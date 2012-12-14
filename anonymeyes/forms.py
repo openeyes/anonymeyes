@@ -2,7 +2,7 @@ from django import forms
 from django.http import HttpResponseRedirect
 from anonymeyes.models import Patient, Management, Outcome
 
-class PatientFormStep1(forms.ModelForm):
+class PatientForm(forms.ModelForm):
     class Meta:
         model = Patient
         fields = ('sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
@@ -11,7 +11,7 @@ class PatientFormStep1(forms.ModelForm):
                    'dob': forms.DateInput(attrs={'class':'datepicker past'}),
         }
 
-class PatientFormStep2(forms.ModelForm):
+class PatientBaselineForm(forms.ModelForm):
     class Meta:
         model = Patient
         fields = ('eye', 'diagnosis', 'lens_status_right', 'lens_extraction_date_right', 'lens_status_left', 'lens_extraction_date_left',
@@ -25,6 +25,20 @@ class PatientFormStep2(forms.ModelForm):
                    'visual_acuity_both': forms.TextInput(attrs={'size':'10'}),
         }
 
-PatientFormStep3 = forms.models.inlineformset_factory(Patient, Management, extra=1, can_delete=False)
+class PatientManagementForm(forms.ModelForm):
+    class Meta:
+        model = Management
+        widgets = {
+                   'date': forms.DateInput(attrs={'class':'datepicker past'}),
+        }
 
-PatientFormStep4 = forms.models.inlineformset_factory(Patient, Outcome, extra=1, can_delete=False)
+class PatientOutcomeForm(forms.ModelForm):
+    class Meta:
+        model = Outcome
+        widgets = {
+                   'date': forms.DateInput(attrs={'class':'datepicker past'}),
+        }
+
+PatientManagementFormSet = forms.models.inlineformset_factory(Patient, Management, form = PatientManagementForm, extra=1, can_delete=False)
+
+PatientOutcomeFormSet = forms.models.inlineformset_factory(Patient, Outcome, form = PatientOutcomeForm, extra=1, can_delete=False)

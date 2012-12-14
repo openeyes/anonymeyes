@@ -7,6 +7,7 @@
 
 {% block content %}
 <article>
+<h2>Create</h2>
 <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 <form action="" method="post">
 	{% csrf_token %}
@@ -29,9 +30,13 @@
 		{% endif %}
 	<div class="actions">
 		{% if wizard.steps.prev %}
-		<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
+		<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Back</button>
 		{% endif %}
-		<input type="submit" value="{% trans "submit" %}"/>
+		{% if wizard.steps.next %}
+		<input type="submit" value="Next"/>
+		{% else %}
+		<input type="submit" value="Save"/>
+		{% endif %}		
 	</div>
 </form>
 </article>
