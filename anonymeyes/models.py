@@ -32,7 +32,7 @@ class VisualAcuityMethod(models.Model):
         return self.name
 
 class Patient(models.Model):
-    uuid = models.CharField(primary_key=True, max_length=64, editable=False, blank=True, default=uuid4)
+    uuid = models.CharField(unique=True, max_length=64, editable=False, blank=True, default=uuid4)
     MALE = 0
     FEMALE = 1
     SEX_CHOICES = (

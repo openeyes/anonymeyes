@@ -1,6 +1,6 @@
 from django import forms
 from django.http import HttpResponseRedirect
-from anonymeyes.models import Patient, Management
+from anonymeyes.models import Patient, Management, Outcome
 
 class PatientFormStep1(forms.ModelForm):
     class Meta:
@@ -25,4 +25,6 @@ class PatientFormStep2(forms.ModelForm):
                    'visual_acuity_both': forms.TextInput(attrs={'size':'10'}),
         }
 
-PatientFormStep3 = forms.models.modelformset_factory(Management)
+PatientFormStep3 = forms.models.inlineformset_factory(Patient, Management, extra=1, can_delete=False)
+
+PatientFormStep4 = forms.models.inlineformset_factory(Patient, Outcome, extra=1, can_delete=False)
