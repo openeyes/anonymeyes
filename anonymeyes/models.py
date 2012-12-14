@@ -14,12 +14,16 @@ class Eye(models.Model):
         return self.name
 
 class Diagnosis(models.Model):
+    class Meta:
+        verbose_name_plural = 'diagnoses'
     name = models.CharField(max_length=255)
     
     def __unicode__(self):
         return self.name
 
 class LensStatus(models.Model):
+    class Meta:
+        verbose_name_plural = 'lens statuses'
     name = models.CharField(max_length=64)
     
     def __unicode__(self):
@@ -84,6 +88,10 @@ class Management(models.Model):
         return str(self.date)
 
 class IOPControl(models.Model):
+    class Meta:
+        verbose_name = 'IOP control'
+        verbose_name_plural = 'IOP controls'
+        
     name = models.CharField(max_length=64)
     
     def __unicode__(self):

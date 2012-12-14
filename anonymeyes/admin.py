@@ -1,7 +1,14 @@
 from django.contrib import admin
 from django import forms
 
-from anonymeyes.models import Patient, EthnicGroup, Management, Outcome
+from anonymeyes.models import EthnicGroup, Eye, Diagnosis, LensStatus, VisualAcuityMethod, IOPControl, Patient, Management, Outcome
+
+admin.site.register(EthnicGroup)
+admin.site.register(Eye)
+admin.site.register(Diagnosis)
+admin.site.register(LensStatus)
+admin.site.register(VisualAcuityMethod)
+admin.site.register(IOPControl)
 
 class ManagementAdminForm(forms.ModelForm):
     class Meta:
@@ -10,10 +17,10 @@ class ManagementAdminForm(forms.ModelForm):
                    'comments': forms.TextInput
         }
 
-class ManagementAdmin(admin.ModelAdmin):
-    pass
-
-admin.site.register(Management, ManagementAdmin)
+class ManagementInline(admin.TabularInline):
+    extra = 0
+    model = Management
+    form = ManagementAdminForm
 
 class OutcomeAdminForm(forms.ModelForm):
     class Meta:
@@ -23,21 +30,6 @@ class OutcomeAdminForm(forms.ModelForm):
                    'visual_acuity_left': forms.TextInput(attrs={'size':'10'}),
                    'visual_acuity_both': forms.TextInput(attrs={'size':'10'}),
         }
-
-class OutcomeAdmin(admin.ModelAdmin):
-    pass
-
-admin.site.register(Outcome, OutcomeAdmin)
-
-class EthnicGroupAdmin(admin.ModelAdmin):
-    pass
-
-admin.site.register(EthnicGroup, EthnicGroupAdmin)
-
-class ManagementInline(admin.TabularInline):
-    extra = 0
-    model = Management
-    form = ManagementAdminForm
 
 class OutcomeInline(admin.TabularInline):
     extra = 0
