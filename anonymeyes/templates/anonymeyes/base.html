@@ -27,9 +27,9 @@
 			<h1 class="title">AnonymEyes</h1>
 			<nav>
 				<ul>
-					<li><a href="/anonymeyes/">home</a></li>
 					{% if user.is_authenticated %}
 					<li><a href="/anonymeyes/create/">create</a></li>
+					<li><a href="/anonymeyes/list/">list</a></li>
 					<li><a href="/logout/">logout</a></li>
 					{% else %}
 					<li><a href="/accounts/login/?next=/anonymeyes/">login</a></li>

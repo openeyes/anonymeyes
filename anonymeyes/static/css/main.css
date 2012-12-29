@@ -169,7 +169,6 @@ form ul li {
 	*zoom: 1;
 }
 
-
 form label {
 	width: 200px;
 	float: left;
@@ -187,6 +186,10 @@ form .errorlist {
 	margin: 0 0 0 210px;
 }
 
+form td .errorlist {
+	margin: 0;
+}
+
 form .errorlist li {
 	font-size: 12px;
 	color: #f00;
@@ -195,11 +198,71 @@ form .errorlist li {
 }
 
 form .actions {
-	margin-left: 210px;
+	margin: 10px 0;
+	padding: 10px;
+	background: #fdd;
+	text-align: center;
 }
 
 form .actions input {
 	float: none;
+	font-size: 1.2em;
+}
+
+form input.datepicker {
+	width: 100px;
+}
+
+form input.small {
+	width: 50px;
+}
+
+dl dt,
+dl dd {
+	float: left;
+}
+
+dl dt {
+	clear: left;
+	width: 150px;
+	text-align: right;
+	font-weight: bold;
+	background: #ddf;
+	padding: 0 8px;
+	margin: 1px 0;
+}
+
+dl dd {
+	width: 390px;
+	padding: 0 8px;
+	margin: 0;
+}
+
+dl:before,
+dl:after {
+	content: " ";
+	display: table;
+}
+
+dl:after {
+	clear: both;
+}
+
+dl {
+	*zoom: 1;
+}
+
+th {
+	background: #ddf;
+}
+
+th,
+td {
+	text-align: left;
+	border: 1px solid #999;
+	padding: 8px;
+	line-height: 1em;
+	vertical-align: top;
 }
 
 /* ==========================================================================

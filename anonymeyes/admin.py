@@ -22,6 +22,7 @@ class ManagementInline(admin.TabularInline):
     extra = 0
     model = Management
     form = ManagementAdminForm
+    readonly_fields = ('created_at', 'updated_at',)
 
 class OutcomeAdminForm(forms.ModelForm):
     class Meta:
@@ -36,6 +37,7 @@ class OutcomeInline(admin.TabularInline):
     extra = 0
     model = Outcome
     form = OutcomeAdminForm
+    readonly_fields = ('created_at', 'updated_at',)
 
 class PatientAdminForm(forms.ModelForm):
     class Meta:
@@ -49,9 +51,10 @@ class PatientAdminForm(forms.ModelForm):
 
 class PatientAdmin(admin.ModelAdmin):
     form = PatientAdminForm
+    readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
                  (None, {
-                         'fields': ('sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
+                         'fields': ('created_by', 'updated_by', 'created_at', 'updated_at', 'sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
                          }),
                  ('Baseline Assessment', {
                          'fields': ('eye', 'diagnosis', ('lens_status_right', 'lens_extraction_date_right'), ('lens_status_left', 'lens_extraction_date_left'),

@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 from uuid import uuid4
 
 class EthnicGroup(models.Model):
@@ -37,6 +39,10 @@ class VisualAcuityMethod(models.Model):
 
 class Patient(models.Model):
     uuid = models.CharField(unique=True, max_length=64, editable=False, blank=True, default=uuid4)
+    created_by = models.ForeignKey(User, related_name='patient_created_set', blank=True, null=True, on_delete=models.SET_NULL)
+    updated_by = models.ForeignKey(User, related_name='patient_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
     MALE = 0
     FEMALE = 1
     SEX_CHOICES = (
@@ -58,18 +64,21 @@ class Patient(models.Model):
     consanguinity = models.IntegerField(choices=CONSANGUINITY_CHOICES)
     eye = models.ForeignKey(Eye)
     diagnosis = models.ForeignKey(Diagnosis)
-    lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right Lens Status')
-    lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left Lens Status')
-    lens_extraction_date_right = models.DateField(verbose_name='Extraction Date')
-    lens_extraction_date_left = models.DateField(verbose_name='Extraction Date')
+    lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
+    lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left lens status')
+    lens_extraction_date_right = models.DateField(verbose_name='Extraction date')
+    lens_extraction_date_left = models.DateField(verbose_name='Extraction date')
     visual_acuity_date = models.DateField()
-    visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Method')
+    visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Visual Acuity Method')
     visual_acuity_right = models.CharField(max_length=10, verbose_name='RVA')
     visual_acuity_left = models.CharField(max_length=10, verbose_name='LVA')
     visual_acuity_both = models.CharField(max_length=10, verbose_name='BVA')
     
     def __unicode__(self):
         return str(self.uuid)
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.pk})
 
 class ManagementType(models.Model):
     name = models.CharField(max_length=64)
@@ -78,6 +87,10 @@ class ManagementType(models.Model):
         return self.name
 
 class Management(models.Model):
+    created_by = models.ForeignKey(User, related_name='management_created_set', blank=True, null=True, on_delete=models.SET_NULL)
+    updated_by = models.ForeignKey(User, related_name='management_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
     eye = models.ForeignKey(Eye)
     type = models.ForeignKey(ManagementType)
@@ -98,9 +111,13 @@ class IOPControl(models.Model):
         return self.name
 
 class Outcome(models.Model):
+    created_by = models.ForeignKey(User, related_name='outcome_created_set', blank=True, null=True, on_delete=models.SET_NULL)
+    updated_by = models.ForeignKey(User, related_name='outcome_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
     eye = models.ForeignKey(Eye)
-    iop_control = models.ForeignKey(IOPControl)
+    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_right = models.CharField(max_length=10, verbose_name='RVA')
     visual_acuity_left = models.CharField(max_length=10, verbose_name='LVA')
