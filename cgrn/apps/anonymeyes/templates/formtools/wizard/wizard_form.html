@@ -6,36 +6,60 @@
 {% endblock %}
 
 {% block content %}
-<h2>Create</h2>
+<h1>Dataset Wizard</h1>
 <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 <form action="" method="post">
 	{% csrf_token %}
-		{{ wizard.management_form }}
-		{% if wizard.form.forms %}
-		    {{ wizard.form.management_form }}
-		    <div class="formset">
-		    {% for form in wizard.form.forms %}
-		    		<ul{% if forloop.first %} class="hidden"{% endif %}>
-			        {{ form.as_ul }}
-							<li><a href="#" class="delete-row">Delete</a></li>
-		    		</ul>
-		    {% endfor %}
-				<p><a href="#" class="add-row">Add</a></p>
-				</div>
-		{% else %}
-				<ul>
-		    {{ wizard.form.as_ul }}
-		    </ul>
-		{% endif %}
-	<div class="actions">
-		{% if wizard.steps.prev %}
-		<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Back</button>
-		{% endif %}
-		{% if wizard.steps.next %}
-		<input type="submit" value="Next"/>
-		{% else %}
-		<input type="submit" value="Save"/>
-		{% endif %}		
+	<div class="actions clearfix">
+		<ul>
+			{% if wizard.steps.prev %}
+			<li><button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Back</button></li>
+			{% endif %}
+			{% if wizard.steps.next %}
+			<li><input type="submit" value="Next"/></li>
+			{% else %}
+			<li><input type="submit" value="Save"/></li>
+			{% endif %}		
+		</ul>
+	</div>
+	{{ wizard.management_form }}
+	{% if wizard.form.forms %}
+	    {{ wizard.form.management_form }}
+	    <div class="formset">
+	    {% for form in wizard.form.forms %}
+	    		<ul{% if forloop.first %} class="hidden"{% endif %}>
+		 				{% for field in form %}
+						<li{% if field.errors %} class="error"{% endif %}>
+							<label for="{{ field.auto_id }}"{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span>:</label>
+							{{ field }} <span>{{ field.errors }}</span>
+						</li>
+						{% endfor %}
+						<li><a href="#" class="delete-row">Delete</a></li>
+	    		</ul>
+	    {% endfor %}
+			<p><a href="#" class="add-row">Add</a></p>
+			</div>
+	{% else %}
+			<ul>
+ 				{% for field in wizard.form %}
+				<li{% if field.errors %} class="error"{% endif %}>
+					<label for="{{ field.auto_id }}"{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span>:</label>
+					{{ field }} <span>{{ field.errors }}</span>
+				</li>
+				{% endfor %}
+	    </ul>
+	{% endif %}
+	<div class="actions clearfix">
+		<ul>
+			{% if wizard.steps.prev %}
+			<li><button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Back</button></li>
+			{% endif %}
+			{% if wizard.steps.next %}
+			<li><input type="submit" value="Next"/></li>
+			{% else %}
+			<li><input type="submit" value="Save"/></li>
+			{% endif %}		
+		</ul>
 	</div>
 </form>
 {% endblock %}

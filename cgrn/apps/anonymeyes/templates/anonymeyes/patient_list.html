@@ -1,10 +1,28 @@
 {% extends "base.html" %}
 {% block title %}List{% endblock %}
 {% block content %}
-<h2>Patients</h2>
-<ul>
-{% for patient in patients %}
-<li><a href="{% url detail patient.id %}">{{ patient.uuid }}</a> (Last updated at {{ patient.updated_at }})</li>
-{% endfor %}
-</ul>
+<h1>Datasets</h1>
+<table>
+	<thead>
+		<tr>
+			<th>UUID</th>
+			<th>Sex</th>
+			<th>DOB</th>
+			<th>Created</th>
+			<th>Last Updated</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for patient in patients %}
+		<tr>
+			<td><a href="{% url detail patient.id %}">{{ patient.uuid }}</a></td>
+			<td>{{ patient.get_sex_display }}</td>
+			<td>{{ patient.dob }}</td>
+			<td>{{ patient.created_at }}</td>
+			<td>{{ patient.updated_at }}</td>
+			<td><a href="{% url update patient.id %}">Update</a>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
 {% endblock %}

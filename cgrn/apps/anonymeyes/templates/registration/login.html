@@ -15,9 +15,11 @@
 			{{ form.password }}
 		</li>
 	</ul>
-	<div class="actions">
-		<input type="submit" value="login" />
-		<input type="hidden" name="next" value="{{ next }}" />
+	<div class="actions clearfix">
+		<ul>
+			<li><input type="submit" value="login" /></li>
+			<li><input type="hidden" name="next" value="{{ next }}" /></li>
+		</ul>
 	</div>
 </form>
 {% endblock %}
