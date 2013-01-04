@@ -80,8 +80,7 @@ form ul li {
 	margin: 10px 0;
 }
 
-form ul li:before,
-form ul li:after {
+form ul li:before,form ul li:after {
 	content: " ";
 	display: table;
 }
@@ -94,8 +93,7 @@ form ul li {
 	*zoom: 1;
 }
 
-form label,
-form .label {
+form label,form .label {
 	width: 200px;
 	float: left;
 	text-align: right;
@@ -114,9 +112,7 @@ form .error label {
 	color: #f00;
 }
 
-form input,
-form select,
-form .data {
+form input,form select,form .data {
 	float: left;
 	max-width: 300px;
 }
@@ -164,8 +160,7 @@ form .errorlist li {
 	padding: 0 5px;
 }
 
-.actions input,
-.actions button {
+.actions input,.actions button {
 	float: none;
 	font-size: 1.2em;
 }
@@ -179,10 +174,11 @@ form input.small {
 }
 
 .data-section {
-		border: 1px solid #ddd;
-		padding: 20px 10px 10px;
-		margin: 30px 0;
-		position: relative;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 20px 10px 10px;
+	margin: 30px 0;
+	position: relative;
 }
 
 .data-section h2 {
@@ -196,10 +192,10 @@ form input.small {
 }
 
 dl {
+	
 }
 
-dl dt,
-dl dd {
+dl dt,dl dd {
 	float: left;
 	padding: 2px 8px;
 }
@@ -218,8 +214,7 @@ dl dd {
 	line-height: 20px;
 }
 
-dl:before,
-dl:after {
+dl:before,dl:after {
 	content: " ";
 	display: table;
 }
@@ -236,8 +231,7 @@ th {
 	font-weight: normal;
 }
 
-th,
-td {
+th,td {
 	text-align: left;
 	padding: 8px;
 	line-height: 1em;
