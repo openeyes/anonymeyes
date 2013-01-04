@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Update{% endblock %}
+{% block content %}
+	<h2>Patient: {{ patient.uuid }}</h2>
+	<form action="" method="post">
+		{% csrf_token %}
+		<ul>
+			{{ form.as_ul }}
+		</ul>
+		{% for formset_name, formset in formsets.items %}
+		<h3>{{ formset_name }}</h3>
+		{{ formset.management_form }}
+		<table>
+			<thead>
+				<tr>
+					{% for field in formset.form.visible_fields %}
+					<th>{{ field.label }}</th>
+					{% endfor %}
+					{% if formset.can_delete %}
+					<th>Delete?</th>
+					{% endif %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for inlineform in formset %}
+				<tr>
+					{% for field in inlineform.visible_fields %}
+					<td class="management_{{ field.name|lower }}">
+					{% if forloop.last %}{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}{% endif %} 
+					{{ field }} <span>{{ field.errors }}</span>
+					</td>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% endfor %}
+		<div class="actions">
+			<input type="submit" value="Save" />
+		</div>
+	</form>
+{% endblock %}
