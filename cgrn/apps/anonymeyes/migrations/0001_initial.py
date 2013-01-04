@@ -3,7 +3,7 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
-
+from uuid import UUID
 
 class Migration(SchemaMigration):
 
@@ -46,7 +46,7 @@ class Migration(SchemaMigration):
         # Adding model 'Patient'
         db.create_table('anonymeyes_patient', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('django.db.models.fields.CharField')(default=UUID('2af64c81-d96c-4c92-956a-db8cba8eff85'), unique=True, max_length=64, blank=True)),
+            ('uuid', self.gf('django.db.models.fields.CharField')(default=UUID('c501e4ed-dcaf-435d-9af0-666895f11761'), unique=True, max_length=64, blank=True)),
             ('created_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='patient_created_set', null=True, on_delete=models.SET_NULL, to=orm['auth.User'])),
             ('updated_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='patient_updated_set', null=True, on_delete=models.SET_NULL, to=orm['auth.User'])),
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
@@ -228,7 +228,7 @@ class Migration(SchemaMigration):
             'sex': ('django.db.models.fields.IntegerField', [], {}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'updated_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'patient_updated_set'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"}),
-            'uuid': ('django.db.models.fields.CharField', [], {'default': "UUID('55a4082b-54c5-48db-bd09-54253b917988')", 'unique': 'True', 'max_length': '64', 'blank': 'True'}),
+            'uuid': ('django.db.models.fields.CharField', [], {'default': "UUID('db40cb9c-6f2b-45c8-a8c2-7d6b1d5889a3')", 'unique': 'True', 'max_length': '64', 'blank': 'True'}),
             'visual_acuity_both': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
             'visual_acuity_date': ('django.db.models.fields.DateField', [], {}),
             'visual_acuity_left': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
