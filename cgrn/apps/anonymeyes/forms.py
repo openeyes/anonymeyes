@@ -31,14 +31,14 @@ class PatientManagementForm(forms.ModelForm):
     def clean_surgery(self):
         surgery = self.cleaned_data.get('surgery')
         type = self.cleaned_data.get('type')
-        if type.name == 'Surgery' and not surgery:
+        if type and type.name == 'Surgery' and not surgery:
             raise forms.ValidationError("Surgery detail required")
         return surgery
 
     def clean_complication(self):
         complication = self.cleaned_data.get('complication')
         type = self.cleaned_data.get('type')
-        if type.name == 'Complication' and not complication:
+        if type and type.name == 'Complication' and not complication:
             raise forms.ValidationError("Complication detail required")
         return complication
 

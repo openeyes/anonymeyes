@@ -36,7 +36,7 @@
 		<fieldset>
 			<legend>{{ formset_name }}</legend>
 			{{ formset.management_form }}
-			<table>
+			<table class="inline_form">
 				<thead>
 					<tr>
 						{% with "anonymeyes/patient_form_"|add:formset_name|add:"_head.html"|lower as template %}

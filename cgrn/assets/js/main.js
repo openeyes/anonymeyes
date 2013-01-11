@@ -1,31 +1,116 @@
 $(function() {
 	initDatepicker();
 
+	// Wizard formset actions
 	$('.formset .add-row').click(function() {
-		return addForm(this);
+		return wizardAddForm(this);
 	});
 	$('.formset .delete-row').click(function() {
-		return deleteForm(this);
+		return wizardDeleteForm(this);
 	})
 
+	// Management form type mutation
 	$('form .management_type select').each(function() {
 		updateManagementType(this);
 	});
-	
-	$('form .management_type select').change(function() {
-		updateManagementType(this);		
+	$('form').delegate('.management_type select', 'change', function() {
+		updateManagementType(this);
 	});
-	
 	$('form .management_detail .surgery select').each(function() {
 		updateManagementSurgery(this);
 	});
-	
-	$('form .management_detail .surgery select').change(function() {
-		updateManagementSurgery(this);		
+	$('form').delegate('.management_detail .surgery select', 'change', function() {
+		updateManagementSurgery(this);
+	});
+		
+	// Inline forms
+	initialiseInlineForms();
+
+	$('form .inline_form_add').click(function(e) {
+		addInlineForm(this);
+		e.preventDefault();	
+	});
+
+	$('form').delegate('.inline_form_remove', 'click', function(e) {
+		removeInlineForm(this);
+		e.preventDefault();	
 	});
 
 });
 
+function initialiseInlineForms() {
+	$('form .inline_form').each(function() {
+		var rows = $('tbody tr', this);
+		var empty_row = rows.last();
+		empty_row.addClass('empty_row').hide();
+		$('<p><a href="#" class="inline_form_add">Add</a></p>').insertAfter(this);
+		var delete_fields = $('input[name$="-DELETE"]', rows);
+		delete_fields.each(function() {
+			if($(this).is(':checked')) {
+				$(this).closest('tr').hide();
+			} else {
+				var name = $(this).attr('name');
+				$(this).after('<a class="inline_form_remove" href="#">Delete</a>');
+				$(this).replaceWith('<input class="delete" type="hidden" name="'+name+'" id="'+name+'"/>');				
+			}
+		});
+		if(delete_fields.length) {
+			$('thead th', this).last().html('');
+		}
+	});
+}
+
+function addInlineForm(add_link) {
+	var inline_form = $(add_link).closest('fieldset').find('.inline_form');
+	var empty_row = inline_form.find('.empty_row');
+	var new_row = empty_row.clone().removeClass('empty_row');
+	empty_row.before(new_row);
+	new_row.addClass('new');
+	new_row.show();
+	updateInlineFormIndices(inline_form);
+	initDatepicker();
+}
+
+function removeInlineForm(remove_link) {
+	var inline_form = $(remove_link).closest('fieldset').find('.inline_form');
+	var removed_row = $(remove_link).closest('tr');
+	if(removed_row.hasClass('new')) {
+		removed_row.remove();
+		updateInlineFormIndices(inline_form);
+	} else {
+		removed_row.hide();
+		$('input.delete', removed_row).val(1);		
+	}
+}
+
+function updateInlineFormIndices(inline_form) {
+	var total_forms_field = $(inline_form).closest('fieldset').find('input[name$="-TOTAL_FORMS"]').first();
+	var regexp = /(.+)-TOTAL_FORMS$/;
+	var prefix = regexp.exec(total_forms_field.attr('name'));
+	var rows = $('tbody tr', inline_form);
+	total_forms_field.val(rows.length);
+	rows.each(function(index, row) {
+		updateInlineFormRowIndices(row,prefix[1],index);
+	});
+}
+
+function updateInlineFormRowIndices(tr, prefix, index) {
+	var id_regex = new RegExp('(' + prefix + '-\\d+)');
+	var replacement = prefix + '-' + index;
+	$(tr).find('input,select,textarea,label').each(function() {
+		if($(this).attr("for")) {
+			$(this).attr("for", $(this).attr("for").replace(id_regex, replacement));
+		}
+		if(this.id) {
+			this.id = this.id.replace(id_regex, replacement);
+		}
+		if(this.name) {
+			this.name = this.name.replace(id_regex, replacement);
+		}
+	});
+}
+
+// Update Management Type fields
 function updateManagementType(field) {
 	var details = $(field).closest('tr').find('.management_detail');
 	$('.detail', details).hide();
@@ -48,6 +133,7 @@ function updateManagementType(field) {
 	
 }
 
+// Update Management Surgery fields
 function updateManagementSurgery(field) {
 	var adjuvant_field = $(field).closest('td').find('.adjuvant');
 	$(adjuvant_field).hide();
@@ -81,7 +167,7 @@ function updateElementIndex(el, prefix, ndx) {
 		el.name = el.name.replace(id_regex, replacement);
 }
 
-function addForm(btn) {
+function wizardAddForm(btn) {
 	var prefix = $(btn).closest('form').find('input[name="patient_wizard-current_step"]').val();
 	var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
 	var row = $('.formset ul:first').clone(false).get(0);
@@ -91,14 +177,14 @@ function addForm(btn) {
 		$(this).val('');
 	});
 	$(row).find('.delete-row').click(function() {
-		deleteForm(this, prefix);
+		wizardDeleteForm(this, prefix);
 	});
 	$('#id_' + prefix + '-TOTAL_FORMS').val(formCount + 1);
 	initDatepicker();
 	return false;
 }
 
-function deleteForm(btn) {
+function wizardDeleteForm(btn) {
 	var prefix = $(btn).closest('form').find('input[name="patient_wizard-current_step"]').val();
 	$(btn).closest('ul').remove();
 	var forms = $('.formset ul');
