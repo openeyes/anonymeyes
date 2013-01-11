@@ -8,6 +8,51 @@
 - fields: {name: Irish}
   model: anonymeyes.ethnicgroup
   pk: 3
+- fields: {name: Any other White background}
+  model: anonymeyes.ethnicgroup
+  pk: 4
+- fields: {name: White and Black Caribbean}
+  model: anonymeyes.ethnicgroup
+  pk: 5
+- fields: {name: White and Black African}
+  model: anonymeyes.ethnicgroup
+  pk: 6
+- fields: {name: White and Asian}
+  model: anonymeyes.ethnicgroup
+  pk: 7
+- fields: {name: Any other mixed background}
+  model: anonymeyes.ethnicgroup
+  pk: 8
+- fields: {name: Indian}
+  model: anonymeyes.ethnicgroup
+  pk: 9
+- fields: {name: Pakistani}
+  model: anonymeyes.ethnicgroup
+  pk: 10
+- fields: {name: Bangladeshi}
+  model: anonymeyes.ethnicgroup
+  pk: 11
+- fields: {name: Any other Asian background}
+  model: anonymeyes.ethnicgroup
+  pk: 12
+- fields: {name: Caribbean}
+  model: anonymeyes.ethnicgroup
+  pk: 13
+- fields: {name: African}
+  model: anonymeyes.ethnicgroup
+  pk: 14
+- fields: {name: Any other Black background}
+  model: anonymeyes.ethnicgroup
+  pk: 15
+- fields: {name: Chinese}
+  model: anonymeyes.ethnicgroup
+  pk: 16
+- fields: {name: Any other ethnic group}
+  model: anonymeyes.ethnicgroup
+  pk: 17
+- fields: {name: Hispanic}
+  model: anonymeyes.ethnicgroup
+  pk: 18
   
   # Eye
 - fields: {name: None}
