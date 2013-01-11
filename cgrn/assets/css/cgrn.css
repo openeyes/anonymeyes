@@ -19,9 +19,13 @@ body {
 .header-container .logo {
 	float: left;
 	margin: 0;
-	padding: 0 20px 0 0;
+	padding: 0 20px 0 55px;
+	height: 35px;
+	line-height: 35px;
 	font-size: 25px;
 	color: #333;
+	background: url(../img/anonymeyes-small.png) no-repeat left top;
+	font-family: 'Lucida Console', Monaco, monospace;
 }
 
 .header-container nav {
