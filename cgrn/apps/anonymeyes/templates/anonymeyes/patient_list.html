@@ -8,6 +8,7 @@
 			<th>UUID</th>
 			<th>Sex</th>
 			<th>DOB</th>
+			<th>Postcode</th>
 			<th>Created</th>
 			<th>Last Updated</th>
 		</tr>
@@ -18,6 +19,7 @@
 			<td><a href="{% url detail patient.id %}">{{ patient.uuid }}</a></td>
 			<td>{{ patient.get_sex_display }}</td>
 			<td>{{ patient.dob }}</td>
+			<td>{{ patient.postcode }}</td>
 			<td>{{ patient.created_at }}</td>
 			<td>{{ patient.updated_at }}</td>
 			<td><a href="{% url update patient.id %}">Update</a>
