@@ -1,0 +1,6 @@
+{% for field in formset.form.visible_fields %}
+<th>{{ field.label }}</th>
+{% endfor %}
+{% if formset.can_delete %}
+<th>Delete?</th>
+{% endif %}

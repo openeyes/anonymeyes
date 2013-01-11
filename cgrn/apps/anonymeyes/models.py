@@ -80,6 +80,25 @@ class Patient(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'pk': self.pk})
 
+class Complication(models.Model):
+    name = models.CharField(max_length=64)
+    
+    def __unicode__(self):
+        return self.name
+
+class Surgery(models.Model):
+    name = models.CharField(max_length=64)
+    adjuvant = models.BooleanField()
+    
+    def __unicode__(self):
+        return self.name
+
+class Adjuvant(models.Model):
+    name = models.CharField(max_length=64)
+    
+    def __unicode__(self):
+        return self.name
+
 class ManagementType(models.Model):
     name = models.CharField(max_length=64)
     
@@ -94,12 +113,15 @@ class Management(models.Model):
     date = models.DateField()
     eye = models.ForeignKey(Eye)
     type = models.ForeignKey(ManagementType)
+    surgery = models.ForeignKey(Surgery, blank=True, null=True)
+    complication = models.ForeignKey(Complication, blank=True, null=True)
+    adjuvant = models.ForeignKey(Adjuvant, blank=True, null=True)
     comments = models.TextField(blank=True)
     patient = models.ForeignKey(Patient)
 
     def __unicode__(self):
         return str(self.date)
-
+    
 class IOPControl(models.Model):
     class Meta:
         verbose_name = 'IOP control'

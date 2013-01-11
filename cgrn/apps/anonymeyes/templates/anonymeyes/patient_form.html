@@ -39,23 +39,17 @@
 			<table>
 				<thead>
 					<tr>
-						{% for field in formset.form.visible_fields %}
-						<th>{{ field.label }}</th>
-						{% endfor %}
-						{% if formset.can_delete %}
-						<th>Delete?</th>
-						{% endif %}
+						{% with "anonymeyes/patient_form_"|add:formset_name|add:"_head.html"|lower as template %}
+						{% include template %}
+						{% endwith %}
 					</tr>
 				</thead>
 				<tbody>
 					{% for inlineform in formset %}
 					<tr>
-						{% for field in inlineform.visible_fields %}
-						<td class="management_{{ field.name|lower }}">
-						{% if forloop.last %}{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}{% endif %} 
-						{{ field }} <span>{{ field.errors }}</span>
-						</td>
-						{% endfor %}
+						{% with "anonymeyes/patient_form_"|add:formset_name|add:".html"|lower as template %}
+						{% include template %}
+						{% endwith %}
 					</tr>
 					{% endfor %}
 				</tbody>

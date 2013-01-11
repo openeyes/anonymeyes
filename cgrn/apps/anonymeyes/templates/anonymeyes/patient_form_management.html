@@ -1,0 +1,40 @@
+<td class="management_date">
+	{{ inlineform.date }}
+	<span>{{ inlineform.date.errors }}</span>
+</td>
+<td class="management_type">
+	<span class="type">{{ inlineform.type }}</span>
+	<span>{{ inlineform.type.errors }}</span>
+</td>
+<td class="management_eye">
+	{{ inlineform.eye }}
+	<span>{{ inlineform.eye.errors }}</span>
+</td>
+<td class="management_detail">
+	<div class="clearfix first">
+		<span class="detail complication">{{ inlineform.complication }}</span>
+		<span class="detail surgery">{{ inlineform.surgery }}</span>
+	</div>
+	<div class="clearfix last">
+		<span class="detail adjuvant"><label>{{ inlineform.adjuvant.label }}:</label> {{ inlineform.adjuvant }}</span>
+	</div>
+	<script type="text/javascript">
+		var management_surgery_adjuvant_map = {
+			{% for surgery in inlineform.surgery.field.queryset %}
+			{{ surgery.id }}: "{{ surgery.adjuvant }}",
+			{% endfor %}
+		};
+	</script>
+	<span>{{ inlineform.surgery.errors }}{{ inlineform.complication.errors }}{{ inlineform.adjuvant.errors }}</span>
+</td>
+<td class="management_comments">
+	{{ inlineform.comments }}
+	<span>{{ inlineform.comments.errors }}</span>
+	{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}
+</td>
+{% if formset.can_delete %}
+<td class="management_delete">
+	{{ inlineform.DELETE }}
+	<span>{{ inlineform.DELETE.errors }}</span>
+</td>
+{% endif %}

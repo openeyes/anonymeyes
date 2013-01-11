@@ -1,5 +1,101 @@
+# Adjuvant
+- fields: {name: None}
+  model: anonymeyes.adjuvant
+  pk: 1
+- fields: {name: 5FU}
+  model: anonymeyes.adjuvant
+  pk: 2
+- fields: {name: MMC}
+  model: anonymeyes.adjuvant
+  pk: 3
+- fields: {name: Beta rad}
+  model: anonymeyes.adjuvant
+  pk: 4
+
+# Complication
+- fields: {name: Suprachoroidal haem}
+  model: anonymeyes.complication
+  pk: 1
+- fields: {name: Retinal detachment}
+  model: anonymeyes.complication
+  pk: 2
+- fields: {name: Endophthalmitis}
+  model: anonymeyes.complication
+  pk: 3
+- fields: {name: Phthisis}
+  model: anonymeyes.complication
+  pk: 4
+- fields: {name: Chronic hypotony}
+  model: anonymeyes.complication
+  pk: 5
+- fields: {name: Lens Trauma}
+  model: anonymeyes.complication
+  pk: 6
+
+# Surgery
+- fields: {name: Goniotomy}
+  model: anonymeyes.surgery
+  pk: 1
+- fields: {name: Trabeculotomy - Conv}
+  model: anonymeyes.surgery
+  pk: 2
+- fields: {name: Trabeculotomy - 360}
+  model: anonymeyes.surgery
+  pk: 3
+- fields: {name: Trabeculectomy, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 4
+- fields: {name: Needling}
+  model: anonymeyes.surgery
+  pk: 5
+- fields: {name: Bleb revision, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 6
+- fields: {name: Molteno - single plate, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 7
+- fields: {name: Molteno - double plate, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 8
+- fields: {name: Baerveldt - 250, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 9
+- fields: {name: Baerveldt - 350, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 10
+- fields: {name: Ahmed - 96, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 11
+- fields: {name: Ahmed - 184, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 12
+- fields: {name: Tube revision, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 13
+- fields: {name: Cyclodiode}
+  model: anonymeyes.surgery
+  pk: 14
+- fields: {name: Penetrating keratoplasty}
+  model: anonymeyes.surgery
+  pk: 15
+- fields: {name: DSEK}
+  model: anonymeyes.surgery
+  pk: 16
+- fields: {name: Lens extraction - no IOL}
+  model: anonymeyes.surgery
+  pk: 17
+- fields: {name: Lens extraction and IOL}
+  model: anonymeyes.surgery
+  pk: 18
+- fields: {name: RD surgery}
+  model: anonymeyes.surgery
+  pk: 19
+- fields: {name: Other}
+  model: anonymeyes.surgery
+  pk: 20
+
 # Ethnic Group
-- fields: {name: Unknown}
+- fields: {name: Goniotomy}
   model: anonymeyes.ethnicgroup
   pk: 1
 - fields: {name: British}

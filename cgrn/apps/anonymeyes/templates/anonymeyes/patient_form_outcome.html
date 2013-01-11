@@ -1,0 +1,6 @@
+{% for field in inlineform.visible_fields %}
+<td class="{{ formset_name|lower }}_{{ field.name|lower }}">
+{% if forloop.last %}{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}{% endif %} 
+{{ field }} <span>{{ field.errors }}</span>
+</td>
+{% endfor %}

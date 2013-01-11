@@ -8,7 +8,54 @@ $(function() {
 		return deleteForm(this);
 	})
 
+	$('form .management_type select').each(function() {
+		updateManagementType(this);
+	});
+	
+	$('form .management_type select').change(function() {
+		updateManagementType(this);		
+	});
+	
+	$('form .management_detail .surgery select').each(function() {
+		updateManagementSurgery(this);
+	});
+	
+	$('form .management_detail .surgery select').change(function() {
+		updateManagementSurgery(this);		
+	});
+
 });
+
+function updateManagementType(field) {
+	var details = $(field).closest('tr').find('.management_detail');
+	$('.detail', details).hide();
+	var type = $('option:selected', field).text();
+	switch(type) {
+		case 'Surgery':
+			$('.surgery', details).show();
+			$('.complication select', details).val('');
+			break;
+		case 'Complication':
+			$('.complication', details).show();
+			$('.surgery select', details).val('');
+			$('.adjuvant select', details).val('');
+			break;
+		default:
+			$('.complication select', details).val('');
+			$('.surgery select', details).val('');
+			$('.adjuvant select', details).val('');
+	}
+	
+}
+
+function updateManagementSurgery(field) {
+	var adjuvant_field = $(field).closest('td').find('.adjuvant');
+	$(adjuvant_field).hide();
+	var surgery_id = $('option:selected', field).val();
+	if(management_surgery_adjuvant_map[surgery_id] == 'True') {
+		$(adjuvant_field).show();
+	}
+}
 
 function initDatepicker() {
 	$(".datepicker").each(function() {

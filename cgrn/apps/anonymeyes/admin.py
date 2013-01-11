@@ -10,6 +10,9 @@ admin.site.register(LensStatus)
 admin.site.register(VisualAcuityMethod)
 admin.site.register(IOPControl)
 admin.site.register(ManagementType)
+admin.site.register(Surgery)
+admin.site.register(Complication)
+admin.site.register(Adjuvant)
 
 class ManagementAdminForm(forms.ModelForm):
     class Meta:

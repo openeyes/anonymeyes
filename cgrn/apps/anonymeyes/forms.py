@@ -27,6 +27,27 @@ class PatientManagementForm(forms.ModelForm):
                    'comments': forms.Textarea(attrs={'rows':1}),
         }
         exclude = { 'patient', 'created_by', 'updated_by', }
+        
+    def clean_surgery(self):
+        surgery = self.cleaned_data.get('surgery')
+        type = self.cleaned_data.get('type')
+        if type.name == 'Surgery' and not surgery:
+            raise forms.ValidationError("Surgery detail required")
+        return surgery
+
+    def clean_complication(self):
+        complication = self.cleaned_data.get('complication')
+        type = self.cleaned_data.get('type')
+        if type.name == 'Complication' and not complication:
+            raise forms.ValidationError("Complication detail required")
+        return complication
+
+    def clean_adjuvant(self):
+        adjuvant = self.cleaned_data.get('adjuvant')
+        surgery = self.cleaned_data.get('surgery')
+        if surgery and surgery.adjuvant and not adjuvant:
+            raise forms.ValidationError("Adjuvant detail required")
+        return adjuvant
 
 class PatientOutcomeForm(forms.ModelForm):
     class Meta:

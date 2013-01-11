@@ -138,6 +138,20 @@ form .errorlist li {
 	padding: 2px;
 }
 
+form td div {
+	margin-top: 4px;
+}
+
+form td div.first {
+	margin-top: 0;
+}
+
+form td label {
+	width: auto;
+	padding: 0 5px 0 10px;
+	line-height: 20px;
+}
+
 .actions {
 	margin: 15px 0;
 	padding: 10px;

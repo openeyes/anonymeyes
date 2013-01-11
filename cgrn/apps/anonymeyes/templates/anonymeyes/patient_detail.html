@@ -56,8 +56,9 @@
 			<thead>
 				<tr>
 					<th>Date</th>
-					<th>Eye</th>
 					<th>Type</th>
+					<th>Eye</th>
+					<th>Detail</th>
 					<th>Comments</th>
 				</tr>
 			</thead>
@@ -65,8 +66,12 @@
 				{% for management in patient.management_set.all %}
 				<tr>
 					<td>{{ management.date }}</td>
-					<td>{{ management.eye }}</td>
 					<td>{{ management.type }}</td>
+					<td>{{ management.eye }}</td>
+					<td>
+						{% if management.surgery %}{{ management.surgery }}{% if management.adjuvant %} (Adjuvant: {{ management.adjuvant }}){% endif%}{% endif%}
+						{% if management.complication %}{{ management.complication }}{% endif%}
+					</td>
 					<td>{{ management.comments }}</td>
 				</tr>
 				{% endfor %}
