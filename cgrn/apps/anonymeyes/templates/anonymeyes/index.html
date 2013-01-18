@@ -4,14 +4,14 @@
 {% if user.is_authenticated %}
 <h1>Welcome back</h1>
 <ul>
-	<li><strong>List Datasets</strong> - View and update your existing datasets</li>
-	<li><strong>New Dataset</strong> - Create a new dataset</li>
+	<li><a href="{% url list %}"><strong>List</strong> Datasets</a> - View and update your existing datasets</li>
+	<li><a href="{% url create %}"><strong>New</strong> Dataset</a> - Create a new dataset</li>
 </ul>
 {% else %}
-<h1>Welcome to CGRN</h1>
+<h1>Welcome to IPSOCG</h1>
 <p>The International Pilot Survey of Childhood Glaucoma (IPSOCG)</p>
 <p>This is an online web application for the collection, review, and analysis of
-anonymised paediatric glaucoma data.</p>
+anonymised paediatric glaucoma data for the Childhood Glaucoma Research Network (CGRN).</p>
 <p>Please log in to add or review datasets</p>
 {% endif %}
 {% endblock %}

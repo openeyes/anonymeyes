@@ -149,6 +149,15 @@
 - fields: {name: Hispanic}
   model: anonymeyes.ethnicgroup
   pk: 18
+- fields: {name: Arabic}
+  model: anonymeyes.ethnicgroup
+  pk: 19
+- fields: {name: Lebanese}
+  model: anonymeyes.ethnicgroup
+  pk: 20
+- fields: {name: Turkish}
+  model: anonymeyes.ethnicgroup
+  pk: 21
   
   # Eye
 - fields: {name: None}
