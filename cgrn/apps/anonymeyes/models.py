@@ -1,7 +1,9 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.core import validators 
 from uuid import uuid4
+import re
 
 class EthnicGroup(models.Model):
     name = models.CharField(max_length=64)
@@ -51,7 +53,11 @@ class Patient(models.Model):
     )
     sex = models.IntegerField(choices=SEX_CHOICES)
     dob = models.DateField() 
-    postcode = models.CharField(max_length=4)
+    postcode = models.CharField(
+                                verbose_name='Postcode Prefix',
+                                max_length=4,
+                                validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z]{1,2}[0-9]{1,2}$'), message='First part of postcode only (e.g. EC1)') ],
+                                )
     ethnic_group = models.ForeignKey(EthnicGroup)
     NO = 0
     YES = 1
@@ -79,6 +85,10 @@ class Patient(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'pk': self.pk})
+    
+    def save(self):
+        self.postcode = self.postcode.upper()
+        super(Patient,self).save()
 
 class Complication(models.Model):
     name = models.CharField(max_length=64)
