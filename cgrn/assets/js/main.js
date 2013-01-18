@@ -1,6 +1,16 @@
 $(function() {
 	initDatepicker();
 
+	// Help tips
+	$('span.help').hoverIntent(
+		function() {
+			$(this).addClass('active');
+		},
+		function() {
+			$(this).removeClass('active');
+		}
+	);
+	
 	// Wizard formset actions
 	$('.formset .add-row').click(function() {
 		return wizardAddForm(this);

@@ -31,6 +31,39 @@
 - fields: {name: Lens Trauma}
   model: anonymeyes.complication
   pk: 6
+- fields: {name: Choroidal effusion}
+  model: anonymeyes.complication
+  pk: 7
+- fields: {name: Cataract}
+  model: anonymeyes.complication
+  pk: 8
+- fields: {name: Corneal trauma}
+  model: anonymeyes.complication
+  pk: 9
+- fields: {name: Corneal decompensation}
+  model: anonymeyes.complication
+  pk: 10
+- fields: {name: Graft rejection/failure}
+  model: anonymeyes.complication
+  pk: 11
+- fields: {name: Tube erosion}
+  model: anonymeyes.complication
+  pk: 12
+- fields: {name: Tube occlusion}
+  model: anonymeyes.complication
+  pk: 13
+- fields: {name: Tube retraction}
+  model: anonymeyes.complication
+  pk: 14
+- fields: {name: Dyscoria}
+  model: anonymeyes.complication
+  pk: 15
+- fields: {name: Intractable pain}
+  model: anonymeyes.complication
+  pk: 16
+- fields: {name: Other, sort: 9999}
+  model: anonymeyes.complication
+  pk: 17
 
 # Surgery
 - fields: {name: Goniotomy}

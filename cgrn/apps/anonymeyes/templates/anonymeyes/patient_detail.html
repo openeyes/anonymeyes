@@ -10,13 +10,15 @@
 	<div class="data-section">
 		<h2>Main</h2>
 		<dl>
-			<dt>UUID:</dt>
+			<dt><span class="help"><span><strong>U</strong>niversally <strong>U</strong>nique <strong>ID</strong>entifier for this dataset. When
+						printed and kept with patient notes, it allows the dataset to be
+						matched up if followup data is entered.</span></span>UUID:</dt>
 			<dd>{{ patient.uuid }}</dd>
 			<dt>Sex:</dt>
 			<dd>{{ patient.get_sex_display }}</dd>
 			<dt>DOB:</dt>
 			<dd>{{ patient.dob }}</dd>
-			<dt>Postcode:</dt>
+			<dt>Postcode Prefix:</dt>
 			<dd>{{ patient.postcode }}</dd>
 			<dt>Ethnic Group:</dt>
 			<dd>{{ patient.ethnic_group }}</dd>

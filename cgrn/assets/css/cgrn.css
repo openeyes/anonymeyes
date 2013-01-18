@@ -130,15 +130,6 @@ form .data {
 	max-width: 350px;
 }
 
-#recaptcha_widget_div {
-	float: left;
-	max-width: 350px;
-}
-
-#recaptcha_response_field {
-	left: 0;
-}
-
 form .read-only {
 	color: #666;
 }
@@ -155,7 +146,6 @@ form .errorlist li {
 	line-height: 14px;
 	padding: 2px;
 }
-
 form td div {
 	margin-top: 4px;
 }
@@ -207,6 +197,15 @@ form input.datepicker {
 
 form input.small {
 	width: 50px;
+}
+
+#recaptcha_widget_div {
+	float: left;
+	max-width: 350px;
+}
+
+#recaptcha_response_field {
+	left: 0;
 }
 
 .data-section {
@@ -279,3 +278,38 @@ td {
 	border-style: solid;
 	border-color: #ddd;
 }
+
+abbr {
+	cursor: help;
+}
+
+span.help {
+	padding-left: 16px;
+	position: relative;
+	background: url(../img/glyphicons-halflings.png) no-repeat -120px -96px;
+	opacity: 0.6;
+}
+
+span.help span {
+	display: none;
+	width: 200px;
+	font-size: 12px;
+}
+
+span.help.active {
+	cursor: help;
+	opacity: 1;
+}
+
+span.help.active span {
+	display: inline;
+	position: absolute;
+	z-index: 10;
+	left: 20px;
+	top: 0;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 5px;
+	background: #eee;
+}
+

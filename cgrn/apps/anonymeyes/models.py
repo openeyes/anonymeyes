@@ -80,6 +80,9 @@ class Patient(models.Model):
     visual_acuity_left = models.CharField(max_length=10, verbose_name='LVA')
     visual_acuity_both = models.CharField(max_length=10, verbose_name='BVA')
     
+    class Meta:
+        ordering = ['-updated_at']
+
     def __unicode__(self):
         return str(self.uuid)
 
@@ -92,6 +95,10 @@ class Patient(models.Model):
 
 class Complication(models.Model):
     name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=1)
+    
+    class Meta:
+        ordering = ['sort','name']
     
     def __unicode__(self):
         return self.name

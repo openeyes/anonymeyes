@@ -20,7 +20,12 @@
 			<ul>
 				{% if patient.uuid %}
 				<li>
-					<div class="label">UUID:</div>
+					<div class="label">
+						<span class="help"><span><strong>U</strong>niversally <strong>U</strong>nique <strong>ID</strong>entifier for this dataset. When
+						printed and kept with patient notes, it allows the dataset to be
+						matched up if followup data is entered.</span></span>
+						UUID:
+					</div>
 					<div class="data read-only">{{ patient.uuid }}</div>
 				</li>
 				{% endif %}
