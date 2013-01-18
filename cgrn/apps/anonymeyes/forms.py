@@ -1,6 +1,22 @@
 from django import forms
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from django.template.loader import get_template
+from django.template import Context
+from captcha.fields import ReCaptchaField
 from apps.anonymeyes.models import Patient, Management, Outcome
+
+class ContactForm(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
+    captcha = ReCaptchaField()
+    
+    def send_email(self):
+        message = get_template('anonymeyes/message.txt')
+        d = Context(self.cleaned_data)
+        send_mail('Message from CGRN contact form', message.render(d), 'www@cgrn.j13.me',
+                  ['jamie.neil@openeyes.org.uk'])
 
 class PatientForm(forms.ModelForm):
     class Meta:

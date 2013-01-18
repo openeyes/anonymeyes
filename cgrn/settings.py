@@ -190,6 +190,9 @@ THIRD_PARTY_APPS = (
 
     # Asynchronous task queue:
     #'djcelery',
+
+    # Recaptcha
+    'captcha',
 )
 
 LOCAL_APPS = (
@@ -199,6 +202,12 @@ LOCAL_APPS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
+
+
+########## RECAPTCHA CONFIGURATION
+RECAPTCHA_PUBLIC_KEY = '6LfEvNsSAAAAAM6rX5nqVRdzAj8CwO4hDfo8KLiS'
+RECAPTCHA_PRIVATE_KEY = '6LfEvNsSAAAAANXowaH2yTAm9jWOb33uQk5tgyhX'
+########## END RECAPTCHA CONFIGURATION
 
 
 ########## LOGGING CONFIGURATION

@@ -5,14 +5,29 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.wizard.views import NamedUrlSessionWizardView
 from django.http import HttpResponseRedirect
 from django.forms.models import construct_instance
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView, FormView
 from django.utils.decorators import method_decorator
 from apps.anonymeyes.admin import PatientAdminForm
-from apps.anonymeyes.forms import PatientForm, PatientManagementFormSet, PatientOutcomeFormSet, PatientUpdateManagementFormSet, PatientUpdateOutcomeFormSet
+from apps.anonymeyes.forms import PatientForm, PatientManagementFormSet, PatientOutcomeFormSet, PatientUpdateManagementFormSet, PatientUpdateOutcomeFormSet, ContactForm
 from apps.anonymeyes.models import Patient, Management
 
 class IndexView(TemplateView):
     template_name='anonymeyes/index.html'
+
+class AboutView(TemplateView):
+    template_name='anonymeyes/about.html'
+
+class ContactView(FormView):
+    template_name='anonymeyes/contact.html'
+    form_class=ContactForm
+    success_url = '/anonymeyes/thanks/'
+    
+    def form_valid(self, form):
+        form.send_email()
+        return super(ContactView, self).form_valid(form)
+
+class ThanksView(TemplateView):
+    template_name='anonymeyes/thanks.html'
 
 class PatientWizard(NamedUrlSessionWizardView):
     def done(self, form_list, **kwargs):

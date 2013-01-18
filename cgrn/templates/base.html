@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>AnonymEyes - {% block title %}{% endblock %}</title>
+<title>CGRN - {% block title %}{% endblock %}</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
 {% load compress %}
@@ -25,15 +25,19 @@
 	
 	<div class="header-container">
 		<header class="wrapper clearfix">
-			<div class="logo">anonymEyes</div>
+			<div class="logo"><a href="/anonymeyes/">CGRN</a></div>
 			<nav>
 				<ul class="clearfix">
 					{% if user.is_authenticated %}
 					<li><a href="/anonymeyes/list/"><strong>List</strong> Datasets</a></li>
 					<li><a href="/anonymeyes/create/"><strong>New</strong> Dataset</a></li>
+					<!-- 
 					<li><a href="/anonymeyes/wizard/">Dataset <strong>Wizard</strong></a></li>
+					 -->
 					<li><a href="/logout/">Log Out</a></li>
 					{% else %}
+					<li><a href="/anonymeyes/about/">About</a></li>
+					<li><a href="/anonymeyes/contact/">Contact</a></li>
 					<li><a href="/accounts/login/?next=/anonymeyes/">Log In</a></li>
 					{% endif %}
 				</ul>
