@@ -99,6 +99,11 @@ class Complication(models.Model):
 class Surgery(models.Model):
     name = models.CharField(max_length=64)
     adjuvant = models.BooleanField()
+    sort = models.IntegerField(default=1)
+    
+    class Meta:
+        ordering = ['sort','name']
+        verbose_name_plural = 'Surgeries'
     
     def __unicode__(self):
         return self.name

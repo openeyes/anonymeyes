@@ -45,7 +45,7 @@
 - fields: {name: Trabeculectomy, adjuvant: true}
   model: anonymeyes.surgery
   pk: 4
-- fields: {name: Needling}
+- fields: {name: Needling Bleb}
   model: anonymeyes.surgery
   pk: 5
 - fields: {name: Bleb revision, adjuvant: true}
@@ -69,7 +69,7 @@
 - fields: {name: Ahmed - 184, adjuvant: true}
   model: anonymeyes.surgery
   pk: 12
-- fields: {name: Tube revision, adjuvant: true}
+- fields: {name: Tube extension, adjuvant: true}
   model: anonymeyes.surgery
   pk: 13
 - fields: {name: Cyclodiode}
@@ -90,9 +90,42 @@
 - fields: {name: RD surgery}
   model: anonymeyes.surgery
   pk: 19
-- fields: {name: Other}
+- fields: {name: Other, sort: 9999}
   model: anonymeyes.surgery
   pk: 20
+- fields: {name: Needling Shunt}
+  model: anonymeyes.surgery
+  pk: 21
+- fields: {name: Tube shortening, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 22
+- fields: {name: Tube repositioning, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 23
+- fields: {name: Tube unblocking, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 24
+- fields: {name: Tube removal, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 25
+- fields: {name: Shunt encapsulation revision, adjuvant: true}
+  model: anonymeyes.surgery
+  pk: 26
+- fields: {name: Optical iridectomy}
+  model: anonymeyes.surgery
+  pk: 27
+- fields: {name: AC reformation}
+  model: anonymeyes.surgery
+  pk: 28
+- fields: {name: Drainage of effusion/SCH}
+  model: anonymeyes.surgery
+  pk: 29
+- fields: {name: Ant vitrectomy}
+  model: anonymeyes.surgery
+  pk: 30
+- fields: {name: Evisceration/enucleation}
+  model: anonymeyes.surgery
+  pk: 31
 
 # Ethnic Group
 - fields: {name: Goniotomy}
