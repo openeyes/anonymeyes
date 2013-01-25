@@ -56,7 +56,7 @@ class Patient(models.Model):
     postcode = models.CharField(
                                 verbose_name='Postcode Prefix',
                                 max_length=4,
-                                validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z]{1,2}[0-9]{1,2}$'), message='First part of postcode only (e.g. EC1)') ],
+                                validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?$'), message='First part of postcode only (e.g. AB12)') ],
                                 )
     ethnic_group = models.ForeignKey(EthnicGroup)
     NO = 0

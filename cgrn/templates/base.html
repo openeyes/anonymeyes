@@ -25,20 +25,21 @@
 	
 	<div class="header-container">
 		<header class="wrapper clearfix">
-			<div class="logo"><a href="{% url index %}">IPSOCG</a></div>
+			<div class="logo"><a href="{% url index %}">CGRN – International Pilot Survey of Childhood Glaucoma (IPSOCG)</a></div>
 			<nav>
 				<ul class="clearfix">
+					{% block nav-index %}<li><a href="{% url index %}">Home</a></li>{% endblock %}
+					{% block nav-about %}<li><a href="{% url about %}">About</a></li>{% endblock %}
+					{% block nav-contact %}<li><a href="{% url contact %}">Contact</a></li>{% endblock %}
 					{% if user.is_authenticated %}
-					<li><a href="{% url list %}"><strong>List</strong> Datasets</a></li>
-					<li><a href="{% url create %}"><strong>New</strong> Dataset</a></li>
+					{% block nav-list %}<li><a href="{% url list %}"><strong>Manage</strong> Datasets</a></li>{% endblock %}
+					{% block nav-create %}<li><a href="{% url create %}"><strong>Create</strong> Dataset</a></li>{% endblock %}
 					{% if user.is_staff %}
 					<li><a href="/admin/">Admin</a></li>
 					{% endif %}
 					<li><a href="/logout/">Log Out ({{ user.username }})</a></li>
 					{% else %}
-					<li><a href="{% url about %}">About</a></li>
-					<li><a href="{% url contact %}">Contact</a></li>
-					<li><a href="/accounts/login/?next=/anonymeyes/">Log In</a></li>
+					{% block nav-login %}<li><a href="/accounts/login/?next=/anonymeyes/">Log In</a></li>{% endblock %}
 					{% endif %}
 				</ul>
 			</nav>
@@ -55,7 +56,8 @@
 
 	<div class="footer-container">
 		<footer class="wrapper">
-			<h3>&copy; 2013, OpenEyes</h3>
+			<h3>&copy; 2013, The OpenEyes Foundation</h3>
+			<p>All Rights Reserved.</p>
 		</footer>
 	</div>
 

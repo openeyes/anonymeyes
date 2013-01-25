@@ -1,6 +1,9 @@
 {% extends "base.html" %}
+{% block nav-about %}
+<li class="active"><a href="{% url about %}">About</a></li>
+{% endblock %}
 {% block title %}About{% endblock %}
 {% block content %}
-<h1>About CGRN</h1>
-<p>TODO</p>
+<h1>Documentation</h1>
+<p>Documentation about the CGRN project can be put here</p>
 {% endblock %}

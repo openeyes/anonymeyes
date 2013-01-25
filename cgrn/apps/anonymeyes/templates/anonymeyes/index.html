@@ -1,17 +1,24 @@
 {% extends "base.html" %}
+{% block nav-index %}
+<li class="active"><a href="{% url index %}">Home</a></li>
+{% endblock %}
 {% block title %}Home{% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
-<h1>Welcome back</h1>
-<ul>
-	<li><a href="{% url list %}"><strong>List</strong> Datasets</a> - View and update your existing datasets</li>
-	<li><a href="{% url create %}"><strong>New</strong> Dataset</a> - Create a new dataset</li>
-</ul>
-{% else %}
 <h1>Welcome to IPSOCG</h1>
-<p>The International Pilot Survey of Childhood Glaucoma (IPSOCG)</p>
 <p>This is an online web application for the collection, review, and analysis of
-anonymised paediatric glaucoma data for the Childhood Glaucoma Research Network (CGRN).</p>
-<p>Please log in to add or review datasets</p>
+anonymised paediatric glaucoma data.</p>
+{% if user.is_authenticated %}
+<h2>Instructions</h2>
+<p><a href="{% url create %}"><strong>Create</strong> Dataset</a> brings up
+	a form to submit a new dataset. This action generates a unique number (UUID)
+	which can be saved in the notes (by printing the form) to allow you to
+	identify the patient when entering additional data on a subsequent occasion.
+</p>
+<p><a href="{% url list %}"><strong>Manage</strong> Datasets</a> displays a
+	searchable table of your previously entered datasets. This allows you to
+	review and augment data on previous sets.
+</p>
+{% else %}
+<p>Please <a href="/accounts/login/?next=/anonymeyes/">log in</a> to add or review datasets</p>
 {% endif %}
 {% endblock %}

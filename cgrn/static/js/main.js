@@ -11,6 +11,15 @@ $(function() {
 		}
 	);
 	
+	$('header nav li').hover(
+			function() {
+				$(this).addClass('hover');
+			},
+			function() {
+				$(this).removeClass('hover');
+			}
+	);
+	
 	// Wizard formset actions
 	$('.formset .add-row').click(function() {
 		return wizardAddForm(this);

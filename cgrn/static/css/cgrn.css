@@ -13,19 +13,17 @@ body {
 .header-container {
 	background: #eee;
 	border-bottom: 1px solid #ddd;
-	padding: 5px;
+	padding-top: 10px;
 }
 
 .header-container .logo {
-	float: left;
 	margin: 0;
 	padding: 0 20px;
 	height: 35px;
 	line-height: 35px;
-	font-size: 25px;
+	font-size: 20px;
 	color: #333;
 	background: url(../img/anonymeyes-small.png) no-repeat left top;
-	font-family: 'Lucida Console', Monaco, monospace;
 }
 
 .header-container .logo a {
@@ -35,21 +33,47 @@ body {
 }
 
 .header-container nav {
-	float: left;
-	border-left: 1px solid #ddd;
-	padding: 0 10px;
+	margin-top: 10px;
 }
 
 .header-container nav ul {
 	padding: 0;
-	margin: 0;
+	margin: 0 0 -1px 0;
 }
 
 .header-container nav li {
 	float: left;
 	font-size: 14px;
-	line-height: 36px;
-	padding: 0 10px;
+	margin-right: 5px;
+	border-bottom: 1px solid #ddd;
+	padding: 1px 1px 0;
+}
+
+.header-container nav li a {
+	color: #fff;
+	padding: 3px 6px;
+	display: block;
+	background: #61a3cb;
+	text-decoration: none;
+}
+
+.header-container nav li.active,
+.header-container nav li.hover {
+	border: 1px solid #ddd;
+	padding: 0;
+}
+.header-container nav li.active {
+	border-bottom-color: #fff;
+}
+
+.header-container nav li.active a,
+.header-container nav li.hover a {
+	background: #fff;
+	color: #666;
+}
+
+.main-container {
+	min-height: 400px;
 }
 
 .footer-container {

@@ -1,7 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Datasets{% endblock %}
+{% block nav-list %}
+<li class="active"><a href="{% url list %}"><strong>Manage</strong> Datasets</a></li>
+{% endblock %}
+{% block title %}Manage Datasets{% endblock %}
 {% block content %}
-<h1>Datasets</h1>
+<h1>Manage Datasets</h1>
 <table>
 	<thead>
 		<tr>
