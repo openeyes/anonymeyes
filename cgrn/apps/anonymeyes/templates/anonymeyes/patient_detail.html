@@ -31,8 +31,6 @@
 		<dl>
 			<dt>Date:</dt>
 			<dd>{{ patient.visual_acuity_date }}</dd>
-			<dt>Eye:</dt>
-			<dd>{{ patient.eye }}</dd>
 			<dt>Right Diagnosis:</dt>
 			<dd>{{ patient.diagnosis_right }}</dd>
 			<dt>Left Diagnosis:</dt>
@@ -65,6 +63,7 @@
 	</div>
 	<div class="data-section">
 		<h2>Management</h2>
+		{% if patient.management_set.all %}
 		<table>
 			<thead>
 				<tr>
@@ -90,9 +89,13 @@
 				{% endfor %}
 			</tbody>
 		</table>
+		{% else %}
+		<p>No management recorded</p>
+		{% endif %}
 	</div>
 	<div class="data-section">
 		<h2>Outcome</h2>
+		{% if patient.outcome_set.all %}
 		<table>
 			<thead>
 				<tr>
@@ -119,6 +122,9 @@
 				{% endfor %}
 			</tbody>
 		</table>
+		{% else %}
+		<p>No outcomes recorded</p>
+		{% endif %}
 	</div>
 	<div class="actions clearfix">
 		<ul>
