@@ -6,7 +6,11 @@ from uuid import uuid4
 import re
 
 class EthnicGroup(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
     name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
     
     def __unicode__(self):
         return self.name
@@ -17,13 +21,28 @@ class Eye(models.Model):
     def __unicode__(self):
         return self.name
 
-class Diagnosis(models.Model):
+class DiagnosisGroup(models.Model):
     class Meta:
-        verbose_name_plural = 'diagnoses'
+        verbose_name_plural = 'diagnose groups'
+        ordering = ['sort','name']
+
     name = models.CharField(max_length=255)
+    sort = models.IntegerField(default=10)
     
     def __unicode__(self):
         return self.name
+
+class Diagnosis(models.Model):
+    class Meta:
+        verbose_name_plural = 'diagnoses'
+        ordering = ['group__sort','sort','name']
+
+    name = models.CharField(max_length=255)
+    group = models.ForeignKey(DiagnosisGroup)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.group.name + ': ' + self.name
 
 class LensStatus(models.Model):
     class Meta:
@@ -34,7 +53,21 @@ class LensStatus(models.Model):
         return self.name
 
 class VisualAcuityMethod(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
     name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
+class Tonometry(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
     
     def __unicode__(self):
         return self.name
@@ -69,16 +102,21 @@ class Patient(models.Model):
     )
     consanguinity = models.IntegerField(choices=CONSANGUINITY_CHOICES)
     eye = models.ForeignKey(Eye)
-    diagnosis = models.ForeignKey(Diagnosis)
+    diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
+    diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left diagnosis')
     lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
     lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left lens status')
-    lens_extraction_date_right = models.DateField(verbose_name='Extraction date')
-    lens_extraction_date_left = models.DateField(verbose_name='Extraction date')
-    visual_acuity_date = models.DateField()
+    lens_extraction_date_right = models.DateField(verbose_name='Right Extraction date')
+    lens_extraction_date_left = models.DateField(verbose_name='Left Extraction date')
+    visual_acuity_date = models.DateField(verbose_name='Date')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Visual Acuity Method')
     visual_acuity_right = models.CharField(max_length=10, verbose_name='RVA')
     visual_acuity_left = models.CharField(max_length=10, verbose_name='LVA')
-    visual_acuity_both = models.CharField(max_length=10, verbose_name='BVA')
+    visual_acuity_both = models.CharField(max_length=10, verbose_name='BEO')
+    iop_right = models.IntegerField(verbose_name='Right IOP', blank=True, null=True)
+    iop_left = models.IntegerField(verbose_name='Left IOP', blank=True, null=True)
+    tonometry = models.ForeignKey(Tonometry)
+    eua = models.BooleanField(verbose_name='EUA')
     
     class Meta:
         ordering = ['-updated_at']
@@ -94,19 +132,19 @@ class Patient(models.Model):
         super(Patient,self).save()
 
 class Complication(models.Model):
-    name = models.CharField(max_length=64)
-    sort = models.IntegerField(default=1)
-    
     class Meta:
         ordering = ['sort','name']
-    
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+
     def __unicode__(self):
         return self.name
 
 class Surgery(models.Model):
     name = models.CharField(max_length=64)
     adjuvant = models.BooleanField()
-    sort = models.IntegerField(default=1)
+    sort = models.IntegerField(default=10)
     
     class Meta:
         ordering = ['sort','name']
@@ -116,7 +154,11 @@ class Surgery(models.Model):
         return self.name
 
 class Adjuvant(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
     name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
     
     def __unicode__(self):
         return self.name

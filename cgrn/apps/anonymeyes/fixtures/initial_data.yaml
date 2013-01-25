@@ -1,64 +1,79 @@
 # Adjuvant
-- fields: {name: None}
+- fields: {name: None, sort: 10}
   model: anonymeyes.adjuvant
   pk: 1
-- fields: {name: 5FU}
+- fields: {name: 5FU, sort: 20}
   model: anonymeyes.adjuvant
   pk: 2
-- fields: {name: MMC}
+- fields: {name: MMC, sort: 30}
   model: anonymeyes.adjuvant
   pk: 3
-- fields: {name: Beta rad}
+- fields: {name: MMC (0.1mg/ml), sort: 40}
   model: anonymeyes.adjuvant
   pk: 4
+- fields: {name: MMC (0.2mg/ml), sort: 50}
+  model: anonymeyes.adjuvant
+  pk: 5
+- fields: {name: MMC (0.4mg/ml), sort: 60}
+  model: anonymeyes.adjuvant
+  pk: 6
+- fields: {name: MMC (0.5mg/ml), sort: 70}
+  model: anonymeyes.adjuvant
+  pk: 7
+- fields: {name: MMC (1mg/ml), sort: 80}
+  model: anonymeyes.adjuvant
+  pk: 8
+- fields: {name: ß rays, sort: 90}
+  model: anonymeyes.adjuvant
+  pk: 9
 
 # Complication
-- fields: {name: Suprachoroidal haem}
+- fields: {name: Choroidal effusion, sort: 10}
   model: anonymeyes.complication
   pk: 1
-- fields: {name: Retinal detachment}
+- fields: {name: Chronic hypotony, sort: 20}
   model: anonymeyes.complication
   pk: 2
-- fields: {name: Endophthalmitis}
+- fields: {name: Phthisis, sort: 30}
   model: anonymeyes.complication
   pk: 3
-- fields: {name: Phthisis}
+- fields: {name: Lens Trauma, sort: 40}
   model: anonymeyes.complication
   pk: 4
-- fields: {name: Chronic hypotony}
+- fields: {name: Cataract, sort: 50}
   model: anonymeyes.complication
   pk: 5
-- fields: {name: Lens Trauma}
+- fields: {name: Corneal trauma, sort: 60}
   model: anonymeyes.complication
   pk: 6
-- fields: {name: Choroidal effusion}
+- fields: {name: Corneal decompensation, sort: 70}
   model: anonymeyes.complication
   pk: 7
-- fields: {name: Cataract}
+- fields: {name: Graft rejection/failure, sort: 80}
   model: anonymeyes.complication
   pk: 8
-- fields: {name: Corneal trauma}
+- fields: {name: Endophthalmitis, sort: 90}
   model: anonymeyes.complication
   pk: 9
-- fields: {name: Corneal decompensation}
+- fields: {name: Retinal detachment, sort: 100}
   model: anonymeyes.complication
   pk: 10
-- fields: {name: Graft rejection/failure}
+- fields: {name: Suprachoroidal haem, sort: 110}
   model: anonymeyes.complication
   pk: 11
-- fields: {name: Tube erosion}
+- fields: {name: Tube erosion, sort: 120}
   model: anonymeyes.complication
   pk: 12
-- fields: {name: Tube occlusion}
+- fields: {name: Tube occlusion, sort: 130}
   model: anonymeyes.complication
   pk: 13
-- fields: {name: Tube retraction}
+- fields: {name: Tube retraction, sort: 140}
   model: anonymeyes.complication
   pk: 14
-- fields: {name: Dyscoria}
+- fields: {name: Dyscoria, sort: 150}
   model: anonymeyes.complication
   pk: 15
-- fields: {name: Intractable pain}
+- fields: {name: Intractable pain, sort: 160}
   model: anonymeyes.complication
   pk: 16
 - fields: {name: Other, sort: 9999}
@@ -66,162 +81,162 @@
   pk: 17
 
 # Surgery
-- fields: {name: Goniotomy}
+- fields: {name: Goniotomy, sort: 10}
   model: anonymeyes.surgery
   pk: 1
-- fields: {name: Trabeculotomy - Conv}
+- fields: {name: Trabeculotomy - Conv, sort: 20}
   model: anonymeyes.surgery
   pk: 2
-- fields: {name: Trabeculotomy - 360}
+- fields: {name: Trabeculotomy - 360, sort: 30}
   model: anonymeyes.surgery
   pk: 3
-- fields: {name: Trabeculectomy, adjuvant: true}
+- fields: {name: Trabeculectomy, adjuvant: true, sort: 40}
   model: anonymeyes.surgery
   pk: 4
-- fields: {name: Needling Bleb}
+- fields: {name: Needling Bleb, sort: 50}
   model: anonymeyes.surgery
   pk: 5
-- fields: {name: Bleb revision, adjuvant: true}
+- fields: {name: Needling Shunt, sort: 60}
   model: anonymeyes.surgery
   pk: 6
-- fields: {name: Molteno - single plate, adjuvant: true}
+- fields: {name: Bleb revision, adjuvant: true, sort: 70}
   model: anonymeyes.surgery
   pk: 7
-- fields: {name: Molteno - double plate, adjuvant: true}
+- fields: {name: Molteno - single plate, adjuvant: true, sort: 80}
   model: anonymeyes.surgery
   pk: 8
-- fields: {name: Baerveldt - 250, adjuvant: true}
+- fields: {name: Molteno - double plate, adjuvant: true, sort: 90}
   model: anonymeyes.surgery
   pk: 9
-- fields: {name: Baerveldt - 350, adjuvant: true}
+- fields: {name: Baerveldt - 250, adjuvant: true, sort: 100}
   model: anonymeyes.surgery
   pk: 10
-- fields: {name: Ahmed - 96, adjuvant: true}
+- fields: {name: Baerveldt - 350, adjuvant: true, sort: 110}
   model: anonymeyes.surgery
   pk: 11
-- fields: {name: Ahmed - 184, adjuvant: true}
+- fields: {name: Ahmed - 96, adjuvant: true, sort: 120}
   model: anonymeyes.surgery
   pk: 12
-- fields: {name: Tube extension, adjuvant: true}
+- fields: {name: Ahmed - 184, adjuvant: true, sort: 130}
   model: anonymeyes.surgery
   pk: 13
-- fields: {name: Cyclodiode}
+- fields: {name: Tube extension, adjuvant: true, sort: 140}
   model: anonymeyes.surgery
   pk: 14
-- fields: {name: Penetrating keratoplasty}
+- fields: {name: Cyclodiode, sort: 150}
   model: anonymeyes.surgery
   pk: 15
-- fields: {name: DSEK}
+- fields: {name: Optical iridectomy, sort: 160}
   model: anonymeyes.surgery
   pk: 16
-- fields: {name: Lens extraction - no IOL}
+- fields: {name: Penetrating keratoplasty, sort: 170}
   model: anonymeyes.surgery
   pk: 17
-- fields: {name: Lens extraction and IOL}
+- fields: {name: DSEK, sort: 180}
   model: anonymeyes.surgery
   pk: 18
-- fields: {name: RD surgery}
+- fields: {name: Lens extraction - no IOL, sort: 190}
   model: anonymeyes.surgery
   pk: 19
-- fields: {name: Other, sort: 9999}
+- fields: {name: Lens extraction and IOL, sort: 200}
   model: anonymeyes.surgery
   pk: 20
-- fields: {name: Needling Shunt}
+- fields: {name: RD surgery, sort: 210}
   model: anonymeyes.surgery
   pk: 21
-- fields: {name: Tube shortening, adjuvant: true}
+- fields: {name: AC reformation, sort: 220}
   model: anonymeyes.surgery
   pk: 22
-- fields: {name: Tube repositioning, adjuvant: true}
+- fields: {name: Drainage of effusion/SCH, sort: 230}
   model: anonymeyes.surgery
   pk: 23
-- fields: {name: Tube unblocking, adjuvant: true}
+- fields: {name: Ant vitrectomy, sort: 240}
   model: anonymeyes.surgery
   pk: 24
-- fields: {name: Tube removal, adjuvant: true}
+- fields: {name: Evisceration/enucleation, sort: 250}
   model: anonymeyes.surgery
   pk: 25
-- fields: {name: Shunt encapsulation revision, adjuvant: true}
+- fields: {name: Other, sort: 9999, sort: 260}
   model: anonymeyes.surgery
   pk: 26
-- fields: {name: Optical iridectomy}
+- fields: {name: Tube shortening, adjuvant: true, sort: 270}
   model: anonymeyes.surgery
   pk: 27
-- fields: {name: AC reformation}
+- fields: {name: Tube repositioning, adjuvant: true, sort: 280}
   model: anonymeyes.surgery
   pk: 28
-- fields: {name: Drainage of effusion/SCH}
+- fields: {name: Tube unblocking, adjuvant: true, sort: 290}
   model: anonymeyes.surgery
   pk: 29
-- fields: {name: Ant vitrectomy}
+- fields: {name: Tube removal, adjuvant: true, sort: 300}
   model: anonymeyes.surgery
   pk: 30
-- fields: {name: Evisceration/enucleation}
+- fields: {name: Shunt encapsulation revision, adjuvant: true, sort: 310}
   model: anonymeyes.surgery
   pk: 31
 
 # Ethnic Group
-- fields: {name: Goniotomy}
+- fields: {name: Unknown, sort: 10}
   model: anonymeyes.ethnicgroup
   pk: 1
-- fields: {name: British}
+- fields: {name: British, sort: 20}
   model: anonymeyes.ethnicgroup
   pk: 2
-- fields: {name: Irish}
+- fields: {name: Irish, sort: 30}
   model: anonymeyes.ethnicgroup
   pk: 3
-- fields: {name: Any other White background}
+- fields: {name: Any other White background, sort: 40}
   model: anonymeyes.ethnicgroup
   pk: 4
-- fields: {name: White and Black Caribbean}
+- fields: {name: White and Black Caribbean, sort: 50}
   model: anonymeyes.ethnicgroup
   pk: 5
-- fields: {name: White and Black African}
+- fields: {name: White and Black African, sort: 60}
   model: anonymeyes.ethnicgroup
   pk: 6
-- fields: {name: White and Asian}
+- fields: {name: White and Asian, sort: 70}
   model: anonymeyes.ethnicgroup
   pk: 7
-- fields: {name: Any other mixed background}
+- fields: {name: Any other mixed background, sort: 80}
   model: anonymeyes.ethnicgroup
   pk: 8
-- fields: {name: Indian}
+- fields: {name: Indian, sort: 90}
   model: anonymeyes.ethnicgroup
   pk: 9
-- fields: {name: Pakistani}
+- fields: {name: Pakistani, sort: 100}
   model: anonymeyes.ethnicgroup
   pk: 10
-- fields: {name: Bangladeshi}
+- fields: {name: Bangladeshi, sort: 110}
   model: anonymeyes.ethnicgroup
   pk: 11
-- fields: {name: Any other Asian background}
+- fields: {name: Any other Asian background, sort: 120}
   model: anonymeyes.ethnicgroup
   pk: 12
-- fields: {name: Caribbean}
+- fields: {name: Caribbean, sort: 130}
   model: anonymeyes.ethnicgroup
   pk: 13
-- fields: {name: African}
+- fields: {name: African, sort: 140}
   model: anonymeyes.ethnicgroup
   pk: 14
-- fields: {name: Any other Black background}
+- fields: {name: Any other Black background, sort: 150}
   model: anonymeyes.ethnicgroup
   pk: 15
-- fields: {name: Chinese}
+- fields: {name: Chinese, sort: 160}
   model: anonymeyes.ethnicgroup
   pk: 16
-- fields: {name: Any other ethnic group}
+- fields: {name: Any other ethnic group, sort: 170}
   model: anonymeyes.ethnicgroup
   pk: 17
-- fields: {name: Hispanic}
+- fields: {name: Hispanic, sort: 180}
   model: anonymeyes.ethnicgroup
   pk: 18
-- fields: {name: Arabic}
+- fields: {name: Arabic, sort: 190}
   model: anonymeyes.ethnicgroup
   pk: 19
-- fields: {name: Lebanese}
+- fields: {name: Lebanese, sort: 200}
   model: anonymeyes.ethnicgroup
   pk: 20
-- fields: {name: Turkish}
+- fields: {name: Turkish, sort: 210}
   model: anonymeyes.ethnicgroup
   pk: 21
   
@@ -270,66 +285,158 @@
   model: anonymeyes.lensstatus
   pk: 6
 
-# Diagnosis
-- fields: {name: Primary congenital glaucoma - neonatal onset (0-1 months)}
-  model: anonymeyes.diagnosis
+# Diagnosis Group
+- fields: {name: Primary Congenital Glaucoma (PCG), sort: 10}
+  model: anonymeyes.diagnosisgroup
   pk: 1
-- fields: {name: Primary congenital glaucoma - infantile (2-24 months)}
-  model: anonymeyes.diagnosis
+- fields: {name: Juvenile Open Angle Glaucoma (JOAG), sort: 20}
+  model: anonymeyes.diagnosisgroup
   pk: 2
-- fields: {name: Primary congenital glaucoma - juvenile (>2 years)}
-  model: anonymeyes.diagnosis
+- fields: {name: Glaucoma Associated with Non Acquired Ocular Anomalies, sort: 30}
+  model: anonymeyes.diagnosisgroup
   pk: 3
-- fields: {name: juvenile open angle glaucoma}
-  model: anonymeyes.diagnosis
+- fields: {name: Glaucoma Associated with Non Acquired Systemic Disease or Syndrome, sort: 40}
+  model: anonymeyes.diagnosisgroup
   pk: 4
-- fields: {name: Glaucoma associated with ocular congenital anomalies}
-  model: anonymeyes.diagnosis
+- fields: {name: Glaucoma Associated with Acquired Condition, sort: 50}
+  model: anonymeyes.diagnosisgroup
   pk: 5
-- fields: {name: Glaucoma associated with congenital systemic disease or syndrome}
-  model: anonymeyes.diagnosis
+- fields: {name: Glaucoma Following Congenital Cataract Surgery, sort: 60}
+  model: anonymeyes.diagnosisgroup
   pk: 6
-- fields: {name: Glaucoma associated with acquired condition}
-  model: anonymeyes.diagnosis
+- fields: {name: Ocular hypertension, sort: 70}
+  model: anonymeyes.diagnosisgroup
   pk: 7
-- fields: {name: Glaucoma following congenital cataract surgery}
-  model: anonymeyes.diagnosis
+- fields: {name: Normal, sort: 80}
+  model: anonymeyes.diagnosisgroup
   pk: 8
-- fields: {name: Undetermined}
-  model: anonymeyes.diagnosis
+- fields: {name: Other, sort: 90}
+  model: anonymeyes.diagnosisgroup
   pk: 9
 
+# Diagnosis
+- fields: {group: 1, name: Neonatal or newborn onset (0-1 month), sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 1
+- fields: {group: 1, name: Infantile onset (>1-24 months), sort: 20}
+  model: anonymeyes.diagnosis
+  pk: 2
+- fields: {group: 1, name: Late onset or late-recognized (>2 years), sort: 30}
+  model: anonymeyes.diagnosis
+  pk: 3
+- fields: {group: 1, name: Spontaneously arrested (normal IOP but typical signs of PCG), sort: 40}
+  model: anonymeyes.diagnosis
+  pk: 4
+- fields: {group: 2, name: Juvenile Open Angle Glaucoma (JOAG), sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 5
+- fields: {group: 3, name: Axenfeld Rieger Anomaly, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 6
+- fields: {group: 3, name: Axenfeld Rieger Syndrome, sort: 20}
+  model: anonymeyes.diagnosis
+  pk: 7
+- fields: {group: 3, name: Peters Anomaly, sort: 30}
+  model: anonymeyes.diagnosis
+  pk: 8
+- fields: {group: 3, name: Peters Syndrome, sort: 40}
+  model: anonymeyes.diagnosis
+  pk: 9
+- fields: {group: 3, name: Ectropion uveae, sort: 50}
+  model: anonymeyes.diagnosis
+  pk: 10
+- fields: {group: 3, name: Congenital Iris Hypoplasia, sort: 60}
+  model: anonymeyes.diagnosis
+  pk: 11
+- fields: {group: 3, name: Aniridia, sort: 70}
+  model: anonymeyes.diagnosis
+  pk: 12
+- fields: {group: 3, name: Persistent Fetal Vasculature, sort: 80}
+  model: anonymeyes.diagnosis
+  pk: 13
+- fields: {group: 3, name: Oculodermal melanocytosis (Nevus of Ota), sort: 90}
+  model: anonymeyes.diagnosis
+  pk: 14
+- fields: {group: 3, name: Posterior polymorphous dystrophy, sort: 100}
+  model: anonymeyes.diagnosis
+  pk: 15
+- fields: {group: 3, name: Microphthalmos, sort: 110}
+  model: anonymeyes.diagnosis
+  pk: 16
+- fields: {group: 3, name: Microcornea, sort: 120}
+  model: anonymeyes.diagnosis
+  pk: 17
+- fields: {group: 3, name: Ectopia lentis - Simple (no systemic associations), sort: 130}
+  model: anonymeyes.diagnosis
+  pk: 18
+- fields: {group: 3, name: Ectopia lentis et pupillae, sort: 140}
+  model: anonymeyes.diagnosis
+  pk: 19
+
+# Tonometry
+- fields: {name: Goldmann, sort: 10}
+  model: anonymeyes.tonometry
+  pk: 1
+- fields: {name: Perkins, sort: 20}
+  model: anonymeyes.tonometry
+  pk: 2
+- fields: {name: Icare, sort: 30}
+  model: anonymeyes.tonometry
+  pk: 3
+- fields: {name: Tonopen, sort: 40}
+  model: anonymeyes.tonometry
+  pk: 4
+- fields: {name: Pneumotonometry, sort: 50}
+  model: anonymeyes.tonometry
+  pk: 5
+- fields: {name: Schiotz, sort: 60}
+  model: anonymeyes.tonometry
+  pk: 6
+
+
 # Visual Acuity Method
-- fields: {name: Unable to Test}
+- fields: {name: No quantitative VA, sort: 10}
   model: anonymeyes.visualacuitymethod
   pk: 1
-- fields: {name: Forced Choice}
+- fields: {name: Keeler / Teller Acuity Cards (Forced choice preferential), sort: 20}
   model: anonymeyes.visualacuitymethod
   pk: 2
-- fields: {name: Cardiff Card}
+- fields: {name: Cardiff Cards, sort: 30}
   model: anonymeyes.visualacuitymethod
   pk: 3
-- fields: {name: Single Kays}
+- fields: {name: Allen pictures, sort: 40}
   model: anonymeyes.visualacuitymethod
   pk: 4
-- fields: {name: Crowded Kays}
+- fields: {name: Crowded Kay Pictures, sort: 50}
   model: anonymeyes.visualacuitymethod
   pk: 5
-- fields: {name: Lea Symbols}
+- fields: {name: Uncrowded Kay Pictures, sort: 60}
   model: anonymeyes.visualacuitymethod
   pk: 6
-- fields: {name: Snellen}
+- fields: {name: Lea symbols, sort: 70}
   model: anonymeyes.visualacuitymethod
   pk: 7
-- fields: {name: LogMar}
+- fields: {name: HOTV, sort: 80}
   model: anonymeyes.visualacuitymethod
   pk: 8
-- fields: {name: Other}
+- fields: {name: Crowded Keeler LogMAR, sort: 90}
   model: anonymeyes.visualacuitymethod
   pk: 9
-- fields: {name: Not Known}
+- fields: {name: Uncrowded Keeler LogMAR, sort: 100}
   model: anonymeyes.visualacuitymethod
   pk: 10
+- fields: {name: Snellen, sort: 110}
+  model: anonymeyes.visualacuitymethod
+  pk: 11
+- fields: {name: LogMAR, sort: 120}
+  model: anonymeyes.visualacuitymethod
+  pk: 12
+- fields: {name: Other, sort: 130}
+  model: anonymeyes.visualacuitymethod
+  pk: 13
+- fields: {name: Unknown, sort: 140}
+  model: anonymeyes.visualacuitymethod
+  pk: 14
 
 # IOP Control
 - fields: {name: Yes without meds}

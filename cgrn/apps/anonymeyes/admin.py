@@ -5,6 +5,7 @@ from apps.anonymeyes.models import *
 
 admin.site.register(EthnicGroup)
 admin.site.register(Eye)
+admin.site.register(DiagnosisGroup)
 admin.site.register(Diagnosis)
 admin.site.register(LensStatus)
 admin.site.register(VisualAcuityMethod)
@@ -13,6 +14,7 @@ admin.site.register(ManagementType)
 admin.site.register(Surgery)
 admin.site.register(Complication)
 admin.site.register(Adjuvant)
+admin.site.register(Tonometry)
 
 class ManagementAdminForm(forms.ModelForm):
     class Meta:
@@ -60,7 +62,7 @@ class PatientAdmin(admin.ModelAdmin):
                          'fields': ('created_by', 'updated_by', 'created_at', 'updated_at', 'sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
                          }),
                  ('Baseline Assessment', {
-                         'fields': ('eye', 'diagnosis', ('lens_status_right', 'lens_extraction_date_right'), ('lens_status_left', 'lens_extraction_date_left'),
+                         'fields': ('eye', 'diagnosis_left', 'diagnosis_right', ('lens_status_right', 'lens_extraction_date_right'), ('lens_status_left', 'lens_extraction_date_left'),
                                     ('visual_acuity_date', 'visual_acuity_method'), ('visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both'))
                          }),
     )

@@ -32,8 +32,12 @@ class PatientForm(forms.ModelForm):
 class PatientBaselineForm(forms.ModelForm):
     class Meta:
         model = Patient
-        fields = ('eye', 'diagnosis', 'lens_status_right', 'lens_extraction_date_right', 'lens_status_left', 'lens_extraction_date_left',
-                  'visual_acuity_date', 'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both')
+        fields = ('visual_acuity_date', 'eye', 'diagnosis_right', 'diagnosis_left', 
+                  'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both',
+                  'iop_right', 'iop_left', 'tonometry', 'eua',
+                  'lens_status_right', 'lens_extraction_date_right',
+                  'lens_status_left', 'lens_extraction_date_left'
+                  )
         widgets = {
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
