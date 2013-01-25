@@ -45,7 +45,10 @@ class Diagnosis(models.Model):
     sort = models.IntegerField(default=10)
     
     def __unicode__(self):
-        return self.group.name + ': ' + self.name
+        if(self.group.diagnosis_set.count() > 1):
+            return self.group.name + ': ' + self.name
+        else:
+            return self.name
 
 class LensStatus(models.Model):
     class Meta:

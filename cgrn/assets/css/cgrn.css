@@ -105,6 +105,11 @@ form fieldset legend {
 	font-size: 18px;
 }
 
+form fieldset p {
+	margin: 10px 5px;
+}
+
+
 form ul {
 	padding: 0;
 }
@@ -250,6 +255,10 @@ form input.small {
 	font-weight: normal;
 	padding: 0 10px;
 	font-size: 18px;
+}
+
+.data-section p {
+	margin: 10px 5px;
 }
 
 dl {

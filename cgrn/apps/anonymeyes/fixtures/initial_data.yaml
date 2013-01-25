@@ -369,6 +369,72 @@
 - fields: {group: 3, name: Ectopia lentis et pupillae, sort: 140}
   model: anonymeyes.diagnosis
   pk: 19
+- fields: {group: 4, name: Chromosomal disorders, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 20
+- fields: {group: 4, name: Marfan syndrome, sort: 20}
+  model: anonymeyes.diagnosis
+  pk: 21
+- fields: {group: 4, name: Weill-Marchesani syndrome, sort: 30}
+  model: anonymeyes.diagnosis
+  pk: 22
+- fields: {group: 4, name: Stickler syndrome, sort: 40}
+  model: anonymeyes.diagnosis
+  pk: 23
+- fields: {group: 4, name: Homocysteinuria, sort: 50}
+  model: anonymeyes.diagnosis
+  pk: 24
+- fields: {group: 4, name: Lowe syndrome, sort: 60}
+  model: anonymeyes.diagnosis
+  pk: 25
+- fields: {group: 4, name: Mucopolysaccharidoses, sort: 70}
+  model: anonymeyes.diagnosis
+  pk: 26
+- fields: {group: 4, name: Neurofibromatosis, sort: 80}
+  model: anonymeyes.diagnosis
+  pk: 27
+- fields: {group: 4, name: Sturge-Weber syndrome, sort: 90}
+  model: anonymeyes.diagnosis
+  pk: 28
+- fields: {group: 4, name: Klippel-Trenaunay-Weber syndrome, sort: 100}
+  model: anonymeyes.diagnosis
+  pk: 29
+- fields: {group: 4, name: Rubinstein-Taybi, sort: 110}
+  model: anonymeyes.diagnosis
+  pk: 30
+- fields: {group: 4, name: Cutis marmorata telangiectasia congenita, sort: 120}
+  model: anonymeyes.diagnosis
+  pk: 31
+- fields: {group: 4, name: Congenital rubella, sort: 130}
+  model: anonymeyes.diagnosis
+  pk: 32
+- fields: {group: 5, name: Uveitis, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 33
+- fields: {group: 5, name: Trauma, sort: 20}
+  model: anonymeyes.diagnosis
+  pk: 34
+- fields: {group: 5, name: Steroid induced, sort: 30}
+  model: anonymeyes.diagnosis
+  pk: 35
+- fields: {group: 5, name: Tumours, sort: 40}
+  model: anonymeyes.diagnosis
+  pk: 36
+- fields: {group: 5, name: Retinopathy of Prematurity, sort: 50}
+  model: anonymeyes.diagnosis
+  pk: 37
+- fields: {group: 6, name: Glaucoma Following Congenital Cataract Surgery, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 38
+- fields: {group: 7, name: Ocular hypertension, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 39
+- fields: {group: 8, name: Normal, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 40
+- fields: {group: 9, name: Other, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 41
 
 # Tonometry
 - fields: {name: Goldmann, sort: 10}
