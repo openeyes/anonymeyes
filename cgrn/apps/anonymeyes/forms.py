@@ -10,7 +10,6 @@ class ContactForm(forms.Form):
     name = forms.CharField()
     email = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea)
-    captcha = ReCaptchaField()
     
     def send_email(self):
         message = get_template('anonymeyes/message.txt')
@@ -18,15 +17,24 @@ class ContactForm(forms.Form):
         send_mail('Message from CGRN contact form', message.render(d), 'www@cgrn.j13.me',
                   ['jamie.neil@openeyes.org.uk'])
 
+class CaptchaContactForm(ContactForm):
+    captcha = ReCaptchaField()
+
 class PatientForm(forms.ModelForm):
     class Meta:
         model = Patient
-        fields = ('sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity',
-                  'eye', 'diagnosis', 'lens_status_right', 'lens_extraction_date_right', 'lens_status_left', 'lens_extraction_date_left',
-                  'visual_acuity_date', 'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both')
+        fields = ('sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
         widgets = {
                    'postcode': forms.TextInput(attrs={'size':'10'}),
-                   'dob': forms.DateInput(attrs={'class':'datepicker past'}),
+                   'dob': forms.DateInput(attrs={'class':'datepicker past'})
+        }
+
+class PatientBaselineForm(forms.ModelForm):
+    class Meta:
+        model = Patient
+        fields = ('eye', 'diagnosis', 'lens_status_right', 'lens_extraction_date_right', 'lens_status_left', 'lens_extraction_date_left',
+                  'visual_acuity_date', 'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both')
+        widgets = {
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
                    'visual_acuity_date': forms.DateInput(attrs={'class':'datepicker past'}),

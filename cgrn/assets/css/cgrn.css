@@ -11,7 +11,7 @@ body {
 }
 
 .header-container {
-	background: #eee;
+	background: #eaf7ff;
 	border-bottom: 1px solid #ddd;
 	padding-top: 10px;
 }
@@ -189,7 +189,7 @@ form td label {
 	padding: 10px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
-	background: #eee;
+	background: #eaf7ff;
 }
 
 .actions ul {
@@ -334,7 +334,7 @@ span.help.active span {
 	border: 1px solid #ddd;
 	border-radius: 5px;
 	padding: 5px;
-	background: #eee;
+	background: #eaf7ff;
 }
 
 .dataTables_wrapper {
@@ -359,6 +359,21 @@ table.dataTable th {
 
 table.dataTable th {
 	padding-right: 0;
+}
+
+table.dataTable tr.even {
+}
+
+table.dataTable tr.odd {
+	background-color: #e2f4ff;
+}
+
+table.dataTable tr.even  td.sorting_1 {
+	background-color: #eaf7ff;
+}
+
+table.dataTable tr.odd  td.sorting_1 {
+	background-color: #d3efff;
 }
 
 table.dataTable tfoot {

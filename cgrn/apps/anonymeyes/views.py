@@ -8,7 +8,7 @@ from django.forms.models import construct_instance
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView, FormView
 from django.utils.decorators import method_decorator
 from apps.anonymeyes.admin import PatientAdminForm
-from apps.anonymeyes.forms import PatientForm, PatientManagementFormSet, PatientOutcomeFormSet, PatientUpdateManagementFormSet, PatientUpdateOutcomeFormSet, ContactForm
+from apps.anonymeyes.forms import *
 from apps.anonymeyes.models import Patient, Management
 
 class IndexView(TemplateView):
@@ -19,8 +19,13 @@ class AboutView(TemplateView):
 
 class ContactView(FormView):
     template_name='anonymeyes/contact.html'
-    form_class=ContactForm
     success_url = '/anonymeyes/thanks/'
+
+    def get_form_class(self):
+        if self.request.user.is_authenticated():
+            return ContactForm
+        else:
+            return CaptchaContactForm
     
     def form_valid(self, form):
         form.send_email()
@@ -98,6 +103,10 @@ class PatientCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(PatientCreateView, self).get_context_data(**kwargs)
+        if self.request.POST:
+            context['baseline_form'] = PatientBaselineForm(self.request.POST)
+        else:
+            context['baseline_form'] = PatientBaselineForm()
         if 'formsets' not in context:
             context['formsets'] = collections.OrderedDict()
         if self.request.POST:
@@ -121,9 +130,12 @@ class PatientUpdateView(UpdateView):
     def form_valid(self, form):
         form.instance.updated_by = self.request.user
         context = self.get_context_data()
+        baseline_form = context['baseline_form']
         management_formset = context['formsets']['Management']
         outcome_formset = context['formsets']['Outcome']
-        if management_formset.is_valid() and outcome_formset.is_valid():
+        if baseline_form.is_valid() and management_formset.is_valid() and outcome_formset.is_valid():
+            baseline_form.instance = self.object
+            baseline_form.save(commit=False)
             management_formset.instance = self.object
             for management_instance in management_formset.save(commit=False):
                 management_instance.updated_by = self.request.user
@@ -139,6 +151,10 @@ class PatientUpdateView(UpdateView):
     
     def get_context_data(self, **kwargs):
         context = super(PatientUpdateView, self).get_context_data(**kwargs)
+        if self.request.POST:
+            context['baseline_form'] = PatientBaselineForm(self.request.POST, instance=self.object)
+        else:
+            context['baseline_form'] = PatientBaselineForm(instance=self.object)
         if 'formsets' not in context:
             context['formsets'] = collections.OrderedDict()
         if self.request.POST:

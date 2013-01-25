@@ -5,6 +5,7 @@ $(document).ready(function() {
 	// Datatables
 	var datasets = $('#datasets').dataTable({
 		bJQueryUI: true,
+		sPaginationType: "full_numbers",
 		aoColumns: [
 		            null,
 		            null,

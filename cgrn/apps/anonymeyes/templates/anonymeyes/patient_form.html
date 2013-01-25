@@ -19,7 +19,7 @@
 			</ul>
 		</div>
 		<fieldset>
-			<legend>Main</legend>
+			<legend>Patient</legend>
 			<ul>
 				{% if patient.uuid %}
 				<li>
@@ -33,6 +33,17 @@
 				</li>
 				{% endif %}
  				{% for field in form %}
+				<li{% if field.errors %} class="error"{% endif %}>
+					<label for="{{ field.auto_id }}"{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span>:</label>
+					{{ field }} <span>{{ field.errors }}</span>
+				</li>
+				{% endfor %}
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>Baseline Assessment</legend>
+			<ul>
+ 				{% for field in baseline_form %}
 				<li{% if field.errors %} class="error"{% endif %}>
 					<label for="{{ field.auto_id }}"{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span>:</label>
 					{{ field }} <span>{{ field.errors }}</span>
