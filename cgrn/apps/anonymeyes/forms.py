@@ -45,6 +45,8 @@ class PatientBaselineForm(forms.ModelForm):
                    'visual_acuity_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
                    'visual_acuity_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
                    'visual_acuity_both': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
+                   'iop_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
+                   'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'})
         }
 
 class PatientManagementForm(forms.ModelForm):

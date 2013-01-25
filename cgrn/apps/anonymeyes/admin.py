@@ -52,6 +52,8 @@ class PatientAdminForm(forms.ModelForm):
                    'visual_acuity_right': forms.TextInput(attrs={'size':'10'}),
                    'visual_acuity_left': forms.TextInput(attrs={'size':'10'}),
                    'visual_acuity_both': forms.TextInput(attrs={'size':'10'}),
+                   'iop_right': forms.TextInput(attrs={'size':'10'}),
+                   'iop_left': forms.TextInput(attrs={'size':'10'})
         }
 
 class PatientAdmin(admin.ModelAdmin):
@@ -62,8 +64,12 @@ class PatientAdmin(admin.ModelAdmin):
                          'fields': ('created_by', 'updated_by', 'created_at', 'updated_at', 'sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
                          }),
                  ('Baseline Assessment', {
-                         'fields': ('eye', 'diagnosis_left', 'diagnosis_right', ('lens_status_right', 'lens_extraction_date_right'), ('lens_status_left', 'lens_extraction_date_left'),
-                                    ('visual_acuity_date', 'visual_acuity_method'), ('visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both'))
+                         'fields': ('visual_acuity_date', 'eye', 'diagnosis_right', 'diagnosis_left',
+                                    ('visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both'),
+                                    ('iop_right', 'iop_left', 'tonometry', 'eua'),
+                                    ('lens_status_right', 'lens_extraction_date_right'),
+                                    ('lens_status_left', 'lens_extraction_date_left')
+                                    )
                          }),
     )
     inlines = [
