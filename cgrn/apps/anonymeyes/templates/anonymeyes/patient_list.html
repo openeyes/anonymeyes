@@ -5,7 +5,7 @@
 {% block title %}Manage Datasets{% endblock %}
 {% block content %}
 <h1>Manage Datasets</h1>
-<table>
+<table id="datasets">
 	<thead>
 		<tr>
 			<th><abbr title="Universally Unique IDentifier">UUID</abbr></th>
@@ -14,6 +14,7 @@
 			<th>Postcode</th>
 			<th>Created</th>
 			<th>Last Updated</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,13 +22,24 @@
 		<tr>
 			<td><a href="{% url detail patient.id %}">{{ patient.uuid }}</a></td>
 			<td>{{ patient.get_sex_display }}</td>
-			<td>{{ patient.dob }}</td>
+			<td><span title="{{ patient.dob|date:'U' }}">{{ patient.dob }}</span></td>
 			<td>{{ patient.postcode }}</td>
-			<td>{{ patient.created_at }}</td>
-			<td>{{ patient.updated_at }}</td>
+			<td><span title="{{ patient.created_at|date:'U' }}">{{ patient.created_at }}</span></td>
+			<td><span title="{{ patient.updated_at|date:'U' }}">{{ patient.updated_at }}</span></td>
 			<td><a href="{% url update patient.id %}">Update</a>
 		</tr>
 		{% endfor %}
 	</tbody>
+	<tfoot>
+		<tr>
+			<th><input type="text" class="search_uuid search_init" name="search_uuid" value="UUID" /></th>
+			<th><input type="text" class="search_sex search_init" name="search_sex" value="Sex" /></th>
+			<th><input type="text" class="search_dob search_init" name="search_dob" value="DOB" /></th>
+			<th><input type="text" class="search_postcode search_init" name="search_postcode" value="Postcode" /></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</tfoot>
 </table>
 {% endblock %}

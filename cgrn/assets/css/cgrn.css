@@ -337,3 +337,43 @@ span.help.active span {
 	background: #eee;
 }
 
+.dataTables_wrapper {
+	margin: 10px 0;
+}
+
+.dataTables_wrapper .fg-toolbar {
+	font-size: 13px;
+	line-height: 1.4em;
+	padding: 6px;
+}
+
+.dataTables_info {
+	padding-top: 0;
+}
+
+table.dataTable td,
+table.dataTable th {
+	padding: 4px 10px;
+	line-height: 1.4em;
+}
+
+table.dataTable th {
+	padding-right: 0;
+}
+
+table.dataTable tfoot {
+	font-size: 13px;
+	line-height: 1.4em;
+}
+
+table.dataTable tfoot input {
+	width: 80px;
+}
+
+table.dataTable tfoot input.search_init {
+	color: #999;
+}
+
+table.dataTable tfoot input.search_uuid {
+	width: 250px;
+}

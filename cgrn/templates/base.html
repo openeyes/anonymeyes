@@ -13,7 +13,8 @@
 <meta name="viewport" content="width=device-width">
 {% load compress %}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
-<link rel="stylesheet" href="{{ STATIC_URL }}css/smoothness/jquery-ui-1.9.2.custom.min.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/smoothness/jquery-ui-1.10.0.custom.min.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery.dataTables_themeroller.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/cgrn.css">
 <script src="{{ STATIC_URL }}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -62,9 +63,10 @@
 	</div>
 
 	{% compress js %}
-	<script src="{{ STATIC_URL }}js/vendor/jquery-1.8.3.min.js"></script>
-	<script src="{{ STATIC_URL }}js/vendor/jquery-ui-1.9.2.custom.min.js"></script>
+	<script src="{{ STATIC_URL }}js/vendor/jquery-1.9.0.min.js"></script>
+	<script src="{{ STATIC_URL }}js/vendor/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="{{ STATIC_URL }}js/vendor/jquery.hoverIntent.minified.js"></script>
+	<script src="{{ STATIC_URL }}js/vendor/jquery.dataTables.min.js"></script>
 	<script src="{{ STATIC_URL }}js/main.js"></script>
 	{% endcompress %}
 </body>

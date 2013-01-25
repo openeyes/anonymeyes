@@ -1,4 +1,44 @@
-$(function() {
+var asInitVals = new Array();
+
+$(document).ready(function() {
+	
+	// Datatables
+	var datasets = $('#datasets').dataTable({
+		bJQueryUI: true,
+		aoColumns: [
+		            null,
+		            null,
+                { "sType": "title-numeric" },
+		            null,
+                { "sType": "title-numeric" },
+                { "sType": "title-numeric" },
+		            { "bSortable": false }
+		            ]
+	});
+
+	$("#datasets tfoot input").keyup(function() {
+		datasets.fnFilter(this.value, $("#datasets tfoot input").index(this));
+	});
+
+	$("#datasets tfoot input").each(function(i) {
+		asInitVals[i] = this.value;
+	});
+ 
+	$("#datasets tfoot input").focus(function() {
+		if($(this).hasClass("search_init")) {
+			$(this).removeClass("search_init");
+			this.value = "";
+		}
+	});
+ 
+	$("#datasets tfoot input").blur(function(i) {
+		if(this.value == "") {
+			$(this).addClass("search_init");
+			this.value = asInitVals[$("#datasets tfoot input").index(this)];
+		}
+	});
+	
+	// Datepicker
 	initDatepicker();
 
 	// Help tips
@@ -11,6 +51,7 @@ $(function() {
 		}
 	);
 	
+	// Nav
 	$('header nav li').hover(
 			function() {
 				$(this).addClass('hover');
@@ -215,3 +256,16 @@ function wizardDeleteForm(btn) {
 	}
 	return false;
 }
+
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+	"title-numeric-pre": function(a) {
+		var x = a.match(/title="*(-?[0-9\.]+)/)[1];
+		return parseFloat( x );
+	},
+	"title-numeric-asc": function(a, b) {
+		return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+	},
+	"title-numeric-desc": function(a, b) {
+		return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+	}
+});
