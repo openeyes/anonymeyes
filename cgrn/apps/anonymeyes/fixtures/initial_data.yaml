@@ -241,18 +241,15 @@
   pk: 21
   
   # Eye
-- fields: {name: None}
-  model: anonymeyes.eye
-  pk: 1
 - fields: {name: Left}
   model: anonymeyes.eye
-  pk: 2
+  pk: 1
 - fields: {name: Right}
   model: anonymeyes.eye
-  pk: 3
+  pk: 2
 - fields: {name: Both}
   model: anonymeyes.eye
-  pk: 4
+  pk: 3
   
 # Management Type
 - fields: {name: Medication}

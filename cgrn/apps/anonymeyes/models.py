@@ -16,6 +16,9 @@ class EthnicGroup(models.Model):
         return self.name
 
 class Eye(models.Model):
+    class Meta:
+        ordering = ['id']
+
     name = models.CharField(max_length=10)
     
     def __unicode__(self):
@@ -101,7 +104,6 @@ class Patient(models.Model):
                             (NO, 'No'),
     )
     consanguinity = models.IntegerField(choices=CONSANGUINITY_CHOICES)
-    eye = models.ForeignKey(Eye)
     diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
     diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left diagnosis')
     lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
@@ -175,7 +177,7 @@ class Management(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
-    eye = models.ForeignKey(Eye)
+    eye = models.ForeignKey(Eye, blank=True, null=True)
     type = models.ForeignKey(ManagementType)
     surgery = models.ForeignKey(Surgery, blank=True, null=True)
     complication = models.ForeignKey(Complication, blank=True, null=True)
