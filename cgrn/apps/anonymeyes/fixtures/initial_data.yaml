@@ -278,10 +278,10 @@
 - fields: {name: Microspherophakia}
   model: anonymeyes.lensstatus
   pk: 4
-- fields: {name: Aphakic}
+- fields: {name: Aphakia}
   model: anonymeyes.lensstatus
   pk: 5
-- fields: {name: Pseudophakic}
+- fields: {name: Pseudophakia}
   model: anonymeyes.lensstatus
   pk: 6
 
@@ -445,6 +445,6 @@
 - fields: {name: Yes with meds}
   model: anonymeyes.iopcontrol
   pk: 2
-- fields: {name: No}
+- fields: {name: "No"}
   model: anonymeyes.iopcontrol
   pk: 3
