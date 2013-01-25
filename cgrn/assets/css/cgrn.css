@@ -134,11 +134,13 @@ form label,form .label {
 	padding-right: 10px;
 }
 
-form label.required span {
+form label.required span,
+.inline_form th.required span {
 	font-weight: bold;
 }
 
-form label.required span:after {
+form label.required span:after,
+.inline_form th.required span:after {
 	content: "*";
 }
 

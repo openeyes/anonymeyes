@@ -1,7 +1,7 @@
-<th>{{ formset.form.date.label }}</th>
-<th>{{ formset.form.type.label }}</th>
+<th class="required"><span>{{ formset.form.date.label }}</span></th>
+<th class="required"><span>{{ formset.form.type.label }}</span></th>
 <th>{{ formset.form.eye.label }}</th>
-<th>Detail</th>
+<th class="required"><span>Detail</span></th>
 <th>{{ formset.form.comments.label }}</th>
 {% if formset.can_delete %}
 <th>Delete?</th>
