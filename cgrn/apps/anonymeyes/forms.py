@@ -32,7 +32,7 @@ class PatientForm(forms.ModelForm):
 class PatientBaselineForm(forms.ModelForm):
     class Meta:
         model = Patient
-        fields = ('visual_acuity_date', 'eye', 'diagnosis_right', 'diagnosis_left', 
+        fields = ('visual_acuity_date', 'eye', 'diagnosis_right', 'diagnosis_left',
                   'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both',
                   'iop_right', 'iop_left', 'tonometry', 'eua',
                   'lens_status_right', 'lens_extraction_date_right',
