@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Delete Dataset {{ patient.uuid }}{% endblock %}
+{% block content %}
+<h1>Delete Dataset</h1>
+<form action="" method="post">
+	{% csrf_token %}
+	<p>Are you sure you want to delete dataset {{ patient.uuid }}? <strong>This action cannot be undone.</strong></p>
+	<div class="actions clearfix">
+		<ul>
+			<li><input type="submit" value="Delete" /></li>
+			<li><a href="{% url list %}">Cancel</a></li>
+		</ul>
+	</div>
+</form>
+{% endblock %}

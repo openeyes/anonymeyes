@@ -26,7 +26,10 @@
 			<td>{{ patient.postcode }}</td>
 			<td><span title="{{ patient.created_at|date:'U' }}">{{ patient.created_at }}</span></td>
 			<td><span title="{{ patient.updated_at|date:'U' }}">{{ patient.updated_at }}</span></td>
-			<td><a href="{% url update patient.id %}">Update</a>
+			<td class="row_actions">
+				<a href="{% url update patient.id %}" class="update" title="Update"><span>Update</span></a>
+				<a href="{% url delete patient.id %}" class="delete" title="Delete"><span>Delete</span></a>
+			</td>
 		</tr>
 		{% endfor %}
 	</tbody>

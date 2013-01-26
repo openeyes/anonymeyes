@@ -191,7 +191,7 @@ form td label {
 	line-height: 20px;
 }
 
-.actions {
+div.actions {
 	margin: 15px 0;
 	padding: 10px;
 	border: 1px solid #ddd;
@@ -199,12 +199,12 @@ form td label {
 	background: #eaf7ff;
 }
 
-.actions ul {
+div.actions ul {
 	padding: 0;
 	margin: 0;
 }
 
-.actions li {
+div.actions li {
 	float: left;
 	list-style: none;
 	padding: 0;
@@ -213,11 +213,11 @@ form td label {
 	font-size: 14px;
 }
 
-.actions li a {
+div.actions li a {
 	padding: 0 5px;
 }
 
-.actions input,.actions button {
+div.actions input, div.actions button {
 	float: none;
 	font-size: 1.2em;
 }
@@ -402,4 +402,26 @@ table.dataTable tfoot input.search_init {
 
 table.dataTable tfoot input.search_uuid {
 	width: 250px;
+}
+
+.row_actions a {
+	float: left;
+	text-indent: -9999px;
+	width: 14px;
+	height: 14px;
+	margin: 2px 2px 0 2px;
+	background: url(../img/glyphicons-halflings.png) no-repeat;
+	opacity: 0.7;
+}
+
+.row_actions a:hover {
+	opacity: 1;
+}
+
+.row_actions .update {
+	background-position: 0 -72px;
+}
+
+.row_actions .delete {
+	background-position: -456px 0;
 }

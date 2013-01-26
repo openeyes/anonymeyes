@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.wizard.views import NamedUrlSessionWizardView
 from django.http import HttpResponseRedirect
 from django.forms.models import construct_instance
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView, FormView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView, FormView, DeleteView
 from django.utils.decorators import method_decorator
 from apps.anonymeyes.admin import PatientAdminForm
 from apps.anonymeyes.forms import *
@@ -83,9 +83,11 @@ class PatientCreateView(CreateView):
         form.instance.created_by = self.request.user
         form.instance.updated_by = self.request.user
         context = self.get_context_data()
+        baseline_form = context['baseline_form']
         management_formset = context['formsets']['Management']
         outcome_formset = context['formsets']['Outcome']
-        if management_formset.is_valid() and outcome_formset.is_valid():
+        if baseline_form.is_valid() and management_formset.is_valid() and outcome_formset.is_valid():
+            form.instance = construct_instance(baseline_form, form.instance)
             response = super(PatientCreateView, self).form_valid(form)
             management_formset.instance = self.object
             for management_instance in management_formset.save(commit=False):
@@ -134,8 +136,7 @@ class PatientUpdateView(UpdateView):
         management_formset = context['formsets']['Management']
         outcome_formset = context['formsets']['Outcome']
         if baseline_form.is_valid() and management_formset.is_valid() and outcome_formset.is_valid():
-            baseline_form.instance = self.object
-            baseline_form.save(commit=False)
+            form.instance = construct_instance(baseline_form, form.instance)
             management_formset.instance = self.object
             for management_instance in management_formset.save(commit=False):
                 management_instance.updated_by = self.request.user
@@ -184,4 +185,15 @@ class PatientDetailView(DetailView):
      @method_decorator(login_required)
      def dispatch(self, request, *args, **kwargs):
          return super(PatientDetailView, self).dispatch(request, *args, **kwargs)
+
+class PatientDeleteView(DeleteView):
+     context_object_name='patient'
+     success_url = '/anonymeyes/list/'
+     
+     def get_queryset(self):
+          return Patient.objects.filter(created_by=self.request.user)
+     
+     @method_decorator(login_required)
+     def dispatch(self, request, *args, **kwargs):
+         return super(PatientDeleteView, self).dispatch(request, *args, **kwargs)
 
