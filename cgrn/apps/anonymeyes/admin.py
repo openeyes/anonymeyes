@@ -4,14 +4,11 @@ from django import forms
 from apps.anonymeyes.models import *
 
 admin.site.register(EthnicGroup)
-admin.site.register(Eye)
 admin.site.register(DiagnosisGroup)
-admin.site.register(Diagnosis)
 admin.site.register(LensStatus)
 admin.site.register(VisualAcuityMethod)
 admin.site.register(IOPControl)
 admin.site.register(ManagementType)
-admin.site.register(Surgery)
 admin.site.register(Complication)
 admin.site.register(Adjuvant)
 admin.site.register(Tonometry)
@@ -58,7 +55,7 @@ class PatientAdminForm(forms.ModelForm):
 
 class PatientAdmin(admin.ModelAdmin):
     form = PatientAdminForm
-    readonly_fields = ('created_at', 'updated_at',)
+    readonly_fields = ('created_at', 'updated_at')
     fieldsets = (
                  (None, {
                          'fields': ('created_by', 'updated_by', 'created_at', 'updated_at', 'sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
@@ -76,5 +73,21 @@ class PatientAdmin(admin.ModelAdmin):
         ManagementInline,
         OutcomeInline,
     ]
-
+    list_display = ('uuid','sex', 'dob', 'postcode','created_at', 'updated_at')
+    list_filter = ('sex','dob','created_at','updated_at')
+    search_fields = ('postcode','diagnosis_right__name','diagnosis_left__name')
+    
 admin.site.register(Patient, PatientAdmin)
+
+class SurgeryAdmin(admin.ModelAdmin):
+    list_display = ('name','adjuvant','sort')
+    list_filter = ('adjuvant',)
+
+admin.site.register(Surgery, SurgeryAdmin)
+    
+class DiagnosisAdmin(admin.ModelAdmin):
+    list_display = ('name','group','sort')
+    list_filter = ('group',)
+
+admin.site.register(Diagnosis, DiagnosisAdmin)
+        
