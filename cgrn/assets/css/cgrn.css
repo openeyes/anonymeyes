@@ -393,7 +393,7 @@ table.dataTable tfoot {
 }
 
 table.dataTable tfoot input {
-	width: 80px;
+	width: 60px;
 }
 
 table.dataTable tfoot input.search_init {
