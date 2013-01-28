@@ -101,12 +101,12 @@ class Patient(models.Model):
     NO = 0
     YES = 1
     UNKNOWN = 2
-    CONSANGUINITY_CHOICES = (
+    TRISTATE_CHOICES = (
                             (UNKNOWN, 'Unknown'),
                             (YES, 'Yes'),
                             (NO, 'No'),
     )
-    consanguinity = models.IntegerField(choices=CONSANGUINITY_CHOICES)
+    consanguinity = models.IntegerField(choices=TRISTATE_CHOICES)
     diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
     diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left diagnosis')
     lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
@@ -121,7 +121,7 @@ class Patient(models.Model):
     iop_right = models.IntegerField(verbose_name='Right IOP', blank=True, null=True)
     iop_left = models.IntegerField(verbose_name='Left IOP', blank=True, null=True)
     tonometry = models.ForeignKey(Tonometry)
-    eua = models.BooleanField(verbose_name='EUA')
+    eua = models.IntegerField(verbose_name='EUA', choices=TRISTATE_CHOICES)
     
     class Meta:
         ordering = ['-updated_at']

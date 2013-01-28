@@ -83,7 +83,15 @@ $(document).ready(function() {
 	$('form').delegate('.management_detail .surgery select', 'change', function() {
 		updateManagementSurgery(this);
 	});
-		
+
+	// Lens status and extraction date dependency
+	$("form select[name^='lens_status_']").each(function() {
+		updateExtractionDate(this);
+	});
+	$("form select[name^='lens_status_']").change(function() {
+		updateExtractionDate(this);
+	});
+	
 	// Inline forms
 	initialiseInlineForms();
 
@@ -98,6 +106,16 @@ $(document).ready(function() {
 	});
 
 });
+
+function updateExtractionDate(element) {
+	var side = $(element).attr('name').substring(12);
+	var extraction_field = $('#id_lens_extraction_date_'+side);
+	if($('option:selected', element).text() == 'Aphakia' || $('option:selected', element).text() == 'Pseudophakia') {
+		extraction_field.closest('li').show();
+	} else {
+		extraction_field.closest('li').hide();
+	}
+}
 
 function initialiseInlineForms() {
 	$('form .inline_form').each(function() {

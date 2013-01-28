@@ -48,6 +48,18 @@ class PatientBaselineForm(forms.ModelForm):
                    'iop_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
                    'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'})
         }
+    def clean_lens_extraction_date_right(self):
+        lens_extraction_date_right = self.cleaned_data.get('lens_extraction_date_right')
+        lens_status_right = self.cleaned_data.get('lens_status_right')
+        if lens_status_right and lens_status_right.name != 'Aphakia' and lens_status_right.name != 'Pseudophakia':
+            return None
+        return lens_extraction_date_right
+    def clean_lens_extraction_date_left(self):
+        lens_extraction_date_left = self.cleaned_data.get('lens_extraction_date_left')
+        lens_status_left = self.cleaned_data.get('lens_status_left')
+        if lens_status_left and lens_status_left.name != 'Aphakia' and lens_status_left.name != 'Pseudophakia':
+            return None
+        return lens_extraction_date_right
 
 class PatientManagementForm(forms.ModelForm):
     class Meta:
