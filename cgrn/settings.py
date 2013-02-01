@@ -102,12 +102,6 @@ STATICFILES_FINDERS = (
 ########## END STATIC FILE CONFIGURATION
 
 
-########## SECRET CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = 'a+%_sjh&amp;-gl8f8sb8lp*=+c9vjh4ph@rv*erv9m(^vzp*)94jt'
-########## END SECRET CONFIGURATION
-
-
 ########## FIXTURE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
 FIXTURE_DIRS = (
@@ -204,12 +198,6 @@ LOCAL_APPS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
-
-
-########## RECAPTCHA CONFIGURATION
-RECAPTCHA_PUBLIC_KEY = '6LfEvNsSAAAAAM6rX5nqVRdzAj8CwO4hDfo8KLiS'
-RECAPTCHA_PRIVATE_KEY = '6LfEvNsSAAAAANXowaH2yTAm9jWOb33uQk5tgyhX'
-########## END RECAPTCHA CONFIGURATION
 
 
 ########## LOGGING CONFIGURATION
