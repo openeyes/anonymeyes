@@ -3,7 +3,7 @@ var asInitVals = new Array();
 $(document).ready(function() {
 	
 	// Visual Acuity scale changes
-	$('.visualacuitymethod').change(function() {
+	$('body').delegate('.visualacuitymethod', 'change', function() {
 		var wrapper = $(this).closest('fieldset, tr');
 		var empty_option = $('select.visualacuity option[value=""]', wrapper).first();
 		$.ajax({
