@@ -5,7 +5,8 @@ from django.template.loader import get_template
 from django.template import Context
 from django.conf import settings
 from captcha.fields import ReCaptchaField
-from apps.anonymeyes.models import Patient, Management, Outcome
+from apps.anonymeyes.models import Patient, Management, Outcome, VisualAcuityReading, VisualAcuityMethod
+from form_utils.forms import BetterModelForm
 
 class ContactForm(forms.Form):
     name = forms.CharField()
@@ -21,46 +22,67 @@ class ContactForm(forms.Form):
 class CaptchaContactForm(ContactForm):
     captcha = ReCaptchaField()
 
-class PatientForm(forms.ModelForm):
+class PatientForm(BetterModelForm):
     class Meta:
         model = Patient
-        fields = ('sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
+        fieldsets = [
+                     ('patient', {
+                                  'fields': [ 'sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity', ],
+                                  }),
+                     ('baseline', {
+                                   'fields': [ 'visual_acuity_date', 'diagnosis_right', 'diagnosis_left', ],
+                                   }),
+                     ('visual_acuity', {
+                                   'fields': [ 'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both', ],
+                                   }),
+                     ('iop', {
+                                   'fields': [ 'iop_right', 'iop_left', 'tonometry', 'eua', ],
+                                   }),
+                     ('lens', {
+                                   'fields': [ 'lens_status_right', 'lens_extraction_date_right',
+                                              'lens_status_left', 'lens_extraction_date_left', ],
+                                   }),
+                     ]
         widgets = {
                    'postcode': forms.TextInput(attrs={'size':'10'}),
-                   'dob': forms.DateInput(attrs={'class':'datepicker past'})
-        }
-
-class PatientBaselineForm(forms.ModelForm):
-    class Meta:
-        model = Patient
-        fields = ('visual_acuity_date', 'diagnosis_right', 'diagnosis_left',
-                  'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both',
-                  'iop_right', 'iop_left', 'tonometry', 'eua',
-                  'lens_status_right', 'lens_extraction_date_right',
-                  'lens_status_left', 'lens_extraction_date_left'
-                  )
-        widgets = {
+                   'dob': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
                    'visual_acuity_date': forms.DateInput(attrs={'class':'datepicker past'}),
-                   'visual_acuity_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
-                   'visual_acuity_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
-                   'visual_acuity_both': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
+                   'visual_acuity_right': forms.Select(attrs={'class':'visualacuity'}),
+                   'visual_acuity_left': forms.Select(attrs={'class':'visualacuity'}),
+                   'visual_acuity_both': forms.Select(attrs={'class':'visualacuity'}),
                    'iop_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
-                   'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'})
+                   'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
         }
+    def __init__(self, *args, **kwargs):
+        super(PatientForm, self).__init__(*args, **kwargs)
+        
+        # Filter VisualAcuityReading choices depending upon selected method
+        method_id=self.is_bound and self.data['visual_acuity_method'] \
+            or 'visual_acuity_method' in self.initial and self.initial['visual_acuity_method']
+        if method_id:
+            scale_id=VisualAcuityMethod.objects.get(pk=method_id).scale_id
+            filtered=VisualAcuityReading.objects.filter(scale_id=scale_id)
+        else:
+            filtered=VisualAcuityReading.objects.none()
+        self.fields['visual_acuity_left'].queryset=filtered
+        self.fields['visual_acuity_right'].queryset=filtered
+        self.fields['visual_acuity_both'].queryset=filtered
+        
     def clean_lens_extraction_date_right(self):
         lens_extraction_date_right = self.cleaned_data.get('lens_extraction_date_right')
         lens_status_right = self.cleaned_data.get('lens_status_right')
         if lens_status_right and lens_status_right.name != 'Aphakia' and lens_status_right.name != 'Pseudophakia':
             return None
         return lens_extraction_date_right
+    
     def clean_lens_extraction_date_left(self):
         lens_extraction_date_left = self.cleaned_data.get('lens_extraction_date_left')
         lens_status_left = self.cleaned_data.get('lens_status_left')
         if lens_status_left and lens_status_left.name != 'Aphakia' and lens_status_left.name != 'Pseudophakia':
             return None
-        return lens_extraction_date_right
+        return lens_extraction_date_left
 
 class PatientManagementForm(forms.ModelForm):
     class Meta:

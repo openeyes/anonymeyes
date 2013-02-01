@@ -2,6 +2,18 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
+	// Visual Acuity scale changes
+	$('#id_visual_acuity_method').change(function() {
+		var empty_option = $('select.visualacuity option[value=""]').first();
+		$.ajax({
+			url: '/anonymeyes/visualacuityreadings/'+$(this).val()+'/',
+			success: function(data) {
+				$('select.visualacuity').html(empty_option.clone()).append(data)
+				$('select.visualacuity').val('');
+			},
+		});
+	});
+	
 	// Datatables
 	var datasets = $('#datasets').dataTable({
 		bJQueryUI: true,

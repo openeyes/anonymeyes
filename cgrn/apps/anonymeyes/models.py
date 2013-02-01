@@ -86,7 +86,7 @@ class VisualAcuityReading(models.Model):
     name = models.CharField(max_length=64)
     value = models.IntegerField()
     sort = models.IntegerField(default=10)
-    scale = models.ForeignKey(VisualAcuityScale)
+    scale = models.ForeignKey(VisualAcuityScale, related_name='readings')
     
     def __unicode__(self):
         return self.name
@@ -137,10 +137,10 @@ class Patient(models.Model):
     lens_extraction_date_right = models.DateField(verbose_name='Right Extraction date', blank=True, null=True)
     lens_extraction_date_left = models.DateField(verbose_name='Left Extraction date', blank=True, null=True)
     visual_acuity_date = models.DateField(verbose_name='Date')
-    visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Visual Acuity Method')
-    visual_acuity_right = models.CharField(max_length=10, verbose_name='RVA')
-    visual_acuity_left = models.CharField(max_length=10, verbose_name='LVA')
-    visual_acuity_both = models.CharField(max_length=10, verbose_name='BEO')
+    visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Method')
+    visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='patient_rva', verbose_name='RVA')
+    visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='patient_lva', verbose_name='LVA')
+    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo', verbose_name='BEO')
     iop_right = models.IntegerField(verbose_name='Right IOP', blank=True, null=True)
     iop_left = models.IntegerField(verbose_name='Left IOP', blank=True, null=True)
     tonometry = models.ForeignKey(Tonometry)
@@ -235,7 +235,7 @@ class Outcome(models.Model):
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_right = models.CharField(max_length=10, verbose_name='RVA')
     visual_acuity_left = models.CharField(max_length=10, verbose_name='LVA')
-    visual_acuity_both = models.CharField(max_length=10, verbose_name='BVA')
+    visual_acuity_both = models.CharField(max_length=10, verbose_name='BEO')
     patient = models.ForeignKey(Patient)
 
     def __unicode__(self):

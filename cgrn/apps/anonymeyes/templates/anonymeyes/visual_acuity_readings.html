@@ -1,0 +1,3 @@
+{% for reading in readings %}
+<option value="{{ reading.id }}"{% if reading.id == selected %} selected="selected"{% endif %}>{{ reading.name }}</option>
+{% endfor %}

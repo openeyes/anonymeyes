@@ -19,6 +19,7 @@
 			</ul>
 		</div>
 		<p>Please note that required fields are denoted by an *</p>
+		
 		<fieldset>
 			<legend>Patient</legend>
 			<ul>
@@ -33,25 +34,65 @@
 					<div class="data read-only">{{ patient.uuid }}</div>
 				</li>
 				{% endif %}
- 				{% for field in form %}
-				<li{% if field.errors %} class="error"{% endif %}>
-					<label for="{{ field.auto_id }}"{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span>:</label>
-					{{ field }} <span>{{ field.errors }}</span>
-				</li>
+ 				{% for field in form.fieldsets.patient %}
+					<li {{ field.row_attrs }}>
+						<label for="{{ field.auto_id }}"{% if field.errors %} class="error"{% endif %} ><span>{{ field.label }}</span>:</label>
+						{{ field }} <span>{{ field.errors }}</span>
+					</li>
 				{% endfor %}
 			</ul>
 		</fieldset>
+		
 		<fieldset>
 			<legend>Baseline Assessment</legend>
-			<ul>
- 				{% for field in baseline_form %}
-				<li{% if field.errors %} class="error"{% endif %}>
-					<label for="{{ field.auto_id }}"{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span>:</label>
-					{{ field }} <span>{{ field.errors }}</span>
-				</li>
-				{% endfor %}
-			</ul>
+			<fieldset>
+				<ul>
+	 				{% for field in form.fieldsets.baseline %}
+					<li {{ field.row_attrs }}>
+						<label for="{{ field.auto_id }}"{% if field.errors %} class="error"{% endif %} ><span>{{ field.label }}</span>:</label>
+						{{ field }} <span>{{ field.errors }}</span>
+					</li>
+					{% endfor %}
+				</ul>
+			</fieldset>
+
+			<fieldset>
+				<legend>Visual Acuity</legend>
+				<ul>
+	 				{% for field in form.fieldsets.visual_acuity %}
+					<li {{ field.row_attrs }}>
+						<label for="{{ field.auto_id }}"{% if field.errors %} class="error"{% endif %} ><span>{{ field.label }}</span>:</label>
+						{{ field }} <span>{{ field.errors }}</span>
+					</li>
+					{% endfor %}
+				</ul>
+			</fieldset>
+
+			<fieldset>
+				<legend>Intraocular Pressure</legend>
+				<ul>
+	 				{% for field in form.fieldsets.iop %}
+					<li {{ field.row_attrs }}>
+						<label for="{{ field.auto_id }}"{% if field.errors %} class="error"{% endif %} ><span>{{ field.label }}</span>:</label>
+						{{ field }} <span>{{ field.errors }}</span>
+					</li>
+					{% endfor %}
+				</ul>
+			</fieldset>
+
+			<fieldset>
+				<legend>Lens Status</legend>
+				<ul>
+	 				{% for field in form.fieldsets.lens %}
+					<li {{ field.row_attrs }}>
+						<label for="{{ field.auto_id }}"{% if field.errors %} class="error"{% endif %} ><span>{{ field.label }}</span>:</label>
+						{{ field }} <span>{{ field.errors }}</span>
+					</li>
+					{% endfor %}
+				</ul>
+			</fieldset>
 		</fieldset>
+		
 		{% for formset_name, formset in formsets.items %}
 		<fieldset>
 			<legend>{{ formset_name }}</legend>
@@ -76,11 +117,13 @@
 			</table>
 		</fieldset>
 		{% endfor %}
+
 		<div class="actions clearfix">
 			<ul>
 				<li><input type="submit" value="Save" /></li>
 				<li><a href="{% if patient.uuid %}{% url detail patient.id %}{% else %}{% url list %}{% endif %}">Cancel</a></li>
 			</ul>
 		</div>
+		
 	</form>
 {% endblock %}

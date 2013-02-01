@@ -101,8 +101,20 @@ form fieldset {
 
 form fieldset legend {
 	padding: 0 10px;
-	margin-left: 10px;
+	margin: 0 0 -10px 10px;
 	font-size: 18px;
+}
+
+form fieldset fieldset {
+	background: #eee;
+	margin: 15px 10px;
+	position: relative;
+}
+
+form fieldset fieldset legend {
+	font-size: 16px;
+	padding: 0 5px;
+	margin: 0 0 -5px 5px;
 }
 
 form fieldset p {
@@ -139,17 +151,21 @@ form label,form .label {
 	padding-right: 10px;
 }
 
-form label.required span,
+.inline_form {
+	margin: 10px 0;
+}
+
+form .required label span,
 .inline_form th.required span {
 	font-weight: bold;
 }
 
-form label.required span:after,
+form .required label span:after,
 .inline_form th.required span:after {
 	content: "*";
 }
 
-form .error label {
+form label.error {
 	color: #f00;
 }
 
@@ -242,7 +258,7 @@ form input.small {
 .data-section {
 	border: 1px solid #ddd;
 	border-radius: 5px;
-	padding: 20px 10px 10px;
+	padding: 10px 10px 10px;
 	margin: 30px 0;
 	position: relative;
 }
@@ -259,6 +275,10 @@ form input.small {
 
 .data-section p {
 	margin: 10px 5px;
+}
+
+.data-section table {
+	margin: 10px 0;
 }
 
 dl {

@@ -189,6 +189,7 @@ THIRD_PARTY_APPS = (
     'captcha',
 
     'csvimport',
+    'form_utils',
 )
 
 LOCAL_APPS = (

@@ -3,13 +3,14 @@ from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.wizard.views import NamedUrlSessionWizardView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.forms.models import construct_instance
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView, FormView, DeleteView
+from django.views.generic import View, TemplateView, ListView, DetailView, UpdateView, CreateView, FormView, DeleteView
+from django.utils import simplejson as json
 from django.utils.decorators import method_decorator
 from apps.anonymeyes.admin import PatientAdminForm
 from apps.anonymeyes.forms import *
-from apps.anonymeyes.models import Patient, Management
+from apps.anonymeyes.models import Patient, Management, VisualAcuityReading
 
 class IndexView(TemplateView):
     template_name='anonymeyes/index.html'
@@ -83,11 +84,9 @@ class PatientCreateView(CreateView):
         form.instance.created_by = self.request.user
         form.instance.updated_by = self.request.user
         context = self.get_context_data()
-        baseline_form = context['baseline_form']
         management_formset = context['formsets']['Management']
         outcome_formset = context['formsets']['Outcome']
-        if baseline_form.is_valid() and management_formset.is_valid() and outcome_formset.is_valid():
-            form.instance = construct_instance(baseline_form, form.instance)
+        if management_formset.is_valid() and outcome_formset.is_valid():
             response = super(PatientCreateView, self).form_valid(form)
             management_formset.instance = self.object
             for management_instance in management_formset.save(commit=False):
@@ -105,10 +104,6 @@ class PatientCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(PatientCreateView, self).get_context_data(**kwargs)
-        if self.request.POST:
-            context['baseline_form'] = PatientBaselineForm(self.request.POST)
-        else:
-            context['baseline_form'] = PatientBaselineForm()
         if 'formsets' not in context:
             context['formsets'] = collections.OrderedDict()
         if self.request.POST:
@@ -132,11 +127,9 @@ class PatientUpdateView(UpdateView):
     def form_valid(self, form):
         form.instance.updated_by = self.request.user
         context = self.get_context_data()
-        baseline_form = context['baseline_form']
         management_formset = context['formsets']['Management']
         outcome_formset = context['formsets']['Outcome']
-        if baseline_form.is_valid() and management_formset.is_valid() and outcome_formset.is_valid():
-            form.instance = construct_instance(baseline_form, form.instance)
+        if management_formset.is_valid() and outcome_formset.is_valid():
             management_formset.instance = self.object
             for management_instance in management_formset.save(commit=False):
                 management_instance.updated_by = self.request.user
@@ -152,10 +145,6 @@ class PatientUpdateView(UpdateView):
     
     def get_context_data(self, **kwargs):
         context = super(PatientUpdateView, self).get_context_data(**kwargs)
-        if self.request.POST:
-            context['baseline_form'] = PatientBaselineForm(self.request.POST, instance=self.object)
-        else:
-            context['baseline_form'] = PatientBaselineForm(instance=self.object)
         if 'formsets' not in context:
             context['formsets'] = collections.OrderedDict()
         if self.request.POST:
@@ -165,6 +154,16 @@ class PatientUpdateView(UpdateView):
             context['formsets']['Management'] = PatientUpdateManagementFormSet(instance=self.object)
             context['formsets']['Outcome'] = PatientUpdateOutcomeFormSet(instance=self.object)
         return context
+
+class VisualAcuityReadingsView(TemplateView):
+    template_name='anonymeyes/visual_acuity_readings.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(VisualAcuityReadingsView, self).get_context_data(**kwargs)
+        #current_reading_id=(self.request.GET.get('reading_pk')) and int(self.request.GET.get('reading_pk')) or None
+        context['readings'] = VisualAcuityMethod.objects.get(pk=int(self.kwargs.get('method_pk'))).scale.readings.all()
+        return context
+
 
 class PatientListView(ListView):
      context_object_name='patients'

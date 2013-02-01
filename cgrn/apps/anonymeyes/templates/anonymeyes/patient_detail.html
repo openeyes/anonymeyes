@@ -38,11 +38,11 @@
 			<dd>{{ patient.diagnosis_left }}</dd>
 			<dt>Visual Acuity Method:</dt>
 			<dd>{{ patient.visual_acuity_method }}</dd>
-			<dt>Visual Acuity Right:</dt>
+			<dt>RVA:</dt>
 			<dd>{{ patient.visual_acuity_right }}</dd>
-			<dt>Visual Acuity Left:</dt>
+			<dt>LVA:</dt>
 			<dd>{{ patient.visual_acuity_left }}</dd>
-			<dt>Visual Acuity Both:</dt>
+			<dt>BEO:</dt>
 			<dd>{{ patient.visual_acuity_both }}</dd>
 			<dt>Right IOP:</dt>
 			<dd>{{ patient.iop_right }}</dd>
@@ -54,12 +54,16 @@
 			<dd>{{ patient.eua|yesno:"Yes,No" }}</dd>
 			<dt>Right Lens Status:</dt>
 			<dd>{{ patient.lens_status_right }}</dd>
+			{% if patient.lens_extraction_date_right %}
 			<dt>Right Lens Extraction Date:</dt>
 			<dd>{{ patient.lens_extraction_date_right }}</dd>
+			{% endif %}
 			<dt>Left Lens Status:</dt>
 			<dd>{{ patient.lens_status_left }}</dd>
+			{% if patient.lens_extraction_date_left %}
 			<dt>Left Lens Extraction Date:</dt>
 			<dd>{{ patient.lens_extraction_date_left }}</dd>
+			{% endif %}
 		</dl>
 	</div>
 	<div class="data-section">
@@ -106,7 +110,7 @@
 					<th>VA Method</th>
 					<th>RVA</th>
 					<th>LVA</th>
-					<th>BVA</th>
+					<th>BEO</th>
 				</tr>
 			</thead>
 			<tbody>
