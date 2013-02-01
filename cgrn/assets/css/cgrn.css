@@ -446,3 +446,11 @@ table.dataTable tfoot input.search_uuid {
 .row_actions .delete {
 	background-position: -456px 0;
 }
+
+.inline_form .visualacuitymethod {
+	width: 200px;
+}
+
+.inline_form .visualacuity {
+	width: 100px;
+}

@@ -29,11 +29,6 @@ class ManagementInline(admin.TabularInline):
 class OutcomeAdminForm(forms.ModelForm):
     class Meta:
         model = Outcome
-        widgets = {
-                   'visual_acuity_right': forms.TextInput(attrs={'size':'10'}),
-                   'visual_acuity_left': forms.TextInput(attrs={'size':'10'}),
-                   'visual_acuity_both': forms.TextInput(attrs={'size':'10'}),
-        }
 
 class OutcomeInline(admin.TabularInline):
     extra = 0
@@ -46,9 +41,6 @@ class PatientAdminForm(forms.ModelForm):
         model = Patient
         widgets = {
                    'postcode': forms.TextInput(attrs={'size':'10'}),
-                   'visual_acuity_right': forms.TextInput(attrs={'size':'10'}),
-                   'visual_acuity_left': forms.TextInput(attrs={'size':'10'}),
-                   'visual_acuity_both': forms.TextInput(attrs={'size':'10'}),
                    'iop_right': forms.TextInput(attrs={'size':'10'}),
                    'iop_left': forms.TextInput(attrs={'size':'10'})
         }

@@ -233,9 +233,9 @@ class Outcome(models.Model):
     eye = models.ForeignKey(Eye)
     iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
-    visual_acuity_right = models.CharField(max_length=10, verbose_name='RVA')
-    visual_acuity_left = models.CharField(max_length=10, verbose_name='LVA')
-    visual_acuity_both = models.CharField(max_length=10, verbose_name='BEO')
+    visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
+    visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')
+    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo', verbose_name='BEO')
     patient = models.ForeignKey(Patient)
 
     def __unicode__(self):

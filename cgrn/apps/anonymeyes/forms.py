@@ -49,6 +49,7 @@ class PatientForm(BetterModelForm):
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
                    'visual_acuity_date': forms.DateInput(attrs={'class':'datepicker past'}),
+                   'visual_acuity_method': forms.Select(attrs={'class':'visualacuitymethod'}),
                    'visual_acuity_right': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_left': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_both': forms.Select(attrs={'class':'visualacuity'}),
@@ -119,11 +120,26 @@ class PatientOutcomeForm(forms.ModelForm):
         model = Outcome
         widgets = {
                    'date': forms.DateInput(attrs={'class':'datepicker past'}),
-                   'visual_acuity_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
-                   'visual_acuity_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
-                   'visual_acuity_both': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
+                   'visual_acuity_method': forms.Select(attrs={'class':'visualacuitymethod'}),
+                   'visual_acuity_right': forms.Select(attrs={'class':'visualacuity'}),
+                   'visual_acuity_left': forms.Select(attrs={'class':'visualacuity'}),
+                   'visual_acuity_both': forms.Select(attrs={'class':'visualacuity'}),
         }
         exclude = { 'patient', 'created_by', 'updated_by', }
+    def __init__(self, *args, **kwargs):
+        super(PatientOutcomeForm, self).__init__(*args, **kwargs)
+        
+        # Filter VisualAcuityReading choices depending upon selected method
+        method_id=self.is_bound and self.data['visual_acuity_method'] \
+            or 'visual_acuity_method' in self.initial and self.initial['visual_acuity_method']
+        if method_id:
+            scale_id=VisualAcuityMethod.objects.get(pk=method_id).scale_id
+            filtered=VisualAcuityReading.objects.filter(scale_id=scale_id)
+        else:
+            filtered=VisualAcuityReading.objects.none()
+        self.fields['visual_acuity_left'].queryset=filtered
+        self.fields['visual_acuity_right'].queryset=filtered
+        self.fields['visual_acuity_both'].queryset=filtered
 
 PatientManagementFormSet = forms.models.inlineformset_factory(Patient, Management, form = PatientManagementForm, extra=1, can_delete=False)
 
