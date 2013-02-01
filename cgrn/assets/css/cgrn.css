@@ -340,12 +340,13 @@ span.help.active span {
 	display: inline;
 	position: absolute;
 	z-index: 10;
-	left: 20px;
-	top: 0;
+	top: 15px;
+	left: -100px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
 	padding: 5px;
 	background: #eaf7ff;
+	box-shadow: 5px 5px 3px #999;
 }
 
 .dataTables_wrapper {

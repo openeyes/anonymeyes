@@ -58,12 +58,35 @@ class LensStatus(models.Model):
     def __unicode__(self):
         return self.name
 
+class VisualAcuityScale(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
 class VisualAcuityMethod(models.Model):
     class Meta:
         ordering = ['sort','name']
 
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
+    scale = models.ForeignKey(VisualAcuityScale)
+    
+    def __unicode__(self):
+        return self.name
+
+class VisualAcuityReading(models.Model):
+    class Meta:
+        ordering = ['scale__name','sort','name']
+
+    name = models.CharField(max_length=64)
+    value = models.IntegerField()
+    sort = models.IntegerField(default=10)
+    scale = models.ForeignKey(VisualAcuityScale)
     
     def __unicode__(self):
         return self.name

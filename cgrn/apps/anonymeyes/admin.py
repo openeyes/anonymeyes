@@ -90,4 +90,14 @@ class DiagnosisAdmin(admin.ModelAdmin):
     list_filter = ('group',)
 
 admin.site.register(Diagnosis, DiagnosisAdmin)
-        
+
+class VisualAcuityReadingInline(admin.TabularInline):
+    extra = 0
+    model = VisualAcuityReading
+
+class VisualAcuityScaleAdmin(admin.ModelAdmin):
+    inlines = [
+        VisualAcuityReadingInline,
+    ]
+
+admin.site.register(VisualAcuityScale, VisualAcuityScaleAdmin)
