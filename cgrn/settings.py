@@ -32,7 +32,7 @@ TEMPLATE_DEBUG = DEBUG
 ########## MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ('Jamie Neil', 'jamie.neil@openeyes.org.uk'),
+    #('Admin User', 'admin.user@example.com'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
