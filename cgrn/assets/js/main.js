@@ -2,6 +2,18 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
+	// Show DOB day/month fields if they contain data
+	$('form .dob #id_dob_day').each(function() {
+		if($(this).val() != '') {
+			$(this).show();
+		}
+	});
+	$('form .dob #id_dob_month').each(function() {
+		if($(this).val() != '') {
+			$(this).show();
+		}
+	});
+	
 	// Visual Acuity scale changes
 	$('body').delegate('.visualacuitymethod', 'change', function() {
 		var wrapper = $(this).closest('fieldset, tr');

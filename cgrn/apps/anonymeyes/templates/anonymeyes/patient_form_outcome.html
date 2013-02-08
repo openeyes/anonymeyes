@@ -21,15 +21,18 @@
 </td>
 <td class="outcome_visual_acuity_right">
 	{{ inlineform.visual_acuity_right }}
-	<span>{{ inlineform.visual_acuity_right.errors }}</span>
+	{{ inlineform.visual_acuity_correction_right }}
+	<span>{{ inlineform.visual_acuity_right.errors }}{{ inlineform.visual_acuity_correction.right.errors }}</span>
 </td>
 <td class="outcome_visual_acuity_left">
 	{{ inlineform.visual_acuity_left }}
-	<span>{{ inlineform.visual_acuity_left.errors }}</span>
+	{{ inlineform.visual_acuity_correction_left }}
+	<span>{{ inlineform.visual_acuity_left.errors }}{{ inlineform.visual_acuity_correction_left.errors }}</span>
 </td>
 <td class="outcome_visual_acuity_both">
 	{{ inlineform.visual_acuity_both }}
-	<span>{{ inlineform.visual_acuity_both.errors }}</span>
+	{{ inlineform.visual_acuity_correction_both }}
+	<span>{{ inlineform.visual_acuity_both.errors }}{{ inlineform.visual_acuity_correction_both.errors }}</span>
 	{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}
 </td>
 {% if formset.can_delete %}

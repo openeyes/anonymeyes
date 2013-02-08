@@ -1,3 +1,14 @@
+# DOB Precision
+- fields: {name: Day, sort: 10}
+  model: anonymeyes.dobprecision
+  pk: 1
+- fields: {name: Month, sort: 20}
+  model: anonymeyes.dobprecision
+  pk: 2
+- fields: {name: Year, sort: 30}
+  model: anonymeyes.dobprecision
+  pk: 3
+
 # Adjuvant
 - fields: {name: None, sort: 10}
   model: anonymeyes.adjuvant

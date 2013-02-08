@@ -7,6 +7,7 @@ from django.conf import settings
 from captcha.fields import ReCaptchaField
 from apps.anonymeyes.models import Patient, Management, Outcome, VisualAcuityReading, VisualAcuityMethod
 from form_utils.forms import BetterModelForm
+import datetime
 
 class ContactForm(forms.Form):
     name = forms.CharField()
@@ -27,7 +28,7 @@ class PatientForm(BetterModelForm):
         model = Patient
         fieldsets = [
                      ('patient', {
-                                  'fields': [ 'sex', 'dob', 'postcode', 'health_care', 'ethnic_group', 'consanguinity', ],
+                                  'fields': [ 'sex', 'dob_day', 'dob_month', 'dob_year', 'postcode', 'health_care', 'ethnic_group', 'consanguinity', ],
                                   }),
                      ('baseline', {
                                    'fields': [ 'visual_acuity_date', 'diagnosis_right', 'diagnosis_left', ],
@@ -48,7 +49,8 @@ class PatientForm(BetterModelForm):
                      ]
         widgets = {
                    'postcode': forms.TextInput(attrs={'size':'10'}),
-                   'dob': forms.DateInput(attrs={'class':'datepicker past'}),
+                   'dob_day': forms.TextInput(attrs={'size':'10'}),
+                   'dob_year': forms.TextInput(attrs={'size':'10'}),
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
                    'visual_acuity_date': forms.DateInput(attrs={'class':'datepicker past'}),
@@ -60,6 +62,7 @@ class PatientForm(BetterModelForm):
                    'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
         }
     def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
         super(PatientForm, self).__init__(*args, **kwargs)
         
         # Filter VisualAcuityReading choices depending upon selected method
@@ -95,6 +98,32 @@ class PatientForm(BetterModelForm):
             return None
         return anaesthesia
 
+    def clean_dob_month(self):
+        dob_month = self.cleaned_data.get('dob_month')
+        dob_day = self.cleaned_data.get('dob_day')
+        precision = self.request.user.get_profile().dob_precision
+        if ((precision and precision.name != 'Year') or dob_day) and dob_month == None:
+            raise forms.ValidationError("DOB month required")
+        return dob_month
+
+    def clean_dob_day(self):
+        dob_day = self.cleaned_data.get('dob_day')
+        precision = self.request.user.get_profile().dob_precision
+        if precision and precision.name == 'Day' and dob_day == None:
+            raise forms.ValidationError("DOB day required")
+        return dob_day
+
+    def clean(self):
+        cleaned_data = super(PatientForm, self).clean()
+        dob_day = int(cleaned_data.get("dob_day") or 1)
+        dob_month = int(cleaned_data.get("dob_month") or 1)
+        dob_year = int(cleaned_data.get("dob_year") or 0)
+        try:
+            dob = datetime.datetime(dob_year, dob_month, dob_day)
+        except ValueError:
+            raise forms.ValidationError("DOB is not valid")
+        return cleaned_data
+    
 class PatientManagementForm(forms.ModelForm):
     class Meta:
         model = Management

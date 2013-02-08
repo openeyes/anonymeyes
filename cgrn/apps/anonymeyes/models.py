@@ -1,9 +1,31 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 from django.core import validators 
 from uuid import uuid4
+from datetime import date
 import re
+
+class DOBPrecision(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    dob_precision = models.ForeignKey(DOBPrecision, default=1)
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)
 
 class EthnicGroup(models.Model):
     class Meta:
@@ -147,7 +169,33 @@ class Patient(models.Model):
                    (FEMALE, 'Female'),
     )
     sex = models.IntegerField(choices=SEX_CHOICES)
-    dob = models.DateField() 
+    dob_day = models.IntegerField(blank=True, null=True, validators=[
+                                                                     validators.MaxValueValidator(31),
+                                                                     validators.MinValueValidator(1)
+                                                                     ])
+    MONTH_CHOICES = (
+                     (1, 'Jan'),
+                     (2, 'Feb'),
+                     (3, 'Mar'),
+                     (4, 'Apr'),
+                     (5, 'May'),
+                     (6, 'Jun'),
+                     (7, 'Jul'),
+                     (8, 'Aug'),
+                     (9, 'Sep'),
+                     (10, 'Oct'),
+                     (11, 'Nov'),
+                     (12, 'Dec'),
+                     )
+    dob_month = models.IntegerField(choices=MONTH_CHOICES, blank=True, null=True)
+    dob_year = models.IntegerField(validators=[
+                                               validators.MaxValueValidator(date.today().year),
+                                               validators.MinValueValidator(date.today().year - 30)
+                                               ])
+    @property
+    def dob(self):
+        return str(self.dob_day or '') + ' ' + str((self.dob_month and self.get_dob_month_display()) or '') + ' ' + str(self.dob_year)
+
     postcode = models.CharField(
                                 verbose_name='Postcode Prefix',
                                 max_length=4,
@@ -293,6 +341,9 @@ class Outcome(models.Model):
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')
     visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo', verbose_name='BEO')
+    visual_acuity_correction_right = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_rva_correction', verbose_name='Right correction')
+    visual_acuity_correction_left = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_lva_correction', verbose_name='Left correction')
+    visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_beo_correction', verbose_name='Both correction')
     patient = models.ForeignKey(Patient)
 
     def __unicode__(self):

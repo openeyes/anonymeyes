@@ -9,44 +9,32 @@ from uuid import UUID
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
-        db.add_column('anonymeyes_outcome', 'iop_control', self.gf('django.db.models.fields.BooleanField')(default=False))
-        db.delete_index('anonymeyes_outcome', ['iop_control_id'])
-        db.delete_column('anonymeyes_outcome', 'iop_control_id')
-        
-        # Deleting model 'IOPControl'
-        db.delete_table('anonymeyes_iopcontrol')
-
-        # Deleting field 'Outcome.iop_meds'
-        db.delete_column('anonymeyes_outcome', 'iop_meds')
-
-        # Adding field 'Outcome.iop_agents'
-        db.add_column('anonymeyes_outcome', 'iop_agents',
-                      self.gf('django.db.models.fields.IntegerField')(null=True, blank=True),
+        # Adding field 'Outcome.visual_acuity_correction_right'
+        db.add_column('anonymeyes_outcome', 'visual_acuity_correction_right',
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, related_name='outcome_rva_correction', to=orm['anonymeyes.VisualAcuityCorrection']),
                       keep_default=False)
+
+        # Adding field 'Outcome.visual_acuity_correction_left'
+        db.add_column('anonymeyes_outcome', 'visual_acuity_correction_left',
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, related_name='outcome_lva_correction', to=orm['anonymeyes.VisualAcuityCorrection']),
+                      keep_default=False)
+
+        # Adding field 'Outcome.visual_acuity_correction_both'
+        db.add_column('anonymeyes_outcome', 'visual_acuity_correction_both',
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, related_name='outcome_beo_correction', to=orm['anonymeyes.VisualAcuityCorrection']),
+                      keep_default=False)
+
 
     def backwards(self, orm):
+        # Deleting field 'Outcome.visual_acuity_correction_right'
+        db.delete_column('anonymeyes_outcome', 'visual_acuity_correction_right_id')
 
-        # Adding model 'IOPControl'
-        db.create_table('anonymeyes_iopcontrol', (
-            ('sort', self.gf('django.db.models.fields.IntegerField')(default=10)),
-            ('meds', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=64)),
-        ))
-        db.send_create_signal('anonymeyes', ['IOPControl'])
+        # Deleting field 'Outcome.visual_acuity_correction_left'
+        db.delete_column('anonymeyes_outcome', 'visual_acuity_correction_left_id')
 
-        # Adding field 'Outcome.iop_meds'
-        db.add_column('anonymeyes_outcome', 'iop_meds',
-                      self.gf('django.db.models.fields.IntegerField')(null=True, blank=True),
-                      keep_default=False)
+        # Deleting field 'Outcome.visual_acuity_correction_both'
+        db.delete_column('anonymeyes_outcome', 'visual_acuity_correction_both_id')
 
-        # Deleting field 'Outcome.iop_agents'
-        db.delete_column('anonymeyes_outcome', 'iop_agents')
-
-        db.add_column('anonymeyes_outcome', 'iop_control',
-                      self.gf('django.db.models.fields.related.ForeignKey')(to=orm['anonymeyes.IOPControl'], default=1))
-        db.delete_column('anonymeyes_outcome', 'iop_control')
 
     models = {
         'anonymeyes.adjuvant': {
@@ -140,6 +128,9 @@ class Migration(SchemaMigration):
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'updated_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'outcome_updated_set'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"}),
             'visual_acuity_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_beo'", 'to': "orm['anonymeyes.VisualAcuityReading']"}),
+            'visual_acuity_correction_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_beo_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
+            'visual_acuity_correction_left': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_lva_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
+            'visual_acuity_correction_right': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_rva_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
             'visual_acuity_left': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_lva'", 'to': "orm['anonymeyes.VisualAcuityReading']"}),
             'visual_acuity_method': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['anonymeyes.VisualAcuityMethod']"}),
             'visual_acuity_right': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_rva'", 'to': "orm['anonymeyes.VisualAcuityReading']"})
@@ -168,7 +159,7 @@ class Migration(SchemaMigration):
             'tonometry': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['anonymeyes.Tonometry']"}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'updated_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'patient_updated_set'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"}),
-            'uuid': ('django.db.models.fields.CharField', [], {'default': "UUID('e03e59a6-6e84-4864-b87a-4100dc77b48b')", 'unique': 'True', 'max_length': '64', 'blank': 'True'}),
+            'uuid': ('django.db.models.fields.CharField', [], {'default': "UUID('04a21f5f-c32d-46f2-ac2a-78e4390e6d5c')", 'unique': 'True', 'max_length': '64', 'blank': 'True'}),
             'visual_acuity_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'patient_beo'", 'to': "orm['anonymeyes.VisualAcuityReading']"}),
             'visual_acuity_correction_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'patient_beo_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
             'visual_acuity_correction_left': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'patient_lva_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),

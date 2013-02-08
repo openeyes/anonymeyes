@@ -244,4 +244,6 @@ WSGI_APPLICATION = 'wsgi.application'
 #]
 ########## END COMPRESSION CONFIGURATION
 
+AUTH_PROFILE_MODULE = 'anonymeyes.UserProfile'
+
 from settings_local import *

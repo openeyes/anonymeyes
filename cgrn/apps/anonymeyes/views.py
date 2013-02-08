@@ -80,6 +80,11 @@ class PatientCreateView(CreateView):
     def dispatch(self, request, *args, **kwargs):
         return super(PatientCreateView, self).dispatch(request, *args, **kwargs)
 
+    def get_form(self, form_class):
+        form = super(PatientCreateView, self).get_form(form_class)
+        form.instance.user = self.request.user
+        return form
+
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         form.instance.updated_by = self.request.user
@@ -123,6 +128,11 @@ class PatientUpdateView(UpdateView):
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super(PatientUpdateView, self).dispatch(request, *args, **kwargs)
+
+    def get_form(self, form_class):
+        form = super(PatientUpdateView, self).get_form(form_class)
+        form.request = self.request
+        return form
 
     def form_valid(self, form):
         form.instance.updated_by = self.request.user

@@ -49,7 +49,7 @@ class PatientAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
     fieldsets = (
                  (None, {
-                         'fields': ('created_by', 'updated_by', 'created_at', 'updated_at', 'sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity')
+                         'fields': ('created_by', 'updated_by', 'created_at', 'updated_at', 'sex', 'dob_day', 'dob_month', 'dob_year', 'postcode', 'ethnic_group', 'consanguinity')
                          }),
                  ('Baseline Assessment', {
                          'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_left',
@@ -64,8 +64,8 @@ class PatientAdmin(admin.ModelAdmin):
         ManagementInline,
         OutcomeInline,
     ]
-    list_display = ('uuid','sex', 'dob', 'postcode','created_at', 'updated_at')
-    list_filter = ('sex','dob','created_at','updated_at')
+    list_display = ('uuid','sex', 'dob_year', 'postcode','created_at', 'updated_at')
+    list_filter = ('sex','dob_year','created_at','updated_at')
     search_fields = ('postcode','diagnosis_right__name','diagnosis_left__name')
     
 admin.site.register(Patient, PatientAdmin)

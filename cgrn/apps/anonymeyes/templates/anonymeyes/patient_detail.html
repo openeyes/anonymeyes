@@ -128,9 +128,9 @@
 					<td>{{ outcome.iop_control|yesno:"Yes,No" }}
 						{% if outcome.iop_agents %}({{ outcome.iop_agents }} agent{% if outcome.iop_agents != 1 %}s{% endif %}){% endif %}</td>
 					<td>{{ outcome.visual_acuity_method }}</td>
-					<td>{{ outcome.visual_acuity_right }}</td>
-					<td>{{ outcome.visual_acuity_left }}</td>
-					<td>{{ outcome.visual_acuity_both }}</td>
+					<td>{{ outcome.visual_acuity_right }} ({{ outcome.visual_acuity_correction_right }})</td>
+					<td>{{ outcome.visual_acuity_left }} ({{ outcome.visual_acuity_correction_left }})</td>
+					<td>{{ outcome.visual_acuity_both }} ({{ outcome.visual_acuity_correction_both }})</td>
 				</tr>
 				{% endfor %}
 			</tbody>

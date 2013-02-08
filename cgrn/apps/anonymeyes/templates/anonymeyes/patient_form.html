@@ -21,7 +21,13 @@
 		<p>Please note that required fields are denoted by an *</p>
 		{% if form.errors or formsets_invalid %}
 		<ul class="messages">
+			{% if form.non_field_errors %}
+			{% for error in form.non_field_errors %}
+			<li class="error">{{ error }}</li>
+			{% endfor %}
+			{% else %}
 			<li class="error">Please correct errors marked below</li>
+			{% endif %}
 		</ul>
 		{% endif %}
 		<fieldset>
@@ -38,12 +44,30 @@
 					<div class="data read-only">{{ patient.uuid }}</div>
 				</li>
 				{% endif %}
- 				{% for field in form.fieldsets.patient %}
-					<li {{ field.row_attrs }}>
-						<label for="{{ field.auto_id }}"{% if field.errors %} class="error"{% endif %} ><span>{{ field.label }}</span>:</label>
-						{{ field }} <span>{{ field.errors }}</span>
-					</li>
-				{% endfor %}
+				<li {{ form.sex.row_attrs }}>
+					<label for="{{ form.sex.auto_id }}"{% if form.sex.errors %} class="error"{% endif %} ><span>{{ form.sex.label }}</span>:</label>
+					{{ form.sex }} <span>{{ form.sex.errors }}</span>
+				</li>
+				<li class="required dob precision-{{ request.user.get_profile.dob_precision.name|lower }}">
+					<label{% if form.dob_day.errors or form.dob_month.errors or form.dob_year.errors %} class="error"{% endif %} ><span>DOB</span>:</label>
+					{{ form.dob_year }} <span>{{ form.dob_year.errors }}</span> {{ form.dob_month }} <span>{{ form.dob_month.errors }}</span> {{ form.dob_day }} <span>{{ form.dob_day.errors }}</span>
+				</li>
+				<li {{ form.postcode.row_attrs }}>
+					<label for="{{ form.postcode.auto_id }}"{% if form.postcode.errors %} class="error"{% endif %} ><span>{{ form.postcode.label }}</span>:</label>
+					{{ form.postcode }} <span>{{ form.postcode.errors }}</span>
+				</li>
+				<li {{ form.health_care.row_attrs }}>
+					<label for="{{ form.health_care.auto_id }}"{% if form.health_care.errors %} class="error"{% endif %} ><span>{{ form.health_care.label }}</span>:</label>
+					{{ form.health_care }} <span>{{ form.health_care.errors }}</span>
+				</li>
+				<li {{ form.ethnic_group.row_attrs }}>
+					<label for="{{ form.ethnic_group.auto_id }}"{% if form.ethnic_group.errors %} class="error"{% endif %} ><span>{{ form.ethnic_group.label }}</span>:</label>
+					{{ form.ethnic_group }} <span>{{ form.ethnic_group.errors }}</span>
+				</li>
+				<li {{ form.consanguinity.row_attrs }}>
+					<label for="{{ form.consanguinity.auto_id }}"{% if form.consanguinity.errors %} class="error"{% endif %} ><span>{{ form.consanguinity.label }}</span>:</label>
+					{{ form.consanguinity }} <span>{{ form.consanguinity.errors }}</span>
+				</li>
 			</ul>
 		</fieldset>
 		

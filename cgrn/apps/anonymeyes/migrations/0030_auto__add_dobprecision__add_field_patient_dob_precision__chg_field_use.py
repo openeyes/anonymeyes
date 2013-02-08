@@ -9,44 +9,43 @@ from uuid import UUID
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
-        db.add_column('anonymeyes_outcome', 'iop_control', self.gf('django.db.models.fields.BooleanField')(default=False))
-        db.delete_index('anonymeyes_outcome', ['iop_control_id'])
-        db.delete_column('anonymeyes_outcome', 'iop_control_id')
-        
-        # Deleting model 'IOPControl'
-        db.delete_table('anonymeyes_iopcontrol')
-
-        # Deleting field 'Outcome.iop_meds'
-        db.delete_column('anonymeyes_outcome', 'iop_meds')
-
-        # Adding field 'Outcome.iop_agents'
-        db.add_column('anonymeyes_outcome', 'iop_agents',
-                      self.gf('django.db.models.fields.IntegerField')(null=True, blank=True),
-                      keep_default=False)
-
-    def backwards(self, orm):
-
-        # Adding model 'IOPControl'
-        db.create_table('anonymeyes_iopcontrol', (
-            ('sort', self.gf('django.db.models.fields.IntegerField')(default=10)),
-            ('meds', self.gf('django.db.models.fields.BooleanField')(default=False)),
+        # Adding model 'DOBPrecision'
+        db.create_table('anonymeyes_dobprecision', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=64)),
+            ('sort', self.gf('django.db.models.fields.IntegerField')(default=10)),
         ))
-        db.send_create_signal('anonymeyes', ['IOPControl'])
+        db.send_create_signal('anonymeyes', ['DOBPrecision'])
 
-        # Adding field 'Outcome.iop_meds'
-        db.add_column('anonymeyes_outcome', 'iop_meds',
-                      self.gf('django.db.models.fields.IntegerField')(null=True, blank=True),
+        # Adding field 'Patient.dob_precision'
+        db.add_column('anonymeyes_patient', 'dob_precision',
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, to=orm['anonymeyes.DOBPrecision']),
                       keep_default=False)
 
-        # Deleting field 'Outcome.iop_agents'
-        db.delete_column('anonymeyes_outcome', 'iop_agents')
 
-        db.add_column('anonymeyes_outcome', 'iop_control',
-                      self.gf('django.db.models.fields.related.ForeignKey')(to=orm['anonymeyes.IOPControl'], default=1))
-        db.delete_column('anonymeyes_outcome', 'iop_control')
+        # Renaming column for 'UserProfile.dob_precision' to match new field type.
+        db.rename_column('anonymeyes_userprofile', 'dob_precision', 'dob_precision_id')
+        # Changing field 'UserProfile.dob_precision'
+        db.alter_column('anonymeyes_userprofile', 'dob_precision_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['anonymeyes.DOBPrecision']))
+        # Adding index on 'UserProfile', fields ['dob_precision']
+        db.create_index('anonymeyes_userprofile', ['dob_precision_id'])
+
+
+    def backwards(self, orm):
+        # Removing index on 'UserProfile', fields ['dob_precision']
+        db.delete_index('anonymeyes_userprofile', ['dob_precision_id'])
+
+        # Deleting model 'DOBPrecision'
+        db.delete_table('anonymeyes_dobprecision')
+
+        # Deleting field 'Patient.dob_precision'
+        db.delete_column('anonymeyes_patient', 'dob_precision_id')
+
+
+        # Renaming column for 'UserProfile.dob_precision' to match new field type.
+        db.rename_column('anonymeyes_userprofile', 'dob_precision_id', 'dob_precision')
+        # Changing field 'UserProfile.dob_precision'
+        db.alter_column('anonymeyes_userprofile', 'dob_precision', self.gf('django.db.models.fields.IntegerField')())
 
     models = {
         'anonymeyes.adjuvant': {
@@ -78,6 +77,12 @@ class Migration(SchemaMigration):
             'Meta': {'ordering': "['sort', 'name']", 'object_name': 'DiagnosisGroup'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'sort': ('django.db.models.fields.IntegerField', [], {'default': '10'})
+        },
+        'anonymeyes.dobprecision': {
+            'Meta': {'ordering': "['sort', 'name']", 'object_name': 'DOBPrecision'},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
             'sort': ('django.db.models.fields.IntegerField', [], {'default': '10'})
         },
         'anonymeyes.ethnicgroup': {
@@ -140,6 +145,9 @@ class Migration(SchemaMigration):
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'updated_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'outcome_updated_set'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"}),
             'visual_acuity_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_beo'", 'to': "orm['anonymeyes.VisualAcuityReading']"}),
+            'visual_acuity_correction_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_beo_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
+            'visual_acuity_correction_left': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_lva_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
+            'visual_acuity_correction_right': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_rva_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
             'visual_acuity_left': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_lva'", 'to': "orm['anonymeyes.VisualAcuityReading']"}),
             'visual_acuity_method': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['anonymeyes.VisualAcuityMethod']"}),
             'visual_acuity_right': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'outcome_rva'", 'to': "orm['anonymeyes.VisualAcuityReading']"})
@@ -153,6 +161,7 @@ class Migration(SchemaMigration):
             'diagnosis_left': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'+'", 'to': "orm['anonymeyes.Diagnosis']"}),
             'diagnosis_right': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'+'", 'to': "orm['anonymeyes.Diagnosis']"}),
             'dob': ('django.db.models.fields.DateField', [], {}),
+            'dob_precision': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['anonymeyes.DOBPrecision']"}),
             'ethnic_group': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['anonymeyes.EthnicGroup']"}),
             'eua': ('django.db.models.fields.IntegerField', [], {}),
             'health_care': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['anonymeyes.HealthCare']"}),
@@ -168,7 +177,7 @@ class Migration(SchemaMigration):
             'tonometry': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['anonymeyes.Tonometry']"}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'updated_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'patient_updated_set'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"}),
-            'uuid': ('django.db.models.fields.CharField', [], {'default': "UUID('e03e59a6-6e84-4864-b87a-4100dc77b48b')", 'unique': 'True', 'max_length': '64', 'blank': 'True'}),
+            'uuid': ('django.db.models.fields.CharField', [], {'default': "UUID('8766925a-c2f2-4f01-a3be-6cf81afcd573')", 'unique': 'True', 'max_length': '64', 'blank': 'True'}),
             'visual_acuity_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'patient_beo'", 'to': "orm['anonymeyes.VisualAcuityReading']"}),
             'visual_acuity_correction_both': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'patient_beo_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
             'visual_acuity_correction_left': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'patient_lva_correction'", 'to': "orm['anonymeyes.VisualAcuityCorrection']"}),
@@ -197,6 +206,12 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
             'sort': ('django.db.models.fields.IntegerField', [], {'default': '10'})
+        },
+        'anonymeyes.userprofile': {
+            'Meta': {'object_name': 'UserProfile'},
+            'dob_precision': ('django.db.models.fields.related.ForeignKey', [], {'default': '1', 'to': "orm['anonymeyes.DOBPrecision']"}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
         },
         'anonymeyes.visualacuitycorrection': {
             'Meta': {'ordering': "['sort', 'name']", 'object_name': 'VisualAcuityCorrection'},
