@@ -236,11 +236,11 @@ function updateManagementType(field) {
 			$('span', comments).show();
 			$('.surgery select', details).val('');
 			$('.adjuvant select', details).val('');
+			$('.stage select', details).val('');
 			break;
 		default:
 			$('.complication select', details).val('');
-			$('.surgery select', details).val('');
-			$('.adjuvant select', details).val('');
+			$('select', details).val('');
 			$('textarea', comments).val('');
 	}
 	
@@ -249,10 +249,19 @@ function updateManagementType(field) {
 // Update Management Surgery fields
 function updateManagementSurgery(field) {
 	var adjuvant_field = $(field).closest('td').find('.adjuvant');
-	$(adjuvant_field).hide();
+	var stage_field = $(field).closest('td').find('.stage');
 	var surgery_id = $('option:selected', field).val();
 	if(management_surgery_adjuvant_map[surgery_id] == 'True') {
 		$(adjuvant_field).show();
+	} else {
+		$(adjuvant_field).hide();
+		$('select', adjuvant_field).val('');
+	}
+	if(management_surgery_stage_map[surgery_id] == 'True') {
+		$(stage_field).show();
+	} else {
+		$(stage_field).hide();
+		$('select', stage_field).val('');
 	}
 }
 

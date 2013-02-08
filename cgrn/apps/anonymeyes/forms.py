@@ -122,6 +122,13 @@ class PatientManagementForm(forms.ModelForm):
             raise forms.ValidationError("Adjuvant detail required")
         return adjuvant
 
+    def clean_surgery_stage(self):
+        surgery_stage = self.cleaned_data.get('surgery_stage')
+        surgery = self.cleaned_data.get('surgery')
+        if surgery and surgery.stage and not surgery_stage:
+            raise forms.ValidationError("Surgery stage detail required")
+        return surgery_stage
+
 class PatientOutcomeForm(forms.ModelForm):
     class Meta:
         model = Outcome

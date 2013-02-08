@@ -197,6 +197,7 @@ class Complication(models.Model):
 class Surgery(models.Model):
     name = models.CharField(max_length=64)
     adjuvant = models.BooleanField()
+    stage = models.BooleanField()
     sort = models.IntegerField(default=10)
     
     class Meta:
@@ -207,6 +208,16 @@ class Surgery(models.Model):
         return self.name
 
 class Adjuvant(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
+class SurgeryStage(models.Model):
     class Meta:
         ordering = ['sort','name']
 
@@ -237,6 +248,7 @@ class Management(models.Model):
     surgery = models.ForeignKey(Surgery, blank=True, null=True)
     complication = models.ForeignKey(Complication, blank=True, null=True)
     adjuvant = models.ForeignKey(Adjuvant, blank=True, null=True)
+    surgery_stage = models.ForeignKey(SurgeryStage, blank=True, null=True)
     comments = models.TextField(blank=True)
     patient = models.ForeignKey(Patient)
 

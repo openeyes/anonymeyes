@@ -19,7 +19,11 @@
 			</ul>
 		</div>
 		<p>Please note that required fields are denoted by an *</p>
-		
+		{% if form.errors or formsets_invalid %}
+		<ul class="messages">
+			<li class="error">Please correct errors marked below</li>
+		</ul>
+		{% endif %}
 		<fieldset>
 			<legend>Patient</legend>
 			<ul>

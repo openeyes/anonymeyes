@@ -100,7 +100,7 @@ class PatientCreateView(CreateView):
                 outcome_instance.save()
             return response
         else:
-            return self.render_to_response(self.get_context_data(form=form))
+            return self.render_to_response(self.get_context_data(form=form, formsets_invalid=True))
 
     def get_context_data(self, **kwargs):
         context = super(PatientCreateView, self).get_context_data(**kwargs)
@@ -140,7 +140,7 @@ class PatientUpdateView(UpdateView):
                 outcome_instance.save()
             return super(PatientUpdateView, self).form_valid(form)
         else:
-            return self.render_to_response(self.get_context_data(form=form))
+            return self.render_to_response(self.get_context_data(form=form, formsets_invalid=True))
 
     
     def get_context_data(self, **kwargs):

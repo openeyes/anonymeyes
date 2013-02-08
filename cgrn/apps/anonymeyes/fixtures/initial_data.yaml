@@ -27,6 +27,17 @@
   model: anonymeyes.adjuvant
   pk: 9
 
+# Surgery Stage
+- fields: {name: Complete, sort: 10}
+  model: anonymeyes.surgerystage
+  pk: 1
+- fields: {name: Stage 1, sort: 20}
+  model: anonymeyes.surgerystage
+  pk: 2
+- fields: {name: Stage 2, sort: 30}
+  model: anonymeyes.surgerystage
+  pk: 3
+
 # Complication
 - fields: {name: Choroidal effusion, sort: 10}
   model: anonymeyes.complication
@@ -102,22 +113,22 @@
 - fields: {name: Bleb revision, sort: 70}
   model: anonymeyes.surgery
   pk: 7
-- fields: {name: Molteno - single plate, adjuvant: true, sort: 80}
+- fields: {name: Molteno - single plate, adjuvant: true, stage: true, sort: 80}
   model: anonymeyes.surgery
   pk: 8
-- fields: {name: Molteno - double plate, adjuvant: true, sort: 90}
+- fields: {name: Molteno - double plate, adjuvant: true, stage: true, sort: 90}
   model: anonymeyes.surgery
   pk: 9
-- fields: {name: Baerveldt - 250, adjuvant: true, sort: 100}
+- fields: {name: Baerveldt - 250, adjuvant: true, stage: true, sort: 100}
   model: anonymeyes.surgery
   pk: 10
-- fields: {name: Baerveldt - 350, adjuvant: true, sort: 110}
+- fields: {name: Baerveldt - 350, adjuvant: true, stage: true, sort: 110}
   model: anonymeyes.surgery
   pk: 11
-- fields: {name: Ahmed - 96, adjuvant: true, sort: 120}
+- fields: {name: Ahmed - 96, adjuvant: true, stage: true, sort: 120}
   model: anonymeyes.surgery
   pk: 12
-- fields: {name: Ahmed - 184, adjuvant: true, sort: 130}
+- fields: {name: Ahmed - 184, adjuvant: true, stage: true, sort: 130}
   model: anonymeyes.surgery
   pk: 13
 - fields: {name: Cyclodiode, sort: 150}

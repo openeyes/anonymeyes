@@ -15,8 +15,11 @@
 		<span class="detail complication">{{ inlineform.complication }}</span>
 		<span class="detail surgery">{{ inlineform.surgery }}</span>
 	</div>
-	<div class="clearfix last">
+	<div class="clearfix">
 		<span class="detail adjuvant"><label>{{ inlineform.adjuvant.label }}:</label> {{ inlineform.adjuvant }}</span>
+	</div>
+	<div class="clearfix last">
+		<span class="detail stage"><label>{{ inlineform.surgery_stage.label }}:</label> {{ inlineform.surgery_stage }}</span>
 	</div>
 	<script type="text/javascript">
 		var management_surgery_adjuvant_map = {
@@ -24,8 +27,13 @@
 			{{ surgery.id }}: "{{ surgery.adjuvant }}",
 			{% endfor %}
 		};
+		var management_surgery_stage_map = {
+				{% for surgery in inlineform.surgery.field.queryset %}
+				{{ surgery.id }}: "{{ surgery.stage }}",
+				{% endfor %}
+			};
 	</script>
-	<span>{{ inlineform.surgery.errors }}{{ inlineform.complication.errors }}{{ inlineform.adjuvant.errors }}</span>
+	<span>{{ inlineform.surgery.errors }}{{ inlineform.complication.errors }}{{ inlineform.adjuvant.errors }}{{ inlineform.surgery_stage.errors }}</span>
 </td>
 <td class="management_comments">
 	<span>

@@ -92,7 +92,10 @@
 					<td>{{ management.type }}</td>
 					<td>{{ management.eye }}</td>
 					<td>
-						{% if management.surgery %}{{ management.surgery }}{% if management.adjuvant %} (Adjuvant: {{ management.adjuvant }}){% endif%}{% endif%}
+						{% if management.surgery %}{{ management.surgery }}
+						{% if management.adjuvant %}, Adjuvant: {{ management.adjuvant }}{% endif%}
+						{% if management.adjuvant %}, Stage: {{ management.surgery_stage }}{% endif%}
+						{% endif%}
 						{% if management.complication %}{{ management.complication }}{% endif%}
 					</td>
 					<td>{{ management.comments }}</td>
