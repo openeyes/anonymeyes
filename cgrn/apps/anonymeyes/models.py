@@ -192,7 +192,11 @@ class Adjuvant(models.Model):
         return self.name
 
 class ManagementType(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
     name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
     
     def __unicode__(self):
         return self.name

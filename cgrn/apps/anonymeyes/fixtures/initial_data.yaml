@@ -84,22 +84,22 @@
 - fields: {name: Goniotomy, sort: 10}
   model: anonymeyes.surgery
   pk: 1
-- fields: {name: Trabeculotomy - Conv, sort: 20}
+- fields: {name: Trabeculotomy - Conv, adjuvant: true, sort: 20}
   model: anonymeyes.surgery
   pk: 2
-- fields: {name: Trabeculotomy - 360, sort: 30}
+- fields: {name: Trabeculotomy - 360, adjuvant: true, sort: 30}
   model: anonymeyes.surgery
   pk: 3
 - fields: {name: Trabeculectomy, adjuvant: true, sort: 40}
   model: anonymeyes.surgery
   pk: 4
-- fields: {name: Needling Bleb, sort: 50}
+- fields: {name: Needling Bleb, adjuvant: true, sort: 50}
   model: anonymeyes.surgery
   pk: 5
-- fields: {name: Needling Shunt, sort: 60}
+- fields: {name: Needling Shunt, adjuvant: true, sort: 60}
   model: anonymeyes.surgery
   pk: 6
-- fields: {name: Bleb revision, adjuvant: true, sort: 70}
+- fields: {name: Bleb revision, sort: 70}
   model: anonymeyes.surgery
   pk: 7
 - fields: {name: Molteno - single plate, adjuvant: true, sort: 80}
@@ -120,9 +120,6 @@
 - fields: {name: Ahmed - 184, adjuvant: true, sort: 130}
   model: anonymeyes.surgery
   pk: 13
-- fields: {name: Tube extension, adjuvant: true, sort: 140}
-  model: anonymeyes.surgery
-  pk: 14
 - fields: {name: Cyclodiode, sort: 150}
   model: anonymeyes.surgery
   pk: 15
@@ -150,30 +147,39 @@
 - fields: {name: Drainage of effusion/SCH, sort: 230}
   model: anonymeyes.surgery
   pk: 23
-- fields: {name: Ant vitrectomy, sort: 240}
+- fields: {name: Anterior vitrectomy, sort: 240}
   model: anonymeyes.surgery
   pk: 24
 - fields: {name: Evisceration/enucleation, sort: 250}
   model: anonymeyes.surgery
   pk: 25
-- fields: {name: Other, sort: 9999, sort: 260}
+- fields: {name: Other, sort: 9999}
   model: anonymeyes.surgery
   pk: 26
-- fields: {name: Tube shortening, adjuvant: true, sort: 270}
+- fields: {name: Tube extension, sort: 265}
+  model: anonymeyes.surgery
+  pk: 14
+- fields: {name: Tube shortening, sort: 270}
   model: anonymeyes.surgery
   pk: 27
-- fields: {name: Tube repositioning, adjuvant: true, sort: 280}
+- fields: {name: Tube repositioning, sort: 280}
   model: anonymeyes.surgery
   pk: 28
-- fields: {name: Tube unblocking, adjuvant: true, sort: 290}
+- fields: {name: Tube unblocking, sort: 290}
   model: anonymeyes.surgery
   pk: 29
-- fields: {name: Tube removal, adjuvant: true, sort: 300}
+- fields: {name: Tube removal, sort: 300}
   model: anonymeyes.surgery
   pk: 30
-- fields: {name: Shunt encapsulation revision, adjuvant: true, sort: 310}
+- fields: {name: Shunt encapsulation revision, sort: 310}
   model: anonymeyes.surgery
   pk: 31
+- fields: {name: TrabO + TrabEC, adjuvant: true, sort: 45}
+  model: anonymeyes.surgery
+  pk: 32
+- fields: {name: Tube exposure revision, sort: 305}
+  model: anonymeyes.surgery
+  pk: 33
 
 # Ethnic Group
 - fields: {name: Unknown, sort: 10}
@@ -224,7 +230,7 @@
 - fields: {name: Chinese, sort: 160}
   model: anonymeyes.ethnicgroup
   pk: 16
-- fields: {name: Any other ethnic group, sort: 170}
+- fields: {name: Any other ethnic group, sort: 9999}
   model: anonymeyes.ethnicgroup
   pk: 17
 - fields: {name: Hispanic, sort: 180}
@@ -252,13 +258,13 @@
   pk: 3
   
 # Management Type
-- fields: {name: Medication}
+- fields: {name: Medication, sort: 10}
   model: anonymeyes.managementtype
   pk: 1
-- fields: {name: Complication}
+- fields: {name: Surgery, sort: 20}
   model: anonymeyes.managementtype
   pk: 2
-- fields: {name: Surgery}
+- fields: {name: Complication, sort: 30}
   model: anonymeyes.managementtype
   pk: 3
 
@@ -298,7 +304,7 @@
 - fields: {name: Glaucoma Associated with Acquired Condition, sort: 50}
   model: anonymeyes.diagnosisgroup
   pk: 5
-- fields: {name: Glaucoma Following Congenital Cataract Surgery, sort: 60}
+- fields: {name: "Glaucoma Following Congenital Cataract Surgery (excludes cataract acquired or with Lowe syn, Cong Rubella, Aniridia, Pers Fetal Vasculature)", sort: 60}
   model: anonymeyes.diagnosisgroup
   pk: 6
 - fields: {name: Ocular hypertension, sort: 70}
@@ -310,6 +316,9 @@
 - fields: {name: Other, sort: 90}
   model: anonymeyes.diagnosisgroup
   pk: 9
+- fields: {name: Glaucoma suspect, sort: 75}
+  model: anonymeyes.diagnosisgroup
+  pk: 10
 
 # Diagnosis
 - fields: {group: 1, name: Neonatal or newborn onset (0-1 month), sort: 10}
@@ -481,94 +490,73 @@
   pk: 1
 - fields: {name: Fixes and follows, scale: 2, sort: 10, value: -10}
   model: anonymeyes.visualacuityreading
-  pk: 28
+  pk: 2
 - fields: {name: '-0.1', scale: 1, sort: 20, value: 260}
   model: anonymeyes.visualacuityreading
-  pk: 2
+  pk: 3
 - fields: {name: Does not fix and follow, scale: 2, sort: 20, value: -20}
   model: anonymeyes.visualacuityreading
-  pk: 29
+  pk: 4
 - fields: {name: '0', scale: 1, sort: 30, value: 250}
   model: anonymeyes.visualacuityreading
-  pk: 3
+  pk: 5
 - fields: {name: '0.1', scale: 1, sort: 40, value: 240}
   model: anonymeyes.visualacuityreading
-  pk: 4
+  pk: 6
 - fields: {name: '0.2', scale: 1, sort: 50, value: 230}
   model: anonymeyes.visualacuityreading
-  pk: 5
+  pk: 7
 - fields: {name: '0.3', scale: 1, sort: 60, value: 220}
   model: anonymeyes.visualacuityreading
-  pk: 6
+  pk: 8
 - fields: {name: '0.4', scale: 1, sort: 70, value: 210}
   model: anonymeyes.visualacuityreading
-  pk: 7
+  pk: 9
 - fields: {name: '0.5', scale: 1, sort: 80, value: 200}
   model: anonymeyes.visualacuityreading
-  pk: 8
+  pk: 10
 - fields: {name: '0.6', scale: 1, sort: 90, value: 190}
   model: anonymeyes.visualacuityreading
-  pk: 9
+  pk: 11
 - fields: {name: '0.7', scale: 1, sort: 100, value: 180}
   model: anonymeyes.visualacuityreading
-  pk: 10
+  pk: 12
 - fields: {name: '0.8', scale: 1, sort: 110, value: 170}
   model: anonymeyes.visualacuityreading
-  pk: 11
+  pk: 13
 - fields: {name: '0.9', scale: 1, sort: 120, value: 160}
   model: anonymeyes.visualacuityreading
-  pk: 12
-- fields: {name: '1', scale: 1, sort: 130, value: 150}
-  model: anonymeyes.visualacuityreading
-  pk: 13
-- fields: {name: '1.1', scale: 1, sort: 140, value: 140}
-  model: anonymeyes.visualacuityreading
   pk: 14
-- fields: {name: '1.2', scale: 1, sort: 150, value: 130}
+- fields: {name: '1', scale: 1, sort: 130, value: 150}
   model: anonymeyes.visualacuityreading
   pk: 15
 - fields: {name: '1.3', scale: 1, sort: 160, value: 120}
   model: anonymeyes.visualacuityreading
   pk: 16
-- fields: {name: '1.4', scale: 1, sort: 170, value: 110}
-  model: anonymeyes.visualacuityreading
-  pk: 17
 - fields: {name: '1.5', scale: 1, sort: 180, value: 100}
   model: anonymeyes.visualacuityreading
-  pk: 18
-- fields: {name: '1.6', scale: 1, sort: 190, value: 90}
-  model: anonymeyes.visualacuityreading
-  pk: 19
-- fields: {name: '1.7', scale: 1, sort: 200, value: 80}
-  model: anonymeyes.visualacuityreading
-  pk: 20
+  pk: 17
 - fields: {name: '1.8', scale: 1, sort: 210, value: 70}
   model: anonymeyes.visualacuityreading
-  pk: 21
-- fields: {name: '1.9', scale: 1, sort: 220, value: 60}
-  model: anonymeyes.visualacuityreading
-  pk: 22
-- fields: {name: '2', scale: 1, sort: 230, value: 50}
-  model: anonymeyes.visualacuityreading
-  pk: 23
+  pk: 18
 - fields: {name: CF, scale: 1, sort: 240, value: 40}
   model: anonymeyes.visualacuityreading
-  pk: 24
+  pk: 19
 - fields: {name: HM, scale: 1, sort: 250, value: 30}
   model: anonymeyes.visualacuityreading
-  pk: 25
+  pk: 20
 - fields: {name: PL, scale: 1, sort: 260, value: 20}
   model: anonymeyes.visualacuityreading
-  pk: 26
+  pk: 21
 - fields: {name: NLP, scale: 1, sort: 270, value: 10}
   model: anonymeyes.visualacuityreading
-  pk: 27
+  pk: 22
 
 # Visual Acuity Method
 - fields: {name: No quantitative VA, sort: 10, scale: 2}
   model: anonymeyes.visualacuitymethod
   pk: 1
-- fields: {name: Keeler / Teller Acuity Cards (Forced choice preferential), sort: 20, scale: 1}
+- fields: {name: Keeler / Teller Acuity Cards, sort: 20, scale: 1}
   model: anonymeyes.visualacuitymethod
   pk: 2
 - fields: {name: Cardiff Cards, sort: 30, scale: 1}
