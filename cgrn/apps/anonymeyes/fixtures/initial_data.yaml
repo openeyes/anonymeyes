@@ -247,15 +247,40 @@
   pk: 21
   
   # Eye
-- fields: {name: Left}
+- fields: {name: Left, single: true, sort: 20}
   model: anonymeyes.eye
   pk: 1
-- fields: {name: Right}
+- fields: {name: Right, single: true, sort: 10}
   model: anonymeyes.eye
   pk: 2
-- fields: {name: Both}
+- fields: {name: Both, single: false, sort: 30}
   model: anonymeyes.eye
   pk: 3
+  
+  # Health Care
+- fields: {name: Public, sort: 10}
+  model: anonymeyes.healthcare
+  pk: 1
+- fields: {name: Private, sort: 20}
+  model: anonymeyes.healthcare
+  pk: 2
+- fields: {name: None, sort: 30}
+  model: anonymeyes.healthcare
+  pk: 3
+  
+  # Anaesthesia
+- fields: {name: Ketamine, sort: 10}
+  model: anonymeyes.anaesthesia
+  pk: 1
+- fields: {name: Chloral hydrate, sort: 20}
+  model: anonymeyes.anaesthesia
+  pk: 2
+- fields: {name: Nitrous oxide, sort: 30}
+  model: anonymeyes.anaesthesia
+  pk: 3
+- fields: {name: Inhalational, sort: 40}
+  model: anonymeyes.anaesthesia
+  pk: 4
   
 # Management Type
 - fields: {name: Medication, sort: 10}

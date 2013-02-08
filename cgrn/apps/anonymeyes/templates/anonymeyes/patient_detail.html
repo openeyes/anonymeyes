@@ -21,6 +21,8 @@
 			<dd>{{ patient.dob }}</dd>
 			<dt>Postcode Prefix:</dt>
 			<dd>{{ patient.postcode }}</dd>
+			<dt>Health Care Coverage:</dt>
+			<dd>{{ patient.health_care }}</dd>
 			<dt>Ethnic Group:</dt>
 			<dd>{{ patient.ethnic_group }}</dd>
 			<dt>Consanguinity:</dt>
@@ -51,7 +53,11 @@
 			<dt>Tonometry:</dt>
 			<dd>{{ patient.tonometry }}</dd>
 			<dt>EUA:</dt>
-			<dd>{{ patient.eua|yesno:"Yes,No" }}</dd>
+			<dd>{{ patient.get_eua_display }}</dd>
+			{% if patient.eua = patient.YES %}
+			<dt>Anaesthesia:</dt>
+			<dd>{{ patient.anaesthesia }}</dd>
+			{% endif %}
 			<dt>Right Lens Status:</dt>
 			<dd>{{ patient.lens_status_right }}</dd>
 			{% if patient.lens_extraction_date_right %}

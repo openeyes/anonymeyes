@@ -105,6 +105,12 @@ $(document).ready(function() {
 		updateExtractionDate(this);
 	});
 	
+	// EUA and Anaesthesia dependency
+	updateAnaesthesia();
+	$("form select#id_eua").change(function() {
+		updateAnaesthesia();
+	});
+
 	// Inline forms
 	initialiseInlineForms();
 
@@ -127,6 +133,16 @@ function updateExtractionDate(element) {
 		extraction_field.closest('li').show();
 	} else {
 		extraction_field.closest('li').hide();
+		extraction_field.val('');
+	}
+}
+
+function updateAnaesthesia() {
+	if($('form select#id_eua option:selected').text() == 'Yes') {
+		$('form select#id_anaesthesia').closest('li').show();
+	} else {
+		$('form select#id_anaesthesia').closest('li').hide();
+		$('form select#id_anaesthesia').val('');
 	}
 }
 
@@ -206,14 +222,18 @@ function updateInlineFormRowIndices(tr, prefix, index) {
 function updateManagementType(field) {
 	var details = $(field).closest('tr').find('.management_detail');
 	$('.detail', details).hide();
+	var comments = $(field).closest('tr').find('.management_comments');
+	$('span', comments).hide();
 	var type = $('option:selected', field).text();
 	switch(type) {
 		case 'Surgery':
 			$('.surgery', details).show();
+			$('span', comments).show();
 			$('.complication select', details).val('');
 			break;
 		case 'Complication':
 			$('.complication', details).show();
+			$('span', comments).show();
 			$('.surgery select', details).val('');
 			$('.adjuvant select', details).val('');
 			break;
@@ -221,6 +241,7 @@ function updateManagementType(field) {
 			$('.complication select', details).val('');
 			$('.surgery select', details).val('');
 			$('.adjuvant select', details).val('');
+			$('textarea', comments).val('');
 	}
 	
 }

@@ -17,9 +17,12 @@ class EthnicGroup(models.Model):
 
 class Eye(models.Model):
     class Meta:
-        ordering = ['id']
+        ordering = ['sort','name']
 
     name = models.CharField(max_length=10)
+    single = models.BooleanField()
+    sort = models.IntegerField(default=10)
+    
     
     def __unicode__(self):
         return self.name
@@ -49,6 +52,26 @@ class Diagnosis(models.Model):
             return self.group.name + ': ' + self.name
         else:
             return self.name
+
+class HealthCare(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=255)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
+class Anaesthesia(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=255)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
 
 class LensStatus(models.Model):
     class Meta:
@@ -120,6 +143,7 @@ class Patient(models.Model):
                                 max_length=4,
                                 validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?$'), message='First part of postcode only (e.g. AB12)') ],
                                 )
+    health_care = models.ForeignKey(HealthCare, verbose_name='Health Care Coverage')
     ethnic_group = models.ForeignKey(EthnicGroup)
     NO = 0
     YES = 1
@@ -145,6 +169,7 @@ class Patient(models.Model):
     iop_left = models.IntegerField(verbose_name='Left IOP', blank=True, null=True)
     tonometry = models.ForeignKey(Tonometry)
     eua = models.IntegerField(verbose_name='EUA', choices=TRISTATE_CHOICES)
+    anaesthesia = models.ForeignKey(Anaesthesia, blank=True, null=True)
     
     class Meta:
         ordering = ['-updated_at']
@@ -234,7 +259,7 @@ class Outcome(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
-    eye = models.ForeignKey(Eye)
+    eye = models.ForeignKey(Eye, limit_choices_to = {'single': 1})
     iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')

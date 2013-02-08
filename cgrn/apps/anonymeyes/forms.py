@@ -27,7 +27,7 @@ class PatientForm(BetterModelForm):
         model = Patient
         fieldsets = [
                      ('patient', {
-                                  'fields': [ 'sex', 'dob', 'postcode', 'ethnic_group', 'consanguinity', ],
+                                  'fields': [ 'sex', 'dob', 'postcode', 'health_care', 'ethnic_group', 'consanguinity', ],
                                   }),
                      ('baseline', {
                                    'fields': [ 'visual_acuity_date', 'diagnosis_right', 'diagnosis_left', ],
@@ -36,7 +36,7 @@ class PatientForm(BetterModelForm):
                                    'fields': [ 'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both', ],
                                    }),
                      ('iop', {
-                                   'fields': [ 'iop_right', 'iop_left', 'tonometry', 'eua', ],
+                                   'fields': [ 'iop_right', 'iop_left', 'tonometry', 'eua', 'anaesthesia'],
                                    }),
                      ('lens', {
                                    'fields': [ 'lens_status_right', 'lens_extraction_date_right',
@@ -84,6 +84,13 @@ class PatientForm(BetterModelForm):
         if lens_status_left and lens_status_left.name != 'Aphakia' and lens_status_left.name != 'Pseudophakia':
             return None
         return lens_extraction_date_left
+
+    def clean_anaesthesia(self):
+        anaesthesia = self.cleaned_data.get('anaesthesia')
+        eua = self.cleaned_data.get('eua')
+        if eua != Patient.YES:
+            return None
+        return anaesthesia
 
 class PatientManagementForm(forms.ModelForm):
     class Meta:
