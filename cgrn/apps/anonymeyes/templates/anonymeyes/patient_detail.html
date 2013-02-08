@@ -41,11 +41,11 @@
 			<dt>Visual Acuity Method:</dt>
 			<dd>{{ patient.visual_acuity_method }}</dd>
 			<dt>RVA:</dt>
-			<dd>{{ patient.visual_acuity_right }}</dd>
+			<dd>{{ patient.visual_acuity_right }} ({{ patient.visual_acuity_correction_right }})</dd>
 			<dt>LVA:</dt>
-			<dd>{{ patient.visual_acuity_left }}</dd>
+			<dd>{{ patient.visual_acuity_left }} ({{ patient.visual_acuity_correction_left }})</dd>
 			<dt>BEO:</dt>
-			<dd>{{ patient.visual_acuity_both }}</dd>
+			<dd>{{ patient.visual_acuity_both }} ({{ patient.visual_acuity_correction_both }})</dd>
 			<dt>Right IOP:</dt>
 			<dd>{{ patient.iop_right }}</dd>
 			<dt>Left IOP:</dt>
@@ -53,23 +53,20 @@
 			<dt>Tonometry:</dt>
 			<dd>{{ patient.tonometry }}</dd>
 			<dt>EUA:</dt>
-			<dd>{{ patient.get_eua_display }}</dd>
-			{% if patient.eua = patient.YES %}
-			<dt>Anaesthesia:</dt>
-			<dd>{{ patient.anaesthesia }}</dd>
-			{% endif %}
+			<dd>{{ patient.get_eua_display }}
+			{% if patient.anaesthesia %}
+			({{ patient.anaesthesia }})
+			{% endif %}</dd>
 			<dt>Right Lens Status:</dt>
-			<dd>{{ patient.lens_status_right }}</dd>
+			<dd>{{ patient.lens_status_right }}
 			{% if patient.lens_extraction_date_right %}
-			<dt>Right Lens Extraction Date:</dt>
-			<dd>{{ patient.lens_extraction_date_right }}</dd>
-			{% endif %}
+			(extracted {{ patient.lens_extraction_date_right }})
+			{% endif %}</dd>
 			<dt>Left Lens Status:</dt>
-			<dd>{{ patient.lens_status_left }}</dd>
+			<dd>{{ patient.lens_status_left }}
 			{% if patient.lens_extraction_date_left %}
-			<dt>Left Lens Extraction Date:</dt>
-			<dd>{{ patient.lens_extraction_date_left }}</dd>
-			{% endif %}
+			(extracted {{ patient.lens_extraction_date_left }})
+			{% endif %}</dd>
 		</dl>
 	</div>
 	<div class="data-section">
@@ -93,10 +90,11 @@
 					<td>{{ management.eye }}</td>
 					<td>
 						{% if management.surgery %}{{ management.surgery }}
-						{% if management.adjuvant %}, Adjuvant: {{ management.adjuvant }}{% endif%}
-						{% if management.adjuvant %}, Stage: {{ management.surgery_stage }}{% endif%}
-						{% endif%}
-						{% if management.complication %}{{ management.complication }}{% endif%}
+						{% if management.surgery_meta %}
+						({{ management.surgery_meta }})
+						{% endif %}
+						{% endif %}
+						{% if management.complication %}{{ management.complication }}{% endif %}
 					</td>
 					<td>{{ management.comments }}</td>
 				</tr>
@@ -127,7 +125,8 @@
 				<tr>
 					<td>{{ outcome.date }}</td>
 					<td>{{ outcome.eye }}</td>
-					<td>{{ outcome.iop_control }}</td>
+					<td>{{ outcome.iop_control|yesno:"Yes,No" }}
+						{% if outcome.iop_agents %}({{ outcome.iop_agents }} agent{% if outcome.iop_agents != 1 %}s{% endif %}){% endif %}</td>
 					<td>{{ outcome.visual_acuity_method }}</td>
 					<td>{{ outcome.visual_acuity_right }}</td>
 					<td>{{ outcome.visual_acuity_left }}</td>

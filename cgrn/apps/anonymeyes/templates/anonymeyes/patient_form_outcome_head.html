@@ -1,6 +1,10 @@
-{% for field in formset.form.visible_fields %}
-<th{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span></th>
-{% endfor %}
+<th class="required"><span>{{ formset.form.date.label }}</span></th>
+<th class="required"><span>{{ formset.form.eye.label }}</span></th>
+<th class="required"><span>{{ formset.form.iop_control.label }}</span></th>
+<th>{{ formset.form.visual_acuity_method.label }}</th>
+<th>{{ formset.form.visual_acuity_right.label }}</th>
+<th>{{ formset.form.visual_acuity_left.label }}</th>
+<th>{{ formset.form.visual_acuity_both.label }}</th>
 {% if formset.can_delete %}
 <th>Delete?</th>
 {% endif %}

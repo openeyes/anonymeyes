@@ -33,7 +33,10 @@ class PatientForm(BetterModelForm):
                                    'fields': [ 'visual_acuity_date', 'diagnosis_right', 'diagnosis_left', ],
                                    }),
                      ('visual_acuity', {
-                                   'fields': [ 'visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both', ],
+                                   'fields': [ 'visual_acuity_method',
+                                               'visual_acuity_right', 'visual_acuity_correction_right',
+                                               'visual_acuity_left', 'visual_acuity_correction_left',
+                                               'visual_acuity_both', 'visual_acuity_correction_both', ],
                                    }),
                      ('iop', {
                                    'fields': [ 'iop_right', 'iop_left', 'tonometry', 'eua', 'anaesthesia'],
@@ -106,6 +109,8 @@ class PatientManagementForm(forms.ModelForm):
         type = self.cleaned_data.get('type')
         if type and type.name == 'Surgery' and not surgery:
             raise forms.ValidationError("Surgery detail required")
+        elif type and type.name != 'Surgery':
+            return None
         return surgery
 
     def clean_complication(self):
@@ -113,6 +118,8 @@ class PatientManagementForm(forms.ModelForm):
         type = self.cleaned_data.get('type')
         if type and type.name == 'Complication' and not complication:
             raise forms.ValidationError("Complication detail required")
+        elif type and type.name != 'Complication':
+            return None
         return complication
 
     def clean_adjuvant(self):
@@ -120,6 +127,8 @@ class PatientManagementForm(forms.ModelForm):
         surgery = self.cleaned_data.get('surgery')
         if surgery and surgery.adjuvant and not adjuvant:
             raise forms.ValidationError("Adjuvant detail required")
+        elif surgery and not surgery.adjuvant:
+            return None
         return adjuvant
 
     def clean_surgery_stage(self):
@@ -127,6 +136,8 @@ class PatientManagementForm(forms.ModelForm):
         surgery = self.cleaned_data.get('surgery')
         if surgery and surgery.stage and not surgery_stage:
             raise forms.ValidationError("Surgery stage detail required")
+        elif surgery and not surgery.stage:
+            return None
         return surgery_stage
 
 class PatientOutcomeForm(forms.ModelForm):
@@ -140,6 +151,7 @@ class PatientOutcomeForm(forms.ModelForm):
                    'visual_acuity_both': forms.Select(attrs={'class':'visualacuity'}),
         }
         exclude = { 'patient', 'created_by', 'updated_by', }
+
     def __init__(self, *args, **kwargs):
         super(PatientOutcomeForm, self).__init__(*args, **kwargs)
         
@@ -154,6 +166,15 @@ class PatientOutcomeForm(forms.ModelForm):
         self.fields['visual_acuity_left'].queryset=filtered
         self.fields['visual_acuity_right'].queryset=filtered
         self.fields['visual_acuity_both'].queryset=filtered
+
+    def clean_iop_agents(self):
+        iop_agents = self.cleaned_data.get('iop_agents')
+        iop_control = self.cleaned_data.get('iop_control')
+        if iop_control and not iop_agents:
+            raise forms.ValidationError("IOP control agents required")
+        elif not iop_control:
+            return None
+        return iop_agents
 
 PatientManagementFormSet = forms.models.inlineformset_factory(Patient, Management, form = PatientManagementForm, extra=1, can_delete=False)
 

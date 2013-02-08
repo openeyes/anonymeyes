@@ -36,11 +36,9 @@
 	<span>{{ inlineform.surgery.errors }}{{ inlineform.complication.errors }}{{ inlineform.adjuvant.errors }}{{ inlineform.surgery_stage.errors }}</span>
 </td>
 <td class="management_comments">
-	<span>
 	{{ inlineform.comments }}
 	<span>{{ inlineform.comments.errors }}</span>
 	{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}
-	</span>
 </td>
 {% if formset.can_delete %}
 <td class="management_delete">

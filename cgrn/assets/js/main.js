@@ -97,6 +97,15 @@ $(document).ready(function() {
 		updateManagementSurgery(this);
 	});
 
+	// Outcome form mutation
+	$('form .outcome_iop_detail .iop_control select').each(function() {
+		updateOutcomeIOP(this);
+	});
+	$('form').delegate('.outcome_iop_detail .iop_control select', 'change', function() {
+		updateOutcomeIOP(this);
+	});
+	
+	
 	// Lens status and extraction date dependency
 	$("form select[name^='lens_status_']").each(function() {
 		updateExtractionDate(this);
@@ -262,6 +271,17 @@ function updateManagementSurgery(field) {
 	} else {
 		$(stage_field).hide();
 		$('select', stage_field).val('');
+	}
+}
+
+function updateOutcomeIOP(field) {
+	var agents_field = $(field).closest('td').find('.iop_agent');
+	var iop_control = $(field).val();
+	if(iop_control == 'True') {
+		$(agents_field).show();
+	} else {
+		$(agents_field).hide();
+		$('select', agents_field).val('');
 	}
 }
 

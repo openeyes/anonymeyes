@@ -1,6 +1,40 @@
-{% for field in inlineform.visible_fields %}
-<td class="{{ formset_name|lower }}_{{ field.name|lower }}">
-{% if forloop.last %}{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}{% endif %} 
-{{ field }} <span>{{ field.errors }}</span>
+<td class="outcome_date">
+	{{ inlineform.date }}
+	<span>{{ inlineform.date.errors }}</span>
 </td>
-{% endfor %}
+<td class="outcome_eye">
+	{{ inlineform.eye }}
+	<span>{{ inlineform.eye.errors }}</span>
+</td>
+<td class="outcome_iop_detail">
+	<div class="clearfix first">
+		<span class="detail iop_control">{{ inlineform.iop_control }}</span>
+	</div>
+	<div class="clearfix last">
+		<span class="detail iop_agent"><label>{{ inlineform.iop_agents.label }}:</label> {{ inlineform.iop_agents }}</span>
+	</div>
+	<span>{{ inlineform.iop_control.errors }}{{ inlineform.iop_agents.errors }}</span>
+</td>
+<td class="outcome_visual_acuity_method">
+	{{ inlineform.visual_acuity_method }}
+	<span>{{ inlineform.visual_acuity_method.errors }}</span>
+</td>
+<td class="outcome_visual_acuity_right">
+	{{ inlineform.visual_acuity_right }}
+	<span>{{ inlineform.visual_acuity_right.errors }}</span>
+</td>
+<td class="outcome_visual_acuity_left">
+	{{ inlineform.visual_acuity_left }}
+	<span>{{ inlineform.visual_acuity_left.errors }}</span>
+</td>
+<td class="outcome_visual_acuity_both">
+	{{ inlineform.visual_acuity_both }}
+	<span>{{ inlineform.visual_acuity_both.errors }}</span>
+	{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}
+</td>
+{% if formset.can_delete %}
+<td class="outcome_delete">
+	{{ inlineform.DELETE }}
+	<span>{{ inlineform.DELETE.errors }}</span>
+</td>
+{% endif %}

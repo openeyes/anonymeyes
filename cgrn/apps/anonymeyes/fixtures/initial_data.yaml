@@ -501,15 +501,15 @@
   model: anonymeyes.tonometry
   pk: 6
 
-# IOP Control
-- fields: {name: Yes without meds}
-  model: anonymeyes.iopcontrol
+# Visual Acuity Correction
+- fields: {name: None, sort: 10}
+  model: anonymeyes.visualacuitycorrection
   pk: 1
-- fields: {name: Yes with meds}
-  model: anonymeyes.iopcontrol
+- fields: {name: Glasses, sort: 20}
+  model: anonymeyes.visualacuitycorrection
   pk: 2
-- fields: {name: "No"}
-  model: anonymeyes.iopcontrol
+- fields: {name: Contact lenses, sort: 30}
+  model: anonymeyes.visualacuitycorrection
   pk: 3
 
 # Visual Acuity Scale

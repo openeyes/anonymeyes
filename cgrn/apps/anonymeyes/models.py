@@ -114,6 +114,16 @@ class VisualAcuityReading(models.Model):
     def __unicode__(self):
         return self.name
 
+class VisualAcuityCorrection(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
 class Tonometry(models.Model):
     class Meta:
         ordering = ['sort','name']
@@ -165,6 +175,9 @@ class Patient(models.Model):
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='patient_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='patient_lva', verbose_name='LVA')
     visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo', verbose_name='BEO')
+    visual_acuity_correction_right = models.ForeignKey(VisualAcuityCorrection, related_name='patient_rva_correction', verbose_name='Right correction')
+    visual_acuity_correction_left = models.ForeignKey(VisualAcuityCorrection, related_name='patient_lva_correction', verbose_name='Left correction')
+    visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='patient_beo_correction', verbose_name='Both correction')
     iop_right = models.IntegerField(verbose_name='Right IOP', blank=True, null=True)
     iop_left = models.IntegerField(verbose_name='Left IOP', blank=True, null=True)
     tonometry = models.ForeignKey(Tonometry)
@@ -251,20 +264,18 @@ class Management(models.Model):
     surgery_stage = models.ForeignKey(SurgeryStage, blank=True, null=True)
     comments = models.TextField(blank=True)
     patient = models.ForeignKey(Patient)
+    @property
+    def surgery_meta(self):
+        meta = []
+        if self.adjuvant:
+            meta.append(str(self.adjuvant))
+        if self.surgery_stage:
+            meta.append(str(self.surgery_stage))
+        return ', '.join(meta)
 
     def __unicode__(self):
         return str(self.date)
     
-class IOPControl(models.Model):
-    class Meta:
-        verbose_name = 'IOP control'
-        verbose_name_plural = 'IOP controls'
-        
-    name = models.CharField(max_length=64)
-    
-    def __unicode__(self):
-        return self.name
-
 class Outcome(models.Model):
     created_by = models.ForeignKey(User, related_name='outcome_created_set', blank=True, null=True, on_delete=models.SET_NULL)
     updated_by = models.ForeignKey(User, related_name='outcome_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
@@ -272,7 +283,12 @@ class Outcome(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
     eye = models.ForeignKey(Eye, limit_choices_to = {'single': 1})
-    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control')
+    NO = False
+    YES = True
+    IOP_CONTROL_CHOICES = ( (YES, 'Yes'), (NO, 'No') )
+    iop_control = models.BooleanField(choices=IOP_CONTROL_CHOICES, verbose_name='IOP Control')
+    IOP_AGENTS_CHOICES = zip( [0,] + range(1,5), ['No',] + range(1,5) )
+    iop_agents = models.IntegerField(choices=IOP_AGENTS_CHOICES, blank=True, null=True, verbose_name='Agents')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')
