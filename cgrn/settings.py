@@ -234,14 +234,14 @@ WSGI_APPLICATION = 'wsgi.application'
 #COMPRESS_ENABLED = True
 
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_CSS_FILTERS
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.template.TemplateFilter',
-]
+#COMPRESS_CSS_FILTERS = [
+#    'compressor.filters.css_default.CssAbsoluteFilter',
+#]
 
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_JS_FILTERS
-COMPRESS_JS_FILTERS = [
-    'compressor.filters.template.TemplateFilter',
-]
+#COMPRESS_JS_FILTERS = [
+#    'compressor.filters.jsmin.JSMinFilter',
+#]
 ########## END COMPRESSION CONFIGURATION
 
 from settings_local import *
