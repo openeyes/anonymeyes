@@ -82,7 +82,7 @@ class PatientCreateView(CreateView):
 
     def get_form(self, form_class):
         form = super(PatientCreateView, self).get_form(form_class)
-        form.instance.user = self.request.user
+        form.request = self.request
         return form
 
     def form_valid(self, form):

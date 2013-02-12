@@ -50,13 +50,13 @@
   pk: 3
 
 # Complication
-- fields: {name: Choroidal effusion, sort: 10}
+- fields: {name: Corneal decompensation, sort: 10}
   model: anonymeyes.complication
   pk: 1
-- fields: {name: Chronic hypotony, sort: 20}
+- fields: {name: Graft rejection/failure, sort: 20}
   model: anonymeyes.complication
   pk: 2
-- fields: {name: Phthisis, sort: 30}
+- fields: {name: Corneal trauma, sort: 30}
   model: anonymeyes.complication
   pk: 3
 - fields: {name: Lens Trauma, sort: 40}
@@ -65,37 +65,37 @@
 - fields: {name: Cataract, sort: 50}
   model: anonymeyes.complication
   pk: 5
-- fields: {name: Corneal trauma, sort: 60}
+- fields: {name: Choroidal effusion, sort: 60}
   model: anonymeyes.complication
   pk: 6
-- fields: {name: Corneal decompensation, sort: 70}
+- fields: {name: Chronic hypotony, sort: 70}
   model: anonymeyes.complication
   pk: 7
-- fields: {name: Graft rejection/failure, sort: 80}
+- fields: {name: Tube exposure, sort: 80}
   model: anonymeyes.complication
   pk: 8
-- fields: {name: Endophthalmitis, sort: 90}
+- fields: {name: Tube occlusion, sort: 90}
   model: anonymeyes.complication
   pk: 9
-- fields: {name: Retinal detachment, sort: 100}
+- fields: {name: Tube retraction, sort: 100}
   model: anonymeyes.complication
   pk: 10
-- fields: {name: Suprachoroidal haem, sort: 110}
+- fields: {name: Dyscoria, sort: 110}
   model: anonymeyes.complication
   pk: 11
-- fields: {name: Tube erosion, sort: 120}
+- fields: {name: Intractable pain, sort: 120}
   model: anonymeyes.complication
   pk: 12
-- fields: {name: Tube occlusion, sort: 130}
+- fields: {name: Endophthalmitis, sort: 130}
   model: anonymeyes.complication
   pk: 13
-- fields: {name: Tube retraction, sort: 140}
+- fields: {name: Retinal detachment, sort: 140}
   model: anonymeyes.complication
   pk: 14
-- fields: {name: Dyscoria, sort: 150}
+- fields: {name: Suprachoroidal haemorrhage, sort: 150}
   model: anonymeyes.complication
   pk: 15
-- fields: {name: Intractable pain, sort: 160}
+- fields: {name: Phthisis, sort: 160}
   model: anonymeyes.complication
   pk: 16
 - fields: {name: Other, sort: 9999}
@@ -115,10 +115,10 @@
 - fields: {name: Trabeculectomy, adjuvant: true, sort: 40}
   model: anonymeyes.surgery
   pk: 4
-- fields: {name: Needling Bleb, adjuvant: true, sort: 50}
+- fields: {name: TrabO + TrabEC, adjuvant: true, sort: 50}
   model: anonymeyes.surgery
   pk: 5
-- fields: {name: Needling Shunt, adjuvant: true, sort: 60}
+- fields: {name: Needling Bleb, adjuvant: true, sort: 60}
   model: anonymeyes.surgery
   pk: 6
 - fields: {name: Bleb revision, sort: 70}
@@ -144,64 +144,70 @@
   pk: 13
 - fields: {name: Cyclodiode, sort: 150}
   model: anonymeyes.surgery
-  pk: 15
+  pk: 14
 - fields: {name: Optical iridectomy, sort: 160}
   model: anonymeyes.surgery
-  pk: 16
+  pk: 15
 - fields: {name: Penetrating keratoplasty, sort: 170}
   model: anonymeyes.surgery
-  pk: 17
+  pk: 16
 - fields: {name: DSEK, sort: 180}
   model: anonymeyes.surgery
-  pk: 18
+  pk: 17
 - fields: {name: Lens extraction - no IOL, sort: 190}
   model: anonymeyes.surgery
-  pk: 19
+  pk: 18
 - fields: {name: Lens extraction and IOL, sort: 200}
   model: anonymeyes.surgery
-  pk: 20
+  pk: 19
 - fields: {name: RD surgery, sort: 210}
   model: anonymeyes.surgery
-  pk: 21
+  pk: 20
 - fields: {name: AC reformation, sort: 220}
   model: anonymeyes.surgery
-  pk: 22
+  pk: 21
 - fields: {name: Drainage of effusion/SCH, sort: 230}
   model: anonymeyes.surgery
-  pk: 23
+  pk: 22
 - fields: {name: Anterior vitrectomy, sort: 240}
   model: anonymeyes.surgery
-  pk: 24
+  pk: 23
 - fields: {name: Evisceration/enucleation, sort: 250}
   model: anonymeyes.surgery
+  pk: 24
+- fields: {name: Tube extension, sort: 260}
+  model: anonymeyes.surgery
   pk: 25
-- fields: {name: Other, sort: 9999}
-  model: anonymeyes.surgery
-  pk: 26
-- fields: {name: Tube extension, sort: 265}
-  model: anonymeyes.surgery
-  pk: 14
 - fields: {name: Tube shortening, sort: 270}
   model: anonymeyes.surgery
-  pk: 27
+  pk: 26
 - fields: {name: Tube repositioning, sort: 280}
   model: anonymeyes.surgery
-  pk: 28
+  pk: 27
 - fields: {name: Tube unblocking, sort: 290}
   model: anonymeyes.surgery
-  pk: 29
+  pk: 28
 - fields: {name: Tube removal, sort: 300}
   model: anonymeyes.surgery
+  pk: 29
+- fields: {name: Tube exposure revision, sort: 310}
+  model: anonymeyes.surgery
   pk: 30
-- fields: {name: Shunt encapsulation revision, sort: 310}
+- fields: {name: Needling Shunt, adjuvant: true, sort: 320}
   model: anonymeyes.surgery
   pk: 31
-- fields: {name: TrabO + TrabEC, adjuvant: true, sort: 45}
+- fields: {name: Shunt encapsulation revision, sort: 330}
   model: anonymeyes.surgery
   pk: 32
-- fields: {name: Tube exposure revision, sort: 305}
+- fields: {name: Cyclodiode endoscopic, sort: 340}
   model: anonymeyes.surgery
   pk: 33
+- fields: {name: Cyclodiode transscleral, sort: 350}
+  model: anonymeyes.surgery
+  pk: 34
+- fields: {name: Other, sort: 9999}
+  model: anonymeyes.surgery
+  pk: 35
 
 # Ethnic Group
 - fields: {name: Unknown, sort: 10}
@@ -351,10 +357,10 @@
 - fields: {name: Glaucoma Associated with Acquired Condition, sort: 50}
   model: anonymeyes.diagnosisgroup
   pk: 5
-- fields: {name: "Glaucoma Following Congenital Cataract Surgery (excludes cataract acquired or with Lowe syn, Cong Rubella, Aniridia, Pers Fetal Vasculature)", sort: 60}
+- fields: {name: "Glaucoma Following Congenital Cataract Surgery (excludes cataract:acquired or with Lowe syn, Cong Rubella, Aniridia, Pers Fetal Vasculature)", sort: 60}
   model: anonymeyes.diagnosisgroup
   pk: 6
-- fields: {name: Ocular hypertension, sort: 70}
+- fields: {name: Glaucoma suspect, sort: 70}
   model: anonymeyes.diagnosisgroup
   pk: 7
 - fields: {name: Normal, sort: 80}
@@ -363,9 +369,6 @@
 - fields: {name: Other, sort: 90}
   model: anonymeyes.diagnosisgroup
   pk: 9
-- fields: {name: Glaucoma suspect, sort: 75}
-  model: anonymeyes.diagnosisgroup
-  pk: 10
 
 # Diagnosis
 - fields: {group: 1, name: Neonatal or newborn onset (0-1 month), sort: 10}
@@ -479,18 +482,24 @@
 - fields: {group: 5, name: Retinopathy of Prematurity, sort: 50}
   model: anonymeyes.diagnosis
   pk: 37
-- fields: {group: 6, name: Glaucoma Following Congenital Cataract Surgery, sort: 10}
+- fields: {group: 6, name: "Glaucoma Following Congenital Cataract Surgery (excludes cataract:acquired or with Lowe syn, Cong Rubella, Aniridia, Pers Fetal Vasculature)", sort: 10}
   model: anonymeyes.diagnosis
   pk: 38
-- fields: {group: 7, name: Ocular hypertension, sort: 10}
+- fields: {group: 7, name: Elevated IOP, sort: 10}
   model: anonymeyes.diagnosis
   pk: 39
-- fields: {group: 8, name: Normal, sort: 10}
+- fields: {group: 7, name: Suspicious discs, sort: 20}
   model: anonymeyes.diagnosis
   pk: 40
-- fields: {group: 9, name: Other, sort: 10}
+- fields: {group: 7, name: Suspicious fields, sort: 30}
   model: anonymeyes.diagnosis
   pk: 41
+- fields: {group: 8, name: Normal, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 42
+- fields: {group: 9, name: Other, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 43
 
 # Tonometry
 - fields: {name: Goldmann, sort: 10}

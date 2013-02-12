@@ -94,7 +94,9 @@ class PatientForm(BetterModelForm):
     def clean_anaesthesia(self):
         anaesthesia = self.cleaned_data.get('anaesthesia')
         eua = self.cleaned_data.get('eua')
-        if eua != Patient.YES:
+        if eua and not anaesthesia:
+            raise forms.ValidationError("Anaesthesia required")
+        elif not eua:
             return None
         return anaesthesia
 
@@ -199,7 +201,7 @@ class PatientOutcomeForm(forms.ModelForm):
     def clean_iop_agents(self):
         iop_agents = self.cleaned_data.get('iop_agents')
         iop_control = self.cleaned_data.get('iop_control')
-        if iop_control and not iop_agents:
+        if iop_control and iop_agents == None:
             raise forms.ValidationError("IOP control agents required")
         elif not iop_control:
             return None

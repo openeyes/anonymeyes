@@ -53,7 +53,7 @@
 			<dt>Tonometry:</dt>
 			<dd>{{ patient.tonometry }}</dd>
 			<dt>EUA:</dt>
-			<dd>{{ patient.get_eua_display }}
+			<dd>{{ patient.eua|yesno:"Yes,No" }}
 			{% if patient.anaesthesia %}
 			({{ patient.anaesthesia }})
 			{% endif %}</dd>

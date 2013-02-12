@@ -229,7 +229,8 @@ class Patient(models.Model):
     iop_right = models.IntegerField(verbose_name='Right IOP', blank=True, null=True)
     iop_left = models.IntegerField(verbose_name='Left IOP', blank=True, null=True)
     tonometry = models.ForeignKey(Tonometry)
-    eua = models.IntegerField(verbose_name='EUA', choices=TRISTATE_CHOICES)
+    EUA_CHOICES = ( (True, 'Yes'), (False, 'No') )
+    eua = models.BooleanField(verbose_name='EUA', choices=EUA_CHOICES)
     anaesthesia = models.ForeignKey(Anaesthesia, blank=True, null=True)
     
     class Meta:
@@ -335,7 +336,7 @@ class Outcome(models.Model):
     YES = True
     IOP_CONTROL_CHOICES = ( (YES, 'Yes'), (NO, 'No') )
     iop_control = models.BooleanField(choices=IOP_CONTROL_CHOICES, verbose_name='IOP Control')
-    IOP_AGENTS_CHOICES = zip( [0,] + range(1,5), ['No',] + range(1,5) )
+    IOP_AGENTS_CHOICES = ( (0,'No'), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5) )
     iop_agents = models.IntegerField(choices=IOP_AGENTS_CHOICES, blank=True, null=True, verbose_name='Agents')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')

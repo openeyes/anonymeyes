@@ -1,86 +1,86 @@
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 13, diagnosis_right: 13, dob: 2011-02-18, ethnic_group: 13, eua: 0,
+    diagnosis_left: 13, diagnosis_right: 13, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 13, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-25, lens_extraction_date_right: 2012-01-25,
     lens_status_left: 1, lens_status_right: 1, postcode: AM13, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: EE40D717-3CC0-4DE2-A0E3-43AFEDEC550C,
-    visual_acuity_both: 19, visual_acuity_date: 2012-04-25, visual_acuity_left: 19,
-    visual_acuity_method: 13, visual_acuity_right: 19}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-25, visual_acuity_left: 1,
+    visual_acuity_method: 13, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 13
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 4, diagnosis_right: 4, dob: 2011-11-29, ethnic_group: 4, eua: 1,
+    diagnosis_left: 4, diagnosis_right: 4, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 4, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-15, lens_extraction_date_right: 2012-06-15,
     lens_status_left: 6, lens_status_right: 6, postcode: DF8, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: AC60359E-B92F-404E-A04C-924597D0B1E9,
-    visual_acuity_both: 11, visual_acuity_date: 2012-09-14, visual_acuity_left: 11,
-    visual_acuity_method: 14, visual_acuity_right: 11}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-14, visual_acuity_left: 1,
+    visual_acuity_method: 14, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 84
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 3, diagnosis_right: 3, dob: 2011-11-25, ethnic_group: 3, eua: 0,
+    diagnosis_left: 3, diagnosis_right: 3, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 3, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-13, lens_extraction_date_right: 2012-06-13,
     lens_status_left: 5, lens_status_right: 5, postcode: DE7, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 8362E475-F084-4F7E-9CD9-0FB29512E621,
-    visual_acuity_both: 4, visual_acuity_date: 2012-09-12, visual_acuity_left: 4,
-    visual_acuity_method: 13, visual_acuity_right: 4}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-12, visual_acuity_left: 1,
+    visual_acuity_method: 13, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 83
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 2, diagnosis_right: 2, dob: 2011-11-21, ethnic_group: 2, eua: 1,
+    diagnosis_left: 2, diagnosis_right: 2, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 2, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-11, lens_extraction_date_right: 2012-06-11,
     lens_status_left: 4, lens_status_right: 4, postcode: DD6, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 57F06DAE-A415-4B60-8CC2-350C07754DC5,
-    visual_acuity_both: 17, visual_acuity_date: 2012-09-10, visual_acuity_left: 17,
-    visual_acuity_method: 12, visual_acuity_right: 17}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-10, visual_acuity_left: 1,
+    visual_acuity_method: 12, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 82
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 1, diagnosis_right: 1, dob: 2011-11-17, ethnic_group: 1, eua: 0,
+    diagnosis_left: 1, diagnosis_right: 1, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 1, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-09, lens_extraction_date_right: 2012-06-09,
     lens_status_left: 3, lens_status_right: 3, postcode: DC5, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 2F391946-0EAF-47B8-BD2C-3E6D90ADD701,
-    visual_acuity_both: 10, visual_acuity_date: 2012-09-08, visual_acuity_left: 10,
-    visual_acuity_method: 11, visual_acuity_right: 10}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-08, visual_acuity_left: 1,
+    visual_acuity_method: 11, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 81
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 26, diagnosis_right: 26, dob: 2011-04-11, ethnic_group: 6, eua: 1,
+    diagnosis_left: 26, diagnosis_right: 26, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 6, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-20, lens_extraction_date_right: 2012-02-20,
     lens_status_left: 2, lens_status_right: 2, postcode: AZ7, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 16BC8CCA-87FB-4EDB-8754-BE7E098E9197,
-    visual_acuity_both: 13, visual_acuity_date: 2012-05-21, visual_acuity_left: 13,
-    visual_acuity_method: 12, visual_acuity_right: 13}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-21, visual_acuity_left: 1,
+    visual_acuity_method: 12, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 26
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 27, diagnosis_right: 27, dob: 2011-04-15, ethnic_group: 7, eua: 0,
+    diagnosis_left: 27, diagnosis_right: 27, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 7, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-22, lens_extraction_date_right: 2012-02-22,
     lens_status_left: 3, lens_status_right: 3, postcode: BA8, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: EBF0468E-1AE1-415C-8322-345050954145,
-    visual_acuity_both: 20, visual_acuity_date: 2012-05-23, visual_acuity_left: 20,
-    visual_acuity_method: 13, visual_acuity_right: 20}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-23, visual_acuity_left: 1,
+    visual_acuity_method: 13, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 27
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 28, diagnosis_right: 28, dob: 2011-04-19, ethnic_group: 8, eua: 1,
+    diagnosis_left: 28, diagnosis_right: 28, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 8, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-24, lens_extraction_date_right: 2012-02-24,
     lens_status_left: 4, lens_status_right: 4, postcode: BB9, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: FA1493D1-D426-4313-8C43-B430631F0200,
-    visual_acuity_both: 7, visual_acuity_date: 2012-05-25, visual_acuity_left: 7,
-    visual_acuity_method: 14, visual_acuity_right: 7}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-25, visual_acuity_left: 1,
+    visual_acuity_method: 14, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 28
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 2, diagnosis_right: 2, dob: 2011-06-14, ethnic_group: 2, eua: 1,
+    diagnosis_left: 2, diagnosis_right: 2, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 2, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-23, lens_extraction_date_right: 2012-03-23,
     lens_status_left: 6, lens_status_right: 6, postcode: BP4, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 10FFD7F2-8061-4900-89E9-1B9C82AF6400,
-    visual_acuity_both: 8, visual_acuity_date: 2012-06-22, visual_acuity_left: 8,
-    visual_acuity_method: 14, visual_acuity_right: 8}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-22, visual_acuity_left: 1,
+    visual_acuity_method: 14, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 42
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 1, diagnosis_right: 1, dob: 2011-06-10, ethnic_group: 1, eua: 0,
+    diagnosis_left: 1, diagnosis_right: 1, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 1, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-21, lens_extraction_date_right: 2012-03-21,
     lens_status_left: 5, lens_status_right: 5, postcode: BO3, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 516E3192-5603-4DF8-8846-D14784DB5768,
@@ -89,223 +89,223 @@
   model: anonymeyes.patient
   pk: 41
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 40, diagnosis_right: 40, dob: 2011-06-06, ethnic_group: 20, eua: 1,
+    diagnosis_left: 40, diagnosis_right: 40, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 20, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-19, lens_extraction_date_right: 2012-03-19,
     lens_status_left: 4, lens_status_right: 4, postcode: BN2, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 5F06B19D-82B0-4A97-8B92-F09D6444FD00,
-    visual_acuity_both: 14, visual_acuity_date: 2012-06-18, visual_acuity_left: 14,
-    visual_acuity_method: 12, visual_acuity_right: 14}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-18, visual_acuity_left: 1,
+    visual_acuity_method: 12, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 40
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 28, diagnosis_right: 28, dob: 2011-09-26, ethnic_group: 8, eua: 1,
+    diagnosis_left: 28, diagnosis_right: 28, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 8, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-14, lens_extraction_date_right: 2012-05-14,
     lens_status_left: 2, lens_status_right: 2, postcode: CP11, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 5D688EE4-284F-4932-A018-C9F772CB6F45,
-    visual_acuity_both: 16, visual_acuity_date: 2012-08-13, visual_acuity_left: 16,
-    visual_acuity_method: 12, visual_acuity_right: 16}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-13, visual_acuity_left: 1,
+    visual_acuity_method: 12, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 68
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 29, diagnosis_right: 29, dob: 2011-09-30, ethnic_group: 9, eua: 0,
+    diagnosis_left: 29, diagnosis_right: 29, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 9, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-16, lens_extraction_date_right: 2012-05-16,
     lens_status_left: 3, lens_status_right: 3, postcode: CQ12, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 523E99AF-D41C-4FF4-95FE-69549CD5DAB4,
-    visual_acuity_both: 3, visual_acuity_date: 2012-08-15, visual_acuity_left: 3,
-    visual_acuity_method: 13, visual_acuity_right: 3}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-15, visual_acuity_left: 1,
+    visual_acuity_method: 13, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 69
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 30, diagnosis_right: 30, dob: 2011-10-04, ethnic_group: 10, eua: 1,
+    diagnosis_left: 30, diagnosis_right: 30, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 10, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-18, lens_extraction_date_right: 2012-05-18,
     lens_status_left: 4, lens_status_right: 4, postcode: CR13, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 5F7F794F-91DA-47CC-B048-0BCC3373CDFD,
-    visual_acuity_both: 10, visual_acuity_date: 2012-08-17, visual_acuity_left: 10,
-    visual_acuity_method: 14, visual_acuity_right: 10}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-17, visual_acuity_left: 1,
+    visual_acuity_method: 14, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 70
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 14, diagnosis_right: 14, dob: 2011-08-01, ethnic_group: 14, eua: 1,
+    diagnosis_left: 14, diagnosis_right: 14, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 14, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-16, lens_extraction_date_right: 2012-04-16,
     lens_status_left: 6, lens_status_right: 6, postcode: CB16, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: F742FB23-6E12-4189-B556-A93D8E351C43,
-    visual_acuity_both: 15, visual_acuity_date: 2012-07-16, visual_acuity_left: 15,
-    visual_acuity_method: 12, visual_acuity_right: 15}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-16, visual_acuity_left: 1,
+    visual_acuity_method: 12, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 54
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 16, diagnosis_right: 16, dob: 2011-08-09, ethnic_group: 16, eua: 1,
+    diagnosis_left: 16, diagnosis_right: 16, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 16, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-20, lens_extraction_date_right: 2012-04-20,
     lens_status_left: 2, lens_status_right: 2, postcode: CD18, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 5BD8BD0D-9B1D-405B-BCEA-74CA089E217B,
-    visual_acuity_both: 9, visual_acuity_date: 2012-07-20, visual_acuity_left: 9,
-    visual_acuity_method: 14, visual_acuity_right: 9}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-20, visual_acuity_left: 1,
+    visual_acuity_method: 14, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 56
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 15, diagnosis_right: 15, dob: 2012-01-12, ethnic_group: 15, eua: 0,
+    diagnosis_left: 15, diagnosis_right: 15, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 15, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-07, lens_extraction_date_right: 2012-07-07,
     lens_status_left: 5, lens_status_right: 5, postcode: DQ19, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: BA2EFFA5-B138-4EB4-BCE5-9C25FFA67B68,
-    visual_acuity_both: 11, visual_acuity_date: 2012-10-06, visual_acuity_left: 11,
-    visual_acuity_method: 11, visual_acuity_right: 11}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-06, visual_acuity_left: 1,
+    visual_acuity_method: 11, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 95
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 16, diagnosis_right: 16, dob: 2012-01-16, ethnic_group: 16, eua: 1,
+    diagnosis_left: 16, diagnosis_right: 16, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 16, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-09, lens_extraction_date_right: 2012-07-09,
     lens_status_left: 6, lens_status_right: 6, postcode: DR1, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 656091BC-2D66-4229-947F-EAAFC7880F46,
-    visual_acuity_both: 18, visual_acuity_date: 2012-10-08, visual_acuity_left: 18,
-    visual_acuity_method: 12, visual_acuity_right: 18}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-08, visual_acuity_left: 1,
+    visual_acuity_method: 12, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 96
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 12, diagnosis_right: 12, dob: 2011-02-14, ethnic_group: 12, eua: 1,
+    diagnosis_left: 12, diagnosis_right: 12, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 12, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-23, lens_extraction_date_right: 2012-01-23,
     lens_status_left: 6, lens_status_right: 6, postcode: AL12, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 53465F8B-1F6E-4348-9FA0-D703EA63C4E1,
-    visual_acuity_both: 12, visual_acuity_date: 2012-04-23, visual_acuity_left: 12,
-    visual_acuity_method: 12, visual_acuity_right: 12}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-23, visual_acuity_left: 1,
+    visual_acuity_method: 12, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 12
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 17, diagnosis_right: 17, dob: 2012-01-20, ethnic_group: 17, eua: 0,
+    diagnosis_left: 17, diagnosis_right: 17, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 17, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-11, lens_extraction_date_right: 2012-07-11,
     lens_status_left: 1, lens_status_right: 1, postcode: DS2, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 20D28CC5-5930-409C-AD29-D178875B50B8,
-    visual_acuity_both: 5, visual_acuity_date: 2012-10-10, visual_acuity_left: 5,
-    visual_acuity_method: 13, visual_acuity_right: 5}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-10, visual_acuity_left: 1,
+    visual_acuity_method: 13, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 97
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 18, diagnosis_right: 18, dob: 2012-01-24, ethnic_group: 18, eua: 1,
+    diagnosis_left: 18, diagnosis_right: 18, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 18, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-13, lens_extraction_date_right: 2012-07-13,
     lens_status_left: 2, lens_status_right: 2, postcode: DT3, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: 9D3FACD2-0320-4250-A141-4D163C853BB2,
-    visual_acuity_both: 12, visual_acuity_date: 2012-10-12, visual_acuity_left: 12,
-    visual_acuity_method: 14, visual_acuity_right: 12}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-12, visual_acuity_left: 1,
+    visual_acuity_method: 14, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 98
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 14, diagnosis_right: 14, dob: 2011-02-22, ethnic_group: 14, eua: 1,
+    diagnosis_left: 14, diagnosis_right: 14, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 14, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-27, lens_extraction_date_right: 2012-01-27,
     lens_status_left: 2, lens_status_right: 2, postcode: AN14, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: AA5008F5-C396-4ADD-875D-AF5474D49309,
-    visual_acuity_both: 6, visual_acuity_date: 2012-04-27, visual_acuity_left: 6,
-    visual_acuity_method: 14, visual_acuity_right: 6}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-27, visual_acuity_left: 1,
+    visual_acuity_method: 14, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 14
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 15, diagnosis_right: 15, dob: 2011-08-05, ethnic_group: 15, eua: 0,
+    diagnosis_left: 15, diagnosis_right: 15, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 15, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-18, lens_extraction_date_right: 2012-04-18,
     lens_status_left: 1, lens_status_right: 1, postcode: CC17, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:49', updated_by: 1, uuid: F1E1CB63-29DA-448A-9571-1CAFB0745219,
-    visual_acuity_both: 2, visual_acuity_date: 2012-07-18, visual_acuity_left: 2,
-    visual_acuity_method: 13, visual_acuity_right: 2}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-18, visual_acuity_left: 1,
+    visual_acuity_method: 13, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 55
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 27, diagnosis_right: 27, dob: 2011-09-22, ethnic_group: 7, eua: 0,
+    diagnosis_left: 27, diagnosis_right: 27, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 7, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-12, lens_extraction_date_right: 2012-05-12,
     lens_status_left: 1, lens_status_right: 1, postcode: CO10, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 90ED376B-0BD1-44EA-BCC4-3F13E4F86003,
-    visual_acuity_both: 9, visual_acuity_date: 2012-08-11, visual_acuity_left: 9,
-    visual_acuity_method: 11, visual_acuity_right: 9}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-11, visual_acuity_left: 1,
+    visual_acuity_method: 11, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 67
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 21, diagnosis_right: 21, dob: 2011-08-29, ethnic_group: 1, eua: 0,
+    diagnosis_left: 21, diagnosis_right: 21, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 1, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-30, lens_extraction_date_right: 2012-04-30,
     lens_status_left: 1, lens_status_right: 1, postcode: CI4, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D9E5B593-CAE1-4F5E-B98B-C7E927D5582F,
-    visual_acuity_both: 7, visual_acuity_date: 2012-07-30, visual_acuity_left: 7,
-    visual_acuity_method: 5, visual_acuity_right: 7}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-30, visual_acuity_left: 1,
+    visual_acuity_method: 5, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 61
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 20, diagnosis_right: 20, dob: 2011-08-25, ethnic_group: 20, eua: 1,
+    diagnosis_left: 20, diagnosis_right: 20, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 20, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-28, lens_extraction_date_right: 2012-04-28,
     lens_status_left: 6, lens_status_right: 6, postcode: CH3, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: EC5C4288-5638-4943-AF23-EDA460123AD1,
-    visual_acuity_both: 20, visual_acuity_date: 2012-07-28, visual_acuity_left: 20,
-    visual_acuity_method: 4, visual_acuity_right: 20}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-28, visual_acuity_left: 1,
+    visual_acuity_method: 4, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 60
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 26, diagnosis_right: 26, dob: 2011-09-18, ethnic_group: 6, eua: 1,
+    diagnosis_left: 26, diagnosis_right: 26, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 6, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-10, lens_extraction_date_right: 2012-05-10,
     lens_status_left: 6, lens_status_right: 6, postcode: CN9, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 2B717B86-1D23-4D20-94EE-39022EAB0F9F,
-    visual_acuity_both: 2, visual_acuity_date: 2012-08-09, visual_acuity_left: 2,
-    visual_acuity_method: 10, visual_acuity_right: 2}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-09, visual_acuity_left: 1,
+    visual_acuity_method: 10, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 66
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 25, diagnosis_right: 25, dob: 2011-09-14, ethnic_group: 5, eua: 0,
+    diagnosis_left: 25, diagnosis_right: 25, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 5, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-08, lens_extraction_date_right: 2012-05-08,
     lens_status_left: 5, lens_status_right: 5, postcode: CM8, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 8CEA5B79-B205-4921-A10D-DEE1D457978F,
-    visual_acuity_both: 15, visual_acuity_date: 2012-08-07, visual_acuity_left: 15,
-    visual_acuity_method: 9, visual_acuity_right: 15}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-07, visual_acuity_left: 1,
+    visual_acuity_method: 9, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 65
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 17, diagnosis_right: 17, dob: 2011-08-13, ethnic_group: 17, eua: 0,
+    diagnosis_left: 17, diagnosis_right: 17, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 17, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-22, lens_extraction_date_right: 2012-04-22,
     lens_status_left: 3, lens_status_right: 3, postcode: CE19, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: A14F38E7-3CE5-4B31-AA0C-6B546A4D0A5B,
-    visual_acuity_both: 29, visual_acuity_date: 2012-07-22, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-22, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 57
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 18, diagnosis_right: 18, dob: 2011-08-17, ethnic_group: 18, eua: 1,
+    diagnosis_left: 18, diagnosis_right: 18, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 18, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-24, lens_extraction_date_right: 2012-04-24,
     lens_status_left: 4, lens_status_right: 4, postcode: CF1, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: E70E5B4B-80AF-4145-BBF2-422392885C0D,
-    visual_acuity_both: 5, visual_acuity_date: 2012-07-24, visual_acuity_left: 5,
-    visual_acuity_method: 2, visual_acuity_right: 5}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-24, visual_acuity_left: 1,
+    visual_acuity_method: 2, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 58
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 19, diagnosis_right: 19, dob: 2011-08-21, ethnic_group: 19, eua: 0,
+    diagnosis_left: 19, diagnosis_right: 19, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 19, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-26, lens_extraction_date_right: 2012-04-26,
     lens_status_left: 5, lens_status_right: 5, postcode: CG2, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: BB55ED7C-C685-40CF-BFAC-EE6EDB6A9C7F,
-    visual_acuity_both: 13, visual_acuity_date: 2012-07-26, visual_acuity_left: 13,
-    visual_acuity_method: 3, visual_acuity_right: 13}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-26, visual_acuity_left: 1,
+    visual_acuity_method: 3, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 59
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 24, diagnosis_right: 24, dob: 2011-09-10, ethnic_group: 4, eua: 1,
+    diagnosis_left: 24, diagnosis_right: 24, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 4, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-06, lens_extraction_date_right: 2012-05-06,
     lens_status_left: 4, lens_status_right: 4, postcode: CL7, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: B07AE8D5-F82D-40BC-887B-E4BFAD254FB0,
-    visual_acuity_both: 8, visual_acuity_date: 2012-08-05, visual_acuity_left: 8,
-    visual_acuity_method: 8, visual_acuity_right: 8}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-05, visual_acuity_left: 1,
+    visual_acuity_method: 8, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 64
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 22, diagnosis_right: 22, dob: 2011-09-02, ethnic_group: 2, eua: 1,
+    diagnosis_left: 22, diagnosis_right: 22, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 2, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-02, lens_extraction_date_right: 2012-05-02,
     lens_status_left: 2, lens_status_right: 2, postcode: CJ5, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 9E91E83A-9248-4028-8240-14A76A6BE801,
-    visual_acuity_both: 14, visual_acuity_date: 2012-08-01, visual_acuity_left: 14,
-    visual_acuity_method: 6, visual_acuity_right: 14}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-01, visual_acuity_left: 1,
+    visual_acuity_method: 6, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 62
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 14, diagnosis_right: 14, dob: 2012-01-08, ethnic_group: 14, eua: 1,
+    diagnosis_left: 14, diagnosis_right: 14, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 14, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-05, lens_extraction_date_right: 2012-07-05,
     lens_status_left: 4, lens_status_right: 4, postcode: DP18, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: C590EFE6-A817-4382-9C69-D161FE083639,
-    visual_acuity_both: 4, visual_acuity_date: 2012-10-04, visual_acuity_left: 4,
-    visual_acuity_method: 10, visual_acuity_right: 4}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-04, visual_acuity_left: 1,
+    visual_acuity_method: 10, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 94
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 23, diagnosis_right: 23, dob: 2011-09-06, ethnic_group: 3, eua: 0,
+    diagnosis_left: 23, diagnosis_right: 23, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 3, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-04, lens_extraction_date_right: 2012-05-04,
     lens_status_left: 3, lens_status_right: 3, postcode: CK6, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: A2B9FB1E-4DCD-4AC5-93B8-E7403F93105F,
@@ -314,124 +314,124 @@
   model: anonymeyes.patient
   pk: 63
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 31, diagnosis_right: 31, dob: 2011-10-08, ethnic_group: 11, eua: 0,
+    diagnosis_left: 31, diagnosis_right: 31, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 11, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-20, lens_extraction_date_right: 2012-05-20,
     lens_status_left: 5, lens_status_right: 5, postcode: CS14, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: FDFE1A46-1372-4917-8EAC-8B125283AE65,
-    visual_acuity_both: 29, visual_acuity_date: 2012-08-19, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-19, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 71
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 32, diagnosis_right: 32, dob: 2011-10-12, ethnic_group: 12, eua: 1,
+    diagnosis_left: 32, diagnosis_right: 32, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 12, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-22, lens_extraction_date_right: 2012-05-22,
     lens_status_left: 6, lens_status_right: 6, postcode: CT15, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: FF55B0F0-05DD-446A-A8DA-EF27C5B7A683,
-    visual_acuity_both: 6, visual_acuity_date: 2012-08-21, visual_acuity_left: 6,
-    visual_acuity_method: 2, visual_acuity_right: 6}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-21, visual_acuity_left: 1,
+    visual_acuity_method: 2, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 72
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 7, diagnosis_right: 7, dob: 2011-12-11, ethnic_group: 7, eua: 0,
+    diagnosis_left: 7, diagnosis_right: 7, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 7, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-21, lens_extraction_date_right: 2012-06-21,
     lens_status_left: 3, lens_status_right: 3, postcode: DI11, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D1DA141E-5E61-4766-8EF0-3684C7E3FC72,
-    visual_acuity_both: 15, visual_acuity_date: 2012-09-20, visual_acuity_left: 15,
-    visual_acuity_method: 3, visual_acuity_right: 15}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-20, visual_acuity_left: 1,
+    visual_acuity_method: 3, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 87
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 8, diagnosis_right: 8, dob: 2011-12-15, ethnic_group: 8, eua: 1,
+    diagnosis_left: 8, diagnosis_right: 8, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 8, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-23, lens_extraction_date_right: 2012-06-23,
     lens_status_left: 4, lens_status_right: 4, postcode: DJ12, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 1683A5D9-D970-4404-A94C-0D964EEEB7C8,
-    visual_acuity_both: 2, visual_acuity_date: 2012-09-22, visual_acuity_left: 2,
-    visual_acuity_method: 4, visual_acuity_right: 2}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-22, visual_acuity_left: 1,
+    visual_acuity_method: 4, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 88
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 9, diagnosis_right: 9, dob: 2011-12-19, ethnic_group: 9, eua: 0,
+    diagnosis_left: 9, diagnosis_right: 9, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 9, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-25, lens_extraction_date_right: 2012-06-25,
     lens_status_left: 5, lens_status_right: 5, postcode: DK13, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D3B8D8C2-E136-4699-9C6F-96283B86C97C,
-    visual_acuity_both: 9, visual_acuity_date: 2012-09-24, visual_acuity_left: 9,
-    visual_acuity_method: 5, visual_acuity_right: 9}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-24, visual_acuity_left: 1,
+    visual_acuity_method: 5, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 89
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 10, diagnosis_right: 10, dob: 2011-12-23, ethnic_group: 10, eua: 1,
+    diagnosis_left: 10, diagnosis_right: 10, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 10, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-27, lens_extraction_date_right: 2012-06-27,
     lens_status_left: 6, lens_status_right: 6, postcode: DL14, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 65B9F357-A24A-430D-B6D7-403925824E90,
-    visual_acuity_both: 16, visual_acuity_date: 2012-09-26, visual_acuity_left: 16,
-    visual_acuity_method: 6, visual_acuity_right: 16}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-26, visual_acuity_left: 1,
+    visual_acuity_method: 6, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 90
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 11, diagnosis_right: 11, dob: 2011-12-27, ethnic_group: 11, eua: 0,
+    diagnosis_left: 11, diagnosis_right: 11, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 11, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-29, lens_extraction_date_right: 2012-06-29,
     lens_status_left: 1, lens_status_right: 1, postcode: DM15, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: E3232C02-A031-43F0-8FA4-8CEFE58D94E5,
-    visual_acuity_both: 3, visual_acuity_date: 2012-09-28, visual_acuity_left: 3,
-    visual_acuity_method: 7, visual_acuity_right: 3}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-28, visual_acuity_left: 1,
+    visual_acuity_method: 7, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 91
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 12, diagnosis_right: 12, dob: 2011-12-31, ethnic_group: 12, eua: 1,
+    diagnosis_left: 12, diagnosis_right: 12, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 12, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-01, lens_extraction_date_right: 2012-07-01,
     lens_status_left: 2, lens_status_right: 2, postcode: DN16, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D815190B-A8D2-4FD4-8026-CCA75C59E0A7,
-    visual_acuity_both: 10, visual_acuity_date: 2012-09-30, visual_acuity_left: 10,
-    visual_acuity_method: 8, visual_acuity_right: 10}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-30, visual_acuity_left: 1,
+    visual_acuity_method: 8, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 92
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 13, diagnosis_right: 13, dob: 2012-01-04, ethnic_group: 13, eua: 0,
+    diagnosis_left: 13, diagnosis_right: 13, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 13, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-03, lens_extraction_date_right: 2012-07-03,
     lens_status_left: 3, lens_status_right: 3, postcode: DO17, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 5D76433A-B570-4097-8AD8-13B0E33AE550,
-    visual_acuity_both: 17, visual_acuity_date: 2012-10-02, visual_acuity_left: 17,
-    visual_acuity_method: 9, visual_acuity_right: 17}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-02, visual_acuity_left: 1,
+    visual_acuity_method: 9, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 93
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 19, diagnosis_right: 19, dob: 2012-01-28, ethnic_group: 19, eua: 0,
+    diagnosis_left: 19, diagnosis_right: 19, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 19, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-15, lens_extraction_date_right: 2012-07-15,
     lens_status_left: 3, lens_status_right: 3, postcode: DU4, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 231E8893-83E6-4567-B07B-7D759C3495F5,
-    visual_acuity_both: 29, visual_acuity_date: 2012-10-14, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-14, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 99
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 6, diagnosis_right: 6, dob: 2011-12-07, ethnic_group: 6, eua: 1,
+    diagnosis_left: 6, diagnosis_right: 6, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 6, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-19, lens_extraction_date_right: 2012-06-19,
     lens_status_left: 2, lens_status_right: 2, postcode: DH10, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 19627B41-D50D-4CAA-9B39-B85283CAD388,
-    visual_acuity_both: 7, visual_acuity_date: 2012-09-18, visual_acuity_left: 7,
-    visual_acuity_method: 2, visual_acuity_right: 7}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-18, visual_acuity_left: 1,
+    visual_acuity_method: 2, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 86
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 5, diagnosis_right: 5, dob: 2011-12-03, ethnic_group: 5, eua: 0,
+    diagnosis_left: 5, diagnosis_right: 5, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 5, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-17, lens_extraction_date_right: 2012-06-17,
     lens_status_left: 1, lens_status_right: 1, postcode: DG9, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D3936D50-679E-4E04-99CE-5A2241FA65C2,
-    visual_acuity_both: 29, visual_acuity_date: 2012-09-16, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-16, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 85
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 33, diagnosis_right: 33, dob: 2011-10-16, ethnic_group: 13, eua: 0,
+    diagnosis_left: 33, diagnosis_right: 33, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 13, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-24, lens_extraction_date_right: 2012-05-24,
     lens_status_left: 1, lens_status_right: 1, postcode: CU16, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 6FEABC7C-C931-40D0-8DDD-43E23C76EE8A,
-    visual_acuity_both: 14, visual_acuity_date: 2012-08-23, visual_acuity_left: 14,
-    visual_acuity_method: 3, visual_acuity_right: 14}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-23, visual_acuity_left: 1,
+    visual_acuity_method: 3, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 73
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 34, diagnosis_right: 34, dob: 2011-10-20, ethnic_group: 14, eua: 1,
+    diagnosis_left: 34, diagnosis_right: 34, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 14, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-26, lens_extraction_date_right: 2012-05-26,
     lens_status_left: 2, lens_status_right: 2, postcode: CV17, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D34ED58A-8381-4905-86E3-0864BA56BE95,
@@ -440,70 +440,70 @@
   model: anonymeyes.patient
   pk: 74
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 35, diagnosis_right: 35, dob: 2011-10-24, ethnic_group: 15, eua: 0,
+    diagnosis_left: 35, diagnosis_right: 35, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 15, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-28, lens_extraction_date_right: 2012-05-28,
     lens_status_left: 3, lens_status_right: 3, postcode: CW18, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 8ADBDC16-E276-43D3-8DDF-CC4A80E72464,
-    visual_acuity_both: 8, visual_acuity_date: 2012-08-27, visual_acuity_left: 8,
-    visual_acuity_method: 5, visual_acuity_right: 8}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-27, visual_acuity_left: 1,
+    visual_acuity_method: 5, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 75
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 36, diagnosis_right: 36, dob: 2011-10-28, ethnic_group: 16, eua: 1,
+    diagnosis_left: 36, diagnosis_right: 36, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 16, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-05-30, lens_extraction_date_right: 2012-05-30,
     lens_status_left: 4, lens_status_right: 4, postcode: CX19, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 6EF14317-85A0-4747-8CC7-4A4B0D4320C9,
-    visual_acuity_both: 15, visual_acuity_date: 2012-08-29, visual_acuity_left: 15,
-    visual_acuity_method: 6, visual_acuity_right: 15}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-29, visual_acuity_left: 1,
+    visual_acuity_method: 6, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 76
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 37, diagnosis_right: 37, dob: 2011-11-01, ethnic_group: 17, eua: 0,
+    diagnosis_left: 37, diagnosis_right: 37, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 17, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-01, lens_extraction_date_right: 2012-06-01,
     lens_status_left: 5, lens_status_right: 5, postcode: CY1, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 753D0989-8E53-47A1-BB78-928A5420A9E4,
-    visual_acuity_both: 2, visual_acuity_date: 2012-08-31, visual_acuity_left: 2,
-    visual_acuity_method: 7, visual_acuity_right: 2}
+    visual_acuity_both: 1, visual_acuity_date: 2012-08-31, visual_acuity_left: 1,
+    visual_acuity_method: 7, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 77
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 38, diagnosis_right: 38, dob: 2011-11-05, ethnic_group: 18, eua: 1,
+    diagnosis_left: 38, diagnosis_right: 38, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 18, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-03, lens_extraction_date_right: 2012-06-03,
     lens_status_left: 6, lens_status_right: 6, postcode: CZ2, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 9CA9E61B-1B9E-4758-9932-108695B916BF,
-    visual_acuity_both: 9, visual_acuity_date: 2012-09-02, visual_acuity_left: 9,
-    visual_acuity_method: 8, visual_acuity_right: 9}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-02, visual_acuity_left: 1,
+    visual_acuity_method: 8, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 78
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 39, diagnosis_right: 39, dob: 2011-11-09, ethnic_group: 19, eua: 0,
+    diagnosis_left: 39, diagnosis_right: 39, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 19, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-05, lens_extraction_date_right: 2012-06-05,
     lens_status_left: 1, lens_status_right: 1, postcode: DA3, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 074D802C-363E-4FF2-960D-35BED035D22D,
-    visual_acuity_both: 16, visual_acuity_date: 2012-09-04, visual_acuity_left: 16,
-    visual_acuity_method: 9, visual_acuity_right: 16}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-04, visual_acuity_left: 1,
+    visual_acuity_method: 9, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 79
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 40, diagnosis_right: 40, dob: 2011-11-13, ethnic_group: 20, eua: 1,
+    diagnosis_left: 40, diagnosis_right: 40, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 20, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-06-07, lens_extraction_date_right: 2012-06-07,
     lens_status_left: 2, lens_status_right: 2, postcode: DB4, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 570DEE3B-C99A-47CE-B2E9-932E82578A67,
-    visual_acuity_both: 3, visual_acuity_date: 2012-09-06, visual_acuity_left: 3,
-    visual_acuity_method: 10, visual_acuity_right: 3}
+    visual_acuity_both: 1, visual_acuity_date: 2012-09-06, visual_acuity_left: 1,
+    visual_acuity_method: 10, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 80
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 20, diagnosis_right: 20, dob: 2012-02-01, ethnic_group: 20, eua: 1,
+    diagnosis_left: 20, diagnosis_right: 20, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 20, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-07-17, lens_extraction_date_right: 2012-07-17,
     lens_status_left: 4, lens_status_right: 4, postcode: DV5, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: AEA003FE-0B8B-4067-9922-CD79C1B9A7DD,
-    visual_acuity_both: 8, visual_acuity_date: 2012-10-16, visual_acuity_left: 8,
-    visual_acuity_method: 2, visual_acuity_right: 8}
+    visual_acuity_both: 1, visual_acuity_date: 2012-10-16, visual_acuity_left: 1,
+    visual_acuity_method: 2, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 100
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 2, diagnosis_right: 2, dob: 2011-01-05, ethnic_group: 2, eua: 1,
+    diagnosis_left: 2, diagnosis_right: 2, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 2, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-03, lens_extraction_date_right: 2012-01-03,
     lens_status_left: 2, lens_status_right: 2, postcode: AB2, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 8F8F6435-1B53-44C9-94D9-9DB0666BE4F1,
@@ -512,277 +512,277 @@
   model: anonymeyes.patient
   pk: 2
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 16, diagnosis_right: 16, dob: 2011-03-02, ethnic_group: 16, eua: 1,
+    diagnosis_left: 16, diagnosis_right: 16, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 16, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-31, lens_extraction_date_right: 2012-01-31,
     lens_status_left: 4, lens_status_right: 4, postcode: AP16, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 648B03B5-70DF-4E73-ABA8-CE64CC97A830,
-    visual_acuity_both: 2, visual_acuity_date: 2012-05-01, visual_acuity_left: 2,
-    visual_acuity_method: 2, visual_acuity_right: 2}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-01, visual_acuity_left: 1,
+    visual_acuity_method: 2, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 16
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 17, diagnosis_right: 17, dob: 2011-03-06, ethnic_group: 17, eua: 0,
+    diagnosis_left: 17, diagnosis_right: 17, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 17, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-02, lens_extraction_date_right: 2012-02-02,
     lens_status_left: 5, lens_status_right: 5, postcode: AQ17, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: BAA21A68-2F83-45B8-9C00-F7541C8CA4D4,
-    visual_acuity_both: 10, visual_acuity_date: 2012-05-03, visual_acuity_left: 10,
-    visual_acuity_method: 3, visual_acuity_right: 10}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-03, visual_acuity_left: 1,
+    visual_acuity_method: 3, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 17
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 18, diagnosis_right: 18, dob: 2011-03-10, ethnic_group: 18, eua: 1,
+    diagnosis_left: 18, diagnosis_right: 18, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 18, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-04, lens_extraction_date_right: 2012-02-04,
     lens_status_left: 6, lens_status_right: 6, postcode: AR18, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 588259F6-4CF3-4359-BB9E-3E2409CC3A99,
-    visual_acuity_both: 17, visual_acuity_date: 2012-05-05, visual_acuity_left: 17,
-    visual_acuity_method: 4, visual_acuity_right: 17}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-05, visual_acuity_left: 1,
+    visual_acuity_method: 4, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 18
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 19, diagnosis_right: 19, dob: 2011-03-14, ethnic_group: 19, eua: 0,
+    diagnosis_left: 19, diagnosis_right: 19, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 19, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-06, lens_extraction_date_right: 2012-02-06,
     lens_status_left: 1, lens_status_right: 1, postcode: AS19, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: C814F8D2-B2BB-4B00-9270-A62551CE3CDE,
-    visual_acuity_both: 4, visual_acuity_date: 2012-05-07, visual_acuity_left: 4,
-    visual_acuity_method: 5, visual_acuity_right: 4}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-07, visual_acuity_left: 1,
+    visual_acuity_method: 5, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 19
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 20, diagnosis_right: 20, dob: 2011-03-18, ethnic_group: 20, eua: 1,
+    diagnosis_left: 20, diagnosis_right: 20, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 20, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-08, lens_extraction_date_right: 2012-02-08,
     lens_status_left: 2, lens_status_right: 2, postcode: AT1, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 28B82814-9A96-4EAD-90FF-B379A47FBEAC,
-    visual_acuity_both: 11, visual_acuity_date: 2012-05-09, visual_acuity_left: 11,
-    visual_acuity_method: 6, visual_acuity_right: 11}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-09, visual_acuity_left: 1,
+    visual_acuity_method: 6, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 20
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 21, diagnosis_right: 21, dob: 2011-03-22, ethnic_group: 1, eua: 0,
+    diagnosis_left: 21, diagnosis_right: 21, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 1, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-10, lens_extraction_date_right: 2012-02-10,
     lens_status_left: 3, lens_status_right: 3, postcode: AU2, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 85AE01FB-48CB-4666-B48D-209E5322524C,
-    visual_acuity_both: 18, visual_acuity_date: 2012-05-11, visual_acuity_left: 18,
-    visual_acuity_method: 7, visual_acuity_right: 18}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-11, visual_acuity_left: 1,
+    visual_acuity_method: 7, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 21
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 22, diagnosis_right: 22, dob: 2011-03-26, ethnic_group: 2, eua: 1,
+    diagnosis_left: 22, diagnosis_right: 22, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 2, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-12, lens_extraction_date_right: 2012-02-12,
     lens_status_left: 4, lens_status_right: 4, postcode: AV3, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 826606A4-7E31-4570-B420-8DA331EDCE76,
-    visual_acuity_both: 5, visual_acuity_date: 2012-05-13, visual_acuity_left: 5,
-    visual_acuity_method: 8, visual_acuity_right: 5}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-13, visual_acuity_left: 1,
+    visual_acuity_method: 8, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 22
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 23, diagnosis_right: 23, dob: 2011-03-30, ethnic_group: 3, eua: 0,
+    diagnosis_left: 23, diagnosis_right: 23, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 3, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-14, lens_extraction_date_right: 2012-02-14,
     lens_status_left: 5, lens_status_right: 5, postcode: AW4, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: DB5F44C2-E58E-4E6A-92F8-E32FA525CFEC,
-    visual_acuity_both: 12, visual_acuity_date: 2012-05-15, visual_acuity_left: 12,
-    visual_acuity_method: 9, visual_acuity_right: 12}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-15, visual_acuity_left: 1,
+    visual_acuity_method: 9, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 23
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 24, diagnosis_right: 24, dob: 2011-04-03, ethnic_group: 4, eua: 1,
+    diagnosis_left: 24, diagnosis_right: 24, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 4, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-16, lens_extraction_date_right: 2012-02-16,
     lens_status_left: 6, lens_status_right: 6, postcode: AX5, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: C7DB42F3-A036-4BA6-837B-CA58061EA119,
-    visual_acuity_both: 19, visual_acuity_date: 2012-05-17, visual_acuity_left: 19,
-    visual_acuity_method: 10, visual_acuity_right: 19}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-17, visual_acuity_left: 1,
+    visual_acuity_method: 10, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 24
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 15, diagnosis_right: 15, dob: 2011-02-26, ethnic_group: 15, eua: 0,
+    diagnosis_left: 15, diagnosis_right: 15, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 15, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-29, lens_extraction_date_right: 2012-01-29,
     lens_status_left: 3, lens_status_right: 3, postcode: AO15, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: A68EA112-04DC-4A80-8755-DF252C694D94,
-    visual_acuity_both: 29, visual_acuity_date: 2012-04-29, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-29, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 15
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 1, diagnosis_right: 1, dob: 2011-01-01, ethnic_group: 1, eua: 0,
+    diagnosis_left: 1, diagnosis_right: 1, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 1, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-01, lens_extraction_date_right: 2012-01-01,
     lens_status_left: 1, lens_status_right: 1, postcode: AA1, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: d28895e6-b35d-4921-aa78-2acdfe699b82,
-    visual_acuity_both: 29, visual_acuity_date: 2012-04-01, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-01, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 1
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 3, diagnosis_right: 3, dob: 2011-01-09, ethnic_group: 3, eua: 0,
+    diagnosis_left: 3, diagnosis_right: 3, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 3, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-05, lens_extraction_date_right: 2012-01-05,
     lens_status_left: 3, lens_status_right: 3, postcode: AC3, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: F21FA884-569A-440D-BE71-16FE4E7E35D3,
-    visual_acuity_both: 9, visual_acuity_date: 2012-04-05, visual_acuity_left: 9,
-    visual_acuity_method: 3, visual_acuity_right: 9}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-05, visual_acuity_left: 1,
+    visual_acuity_method: 3, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 3
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 4, diagnosis_right: 4, dob: 2011-01-13, ethnic_group: 4, eua: 1,
+    diagnosis_left: 4, diagnosis_right: 4, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 4, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-07, lens_extraction_date_right: 2012-01-07,
     lens_status_left: 4, lens_status_right: 4, postcode: AD4, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 444D0B5B-708B-471E-AC53-051167682BC6,
-    visual_acuity_both: 16, visual_acuity_date: 2012-04-07, visual_acuity_left: 16,
-    visual_acuity_method: 4, visual_acuity_right: 16}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-07, visual_acuity_left: 1,
+    visual_acuity_method: 4, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 4
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 5, diagnosis_right: 5, dob: 2011-01-17, ethnic_group: 5, eua: 0,
+    diagnosis_left: 5, diagnosis_right: 5, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 5, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-09, lens_extraction_date_right: 2012-01-09,
     lens_status_left: 5, lens_status_right: 5, postcode: AE5, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 9B30186A-C395-4112-8316-AE18AC807468,
-    visual_acuity_both: 3, visual_acuity_date: 2012-04-09, visual_acuity_left: 3,
-    visual_acuity_method: 5, visual_acuity_right: 3}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-09, visual_acuity_left: 1,
+    visual_acuity_method: 5, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 5
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 6, diagnosis_right: 6, dob: 2011-01-21, ethnic_group: 6, eua: 1,
+    diagnosis_left: 6, diagnosis_right: 6, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 6, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-11, lens_extraction_date_right: 2012-01-11,
     lens_status_left: 6, lens_status_right: 6, postcode: AF6, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 72755539-1486-491D-B251-841E538CB0ED,
-    visual_acuity_both: 10, visual_acuity_date: 2012-04-11, visual_acuity_left: 10,
-    visual_acuity_method: 6, visual_acuity_right: 10}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-11, visual_acuity_left: 1,
+    visual_acuity_method: 6, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 6
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 7, diagnosis_right: 7, dob: 2011-01-25, ethnic_group: 7, eua: 0,
+    diagnosis_left: 7, diagnosis_right: 7, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 7, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-13, lens_extraction_date_right: 2012-01-13,
     lens_status_left: 1, lens_status_right: 1, postcode: AG7, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 00346480-1FEF-4E29-855E-98C47999541E,
-    visual_acuity_both: 17, visual_acuity_date: 2012-04-13, visual_acuity_left: 17,
-    visual_acuity_method: 7, visual_acuity_right: 17}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-13, visual_acuity_left: 1,
+    visual_acuity_method: 7, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 7
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 8, diagnosis_right: 8, dob: 2011-01-29, ethnic_group: 8, eua: 1,
+    diagnosis_left: 8, diagnosis_right: 8, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 8, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-15, lens_extraction_date_right: 2012-01-15,
     lens_status_left: 2, lens_status_right: 2, postcode: AH8, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: C104B322-7497-44ED-9569-99506E36EE79,
-    visual_acuity_both: 4, visual_acuity_date: 2012-04-15, visual_acuity_left: 4,
-    visual_acuity_method: 8, visual_acuity_right: 4}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-15, visual_acuity_left: 1,
+    visual_acuity_method: 8, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 8
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 9, diagnosis_right: 9, dob: 2011-02-02, ethnic_group: 9, eua: 0,
+    diagnosis_left: 9, diagnosis_right: 9, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 9, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-17, lens_extraction_date_right: 2012-01-17,
     lens_status_left: 3, lens_status_right: 3, postcode: AI9, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 645234D4-8C95-4C97-8E76-A719CC61BB6C,
-    visual_acuity_both: 11, visual_acuity_date: 2012-04-17, visual_acuity_left: 11,
-    visual_acuity_method: 9, visual_acuity_right: 11}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-17, visual_acuity_left: 1,
+    visual_acuity_method: 9, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 9
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 10, diagnosis_right: 10, dob: 2011-02-06, ethnic_group: 10, eua: 1,
+    diagnosis_left: 10, diagnosis_right: 10, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 10, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-19, lens_extraction_date_right: 2012-01-19,
     lens_status_left: 4, lens_status_right: 4, postcode: AJ10, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 81677FAD-8C8D-469F-BBC5-609E17A4C550,
-    visual_acuity_both: 18, visual_acuity_date: 2012-04-19, visual_acuity_left: 18,
-    visual_acuity_method: 10, visual_acuity_right: 18}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-19, visual_acuity_left: 1,
+    visual_acuity_method: 10, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 10
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 11, diagnosis_right: 11, dob: 2011-02-10, ethnic_group: 11, eua: 0,
+    diagnosis_left: 11, diagnosis_right: 11, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 11, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-01-21, lens_extraction_date_right: 2012-01-21,
     lens_status_left: 5, lens_status_right: 5, postcode: AK11, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: AE8E1787-14EF-4126-8E5B-735148F84F32,
-    visual_acuity_both: 5, visual_acuity_date: 2012-04-21, visual_acuity_left: 5,
-    visual_acuity_method: 11, visual_acuity_right: 5}
+    visual_acuity_both: 1, visual_acuity_date: 2012-04-21, visual_acuity_left: 1,
+    visual_acuity_method: 11, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 11
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 25, diagnosis_right: 25, dob: 2011-04-07, ethnic_group: 5, eua: 0,
+    diagnosis_left: 25, diagnosis_right: 25, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 5, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-18, lens_extraction_date_right: 2012-02-18,
     lens_status_left: 1, lens_status_right: 1, postcode: AY6, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 31320487-3D92-4899-8388-690139B0F729,
-    visual_acuity_both: 6, visual_acuity_date: 2012-05-19, visual_acuity_left: 6,
-    visual_acuity_method: 11, visual_acuity_right: 6}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-19, visual_acuity_left: 1,
+    visual_acuity_method: 11, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 25
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 29, diagnosis_right: 29, dob: 2011-04-23, ethnic_group: 9, eua: 0,
+    diagnosis_left: 29, diagnosis_right: 29, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 9, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-26, lens_extraction_date_right: 2012-02-26,
     lens_status_left: 5, lens_status_right: 5, postcode: BC10, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 48102BAD-170C-4432-814E-DB748F15C7E6,
-    visual_acuity_both: 29, visual_acuity_date: 2012-05-27, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-27, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 29
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 4, diagnosis_right: 4, dob: 2011-06-22, ethnic_group: 4, eua: 1,
+    diagnosis_left: 4, diagnosis_right: 4, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 4, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-27, lens_extraction_date_right: 2012-03-27,
     lens_status_left: 2, lens_status_right: 2, postcode: BR6, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: CFF76281-CA4B-4E76-85D7-074667F14E7F,
-    visual_acuity_both: 4, visual_acuity_date: 2012-06-26, visual_acuity_left: 4,
-    visual_acuity_method: 2, visual_acuity_right: 4}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-26, visual_acuity_left: 1,
+    visual_acuity_method: 2, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 44
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 5, diagnosis_right: 5, dob: 2011-06-26, ethnic_group: 5, eua: 0,
+    diagnosis_left: 5, diagnosis_right: 5, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 5, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-29, lens_extraction_date_right: 2012-03-29,
     lens_status_left: 3, lens_status_right: 3, postcode: BS7, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: A0A3E5B8-AF43-4695-8256-3F04E23CB8EC,
-    visual_acuity_both: 12, visual_acuity_date: 2012-06-28, visual_acuity_left: 12,
-    visual_acuity_method: 3, visual_acuity_right: 12}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-28, visual_acuity_left: 1,
+    visual_acuity_method: 3, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 45
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 6, diagnosis_right: 6, dob: 2011-06-30, ethnic_group: 6, eua: 1,
+    diagnosis_left: 6, diagnosis_right: 6, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 6, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-31, lens_extraction_date_right: 2012-03-31,
     lens_status_left: 4, lens_status_right: 4, postcode: BT8, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 0F5CB65B-32E4-4B6D-8DFD-8BB352F7E1CB,
-    visual_acuity_both: 19, visual_acuity_date: 2012-06-30, visual_acuity_left: 19,
-    visual_acuity_method: 4, visual_acuity_right: 19}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-30, visual_acuity_left: 1,
+    visual_acuity_method: 4, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 46
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 7, diagnosis_right: 7, dob: 2011-07-04, ethnic_group: 7, eua: 0,
+    diagnosis_left: 7, diagnosis_right: 7, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 7, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-02, lens_extraction_date_right: 2012-04-02,
     lens_status_left: 5, lens_status_right: 5, postcode: BU9, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: E5EFD7F9-FDBD-451D-940C-5E2F4B22C7C5,
-    visual_acuity_both: 6, visual_acuity_date: 2012-07-02, visual_acuity_left: 6,
-    visual_acuity_method: 5, visual_acuity_right: 6}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-02, visual_acuity_left: 1,
+    visual_acuity_method: 5, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 47
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 8, diagnosis_right: 8, dob: 2011-07-08, ethnic_group: 8, eua: 1,
+    diagnosis_left: 8, diagnosis_right: 8, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 8, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-04, lens_extraction_date_right: 2012-04-04,
     lens_status_left: 6, lens_status_right: 6, postcode: BV10, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: E3AD8BA3-6486-4925-9AE1-FC2F40C59D2B,
-    visual_acuity_both: 13, visual_acuity_date: 2012-07-04, visual_acuity_left: 13,
-    visual_acuity_method: 6, visual_acuity_right: 13}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-04, visual_acuity_left: 1,
+    visual_acuity_method: 6, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 48
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 9, diagnosis_right: 9, dob: 2011-07-12, ethnic_group: 9, eua: 0,
+    diagnosis_left: 9, diagnosis_right: 9, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 9, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-06, lens_extraction_date_right: 2012-04-06,
     lens_status_left: 1, lens_status_right: 1, postcode: BW11, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 74F53500-A152-4949-82C6-B75FA2A94E78,
-    visual_acuity_both: 20, visual_acuity_date: 2012-07-06, visual_acuity_left: 20,
-    visual_acuity_method: 7, visual_acuity_right: 20}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-06, visual_acuity_left: 1,
+    visual_acuity_method: 7, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 49
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 10, diagnosis_right: 10, dob: 2011-07-16, ethnic_group: 10, eua: 1,
+    diagnosis_left: 10, diagnosis_right: 10, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 10, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-08, lens_extraction_date_right: 2012-04-08,
     lens_status_left: 2, lens_status_right: 2, postcode: BX12, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 5CCB344D-3EEC-4957-8032-8BB013FD8F65,
-    visual_acuity_both: 7, visual_acuity_date: 2012-07-08, visual_acuity_left: 7,
-    visual_acuity_method: 8, visual_acuity_right: 7}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-08, visual_acuity_left: 1,
+    visual_acuity_method: 8, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 50
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 11, diagnosis_right: 11, dob: 2011-07-20, ethnic_group: 11, eua: 0,
+    diagnosis_left: 11, diagnosis_right: 11, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 11, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-10, lens_extraction_date_right: 2012-04-10,
     lens_status_left: 3, lens_status_right: 3, postcode: BY13, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 6FB35B1C-07F5-45DA-BB1E-61117BB36BE9,
-    visual_acuity_both: 14, visual_acuity_date: 2012-07-10, visual_acuity_left: 14,
-    visual_acuity_method: 9, visual_acuity_right: 14}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-10, visual_acuity_left: 1,
+    visual_acuity_method: 9, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 51
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 12, diagnosis_right: 12, dob: 2011-07-24, ethnic_group: 12, eua: 1,
+    diagnosis_left: 12, diagnosis_right: 12, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 12, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-12, lens_extraction_date_right: 2012-04-12,
     lens_status_left: 4, lens_status_right: 4, postcode: BZ14, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: F921CAAB-EFC0-4A2C-B7BF-FA577C7C98AE,
@@ -791,110 +791,110 @@
   model: anonymeyes.patient
   pk: 52
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 3, diagnosis_right: 3, dob: 2011-06-18, ethnic_group: 3, eua: 0,
+    diagnosis_left: 3, diagnosis_right: 3, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 3, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-25, lens_extraction_date_right: 2012-03-25,
     lens_status_left: 1, lens_status_right: 1, postcode: BQ5, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: DB103805-E834-40F8-A634-12CC78F8A6D3,
-    visual_acuity_both: 29, visual_acuity_date: 2012-06-24, visual_acuity_left: 29,
-    visual_acuity_method: 1, visual_acuity_right: 28}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-24, visual_acuity_left: 1,
+    visual_acuity_method: 1, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 43
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 39, diagnosis_right: 39, dob: 2011-06-02, ethnic_group: 19, eua: 0,
+    diagnosis_left: 39, diagnosis_right: 39, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 19, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-17, lens_extraction_date_right: 2012-03-17,
     lens_status_left: 3, lens_status_right: 3, postcode: BM1, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 468755D6-BD07-4A98-BAB3-596FA651CE9C,
-    visual_acuity_both: 7, visual_acuity_date: 2012-06-16, visual_acuity_left: 7,
-    visual_acuity_method: 11, visual_acuity_right: 7}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-16, visual_acuity_left: 1,
+    visual_acuity_method: 11, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 39
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 30, diagnosis_right: 30, dob: 2011-04-27, ethnic_group: 10, eua: 1,
+    diagnosis_left: 30, diagnosis_right: 30, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 10, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-02-28, lens_extraction_date_right: 2012-02-28,
     lens_status_left: 6, lens_status_right: 6, postcode: BD11, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: C8DC6535-3C34-43E0-83EF-D9F4F5440AC7,
-    visual_acuity_both: 3, visual_acuity_date: 2012-05-29, visual_acuity_left: 3,
-    visual_acuity_method: 2, visual_acuity_right: 3}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-29, visual_acuity_left: 1,
+    visual_acuity_method: 2, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 30
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 31, diagnosis_right: 31, dob: 2011-05-01, ethnic_group: 11, eua: 0,
+    diagnosis_left: 31, diagnosis_right: 31, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 11, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-01, lens_extraction_date_right: 2012-03-01,
     lens_status_left: 1, lens_status_right: 1, postcode: BE12, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: CD5D2D97-4DDF-48AE-AF2C-9AC4E01DF17A,
-    visual_acuity_both: 11, visual_acuity_date: 2012-05-31, visual_acuity_left: 11,
-    visual_acuity_method: 3, visual_acuity_right: 11}
+    visual_acuity_both: 1, visual_acuity_date: 2012-05-31, visual_acuity_left: 1,
+    visual_acuity_method: 3, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 31
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 32, diagnosis_right: 32, dob: 2011-05-05, ethnic_group: 12, eua: 1,
+    diagnosis_left: 32, diagnosis_right: 32, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 12, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-03, lens_extraction_date_right: 2012-03-03,
     lens_status_left: 2, lens_status_right: 2, postcode: BF13, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D9A1877D-EAC4-4787-B1BF-64032A08DF73,
-    visual_acuity_both: 18, visual_acuity_date: 2012-06-02, visual_acuity_left: 18,
-    visual_acuity_method: 4, visual_acuity_right: 18}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-02, visual_acuity_left: 1,
+    visual_acuity_method: 4, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 32
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 33, diagnosis_right: 33, dob: 2011-05-09, ethnic_group: 13, eua: 0,
+    diagnosis_left: 33, diagnosis_right: 33, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 13, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-05, lens_extraction_date_right: 2012-03-05,
     lens_status_left: 3, lens_status_right: 3, postcode: BG14, sex: 0, tonometry: 3,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 2F3FB185-D6BC-4DC7-A2CF-369AC128EDE8,
-    visual_acuity_both: 5, visual_acuity_date: 2012-06-04, visual_acuity_left: 5,
-    visual_acuity_method: 5, visual_acuity_right: 5}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-04, visual_acuity_left: 1,
+    visual_acuity_method: 5, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 33
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 34, diagnosis_right: 34, dob: 2011-05-13, ethnic_group: 14, eua: 1,
+    diagnosis_left: 34, diagnosis_right: 34, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 14, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-07, lens_extraction_date_right: 2012-03-07,
     lens_status_left: 4, lens_status_right: 4, postcode: BH15, sex: 1, tonometry: 4,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 9DE0B492-C3C9-459E-BE3C-D3F605D0E38A,
-    visual_acuity_both: 12, visual_acuity_date: 2012-06-06, visual_acuity_left: 12,
-    visual_acuity_method: 6, visual_acuity_right: 12}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-06, visual_acuity_left: 1,
+    visual_acuity_method: 6, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 34
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 35, diagnosis_right: 35, dob: 2011-05-17, ethnic_group: 15, eua: 0,
+    diagnosis_left: 35, diagnosis_right: 35, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 15, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-09, lens_extraction_date_right: 2012-03-09,
     lens_status_left: 5, lens_status_right: 5, postcode: BI16, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: D3CE2E1A-72E7-4E25-AC27-941C2F57D486,
-    visual_acuity_both: 19, visual_acuity_date: 2012-06-08, visual_acuity_left: 19,
-    visual_acuity_method: 7, visual_acuity_right: 19}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-08, visual_acuity_left: 1,
+    visual_acuity_method: 7, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 35
 - fields: {consanguinity: 2, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 36, diagnosis_right: 36, dob: 2011-05-21, ethnic_group: 16, eua: 1,
+    diagnosis_left: 36, diagnosis_right: 36, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 16, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-11, lens_extraction_date_right: 2012-03-11,
     lens_status_left: 6, lens_status_right: 6, postcode: BJ17, sex: 1, tonometry: 6,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: F4493E14-859F-4444-B12A-8FAD4038EB3A,
-    visual_acuity_both: 6, visual_acuity_date: 2012-06-10, visual_acuity_left: 6,
-    visual_acuity_method: 8, visual_acuity_right: 6}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-10, visual_acuity_left: 1,
+    visual_acuity_method: 8, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 36
 - fields: {consanguinity: 0, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 37, diagnosis_right: 37, dob: 2011-05-25, ethnic_group: 17, eua: 0,
+    diagnosis_left: 37, diagnosis_right: 37, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 17, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-13, lens_extraction_date_right: 2012-03-13,
     lens_status_left: 1, lens_status_right: 1, postcode: BK18, sex: 0, tonometry: 1,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 10FD12AC-6C8F-456B-9151-3D1CD46E8946,
-    visual_acuity_both: 13, visual_acuity_date: 2012-06-12, visual_acuity_left: 13,
-    visual_acuity_method: 9, visual_acuity_right: 13}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-12, visual_acuity_left: 1,
+    visual_acuity_method: 9, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 37
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 38, diagnosis_right: 38, dob: 2011-05-29, ethnic_group: 18, eua: 1,
+    diagnosis_left: 38, diagnosis_right: 38, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 18, eua: 1,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-03-15, lens_extraction_date_right: 2012-03-15,
     lens_status_left: 2, lens_status_right: 2, postcode: BL19, sex: 1, tonometry: 2,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 1475CB2F-B139-4746-8E12-857033279CBD,
-    visual_acuity_both: 20, visual_acuity_date: 2012-06-14, visual_acuity_left: 20,
-    visual_acuity_method: 10, visual_acuity_right: 20}
+    visual_acuity_both: 1, visual_acuity_date: 2012-06-14, visual_acuity_left: 1,
+    visual_acuity_method: 10, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 38
 - fields: {consanguinity: 1, created_at: !!timestamp '2013-01-28 10:53:14', created_by: 1,
-    diagnosis_left: 13, diagnosis_right: 13, dob: 2011-07-28, ethnic_group: 13, eua: 0,
+    diagnosis_left: 13, diagnosis_right: 13, dob_year: 2010, visual_acuity_correction_right: 1, visual_acuity_correction_left: 1, visual_acuity_correction_both: 1, health_care: 1, ethnic_group: 13, eua: 0,
     iop_left: 0, iop_right: 0, lens_extraction_date_left: 2012-04-14, lens_extraction_date_right: 2012-04-14,
     lens_status_left: 5, lens_status_right: 5, postcode: CA15, sex: 0, tonometry: 5,
     updated_at: !!timestamp '2013-02-01 22:54:48', updated_by: 1, uuid: 2EA50BD3-EDD0-42EB-AE58-B9FC29BEF6F5,
-    visual_acuity_both: 8, visual_acuity_date: 2012-07-14, visual_acuity_left: 8,
-    visual_acuity_method: 11, visual_acuity_right: 8}
+    visual_acuity_both: 1, visual_acuity_date: 2012-07-14, visual_acuity_left: 1,
+    visual_acuity_method: 11, visual_acuity_right: 1}
   model: anonymeyes.patient
   pk: 53
