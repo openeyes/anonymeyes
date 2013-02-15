@@ -34,11 +34,11 @@ $(document).ready(function() {
 	
 	// Diagnosis cascade
 	$('.diagnosisgroup').each(function() {
-		var wrapper = $(this).closest('fieldset');
+		var wrapper = $(this).closest('li');
 		var side = $(this).attr('data-side');
 		var diagnosis_field = $('.diagnosis[data-side="'+side+'"]', wrapper).first();
 		if($(this).val() == '') {
-			$(diagnosis_field).closest('li').hide();
+			$(diagnosis_field).hide();
 		}
 	});
 	$('body').delegate('.diagnosisgroup', 'change', function() {
@@ -151,7 +151,7 @@ $(document).ready(function() {
 });
 
 function updateDiagnosis(element) {
-	var wrapper = $(element).closest('fieldset');
+	var wrapper = $(element).closest('li');
 	var side = $(element).attr('data-side');
 	var diagnosis_field = $('.diagnosis[data-side="'+side+'"]', wrapper).first();
 	var empty_option = $('option[value=""]', diagnosis_field).first();
@@ -161,13 +161,13 @@ function updateDiagnosis(element) {
 			success: function(data) {
 				$(diagnosis_field).html(empty_option.clone()).append(data);
 				$(diagnosis_field).val('');
-				$(diagnosis_field).closest('li').show();
+				$(diagnosis_field).show();
 			},
 		});
 	} else {
 		$(diagnosis_field).html(empty_option.clone());
 		$(diagnosis_field).val('');
-		$(diagnosis_field).closest('li').hide();
+		$(diagnosis_field).hide();
 	}
 }
 
