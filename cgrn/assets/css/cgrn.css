@@ -164,6 +164,11 @@ form label,form .label {
 	padding-right: 10px;
 }
 
+form label.inline {
+	width: auto;
+	margin-left: 10px;
+}
+
 .inline_form {
 	margin: 10px 0;
 }
@@ -188,6 +193,7 @@ form textarea,
 form .data {
 	float: left;
 	max-width: 350px;
+	margin-right: 5px;
 }
 
 form .read-only {
@@ -195,7 +201,7 @@ form .read-only {
 }
 
 form .errorlist {
-	margin: 0 0 0 5px;
+	margin: 0;
 	float: left;
 }
 
@@ -468,10 +474,9 @@ table.dataTable tfoot input.search_uuid {
 	max-width: 100px;
 }
 
-form .dob #id_dob_day { width: 30px; margin-left: 10px; display: none; }
-form .dob #id_dob_month { margin-left: 10px; display: none;}
+form .dob #id_dob_day { width: 30px; margin-left: 5px; display: none; }
+form .dob #id_dob_month { margin-left: 5px; display: none;}
 form .dob #id_dob_year { width: 50px; }
 form .dob.precision-day #id_dob_day,
 form .dob.precision-month #id_dob_month,
 form .dob.precision-day #id_dob_month { display: block; }
-

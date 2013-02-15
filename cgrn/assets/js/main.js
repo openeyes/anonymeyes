@@ -18,13 +18,31 @@ $(document).ready(function() {
 	$('body').delegate('.visualacuitymethod', 'change', function() {
 		var wrapper = $(this).closest('fieldset, tr');
 		var empty_option = $('select.visualacuity option[value=""]', wrapper).first();
-		$.ajax({
-			url: '/anonymeyes/visualacuityreadings/'+$(this).val()+'/',
-			success: function(data) {
-				$('select.visualacuity', wrapper).html(empty_option.clone()).append(data)
-				$('select.visualacuity', wrapper).val('');
-			},
-		});
+		if($(this).val()) {
+			$.ajax({
+				url: '/anonymeyes/visualacuityreadings/'+$(this).val()+'/',
+				success: function(data) {
+					$('select.visualacuity', wrapper).html(empty_option.clone()).append(data);
+					$('select.visualacuity', wrapper).val('');
+				},
+			});
+		} else {
+			$('select.visualacuity', wrapper).html(empty_option.clone());
+			$('select.visualacuity', wrapper).val('');
+		}
+	});
+	
+	// Diagnosis cascade
+	$('.diagnosisgroup').each(function() {
+		var wrapper = $(this).closest('fieldset');
+		var side = $(this).attr('data-side');
+		var diagnosis_field = $('.diagnosis[data-side="'+side+'"]', wrapper).first();
+		if($(this).val() == '') {
+			$(diagnosis_field).closest('li').hide();
+		}
+	});
+	$('body').delegate('.diagnosisgroup', 'change', function() {
+		updateDiagnosis(this)
 	});
 	
 	// Datatables
@@ -109,15 +127,6 @@ $(document).ready(function() {
 		updateManagementSurgery(this);
 	});
 
-	// Outcome form mutation
-	$('form .outcome_iop_detail .iop_control select').each(function() {
-		updateOutcomeIOP(this);
-	});
-	$('form').delegate('.outcome_iop_detail .iop_control select', 'change', function() {
-		updateOutcomeIOP(this);
-	});
-	
-	
 	// Lens status and extraction date dependency
 	$("form select[name^='lens_status_']").each(function() {
 		updateExtractionDate(this);
@@ -126,12 +135,6 @@ $(document).ready(function() {
 		updateExtractionDate(this);
 	});
 	
-	// EUA and Anaesthesia dependency
-	updateAnaesthesia();
-	$("form select#id_eua").change(function() {
-		updateAnaesthesia();
-	});
-
 	// Inline forms
 	initialiseInlineForms();
 
@@ -147,6 +150,27 @@ $(document).ready(function() {
 
 });
 
+function updateDiagnosis(element) {
+	var wrapper = $(element).closest('fieldset');
+	var side = $(element).attr('data-side');
+	var diagnosis_field = $('.diagnosis[data-side="'+side+'"]', wrapper).first();
+	var empty_option = $('option[value=""]', diagnosis_field).first();
+	if($(element).val()) {
+		$.ajax({
+			url: '/anonymeyes/diagnoses/'+$(element).val()+'/',
+			success: function(data) {
+				$(diagnosis_field).html(empty_option.clone()).append(data);
+				$(diagnosis_field).val('');
+				$(diagnosis_field).closest('li').show();
+			},
+		});
+	} else {
+		$(diagnosis_field).html(empty_option.clone());
+		$(diagnosis_field).val('');
+		$(diagnosis_field).closest('li').hide();
+	}
+}
+
 function updateExtractionDate(element) {
 	var side = $(element).attr('name').substring(12);
 	var extraction_field = $('#id_lens_extraction_date_'+side);
@@ -155,15 +179,6 @@ function updateExtractionDate(element) {
 	} else {
 		extraction_field.closest('li').hide();
 		extraction_field.val('');
-	}
-}
-
-function updateAnaesthesia() {
-	if($('form select#id_eua option:selected').text() == 'Yes') {
-		$('form select#id_anaesthesia').closest('li').show();
-	} else {
-		$('form select#id_anaesthesia').closest('li').hide();
-		$('form select#id_anaesthesia').val('');
 	}
 }
 
@@ -244,17 +259,17 @@ function updateManagementType(field) {
 	var details = $(field).closest('tr').find('.management_detail');
 	$('.detail', details).hide();
 	var comments = $(field).closest('tr').find('.management_comments');
-	$('span', comments).hide();
+	$('textarea', comments).hide();
 	var type = $('option:selected', field).text();
 	switch(type) {
 		case 'Surgery':
 			$('.surgery', details).show();
-			$('span', comments).show();
+			$('textarea', comments).show();
 			$('.complication select', details).val('');
 			break;
 		case 'Complication':
 			$('.complication', details).show();
-			$('span', comments).show();
+			$('textarea', comments).show();
 			$('.surgery select', details).val('');
 			$('.adjuvant select', details).val('');
 			$('.stage select', details).val('');
@@ -283,17 +298,6 @@ function updateManagementSurgery(field) {
 	} else {
 		$(stage_field).hide();
 		$('select', stage_field).val('');
-	}
-}
-
-function updateOutcomeIOP(field) {
-	var agents_field = $(field).closest('td').find('.iop_agent');
-	var iop_control = $(field).val();
-	if(iop_control == 'True') {
-		$(agents_field).show();
-	} else {
-		$(agents_field).hide();
-		$('select', agents_field).val('');
 	}
 }
 

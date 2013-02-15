@@ -158,11 +158,11 @@ class PatientUpdateView(UpdateView):
         if 'formsets' not in context:
             context['formsets'] = collections.OrderedDict()
         if self.request.POST:
-            context['formsets']['Management'] = PatientUpdateManagementFormSet(self.request.POST, instance=self.object)
-            context['formsets']['Outcome'] = PatientUpdateOutcomeFormSet(self.request.POST, instance=self.object)
+            context['formsets']['Management'] = PatientUpdateManagementFormSet(self.request.POST, instance=self.object, prefix='managements')
+            context['formsets']['Outcome'] = PatientUpdateOutcomeFormSet(self.request.POST, instance=self.object, prefix='outcomes')
         else:
-            context['formsets']['Management'] = PatientUpdateManagementFormSet(instance=self.object)
-            context['formsets']['Outcome'] = PatientUpdateOutcomeFormSet(instance=self.object)
+            context['formsets']['Management'] = PatientUpdateManagementFormSet(instance=self.object, prefix='managements')
+            context['formsets']['Outcome'] = PatientUpdateOutcomeFormSet(instance=self.object, prefix='outcomes')
         return context
 
 class VisualAcuityReadingsView(TemplateView):
@@ -174,6 +174,13 @@ class VisualAcuityReadingsView(TemplateView):
         context['readings'] = VisualAcuityMethod.objects.get(pk=int(self.kwargs.get('method_pk'))).scale.readings.all()
         return context
 
+class DiagnosesView(TemplateView):
+    template_name='anonymeyes/diagnoses.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(DiagnosesView, self).get_context_data(**kwargs)
+        context['diagnoses'] = DiagnosisGroup.objects.get(pk=int(self.kwargs.get('group_pk'))).diagnosis_set.all()
+        return context
 
 class PatientListView(ListView):
      context_object_name='patients'

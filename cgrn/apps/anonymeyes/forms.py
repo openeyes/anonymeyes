@@ -5,7 +5,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.conf import settings
 from captcha.fields import ReCaptchaField
-from apps.anonymeyes.models import Patient, Management, Outcome, VisualAcuityReading, VisualAcuityMethod
+from apps.anonymeyes.models import Patient, Management, Outcome, VisualAcuityReading, VisualAcuityMethod, Diagnosis, DiagnosisGroup
 from form_utils.forms import BetterModelForm
 import datetime
 
@@ -24,6 +24,9 @@ class CaptchaContactForm(ContactForm):
     captcha = ReCaptchaField()
 
 class PatientForm(BetterModelForm):
+    diagnosis_group_right = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'right'}))
+    diagnosis_group_left = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'left'}))
+    
     class Meta:
         model = Patient
         fieldsets = [
@@ -31,7 +34,7 @@ class PatientForm(BetterModelForm):
                                   'fields': [ 'sex', 'dob_day', 'dob_month', 'dob_year', 'postcode', 'health_care', 'ethnic_group', 'consanguinity', ],
                                   }),
                      ('baseline', {
-                                   'fields': [ 'visual_acuity_date', 'diagnosis_right', 'diagnosis_left', ],
+                                   'fields': [ 'visual_acuity_date', 'diagnosis_group_right', 'diagnosis_right', 'diagnosis_group_left', 'diagnosis_left', ],
                                    }),
                      ('visual_acuity', {
                                    'fields': [ 'visual_acuity_method',
@@ -40,7 +43,7 @@ class PatientForm(BetterModelForm):
                                                'visual_acuity_both', 'visual_acuity_correction_both', ],
                                    }),
                      ('iop', {
-                                   'fields': [ 'iop_right', 'iop_left', 'tonometry', 'eua', 'anaesthesia'],
+                                   'fields': [ 'iop_right', 'iop_left', 'tonometry', 'eua'],
                                    }),
                      ('lens', {
                                    'fields': [ 'lens_status_right', 'lens_extraction_date_right',
@@ -51,6 +54,8 @@ class PatientForm(BetterModelForm):
                    'postcode': forms.TextInput(attrs={'size':'10'}),
                    'dob_day': forms.TextInput(attrs={'size':'10'}),
                    'dob_year': forms.TextInput(attrs={'size':'10'}),
+                   'diagnosis_right': forms.Select(attrs={'class':'diagnosis', 'data-side':'right'}),
+                   'diagnosis_left': forms.Select(attrs={'class':'diagnosis', 'data-side':'left'}),
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
                    'visual_acuity_date': forms.DateInput(attrs={'class':'datepicker past'}),
@@ -62,20 +67,40 @@ class PatientForm(BetterModelForm):
                    'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
         }
     def __init__(self, *args, **kwargs):
-        self.request = kwargs.pop('request', None)
+        self.request = kwargs.pop('request', None) # Set request for access by DOB clean methods
         super(PatientForm, self).__init__(*args, **kwargs)
         
         # Filter VisualAcuityReading choices depending upon selected method
-        method_id=self.is_bound and self.data['visual_acuity_method'] \
-            or 'visual_acuity_method' in self.initial and self.initial['visual_acuity_method']
-        if method_id:
-            scale_id=VisualAcuityMethod.objects.get(pk=method_id).scale_id
+        if self.is_bound:
+            prefix = self.prefix+'-' if self.prefix else ''
+            visual_acuity_method_id = self.data[prefix+'visual_acuity_method']
+        else:
+            visual_acuity_method_id = 'visual_acuity_method' in self.initial and self.initial['visual_acuity_method']
+        if visual_acuity_method_id:
+            scale_id=VisualAcuityMethod.objects.get(pk=visual_acuity_method_id).scale_id
             filtered=VisualAcuityReading.objects.filter(scale_id=scale_id)
         else:
             filtered=VisualAcuityReading.objects.none()
-        self.fields['visual_acuity_left'].queryset=filtered
-        self.fields['visual_acuity_right'].queryset=filtered
-        self.fields['visual_acuity_both'].queryset=filtered
+        for side in ['right', 'left', 'both']:
+            self.fields['visual_acuity_'+side].queryset=filtered
+
+        # Set diagnosis group and filter diagnosis choices
+        for side in ['right', 'left']:
+            if self.is_bound:
+                prefix = self.prefix+'-' if self.prefix else ''
+                diagnosis_id = self.data[prefix+'diagnosis_'+side]
+                diagnosis_group_id = self.data[prefix+'diagnosis_group_'+side]
+            elif 'diagnosis_'+side in self.initial:
+                diagnosis_id = self.initial['diagnosis_'+side]
+                diagnosis_group_id=Diagnosis.objects.get(pk=diagnosis_id).group_id
+            else:
+                diagnosis_id = None
+                diagnosis_group_id = None
+            if diagnosis_group_id:
+                self.fields['diagnosis_'+side].queryset=Diagnosis.objects.filter(group_id=diagnosis_group_id)
+                self.fields['diagnosis_group_'+side].initial = diagnosis_group_id
+            else:
+                self.fields['diagnosis_'+side].queryset=Diagnosis.objects.none()
         
     def clean_lens_extraction_date_right(self):
         lens_extraction_date_right = self.cleaned_data.get('lens_extraction_date_right')
@@ -90,15 +115,6 @@ class PatientForm(BetterModelForm):
         if lens_status_left and lens_status_left.name != 'Aphakia' and lens_status_left.name != 'Pseudophakia':
             return None
         return lens_extraction_date_left
-
-    def clean_anaesthesia(self):
-        anaesthesia = self.cleaned_data.get('anaesthesia')
-        eua = self.cleaned_data.get('eua')
-        if eua and not anaesthesia:
-            raise forms.ValidationError("Anaesthesia required")
-        elif not eua:
-            return None
-        return anaesthesia
 
     def clean_dob_month(self):
         dob_month = self.cleaned_data.get('dob_month')
@@ -187,16 +203,18 @@ class PatientOutcomeForm(forms.ModelForm):
         super(PatientOutcomeForm, self).__init__(*args, **kwargs)
         
         # Filter VisualAcuityReading choices depending upon selected method
-        method_id=self.is_bound and self.data['visual_acuity_method'] \
-            or 'visual_acuity_method' in self.initial and self.initial['visual_acuity_method']
-        if method_id:
-            scale_id=VisualAcuityMethod.objects.get(pk=method_id).scale_id
+        if self.is_bound:
+            prefix = self.prefix+'-' if self.prefix else ''
+            visual_acuity_method_id = self.data[prefix+'visual_acuity_method']
+        else:
+            visual_acuity_method_id = 'visual_acuity_method' in self.initial and self.initial['visual_acuity_method']
+        if visual_acuity_method_id:
+            scale_id=VisualAcuityMethod.objects.get(pk=visual_acuity_method_id).scale_id
             filtered=VisualAcuityReading.objects.filter(scale_id=scale_id)
         else:
             filtered=VisualAcuityReading.objects.none()
-        self.fields['visual_acuity_left'].queryset=filtered
-        self.fields['visual_acuity_right'].queryset=filtered
-        self.fields['visual_acuity_both'].queryset=filtered
+        for side in ['right', 'left', 'both']:
+            self.fields['visual_acuity_'+side].queryset=filtered
 
     def clean_iop_agents(self):
         iop_agents = self.cleaned_data.get('iop_agents')

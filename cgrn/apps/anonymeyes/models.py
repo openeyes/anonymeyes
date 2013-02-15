@@ -69,11 +69,14 @@ class Diagnosis(models.Model):
     group = models.ForeignKey(DiagnosisGroup)
     sort = models.IntegerField(default=10)
     
-    def __unicode__(self):
+    def description(self):
         if(self.group.diagnosis_set.count() > 1):
             return self.group.name + ': ' + self.name
         else:
             return self.name
+    
+    def __unicode__(self):
+        return self.name
 
 class HealthCare(models.Model):
     class Meta:
@@ -229,9 +232,7 @@ class Patient(models.Model):
     iop_right = models.IntegerField(verbose_name='Right IOP', blank=True, null=True)
     iop_left = models.IntegerField(verbose_name='Left IOP', blank=True, null=True)
     tonometry = models.ForeignKey(Tonometry)
-    EUA_CHOICES = ( (True, 'Yes'), (False, 'No') )
-    eua = models.BooleanField(verbose_name='EUA', choices=EUA_CHOICES)
-    anaesthesia = models.ForeignKey(Anaesthesia, blank=True, null=True)
+    eua = models.ForeignKey(Anaesthesia, verbose_name='EUA')
     
     class Meta:
         ordering = ['-updated_at']
@@ -325,6 +326,16 @@ class Management(models.Model):
     def __unicode__(self):
         return str(self.date)
     
+class IOPControl(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
 class Outcome(models.Model):
     created_by = models.ForeignKey(User, related_name='outcome_created_set', blank=True, null=True, on_delete=models.SET_NULL)
     updated_by = models.ForeignKey(User, related_name='outcome_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
@@ -332,12 +343,7 @@ class Outcome(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
     eye = models.ForeignKey(Eye, limit_choices_to = {'single': 1})
-    NO = False
-    YES = True
-    IOP_CONTROL_CHOICES = ( (YES, 'Yes'), (NO, 'No') )
-    iop_control = models.BooleanField(choices=IOP_CONTROL_CHOICES, verbose_name='IOP Control')
-    IOP_AGENTS_CHOICES = ( (0,'No'), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5) )
-    iop_agents = models.IntegerField(choices=IOP_AGENTS_CHOICES, blank=True, null=True, verbose_name='Agents')
+    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')

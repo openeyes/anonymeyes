@@ -1,0 +1,3 @@
+{% for diagnosis in diagnoses %}
+<option value="{{ diagnosis.id }}"{% if diagnosis.id == selected %} selected="selected"{% endif %}>{{ diagnosis.name }}</option>
+{% endfor %}

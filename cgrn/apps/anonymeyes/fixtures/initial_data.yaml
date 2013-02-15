@@ -9,6 +9,29 @@
   model: anonymeyes.dobprecision
   pk: 3
 
+# IOP Control
+- fields: {name: "No", sort: 10}
+  model: anonymeyes.iopcontrol
+  pk: 1
+- fields: {name: "Yes, without meds", sort: 20}
+  model: anonymeyes.iopcontrol
+  pk: 2
+- fields: {name: "Yes, with meds (1 agent)", sort: 30}
+  model: anonymeyes.iopcontrol
+  pk: 3
+- fields: {name: "Yes, with meds (2 agents)", sort: 40}
+  model: anonymeyes.iopcontrol
+  pk: 4
+- fields: {name: "Yes, with meds (3 agents)", sort: 50}
+  model: anonymeyes.iopcontrol
+  pk: 5
+- fields: {name: "Yes, with meds (4 agents)", sort: 60}
+  model: anonymeyes.iopcontrol
+  pk: 6
+- fields: {name: "Yes, with meds (5 agents)", sort: 70}
+  model: anonymeyes.iopcontrol
+  pk: 7
+
 # Adjuvant
 - fields: {name: None, sort: 10}
   model: anonymeyes.adjuvant
@@ -297,18 +320,21 @@
   pk: 3
   
   # Anaesthesia
-- fields: {name: Ketamine, sort: 10}
+- fields: {name: "No", sort: 10}
   model: anonymeyes.anaesthesia
   pk: 1
-- fields: {name: Chloral hydrate, sort: 20}
+- fields: {name: Ketamine, sort: 20}
   model: anonymeyes.anaesthesia
   pk: 2
-- fields: {name: Nitrous oxide, sort: 30}
+- fields: {name: Chloral hydrate, sort: 30}
   model: anonymeyes.anaesthesia
   pk: 3
-- fields: {name: Inhalational, sort: 40}
+- fields: {name: Nitrous oxide, sort: 40}
   model: anonymeyes.anaesthesia
   pk: 4
+- fields: {name: Inhalational, sort: 50}
+  model: anonymeyes.anaesthesia
+  pk: 5
   
 # Management Type
 - fields: {name: Medication, sort: 10}

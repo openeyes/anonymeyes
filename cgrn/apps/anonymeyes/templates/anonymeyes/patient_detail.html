@@ -35,9 +35,9 @@
 			<dt>Date:</dt>
 			<dd>{{ patient.visual_acuity_date }}</dd>
 			<dt>Right Diagnosis:</dt>
-			<dd>{{ patient.diagnosis_right }}</dd>
+			<dd>{{ patient.diagnosis_right.description }}</dd>
 			<dt>Left Diagnosis:</dt>
-			<dd>{{ patient.diagnosis_left }}</dd>
+			<dd>{{ patient.diagnosis_left.description }}</dd>
 			<dt>Visual Acuity Method:</dt>
 			<dd>{{ patient.visual_acuity_method }}</dd>
 			<dt>RVA:</dt>
@@ -53,10 +53,7 @@
 			<dt>Tonometry:</dt>
 			<dd>{{ patient.tonometry }}</dd>
 			<dt>EUA:</dt>
-			<dd>{{ patient.eua|yesno:"Yes,No" }}
-			{% if patient.anaesthesia %}
-			({{ patient.anaesthesia }})
-			{% endif %}</dd>
+			<dd>{{ patient.eua }}</dd>
 			<dt>Right Lens Status:</dt>
 			<dd>{{ patient.lens_status_right }}
 			{% if patient.lens_extraction_date_right %}
@@ -125,8 +122,7 @@
 				<tr>
 					<td>{{ outcome.date }}</td>
 					<td>{{ outcome.eye }}</td>
-					<td>{{ outcome.iop_control|yesno:"Yes,No" }}
-						{% if outcome.iop_agents %}({{ outcome.iop_agents }} agent{% if outcome.iop_agents != 1 %}s{% endif %}){% endif %}</td>
+					<td>{{ outcome.iop_control }}</td>
 					<td>{{ outcome.visual_acuity_method }}</td>
 					<td>{{ outcome.visual_acuity_right }} ({{ outcome.visual_acuity_correction_right }})</td>
 					<td>{{ outcome.visual_acuity_left }} ({{ outcome.visual_acuity_correction_left }})</td>

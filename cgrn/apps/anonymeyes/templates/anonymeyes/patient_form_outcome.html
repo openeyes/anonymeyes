@@ -7,13 +7,8 @@
 	<span>{{ inlineform.eye.errors }}</span>
 </td>
 <td class="outcome_iop_detail">
-	<div class="clearfix first">
-		<span class="detail iop_control">{{ inlineform.iop_control }}</span>
-	</div>
-	<div class="clearfix last">
-		<span class="detail iop_agent"><label>{{ inlineform.iop_agents.label }}:</label> {{ inlineform.iop_agents }}</span>
-	</div>
-	<span>{{ inlineform.iop_control.errors }}{{ inlineform.iop_agents.errors }}</span>
+	{{ inlineform.iop_control }}
+	<span>{{ inlineform.iop_control.errors }}</span>
 </td>
 <td class="outcome_visual_acuity_method">
 	{{ inlineform.visual_acuity_method }}
