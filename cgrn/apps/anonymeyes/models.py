@@ -132,7 +132,6 @@ class VisualAcuityReading(models.Model):
         ordering = ['scale__name','sort','name']
 
     name = models.CharField(max_length=64)
-    value = models.IntegerField()
     sort = models.IntegerField(default=10)
     scale = models.ForeignKey(VisualAcuityScale, related_name='readings')
     
