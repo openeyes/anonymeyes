@@ -230,69 +230,51 @@
   pk: 35
 
 # Ethnic Group
-- fields: {name: Unknown, sort: 10}
+- fields: {name: White, sort: 10}
   model: anonymeyes.ethnicgroup
   pk: 1
-- fields: {name: British, sort: 20}
+- fields: {name: Black or African American, sort: 20}
   model: anonymeyes.ethnicgroup
   pk: 2
-- fields: {name: Irish, sort: 30}
+- fields: {name: British Black African, sort: 30}
   model: anonymeyes.ethnicgroup
   pk: 3
-- fields: {name: Any other White background, sort: 40}
+- fields: {name: British Black Caribbean, sort: 40}
   model: anonymeyes.ethnicgroup
   pk: 4
-- fields: {name: White and Black Caribbean, sort: 50}
+- fields: {name: Indian, sort: 50}
   model: anonymeyes.ethnicgroup
   pk: 5
-- fields: {name: White and Black African, sort: 60}
+- fields: {name: Pakistani, sort: 60}
   model: anonymeyes.ethnicgroup
   pk: 6
-- fields: {name: White and Asian, sort: 70}
+- fields: {name: Bangladeshi, sort: 70}
   model: anonymeyes.ethnicgroup
   pk: 7
-- fields: {name: Any other mixed background, sort: 80}
+- fields: {name: Chinese, sort: 80}
   model: anonymeyes.ethnicgroup
   pk: 8
-- fields: {name: Indian, sort: 90}
+- fields: {name: Arabic, sort: 90}
   model: anonymeyes.ethnicgroup
   pk: 9
-- fields: {name: Pakistani, sort: 100}
+- fields: {name: Lebanese, sort: 100}
   model: anonymeyes.ethnicgroup
   pk: 10
-- fields: {name: Bangladeshi, sort: 110}
+- fields: {name: Turkish, sort: 110}
   model: anonymeyes.ethnicgroup
   pk: 11
-- fields: {name: Any other Asian background, sort: 120}
+- fields: {name: Hispanic, sort: 120}
   model: anonymeyes.ethnicgroup
   pk: 12
-- fields: {name: Caribbean, sort: 130}
+- fields: {name: American Indian, sort: 130}
   model: anonymeyes.ethnicgroup
   pk: 13
-- fields: {name: African, sort: 140}
+- fields: {name: Mixed, sort: 140}
   model: anonymeyes.ethnicgroup
   pk: 14
-- fields: {name: Any other Black background, sort: 150}
+- fields: {name: Other, sort: 150}
   model: anonymeyes.ethnicgroup
   pk: 15
-- fields: {name: Chinese, sort: 160}
-  model: anonymeyes.ethnicgroup
-  pk: 16
-- fields: {name: Any other ethnic group, sort: 9999}
-  model: anonymeyes.ethnicgroup
-  pk: 17
-- fields: {name: Hispanic, sort: 180}
-  model: anonymeyes.ethnicgroup
-  pk: 18
-- fields: {name: Arabic, sort: 190}
-  model: anonymeyes.ethnicgroup
-  pk: 19
-- fields: {name: Lebanese, sort: 200}
-  model: anonymeyes.ethnicgroup
-  pk: 20
-- fields: {name: Turkish, sort: 210}
-  model: anonymeyes.ethnicgroup
-  pk: 21
   
   # Eye
 - fields: {name: Left, single: true, sort: 20}

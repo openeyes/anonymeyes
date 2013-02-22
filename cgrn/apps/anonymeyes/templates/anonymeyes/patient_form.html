@@ -61,8 +61,11 @@
 					{{ form.health_care }} <span>{{ form.health_care.errors }}</span>
 				</li>
 				<li {{ form.ethnic_group.row_attrs }}>
-					<label for="{{ form.ethnic_group.auto_id }}"{% if form.ethnic_group.errors %} class="error"{% endif %} ><span>{{ form.ethnic_group.label }}</span>:</label>
-					{{ form.ethnic_group }} <span>{{ form.ethnic_group.errors }}</span>
+					<label for="{{ form.ethnic_group.auto_id }}"{% if form.ethnic_group.errors or form.ethnic_group_comments.errors %} class="error"{% endif %} >
+					<span>{{ form.ethnic_group.label }}</span>:</label>
+					{{ form.ethnic_group }}
+					{{ form.ethnic_group_comments }}
+					<span>{{ form.ethnic_group.errors }} {{ form.ethnic_group_comments.errors }}</span>
 				</li>
 				<li {{ form.consanguinity.row_attrs }}>
 					<label for="{{ form.consanguinity.auto_id }}"{% if form.consanguinity.errors %} class="error"{% endif %} ><span>{{ form.consanguinity.label }}</span>:</label>

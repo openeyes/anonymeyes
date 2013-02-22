@@ -31,10 +31,15 @@ class PatientForm(BetterModelForm):
         model = Patient
         fieldsets = [
                      ('patient', {
-                                  'fields': [ 'sex', 'dob_day', 'dob_month', 'dob_year', 'postcode', 'health_care', 'ethnic_group', 'consanguinity', ],
+                                  'fields': [ 'sex', 'dob_day', 'dob_month',
+                                             'dob_year', 'postcode', 'health_care',
+                                             'ethnic_group', 'ethnic_group_comments',
+                                             'consanguinity', ],
                                   }),
                      ('baseline', {
-                                   'fields': [ 'visual_acuity_date', 'diagnosis_group_right', 'diagnosis_right', 'diagnosis_group_left', 'diagnosis_left', 'comments' ],
+                                   'fields': [ 'visual_acuity_date', 'diagnosis_group_right',
+                                              'diagnosis_right', 'diagnosis_group_left',
+                                              'diagnosis_left', 'comments' ],
                                    }),
                      ('visual_acuity', {
                                    'fields': [ 'visual_acuity_method',

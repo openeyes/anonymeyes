@@ -204,7 +204,8 @@ class Patient(models.Model):
                                 validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?$'), message='First part of postcode only (e.g. AB12)') ],
                                 )
     health_care = models.ForeignKey(HealthCare, verbose_name='Health Care Coverage')
-    ethnic_group = models.ForeignKey(EthnicGroup)
+    ethnic_group = models.ForeignKey(EthnicGroup, verbose_name='Ethnic Group / Race')
+    ethnic_group_comments = models.CharField(max_length=255, blank=True)
     NO = 0
     YES = 1
     UNKNOWN = 2

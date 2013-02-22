@@ -23,8 +23,8 @@
 			<dd>{{ patient.postcode }}</dd>
 			<dt>Health Care Coverage:</dt>
 			<dd>{{ patient.health_care }}</dd>
-			<dt>Ethnic Group:</dt>
-			<dd>{{ patient.ethnic_group }}</dd>
+			<dt>Ethnic Group / Race:</dt>
+			<dd>{{ patient.ethnic_group }}{% if patient.ethnic_group_comments %} ({{ patient.ethnic_group_comments }}){% endif %}</dd>
 			<dt>Consanguinity:</dt>
 			<dd>{{ patient.get_consanguinity_display }}</dd>
 		</dl>
