@@ -2,6 +2,9 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
+	// Autosize
+	$('.autosize').autosize();
+	
 	// Show DOB day/month fields if they contain data
 	$('form .dob #id_dob_day').each(function() {
 		if($(this).val() != '') {

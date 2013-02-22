@@ -94,6 +94,11 @@
 						{{ form.diagnosis_left }}
 						<span>{{ form.diagnosis_group_left.errors }} {{ form.diagnosis_left.errors }}</span>
 					</li>
+					<li {{ form.comments.row_attrs }}>
+						<label for="{{ form.comments.auto_id }}"{% if form.comments.errors %} class="error"{% endif %}>
+						<span>{{ form.comments.label }}</span>:</label>
+						{{ form.comments }} <span>{{ form.comments.errors }}</span>
+					</li>
 				</ul>
 			</fieldset>
 

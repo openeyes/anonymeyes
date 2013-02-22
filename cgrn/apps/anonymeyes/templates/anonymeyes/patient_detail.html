@@ -38,6 +38,10 @@
 			<dd>{{ patient.diagnosis_right.description }}</dd>
 			<dt>Left Diagnosis:</dt>
 			<dd>{{ patient.diagnosis_left.description }}</dd>
+			{% if patient.comments %}
+			<dt>Comments:</dt>
+			<dd>{{ patient.comments }}</dd>
+			{% endif %}
 			<dt>Visual Acuity Method:</dt>
 			<dd>{{ patient.visual_acuity_method }}</dd>
 			<dt>RVA:</dt>

@@ -217,6 +217,7 @@ class Patient(models.Model):
     consanguinity = models.IntegerField(choices=TRISTATE_CHOICES)
     diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
     diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left diagnosis')
+    comments = models.TextField(blank=True)
     lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
     lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left lens status')
     lens_extraction_date_right = models.DateField(verbose_name='Right Extraction date', blank=True, null=True)

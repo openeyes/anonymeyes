@@ -34,7 +34,7 @@ class PatientForm(BetterModelForm):
                                   'fields': [ 'sex', 'dob_day', 'dob_month', 'dob_year', 'postcode', 'health_care', 'ethnic_group', 'consanguinity', ],
                                   }),
                      ('baseline', {
-                                   'fields': [ 'visual_acuity_date', 'diagnosis_group_right', 'diagnosis_right', 'diagnosis_group_left', 'diagnosis_left', ],
+                                   'fields': [ 'visual_acuity_date', 'diagnosis_group_right', 'diagnosis_right', 'diagnosis_group_left', 'diagnosis_left', 'comments' ],
                                    }),
                      ('visual_acuity', {
                                    'fields': [ 'visual_acuity_method',
@@ -56,6 +56,7 @@ class PatientForm(BetterModelForm):
                    'dob_year': forms.TextInput(attrs={'size':'10'}),
                    'diagnosis_right': forms.Select(attrs={'class':'diagnosis', 'data-side':'right'}),
                    'diagnosis_left': forms.Select(attrs={'class':'diagnosis', 'data-side':'left'}),
+                   'comments': forms.Textarea(attrs={'rows':1, 'class':'autosize'}),
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
                    'visual_acuity_date': forms.DateInput(attrs={'class':'datepicker past'}),
@@ -147,7 +148,7 @@ class PatientManagementForm(forms.ModelForm):
         model = Management
         widgets = {
                    'date': forms.DateInput(attrs={'class':'datepicker past'}),
-                   'comments': forms.Textarea(attrs={'rows':1}),
+                   'comments': forms.Textarea(attrs={'rows':1, 'class':'autosize'}),
         }
         exclude = { 'patient', 'created_by', 'updated_by', }
         
