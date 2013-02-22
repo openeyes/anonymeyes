@@ -1,16 +1,27 @@
 import collections
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
+from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.wizard.views import NamedUrlSessionWizardView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.forms.models import construct_instance
 from django.views.generic import View, TemplateView, ListView, DetailView, UpdateView, CreateView, FormView, DeleteView
+from django.views.generic.detail import BaseDetailView
 from django.utils import simplejson as json
 from django.utils.decorators import method_decorator
 from apps.anonymeyes.admin import PatientAdminForm
 from apps.anonymeyes.forms import *
 from apps.anonymeyes.models import Patient, Management, VisualAcuityReading
+
+class DiagnosesView(BaseDetailView):
+    
+    model = DiagnosisGroup
+    
+    def render_to_response(self, context):
+        diagnoses = self.object.diagnosis_set.all()
+        data = serializers.serialize('json', diagnoses)
+        return HttpResponse(data, content_type='application/json')
 
 class IndexView(TemplateView):
     template_name='anonymeyes/index.html'
@@ -172,14 +183,6 @@ class VisualAcuityReadingsView(TemplateView):
         context = super(VisualAcuityReadingsView, self).get_context_data(**kwargs)
         #current_reading_id=(self.request.GET.get('reading_pk')) and int(self.request.GET.get('reading_pk')) or None
         context['readings'] = VisualAcuityMethod.objects.get(pk=int(self.kwargs.get('method_pk'))).scale.readings.all()
-        return context
-
-class DiagnosesView(TemplateView):
-    template_name='anonymeyes/diagnoses.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super(DiagnosesView, self).get_context_data(**kwargs)
-        context['diagnoses'] = DiagnosisGroup.objects.get(pk=int(self.kwargs.get('group_pk'))).diagnosis_set.all()
         return context
 
 class PatientListView(ListView):

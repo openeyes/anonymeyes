@@ -94,7 +94,7 @@
 - fields: {name: Chronic hypotony, sort: 70}
   model: anonymeyes.complication
   pk: 7
-- fields: {name: Tube exposure, sort: 80}
+- fields: {name: Tube/plate exposure, sort: 80}
   model: anonymeyes.complication
   pk: 8
 - fields: {name: Tube occlusion, sort: 90}
@@ -165,9 +165,6 @@
 - fields: {name: Ahmed - 184, adjuvant: true, stage: true, sort: 130}
   model: anonymeyes.surgery
   pk: 13
-- fields: {name: Cyclodiode, sort: 150}
-  model: anonymeyes.surgery
-  pk: 14
 - fields: {name: Optical iridectomy, sort: 160}
   model: anonymeyes.surgery
   pk: 15
@@ -195,7 +192,7 @@
 - fields: {name: Anterior vitrectomy, sort: 240}
   model: anonymeyes.surgery
   pk: 23
-- fields: {name: Evisceration/enucleation, sort: 250}
+- fields: {name: Evisceration/enucleation, sort: 360}
   model: anonymeyes.surgery
   pk: 24
 - fields: {name: Tube extension, sort: 260}

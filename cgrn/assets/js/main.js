@@ -34,12 +34,7 @@ $(document).ready(function() {
 	
 	// Diagnosis cascade
 	$('.diagnosisgroup').each(function() {
-		var wrapper = $(this).closest('li');
-		var side = $(this).attr('data-side');
-		var diagnosis_field = $('.diagnosis[data-side="'+side+'"]', wrapper).first();
-		if($(this).val() == '') {
-			$(diagnosis_field).hide();
-		}
+		updateDiagnosis(this);
 	});
 	$('body').delegate('.diagnosisgroup', 'change', function() {
 		updateDiagnosis(this)
@@ -154,18 +149,41 @@ function updateDiagnosis(element) {
 	var wrapper = $(element).closest('li');
 	var side = $(element).attr('data-side');
 	var diagnosis_field = $('.diagnosis[data-side="'+side+'"]', wrapper).first();
-	var empty_option = $('option[value=""]', diagnosis_field).first();
+	var empty_option = $('<option value="">---------</option>');
 	if($(element).val()) {
 		$.ajax({
 			url: '/anonymeyes/diagnoses/'+$(element).val()+'/',
 			success: function(data) {
-				$(diagnosis_field).html(empty_option.clone()).append(data);
-				$(diagnosis_field).val('');
+				if(data.length == 1) {
+					// Single result, so we'll use a hidden field
+					var new_diagnosis_field = $('<input type="hidden" class="diagnosis" />');
+					new_diagnosis_field.attr('id', diagnosis_field.attr('id'))
+						.attr('name', diagnosis_field.attr('name'))
+						.attr('data-side', side)
+						.attr('value', data[0].pk);
+					$(diagnosis_field).replaceWith(new_diagnosis_field);
+				} else {
+					// More than one result so we need a dropdown
+					var new_diagnosis_field = $('<select class="diagnosis" />');
+					var new_value = null;
+					new_diagnosis_field.attr('id', diagnosis_field.attr('id'))
+						.attr('name', diagnosis_field.attr('name'))
+						.attr('data-side', side)
+						.append(empty_option);
+					$(data).each(function() {
+						new_diagnosis_field.append($('<option value="'+this.pk+'">'+this.fields.name+'</option>'));
+						if(diagnosis_field.val() == this.pk) {
+							new_value = this.pk;
+						}
+					});
+					new_diagnosis_field.val(new_value);
+					$(diagnosis_field).replaceWith(new_diagnosis_field);
+				}
 				$(diagnosis_field).show();
 			},
 		});
 	} else {
-		$(diagnosis_field).html(empty_option.clone());
+		$(diagnosis_field).html(empty_option);
 		$(diagnosis_field).val('');
 		$(diagnosis_field).hide();
 	}
