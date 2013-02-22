@@ -202,6 +202,8 @@ class PatientOutcomeForm(forms.ModelForm):
                    'visual_acuity_right': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_left': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_both': forms.Select(attrs={'class':'visualacuity'}),
+                   'iop_left': forms.TextInput(attrs={'class':'small'}),
+                   'iop_right': forms.TextInput(attrs={'class':'small'}),
         }
         exclude = { 'patient', 'created_by', 'updated_by', }
 

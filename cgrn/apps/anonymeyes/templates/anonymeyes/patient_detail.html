@@ -114,11 +114,8 @@
 				<tr>
 					<th>Date</th>
 					<th>Eye</th>
-					<th>IOP Control</th>
-					<th>VA Method</th>
-					<th>RVA</th>
-					<th>LVA</th>
-					<th>BEO</th>
+					<th>IOP</th>
+					<th>Visual Acuity</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -126,11 +123,23 @@
 				<tr>
 					<td>{{ outcome.date }}</td>
 					<td>{{ outcome.eye }}</td>
-					<td>{{ outcome.iop_control }}</td>
-					<td>{{ outcome.visual_acuity_method }}</td>
-					<td>{{ outcome.visual_acuity_right }} ({{ outcome.visual_acuity_correction_right }})</td>
-					<td>{{ outcome.visual_acuity_left }} ({{ outcome.visual_acuity_correction_left }})</td>
-					<td>{{ outcome.visual_acuity_both }} ({{ outcome.visual_acuity_correction_both }})</td>
+					<td>
+						<ul>
+							<li>Control: {{ outcome.iop_control }}</li>
+							<li>Tonometry: {{ outcome.tonometry }}</li>
+							<li>Right: {{ outcome.iop_right }} mmHg,
+								Left: {{ outcome.iop_left }} mmHg</li>
+							<li>EUA: {{ outcome.eua }}</li>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<li>Method: {{ outcome.visual_acuity_method }}</li>
+							<li>RVA: {{ outcome.visual_acuity_right }} ({{ outcome.visual_acuity_correction_right }})</li>
+							<li>LVA: {{ outcome.visual_acuity_left }} ({{ outcome.visual_acuity_correction_left }})</li>
+							<li>BEO: {{ outcome.visual_acuity_both }} ({{ outcome.visual_acuity_correction_both }})</li>
+						</ul>
+					</td>
 				</tr>
 				{% endfor %}
 			</tbody>

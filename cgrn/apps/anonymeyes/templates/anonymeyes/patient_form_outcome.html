@@ -6,28 +6,31 @@
 	{{ inlineform.eye }}
 	<span>{{ inlineform.eye.errors }}</span>
 </td>
-<td class="outcome_iop_detail">
-	{{ inlineform.iop_control }}
-	<span>{{ inlineform.iop_control.errors }}</span>
+<td class="outcome_iop">
+	<ul>
+		<li><span class="required">Control</span>: {{ inlineform.iop_control }}
+			<span>{{ inlineform.iop_control.errors }}</span></li>
+		<li><span class="required">Tonometry</span>: {{ inlineform.tonometry }}
+			<span>{{ inlineform.tonometry.errors }}</span></li>
+		<li>Right: {{ inlineform.iop_right }} mmHg,
+			<span>{{ inlineform.iop_right.errors }}</span>
+			Left: {{ inlineform.iop_left }}mmHg
+			<span>{{ inlineform.iop_left.errors }}</span></li>
+		<li><span class="required">EUA</span>: {{ inlineform.eua }}
+			<span>{{ inlineform.eua.errors }}</span></li>
+	</ul>
 </td>
-<td class="outcome_visual_acuity_method">
-	{{ inlineform.visual_acuity_method }}
-	<span>{{ inlineform.visual_acuity_method.errors }}</span>
-</td>
-<td class="outcome_visual_acuity_right">
-	{{ inlineform.visual_acuity_right }}
-	{{ inlineform.visual_acuity_correction_right }}
-	<span>{{ inlineform.visual_acuity_right.errors }}{{ inlineform.visual_acuity_correction.right.errors }}</span>
-</td>
-<td class="outcome_visual_acuity_left">
-	{{ inlineform.visual_acuity_left }}
-	{{ inlineform.visual_acuity_correction_left }}
-	<span>{{ inlineform.visual_acuity_left.errors }}{{ inlineform.visual_acuity_correction_left.errors }}</span>
-</td>
-<td class="outcome_visual_acuity_both">
-	{{ inlineform.visual_acuity_both }}
-	{{ inlineform.visual_acuity_correction_both }}
-	<span>{{ inlineform.visual_acuity_both.errors }}{{ inlineform.visual_acuity_correction_both.errors }}</span>
+<td class="outcome_visual_acuity">
+	<ul>
+		<li><span class="required">Method</span>: {{ inlineform.visual_acuity_method }}
+			<span>{{ inlineform.visual_acuity_method.errors }}</span></li>
+		<li><span class="required">RVA</span>: {{ inlineform.visual_acuity_right }} {{ inlineform.visual_acuity_correction_right }}
+			<span>{{ inlineform.visual_acuity_right.errors }}{{ inlineform.visual_acuity_correction.right.errors }}</span></li>
+		<li><span class="required">LVA</span>: {{ inlineform.visual_acuity_left }} {{ inlineform.visual_acuity_correction_left }}
+			<span>{{ inlineform.visual_acuity_left.errors }}{{ inlineform.visual_acuity_correction_left.errors }}</span></li>
+		<li><span class="required">BEO</span>: {{ inlineform.visual_acuity_both }} {{ inlineform.visual_acuity_correction_both }}
+			<span>{{ inlineform.visual_acuity_both.errors }}{{ inlineform.visual_acuity_correction_both.errors }}</span></li>
+	</ul>
 	{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}
 </td>
 {% if formset.can_delete %}

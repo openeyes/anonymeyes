@@ -173,11 +173,13 @@ form label.inline {
 	margin: 10px 0;
 }
 
+form span.required,
 form .required label span,
 .inline_form th.required span {
 	font-weight: bold;
 }
 
+form span.required:after,
 form .required label span:after,
 .inline_form th.required span:after {
 	content: "*";
@@ -480,3 +482,20 @@ form .dob #id_dob_year { width: 50px; }
 form .dob.precision-day #id_dob_day,
 form .dob.precision-month #id_dob_month,
 form .dob.precision-day #id_dob_month { display: block; }
+
+form .inline_form input,
+form .inline_form select,
+form .inline_form textarea {
+	float: none;
+	margin: 0;
+}
+form .inline_form td ul,
+.data-section td ul  {
+	padding: 0;
+	margin: 0;
+}
+.data-section td ul li, 
+form .inline_form td ul li { 
+	margin: 0 0 10px;
+	list-style: none;
+}
