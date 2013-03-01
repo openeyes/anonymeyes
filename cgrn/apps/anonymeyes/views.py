@@ -15,6 +15,28 @@ from apps.anonymeyes.admin import PatientAdminForm
 from apps.anonymeyes.forms import *
 from apps.anonymeyes.models import Patient, Management, VisualAcuityReading
 
+class ProfileDetailView(DetailView):
+    template_name = 'anonymeyes/profile_detail.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(ProfileDetailView, self).dispatch(request, *args, **kwargs)
+
+    def get_object(self):
+        return self.request.user.get_profile()
+
+class ProfileUpdateView(UpdateView):
+    template_name = 'anonymeyes/profile_form.html'
+    success_url = '/anonymeyes/profile/'
+    form_class = ProfileForm
+    
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(ProfileUpdateView, self).dispatch(request, *args, **kwargs)
+
+    def get_object(self):
+        return self.request.user.get_profile()
+
 class DiagnosesView(BaseDetailView):
     
     model = DiagnosisGroup
@@ -229,4 +251,8 @@ class PatientUUIDView(RedirectView):
             return '/anonymeyes/detail/' + str(patient.pk)
         except:
             raise Http404
-        
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(PatientUUIDView, self).dispatch(request, *args, **kwargs)
+

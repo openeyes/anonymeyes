@@ -41,12 +41,17 @@
 					{% if user.is_staff %}
 					<li><a href="/admin/">Admin</a></li>
 					{% endif %}
-					<li><a href="/logout/">Log Out ({{ user.username }})</a></li>
-					{% else %}
-					{% block nav-login %}<li><a href="/accounts/login/?next=/anonymeyes/">Log In</a></li>{% endblock %}
 					{% endif %}
 				</ul>
 			</nav>
+			<div class="user">
+					{% if user.is_authenticated %}
+					Logged in as <a href="{% url profile_detail %}">{{ user.username }}</a>
+					(<a href="{% url accounts_logout %}">Log Out</a>)
+					{% else %}
+					<a href="{% url accounts_login %}?next=/anonymeyes/">Log In</a>
+					{% endif %}
+			</div>
 		</header>
 	</div>
 	

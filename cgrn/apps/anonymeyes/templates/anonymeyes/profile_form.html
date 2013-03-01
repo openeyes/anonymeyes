@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Update Profile{% endblock %}
+{% block content %}
+<h1>Update Profile</h1>
+<p>You can update your profile here.</p>
+<form action="" method="post">
+	{% csrf_token %}
+	<fieldset>
+		<ul>
+			{% for field in form %}
+			<li{% if field.errors %} class="error"{% endif %}>
+				<label for="{{ field.auto_id }}"{% if field.field.required %} class="required"{% endif %}><span>{{ field.label }}</span>:</label>
+				{{ field }} <span>{{ field.errors }}</span>
+			</li>
+			{% endfor %}
+		</ul>
+	</fieldset>
+	<div class="actions clearfix">
+		<ul>
+			<li><input type="submit" value="Submit"/></li>
+		</ul>
+	</div>
+</form>
+{% endblock %}

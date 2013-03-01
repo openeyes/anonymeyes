@@ -34,6 +34,7 @@ body {
 
 .header-container nav {
 	margin-top: 10px;
+	float: left;
 }
 
 .header-container nav ul {
@@ -70,6 +71,11 @@ body {
 .header-container nav li.hover a {
 	background: #fff;
 	color: #666;
+}
+
+.header-container .user {
+	float: right;
+	margin-top: 15px;
 }
 
 .main-container {
@@ -157,8 +163,9 @@ form ul li {
 	*zoom: 1;
 }
 
-form label,form .label {
-	width: 200px;
+form label,
+form .label {
+	width: 180px;
 	float: left;
 	text-align: right;
 	padding-right: 10px;
@@ -313,7 +320,7 @@ dl dt,dl dd {
 
 dl dt {
 	clear: left;
-	width: 200px;
+	width: 180px;
 	text-align: right;
 	font-weight: normal;
 	margin: 1px 0;
@@ -476,6 +483,11 @@ table.dataTable tfoot input.search_uuid {
 	max-width: 100px;
 }
 
+dd.uuid {
+	font-size: 16px;
+	font-weight: bold;
+}
+
 form .dob input,
 form .dob select { float: none; display: inline; margin: 0; }
 form .dob .field_wrapper { float: left; margin-right: 5px; }
@@ -505,5 +517,7 @@ form .inline_form td ul li {
 }
 
 .qrcode {
-	float: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }

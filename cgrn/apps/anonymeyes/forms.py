@@ -5,10 +5,15 @@ from django.template.loader import get_template
 from django.template import Context
 from django.conf import settings
 from captcha.fields import ReCaptchaField
-from apps.anonymeyes.models import Patient, Management, Outcome, VisualAcuityReading, VisualAcuityMethod, Diagnosis, DiagnosisGroup
+from apps.anonymeyes.models import Patient, Management, Outcome, VisualAcuityReading, VisualAcuityMethod, Diagnosis, DiagnosisGroup, UserProfile
 from form_utils.forms import BetterModelForm
 import datetime
 
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        exclude = ('user',)
+    
 class ContactForm(forms.Form):
     name = forms.CharField()
     email = forms.EmailField()

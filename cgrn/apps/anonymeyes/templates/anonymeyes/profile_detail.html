@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Profile Detail{% endblock %}
+{% block content %}
+<h1>Profile</h1>
+<p>Your current profile.</p>
+<div class="data-section">
+	<dl>
+		<dt>DOB Precision:</dt>
+		<dd>{{ object.dob_precision }}</dd>
+	</dl>
+</div>
+<div class="actions clearfix">
+	<ul>
+		<li><a href="{% url profile_update %}">Update</a></li>
+	</ul>
+</div>
+{% endblock %}
