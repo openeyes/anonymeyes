@@ -6,10 +6,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.wizard.views import NamedUrlSessionWizardView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.forms.models import construct_instance
-from django.views.generic import View, TemplateView, ListView, DetailView, UpdateView, CreateView, FormView, DeleteView
+from django.views.generic import View, TemplateView, ListView, DetailView, UpdateView, CreateView, FormView, DeleteView, RedirectView
 from django.views.generic.detail import BaseDetailView
 from django.utils import simplejson as json
 from django.utils.decorators import method_decorator
+from django.contrib.sites.models import get_current_site
 from apps.anonymeyes.admin import PatientAdminForm
 from apps.anonymeyes.forms import *
 from apps.anonymeyes.models import Patient, Management, VisualAcuityReading
@@ -24,13 +25,13 @@ class DiagnosesView(BaseDetailView):
         return HttpResponse(data, content_type='application/json')
 
 class IndexView(TemplateView):
-    template_name='anonymeyes/index.html'
+    template_name = 'anonymeyes/index.html'
 
 class AboutView(TemplateView):
-    template_name='anonymeyes/about.html'
+    template_name = 'anonymeyes/about.html'
 
 class ContactView(FormView):
-    template_name='anonymeyes/contact.html'
+    template_name = 'anonymeyes/contact.html'
     success_url = '/anonymeyes/thanks/'
 
     def get_form_class(self):
@@ -44,7 +45,7 @@ class ContactView(FormView):
         return super(ContactView, self).form_valid(form)
 
 class ThanksView(TemplateView):
-    template_name='anonymeyes/thanks.html'
+    template_name = 'anonymeyes/thanks.html'
 
 class PatientWizard(NamedUrlSessionWizardView):
     def done(self, form_list, **kwargs):
@@ -177,16 +178,16 @@ class PatientUpdateView(UpdateView):
         return context
 
 class VisualAcuityReadingsView(TemplateView):
-    template_name='anonymeyes/visual_acuity_readings.html'
+    template_name = 'anonymeyes/visual_acuity_readings.html'
     
     def get_context_data(self, **kwargs):
         context = super(VisualAcuityReadingsView, self).get_context_data(**kwargs)
-        #current_reading_id=(self.request.GET.get('reading_pk')) and int(self.request.GET.get('reading_pk')) or None
+        # current_reading_id=(self.request.GET.get('reading_pk')) and int(self.request.GET.get('reading_pk')) or None
         context['readings'] = VisualAcuityMethod.objects.get(pk=int(self.kwargs.get('method_pk'))).scale.readings.all()
         return context
 
 class PatientListView(ListView):
-     context_object_name='patients'
+     context_object_name = 'patients'
      
      def get_queryset(self):
           return Patient.objects.filter(created_by=self.request.user)
@@ -196,23 +197,33 @@ class PatientListView(ListView):
          return super(PatientListView, self).dispatch(request, *args, **kwargs)
 
 class PatientDetailView(DetailView):
-     context_object_name='patient'
+    context_object_name = 'patient'
      
-     def get_queryset(self):
+    def get_queryset(self):
           return Patient.objects.filter(created_by=self.request.user)
      
-     @method_decorator(login_required)
-     def dispatch(self, request, *args, **kwargs):
-         return super(PatientDetailView, self).dispatch(request, *args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(PatientDetailView, self).get_context_data(**kwargs)
+        context['patient_url'] = 'http://' + get_current_site(self.request).domain + '/anonymeyes/uuid/' + self.get_object().uuid.lower()
+        return context
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(PatientDetailView, self).dispatch(request, *args, **kwargs)
 
 class PatientDeleteView(DeleteView):
-     context_object_name='patient'
-     success_url = '/anonymeyes/list/'
+    context_object_name = 'patient'
+    success_url = '/anonymeyes/list/'
      
-     def get_queryset(self):
-          return Patient.objects.filter(created_by=self.request.user)
+    def get_queryset(self):
+        return Patient.objects.filter(created_by=self.request.user)
      
-     @method_decorator(login_required)
-     def dispatch(self, request, *args, **kwargs):
-         return super(PatientDeleteView, self).dispatch(request, *args, **kwargs)
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(PatientDeleteView, self).dispatch(request, *args, **kwargs)
 
+class PatientUUIDView(RedirectView):
+    def get_redirect_url(self, **kwargs):
+        patient = Patient.objects.get(uuid=kwargs['uuid'])
+        return '/anonymeyes/detail/' + str(patient.pk)
+        

@@ -503,3 +503,7 @@ form .inline_form td ul li {
 	margin: 0 0 10px;
 	list-style: none;
 }
+
+.qrcode {
+	float: right;
+}

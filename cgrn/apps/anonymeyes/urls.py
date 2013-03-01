@@ -15,4 +15,5 @@ urlpatterns = patterns('apps.anonymeyes.views',
                        url(r'^wizard/$', 'wizard', name='wizard'),
                        url(r'^visualacuityreadings/(?P<method_pk>\d+)/$', VisualAcuityReadingsView.as_view()),
                        url(r'^diagnoses/(?P<pk>\d+)/$', DiagnosesView.as_view()),
+                       url(r'^uuid/(?P<uuid>.+)/$', PatientUUIDView.as_view()),
 )

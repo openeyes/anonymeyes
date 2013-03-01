@@ -10,6 +10,8 @@
 	</div>
 	<div class="data-section">
 		<h2>Patient</h2>
+		{% load qrcode %}
+		<div class="qrcode">{{ patient_url|qrcode }}</div>
 		<dl>
 			<dt><span class="help"><span><strong>U</strong>niversally <strong>U</strong>nique <strong>ID</strong>entifier for this dataset. When
 						printed and kept with patient notes, it allows the dataset to be
