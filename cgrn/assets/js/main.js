@@ -2,6 +2,12 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
+	// Print
+	$('.print_page').click(function(e) {
+		window.print();
+		e.preventDefault();
+	});
+	
 	// Autosize
 	$('.autosize').autosize();
 	

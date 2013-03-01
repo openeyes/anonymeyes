@@ -1,0 +1,8 @@
+a[href]:after { content: none; }
+abbr[title]:after { content: none; }
+
+nav,
+.actions { display: none; }
+
+.header-container .logo a { padding-left: 0; }
+.header-container .logo { padding: 0; }
