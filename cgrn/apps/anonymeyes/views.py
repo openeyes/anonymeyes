@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.wizard.views import NamedUrlSessionWizardView
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.forms.models import construct_instance
 from django.views.generic import View, TemplateView, ListView, DetailView, UpdateView, CreateView, FormView, DeleteView, RedirectView
 from django.views.generic.detail import BaseDetailView
@@ -224,6 +224,9 @@ class PatientDeleteView(DeleteView):
 
 class PatientUUIDView(RedirectView):
     def get_redirect_url(self, **kwargs):
-        patient = Patient.objects.get(uuid=kwargs['uuid'])
-        return '/anonymeyes/detail/' + str(patient.pk)
+        try:
+            patient = Patient.objects.get(uuid=kwargs['uuid'])
+            return '/anonymeyes/detail/' + str(patient.pk)
+        except:
+            raise Http404
         
