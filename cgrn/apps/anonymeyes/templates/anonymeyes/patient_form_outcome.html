@@ -12,9 +12,9 @@
 			<span>{{ inlineform.iop_control.errors }}</span></li>
 		<li><span class="required">Tonometry</span>: {{ inlineform.tonometry }}
 			<span>{{ inlineform.tonometry.errors }}</span></li>
-		<li>Right: {{ inlineform.iop_right }} mmHg,
+		<li><span class="required">Right</span>: {{ inlineform.iop_right }} mmHg,
 			<span>{{ inlineform.iop_right.errors }}</span>
-			Left: {{ inlineform.iop_left }}mmHg
+			<span class="required">Left</span>: {{ inlineform.iop_left }}mmHg
 			<span>{{ inlineform.iop_left.errors }}</span></li>
 		<li><span class="required">EUA</span>: {{ inlineform.eua }}
 			<span>{{ inlineform.eua.errors }}</span></li>
