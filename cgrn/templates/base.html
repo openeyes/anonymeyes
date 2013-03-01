@@ -46,7 +46,7 @@
 			</nav>
 			<div class="user">
 					{% if user.is_authenticated %}
-					Logged in as <a href="{% url profile_detail %}">{{ user.username }}</a>
+					Logged in as <strong><a href="{% url profile_detail %}">{{ user.username }}</a></strong>
 					(<a href="{% url accounts_logout %}">Log Out</a>)
 					{% else %}
 					<a href="{% url accounts_login %}?next=/anonymeyes/">Log In</a>
