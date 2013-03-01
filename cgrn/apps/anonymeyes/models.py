@@ -176,18 +176,18 @@ class Patient(models.Model):
                                                                      validators.MinValueValidator(1)
                                                                      ])
     MONTH_CHOICES = (
-                     (1, 'Jan'),
-                     (2, 'Feb'),
-                     (3, 'Mar'),
-                     (4, 'Apr'),
-                     (5, 'May'),
-                     (6, 'Jun'),
-                     (7, 'Jul'),
-                     (8, 'Aug'),
-                     (9, 'Sep'),
-                     (10, 'Oct'),
-                     (11, 'Nov'),
-                     (12, 'Dec'),
+                     (1, '01'),
+                     (2, '02'),
+                     (3, '03'),
+                     (4, '04'),
+                     (5, '05'),
+                     (6, '06'),
+                     (7, '07'),
+                     (8, '08'),
+                     (9, '09'),
+                     (10, '10'),
+                     (11, '11'),
+                     (12, '12'),
                      )
     dob_month = models.IntegerField(choices=MONTH_CHOICES, blank=True, null=True)
     dob_year = models.IntegerField(validators=[
@@ -196,7 +196,12 @@ class Patient(models.Model):
                                                ])
     @property
     def dob(self):
-        return str(self.dob_day or '') + ' ' + str((self.dob_month and self.get_dob_month_display()) or '') + ' ' + str(self.dob_year)
+        dob = str(self.dob_year)
+        if self.dob_month:
+            dob = dob + '-' + str(self.dob_month).zfill(2)
+        if self.dob_day:
+            dob = dob + '-' + str(self.dob_day).zfill(2)
+        return dob
 
     postcode = models.CharField(
                                 verbose_name='Postcode Prefix',

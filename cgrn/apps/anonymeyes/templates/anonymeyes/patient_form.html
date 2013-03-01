@@ -50,7 +50,9 @@
 				</li>
 				<li class="required dob precision-{{ request.user.get_profile.dob_precision.name|lower }}">
 					<label{% if form.dob_day.errors or form.dob_month.errors or form.dob_year.errors %} class="error"{% endif %} ><span>DOB</span>:</label>
-					{{ form.dob_year }} <span>{{ form.dob_year.errors }}</span> {{ form.dob_month }} <span>{{ form.dob_month.errors }}</span> {{ form.dob_day }} <span>{{ form.dob_day.errors }}</span>
+					<span class="field_wrapper" id="dob_year_wrapper">{{ form.dob_year }}</span><span>{{ form.dob_year.errors }}</span>
+					<span class="field_wrapper" id="dob_month_wrapper"> - {{ form.dob_month }}</span><span>{{ form.dob_month.errors }}</span>
+					<span class="field_wrapper" id="dob_day_wrapper"> - {{ form.dob_day }}</span><span>{{ form.dob_day.errors }}</span>
 				</li>
 				<li {{ form.postcode.row_attrs }}>
 					<label for="{{ form.postcode.auto_id }}"{% if form.postcode.errors %} class="error"{% endif %} ><span>{{ form.postcode.label }}</span>:</label>

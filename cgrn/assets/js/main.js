@@ -8,12 +8,12 @@ $(document).ready(function() {
 	// Show DOB day/month fields if they contain data
 	$('form .dob #id_dob_day').each(function() {
 		if($(this).val() != '') {
-			$(this).show();
+			$(this).parent().show();
 		}
 	});
 	$('form .dob #id_dob_month').each(function() {
 		if($(this).val() != '') {
-			$(this).show();
+			$(this).parent().show();
 		}
 	});
 	
@@ -328,7 +328,7 @@ function initDatepicker() {
 		$(this).datepicker({
 			changeMonth : true,
 			changeYear : true,
-			dateFormat : 'dd/mm/yy',
+			dateFormat : 'yy-mm-dd',
 		});
 	});
 	$(".datepicker.past").datepicker("option", "maxDate", "+0D");
