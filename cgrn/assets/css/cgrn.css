@@ -479,9 +479,9 @@ table.dataTable tfoot input.search_uuid {
 form .dob input,
 form .dob select { float: none; display: inline; margin: 0; }
 form .dob .field_wrapper { float: left; margin-right: 5px; }
-form .dob #id_dob_day { width: 25px; }
-form .dob #id_dob_month,
-form .dob #id_dob_year { width: 40px; }
+form .dob #id_dob_day { width: 30px; }
+form .dob #id_dob_month { width: 50px; }
+form .dob #id_dob_year { width: 50px; }
 form .dob #dob_day_wrapper,
 form .dob #dob_month_wrapper { display: none; }
 form .dob.precision-day #dob_day_wrapper,
