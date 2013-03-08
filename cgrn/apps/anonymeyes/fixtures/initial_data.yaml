@@ -1,11 +1,11 @@
 # DOB Precision
-- fields: {name: Full DOB, sort: 10}
+- fields: {name: Full DOB, css_class: day ,sort: 10}
   model: anonymeyes.dobprecision
   pk: 1
-- fields: {name: Month and Year only, sort: 20}
+- fields: {name: Month and Year only, css_class: month , sort: 20}
   model: anonymeyes.dobprecision
   pk: 2
-- fields: {name: Year only, sort: 30}
+- fields: {name: Year only, css_class: year , sort: 30}
   model: anonymeyes.dobprecision
   pk: 3
 

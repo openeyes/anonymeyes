@@ -12,6 +12,7 @@ class DOBPrecision(models.Model):
         ordering = ['sort','name']
 
     name = models.CharField(max_length=64)
+    css_class = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
     
     def __unicode__(self):

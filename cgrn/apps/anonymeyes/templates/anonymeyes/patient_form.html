@@ -48,7 +48,7 @@
 					<label for="{{ form.sex.auto_id }}"{% if form.sex.errors %} class="error"{% endif %} ><span>{{ form.sex.label }}</span>:</label>
 					{{ form.sex }} <span>{{ form.sex.errors }}</span>
 				</li>
-				<li class="required dob precision-{{ request.user.get_profile.dob_precision.name|lower }}">
+				<li class="required dob precision-{{ request.user.get_profile.dob_precision.css_class }}">
 					<label{% if form.dob_day.errors or form.dob_month.errors or form.dob_year.errors %} class="error"{% endif %} ><span>DOB</span>:</label>
 					<span class="field_wrapper" id="dob_year_wrapper">{{ form.dob_year }}</span><span>{{ form.dob_year.errors }}</span>
 					<span class="field_wrapper" id="dob_month_wrapper"> - {{ form.dob_month }}</span><span>{{ form.dob_month.errors }}</span>
