@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from django import forms
 
 from apps.anonymeyes.models import *
@@ -11,6 +12,12 @@ admin.site.register(ManagementType)
 admin.site.register(Complication)
 admin.site.register(Adjuvant)
 admin.site.register(Tonometry)
+
+class CustomUserAdmin(UserAdmin):
+    list_display = ('username', 'first_name', 'last_name', 'email', 'last_login', 'is_active', 'is_staff')
+    
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
 
 class ManagementAdminForm(forms.ModelForm):
     class Meta:
