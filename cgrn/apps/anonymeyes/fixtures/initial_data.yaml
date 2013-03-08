@@ -254,6 +254,9 @@
 - fields: {name: Other, description: "A person having origins not covered by other categories", sort: 9999}
   model: anonymeyes.ethnicgroupgroup
   pk: 8
+- fields: {name: Mixed, description: "A person having origins from two or more other categories", sort: 80}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 9
 
 
 # Ethnic Group
@@ -326,6 +329,9 @@
 - fields: {name: Other, requires_comment: True, group: 8, sort: 9999}
   model: anonymeyes.ethnicgroup
   pk: 23
+- fields: {name: Mixed, requires_comment: True, group: 9, sort: 10}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 24
   
   # Eye
 - fields: {name: Left, single: true, sort: 20}
