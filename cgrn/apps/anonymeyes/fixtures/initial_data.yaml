@@ -330,7 +330,7 @@
   model: anonymeyes.ethnicgroup
   pk: 23
 - fields: {name: Mixed, requires_comment: True, group: 9, sort: 10}
-  model: anonymeyes.ethnicgroupgroup
+  model: anonymeyes.ethnicgroup
   pk: 24
   
   # Eye
