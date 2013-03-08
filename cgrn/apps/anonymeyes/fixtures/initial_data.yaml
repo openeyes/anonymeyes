@@ -672,6 +672,9 @@
 - fields: {name: '1.5', scale: 1, sort: 160}
   model: anonymeyes.visualacuityreading
   pk: 18
+- fields: {name: '1.8', scale: 1, sort: 165}
+  model: anonymeyes.visualacuityreading
+  pk: 66
 - fields: {name: CF, scale: 1, sort: 170}
   model: anonymeyes.visualacuityreading
   pk: 19
@@ -783,6 +786,9 @@
 - fields: {name: 3/60, scale: 3, sort: 110}
   model: anonymeyes.visualacuityreading
   pk: 33
+- fields: {name: 2/60, scale: 3, sort: 115}
+  model: anonymeyes.visualacuityreading
+  pk: 67
 - fields: {name: 1/60, scale: 3, sort: 120}
   model: anonymeyes.visualacuityreading
   pk: 34
