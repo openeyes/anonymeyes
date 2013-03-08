@@ -354,7 +354,6 @@ class Outcome(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
-    eye = models.ForeignKey(Eye, limit_choices_to = {'single': 1})
     iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control')
     iop_right = models.IntegerField(verbose_name='Right IOP', validators=[
                                                                      validators.MaxValueValidator(99),

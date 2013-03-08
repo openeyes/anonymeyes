@@ -116,7 +116,6 @@
 			<thead>
 				<tr>
 					<th>Date</th>
-					<th>Eye</th>
 					<th>IOP</th>
 					<th>Visual Acuity</th>
 				</tr>
@@ -125,7 +124,6 @@
 				{% for outcome in patient.outcome_set.all %}
 				<tr>
 					<td>{{ outcome.date }}</td>
-					<td>{{ outcome.eye }}</td>
 					<td>
 						<ul>
 							<li>Control: {{ outcome.iop_control }}</li>
