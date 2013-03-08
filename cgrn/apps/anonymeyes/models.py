@@ -28,13 +28,31 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 post_save.connect(create_user_profile, sender=User)
 
-class EthnicGroup(models.Model):
+class EthnicGroupGroup(models.Model):
     class Meta:
         ordering = ['sort','name']
 
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
+    description = models.TextField(blank=True)
+    
+    def __unicode__(self):
+        return self.name
+
+class EthnicGroup(models.Model):
+    class Meta:
+        ordering = ['group','sort','name']
+
+    name = models.CharField(max_length=64)
+    group = models.ForeignKey(EthnicGroupGroup)
+    sort = models.IntegerField(default=10)
     requires_comment = models.BooleanField(default=False)
+    
+    def description(self):
+        if(self.group.ethnic_group_set.count() > 1):
+            return self.group.name + ': ' + self.name
+        else:
+            return self.name
     
     def __unicode__(self):
         return self.name
@@ -53,7 +71,6 @@ class Eye(models.Model):
 
 class DiagnosisGroup(models.Model):
     class Meta:
-        verbose_name_plural = 'diagnose groups'
         ordering = ['sort','name']
 
     name = models.CharField(max_length=255)

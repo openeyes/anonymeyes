@@ -229,52 +229,103 @@
   model: anonymeyes.surgery
   pk: 35
 
+# Ethnic Group Group
+- fields: {name: White, description: "A person having origins in any of the original peoples of Europe", sort: 10}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 1
+- fields: {name: Black, description: "A person having origins in any of the black racial groups of Africa", sort: 20}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 2
+- fields: {name: Asian, description: "A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian Subcontinent", sort: 30}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 3
+- fields: {name: Middle Eastern, description: "A person having origins in any of the original peoples of the Middle East, or North Africa", sort: 40}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 4
+- fields: {name: Hispanic / Latino, description: "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish origin", sort: 50}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 5
+- fields: {name: American Indian or Alaska Native, description: "A person having origins in any of the original peoples of North and South America (including Central America)", sort: 60}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 6
+- fields: {name: Pacific Islander or Native Hawaiian, description: "A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands", sort: 70}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 7
+- fields: {name: Other, description: "A person having origins not covered by other categories", sort: 9999}
+  model: anonymeyes.ethnicgroupgroup
+  pk: 8
+
+
 # Ethnic Group
-- fields: {name: White, sort: 10}
+- fields: {name: British, group: 1, sort: 10}
   model: anonymeyes.ethnicgroup
   pk: 1
-- fields: {name: Black or African American, sort: 20}
+- fields: {name: Irish, group: 1, sort: 20}
   model: anonymeyes.ethnicgroup
   pk: 2
-- fields: {name: British Black African, sort: 30}
+- fields: {name: European, group: 1, sort: 30}
   model: anonymeyes.ethnicgroup
   pk: 3
-- fields: {name: British Black Caribbean, sort: 40}
+- fields: {name: Any other White background, requires_comment: True, group: 1, sort: 9999}
   model: anonymeyes.ethnicgroup
   pk: 4
-- fields: {name: Indian, sort: 50}
+- fields: {name: Black African, group: 2, sort: 10}
   model: anonymeyes.ethnicgroup
   pk: 5
-- fields: {name: Pakistani, sort: 60}
+- fields: {name: Black Caribbean, group: 2, sort: 20}
   model: anonymeyes.ethnicgroup
   pk: 6
-- fields: {name: Bangladeshi, sort: 70}
+- fields: {name: African American, group: 2, sort: 30}
   model: anonymeyes.ethnicgroup
   pk: 7
-- fields: {name: Chinese, sort: 80}
+- fields: {name: Any other Black background, requires_comment: True, group: 2, sort: 9999}
   model: anonymeyes.ethnicgroup
   pk: 8
-- fields: {name: Arabic, sort: 90}
+- fields: {name: Chinese, group: 3, sort: 10}
   model: anonymeyes.ethnicgroup
   pk: 9
-- fields: {name: Lebanese, sort: 100}
+- fields: {name: Japanese, group: 3, sort: 20}
   model: anonymeyes.ethnicgroup
   pk: 10
-- fields: {name: Turkish, sort: 110}
+- fields: {name: Indian, group: 3, sort: 30}
   model: anonymeyes.ethnicgroup
   pk: 11
-- fields: {name: Hispanic, sort: 120}
+- fields: {name: Pakistani, group: 3, sort: 40}
   model: anonymeyes.ethnicgroup
   pk: 12
-- fields: {name: American Indian, sort: 130}
+- fields: {name: Bangladeshi, group: 3, sort: 50}
   model: anonymeyes.ethnicgroup
   pk: 13
-- fields: {name: Mixed, sort: 140}
+- fields: {name: Any other Asian background, requires_comment: True, group: 3, sort: 9999}
   model: anonymeyes.ethnicgroup
   pk: 14
-- fields: {name: Other, requires_comment: True, sort: 150}
+- fields: {name: Arabic, group: 4, sort: 10}
   model: anonymeyes.ethnicgroup
   pk: 15
+- fields: {name: Lebanese, group: 4, sort: 20}
+  model: anonymeyes.ethnicgroup
+  pk: 16
+- fields: {name: Turkish, group: 4, sort: 30}
+  model: anonymeyes.ethnicgroup
+  pk: 17
+- fields: {name: Israeli, group: 4, sort: 40}
+  model: anonymeyes.ethnicgroup
+  pk: 18
+- fields: {name: Any other Middle Eastern background, requires_comment: True, group: 4, sort: 9999}
+  model: anonymeyes.ethnicgroup
+  pk: 19
+- fields: {name: Hispanic or Latino, group: 5, sort: 10}
+  model: anonymeyes.ethnicgroup
+  pk: 20
+- fields: {name: American Indian or Alaska Native, group: 6, sort: 10}
+  model: anonymeyes.ethnicgroup
+  pk: 21
+- fields: {name: Pacific Islander or Native Hawaiian, group: 7, sort: 10}
+  model: anonymeyes.ethnicgroup
+  pk: 22
+- fields: {name: Other, requires_comment: True, group: 8, sort: 9999}
+  model: anonymeyes.ethnicgroup
+  pk: 23
   
   # Eye
 - fields: {name: Left, single: true, sort: 20}

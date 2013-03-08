@@ -4,7 +4,7 @@ from django import forms
 
 from apps.anonymeyes.models import *
 
-admin.site.register(EthnicGroup)
+admin.site.register(EthnicGroupGroup)
 admin.site.register(DiagnosisGroup)
 admin.site.register(LensStatus)
 admin.site.register(VisualAcuityMethod)
@@ -12,6 +12,12 @@ admin.site.register(ManagementType)
 admin.site.register(Complication)
 admin.site.register(Adjuvant)
 admin.site.register(Tonometry)
+
+class EthnicGroupAdmin(admin.ModelAdmin):
+    list_display = ('name','group','sort')
+    list_filter = ('group',)
+
+admin.site.register(EthnicGroup, EthnicGroupAdmin)
 
 class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'first_name', 'last_name', 'email', 'last_login', 'is_active', 'is_staff')
