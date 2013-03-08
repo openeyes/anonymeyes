@@ -14,6 +14,7 @@
 	<div class="clearfix first">
 		<span class="detail complication">{{ inlineform.complication }}</span>
 		<span class="detail surgery">{{ inlineform.surgery }}</span>
+		<span class="detail agents">{{ inlineform.agents }}</span>
 	</div>
 	<div class="clearfix">
 		<span class="detail adjuvant"><label>{{ inlineform.adjuvant.label }}:</label> {{ inlineform.adjuvant }}</span>
@@ -33,7 +34,9 @@
 				{% endfor %}
 			};
 	</script>
-	<span>{{ inlineform.surgery.errors }}{{ inlineform.complication.errors }}{{ inlineform.adjuvant.errors }}{{ inlineform.surgery_stage.errors }}</span>
+	<span>{{ inlineform.surgery.errors }} {{ inlineform.complication.errors }}
+	{{ inlineform.agents.errors }} {{ inlineform.adjuvant.errors }}
+	{{ inlineform.surgery_stage.errors }}</span>
 </td>
 <td class="management_comments">
 	{{ inlineform.comments }}

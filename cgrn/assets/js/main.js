@@ -290,21 +290,27 @@ function updateManagementType(field) {
 	var type = $('option:selected', field).text();
 	switch(type) {
 		case 'Surgery':
-			$('.surgery', details).show();
-			$('textarea', comments).show();
 			$('.complication select', details).val('');
+			$('.surgery', details).show();
+			$('.agents select', details).val('');
+			$('textarea', comments).show();
 			break;
 		case 'Complication':
 			$('.complication', details).show();
-			$('textarea', comments).show();
 			$('.surgery select', details).val('');
 			$('.adjuvant select', details).val('');
 			$('.stage select', details).val('');
+			$('.agents select', details).val('');
+			$('textarea', comments).show();
 			break;
-		default:
+		case 'Medication':
 			$('.complication select', details).val('');
-			$('select', details).val('');
+			$('.surgery select', details).val('');
+			$('.adjuvant select', details).val('');
+			$('.stage select', details).val('');
+			$('.agents', details).show();
 			$('textarea', comments).val('');
+			break;
 	}
 	
 }

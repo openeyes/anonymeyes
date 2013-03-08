@@ -82,8 +82,7 @@
 					<th>Date</th>
 					<th>Type</th>
 					<th>Eye</th>
-					<th>Detail</th>
-					<th>Comments</th>
+					<th colspan="2">Detail</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -99,6 +98,7 @@
 						{% endif %}
 						{% endif %}
 						{% if management.complication %}{{ management.complication }}{% endif %}
+						{% if management.agents %}{{ management.get_agents_display }}{% endif %}
 					</td>
 					<td>{{ management.comments }}</td>
 				</tr>

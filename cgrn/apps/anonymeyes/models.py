@@ -325,6 +325,14 @@ class Management(models.Model):
     complication = models.ForeignKey(Complication, blank=True, null=True)
     adjuvant = models.ForeignKey(Adjuvant, blank=True, null=True)
     surgery_stage = models.ForeignKey(SurgeryStage, blank=True, null=True)
+    AGENTS_CHOICES = (
+                     (1, '1 Agent'),
+                     (2, '2 Agents'),
+                     (3, '3 Agents'),
+                     (4, '4 Agents'),
+                     (5, '5 Agents'),
+                     )
+    agents = models.IntegerField(choices=AGENTS_CHOICES, blank=True, null=True)
     comments = models.TextField(blank=True)
     patient = models.ForeignKey(Patient)
     @property
