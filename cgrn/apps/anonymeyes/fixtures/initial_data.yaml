@@ -121,7 +121,7 @@
 - fields: {name: Phthisis, sort: 160}
   model: anonymeyes.complication
   pk: 16
-- fields: {name: Other, sort: 9999}
+- fields: {name: Other, requires_comment: True, sort: 9999}
   model: anonymeyes.complication
   pk: 17
 
@@ -225,7 +225,7 @@
 - fields: {name: Cyclodiode transscleral, sort: 350}
   model: anonymeyes.surgery
   pk: 34
-- fields: {name: Other, sort: 9999}
+- fields: {name: Other, requires_comment: True, sort: 9999}
   model: anonymeyes.surgery
   pk: 35
 
@@ -272,7 +272,7 @@
 - fields: {name: Mixed, sort: 140}
   model: anonymeyes.ethnicgroup
   pk: 14
-- fields: {name: Other, sort: 150}
+- fields: {name: Other, requires_comment: True, sort: 150}
   model: anonymeyes.ethnicgroup
   pk: 15
   
@@ -502,7 +502,7 @@
 - fields: {group: 8, name: Normal, sort: 10}
   model: anonymeyes.diagnosis
   pk: 42
-- fields: {group: 9, name: Other, sort: 10}
+- fields: {group: 9, requires_comment: True, name: Other, sort: 10}
   model: anonymeyes.diagnosis
   pk: 43
 

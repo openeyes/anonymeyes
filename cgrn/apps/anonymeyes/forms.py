@@ -142,6 +142,22 @@ class PatientForm(BetterModelForm):
             raise forms.ValidationError("DOB day required")
         return dob_day
 
+    def clean_ethnic_group_comments(self):
+        ethnic_group = self.cleaned_data.get('ethnic_group')
+        ethnic_group_comments = self.cleaned_data.get('ethnic_group_comments')
+        if ethnic_group.requires_comment and not ethnic_group_comments.strip():
+            raise forms.ValidationError("Selected ethnic group requires comment")
+        return ethnic_group_comments
+
+    def clean_comments(self):
+        comments = self.cleaned_data.get('comments')
+        diagnosis_left = self.cleaned_data.get('diagnosis_left')
+        diagnosis_right = self.cleaned_data.get('diagnosis_right')
+        if (diagnosis_left.requires_comment or diagnosis_right.requires_comment) \
+        and not comments.strip():
+            raise forms.ValidationError("Selected diagnosis requires comment")
+        return comments
+
     def clean(self):
         cleaned_data = super(PatientForm, self).clean()
         dob_day = int(cleaned_data.get("dob_day") or 1)
@@ -197,6 +213,18 @@ class PatientManagementForm(forms.ModelForm):
         elif surgery and not surgery.stage:
             return None
         return surgery_stage
+
+    def clean_comments(self):
+        comments = self.cleaned_data.get('comments')
+        surgery = self.cleaned_data.get('surgery')
+        complication = self.cleaned_data.get('complication')
+        if ((surgery and surgery.requires_comment) or (complication and complication.requires_comment)) \
+        and not comments.strip():
+            if surgery:
+                raise forms.ValidationError("Selected surgery requires comment")
+            elif complication:
+                raise forms.ValidationError("Selected complication requires comment")
+        return comments
 
 class PatientOutcomeForm(forms.ModelForm):
     class Meta:

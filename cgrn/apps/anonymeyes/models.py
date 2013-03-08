@@ -34,6 +34,7 @@ class EthnicGroup(models.Model):
 
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
+    requires_comment = models.BooleanField(default=False)
     
     def __unicode__(self):
         return self.name
@@ -69,6 +70,7 @@ class Diagnosis(models.Model):
     name = models.CharField(max_length=255)
     group = models.ForeignKey(DiagnosisGroup)
     sort = models.IntegerField(default=10)
+    requires_comment = models.BooleanField(default=False)
     
     def description(self):
         if(self.group.diagnosis_set.count() > 1):
@@ -223,7 +225,7 @@ class Patient(models.Model):
     consanguinity = models.IntegerField(choices=TRISTATE_CHOICES)
     diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
     diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left diagnosis')
-    comments = models.TextField(blank=True)
+    comments = models.TextField(verbose_name='Diagnosis comments', blank=True)
     lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
     lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left lens status')
     lens_extraction_date_right = models.DateField(verbose_name='Right Extraction date', blank=True, null=True)
@@ -266,6 +268,7 @@ class Complication(models.Model):
 
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
+    requires_comment = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -275,6 +278,7 @@ class Surgery(models.Model):
     adjuvant = models.BooleanField()
     stage = models.BooleanField()
     sort = models.IntegerField(default=10)
+    requires_comment = models.BooleanField(default=False)
     
     class Meta:
         ordering = ['sort','name']
