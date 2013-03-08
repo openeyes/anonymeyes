@@ -62,10 +62,13 @@ class PatientAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
     fieldsets = (
                  (None, {
-                         'fields': ('created_by', 'updated_by', 'created_at', 'updated_at', 'sex', 'dob_day', 'dob_month', 'dob_year', 'postcode', 'ethnic_group', 'consanguinity')
+                         'fields': ('created_by', 'updated_by', 'created_at', 'updated_at',
+                                    'sex', 'dob_day', 'dob_month', 'dob_year',
+                                    'postcode', 'ethnic_group', 'ethnic_group_comments',
+                                    'consanguinity')
                          }),
                  ('Baseline Assessment', {
-                         'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_left',
+                         'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_left', 'comments',
                                     ('visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both'),
                                     ('iop_right', 'iop_left', 'tonometry', 'eua'),
                                     ('lens_status_right', 'lens_extraction_date_right'),
