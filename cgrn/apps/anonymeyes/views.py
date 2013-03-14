@@ -176,10 +176,14 @@ class PatientUpdateView(UpdateView):
         if management_formset.is_valid() and outcome_formset.is_valid():
             management_formset.instance = self.object
             for management_instance in management_formset.save(commit=False):
+                if not management_instance.created_by:
+                    management_instance.created_by = self.request.user
                 management_instance.updated_by = self.request.user
                 management_instance.save()
             outcome_formset.instance = self.object
             for outcome_instance in outcome_formset.save(commit=False):
+                if not outcome_instance.created_by:
+                    outcome_instance.created_by = self.request.user
                 outcome_instance.updated_by = self.request.user
                 outcome_instance.save()
             return super(PatientUpdateView, self).form_valid(form)
