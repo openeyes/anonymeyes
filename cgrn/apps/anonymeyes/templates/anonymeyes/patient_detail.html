@@ -52,7 +52,7 @@
 			<dt>LVA:</dt>
 			<dd>{{ patient.visual_acuity_left }} ({{ patient.visual_acuity_correction_left }})</dd>
 			<dt>BEO:</dt>
-			<dd>{{ patient.visual_acuity_both }} ({{ patient.visual_acuity_correction_both }})</dd>
+			<dd>{% if patient.visual_acuity_both %}{{ patient.visual_acuity_both }} ({{ patient.visual_acuity_correction_both }}){% else %}Not recorded{% endif %}</dd>
 			<dt>IOP Control:</dt>
 			<dd>{{ patient.iop_control }}</dd>
 			<dt>Right IOP:</dt>
@@ -140,7 +140,7 @@
 							<li>Method: {{ outcome.visual_acuity_method }}</li>
 							<li>RVA: {{ outcome.visual_acuity_right }} ({{ outcome.visual_acuity_correction_right }})</li>
 							<li>LVA: {{ outcome.visual_acuity_left }} ({{ outcome.visual_acuity_correction_left }})</li>
-							<li>BEO: {{ outcome.visual_acuity_both }} ({{ outcome.visual_acuity_correction_both }})</li>
+							<li>BEO: {% if outcome.visual_acuity_both %}{{ outcome.visual_acuity_both }} ({{ outcome.visual_acuity_correction_both }}){% else %}Not recorded{% endif %}</li>
 						</ul>
 					</td>
 				</tr>

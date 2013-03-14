@@ -24,7 +24,7 @@
 			<span>{{ inlineform.visual_acuity_right.errors }}{{ inlineform.visual_acuity_correction.right.errors }}</span></li>
 		<li><span class="required">LVA</span>: {{ inlineform.visual_acuity_left }} {{ inlineform.visual_acuity_correction_left }}
 			<span>{{ inlineform.visual_acuity_left.errors }}{{ inlineform.visual_acuity_correction_left.errors }}</span></li>
-		<li><span class="required">BEO</span>: {{ inlineform.visual_acuity_both }} {{ inlineform.visual_acuity_correction_both }}
+		<li>BEO: {{ inlineform.visual_acuity_both }} {{ inlineform.visual_acuity_correction_both }}
 			<span>{{ inlineform.visual_acuity_both.errors }}{{ inlineform.visual_acuity_correction_both.errors }}</span></li>
 	</ul>
 	{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}

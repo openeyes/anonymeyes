@@ -193,6 +193,13 @@ class PatientForm(BetterModelForm):
             raise forms.ValidationError("Selected ethnic group requires comment")
         return ethnic_group_comments
 
+    def clean_visual_acuity_correction_both(self):
+        visual_acuity_correction_both = self.cleaned_data.get('visual_acuity_correction_both')
+        visual_acuity_both = self.cleaned_data.get('visual_acuity_both')
+        if visual_acuity_both and not visual_acuity_correction_both:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_correction_both
+
     def clean_comments(self):
         comments = self.cleaned_data.get('comments')
         diagnosis_left = self.cleaned_data.get('diagnosis_left')
@@ -309,6 +316,13 @@ class PatientOutcomeForm(forms.ModelForm):
         elif not iop_control:
             return None
         return iop_agents
+
+    def clean_visual_acuity_correction_both(self):
+        visual_acuity_correction_both = self.cleaned_data.get('visual_acuity_correction_both')
+        visual_acuity_both = self.cleaned_data.get('visual_acuity_both')
+        if visual_acuity_both and not visual_acuity_correction_both:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_correction_both
 
 PatientManagementFormSet = forms.models.inlineformset_factory(Patient, Management, form = PatientManagementForm, extra=1, can_delete=False)
 
