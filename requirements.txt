@@ -1,0 +1,8 @@
+Django==1.4.5
+MySQL-python
+PyYAML
+South
+django-compressor
+django-csvimport
+django-form-utils
+django-recaptcha
