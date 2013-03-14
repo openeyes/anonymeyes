@@ -97,7 +97,7 @@ class PatientForm(BetterModelForm):
                                                'visual_acuity_both', 'visual_acuity_correction_both', ],
                                    }),
                      ('iop', {
-                                   'fields': [ 'iop_right', 'iop_left', 'tonometry', 'eua'],
+                                   'fields': [ 'iop_control', 'iop_right', 'iop_left', 'tonometry', 'eua'],
                                    }),
                      ('lens', {
                                    'fields': [ 'lens_status_right', 'lens_extraction_date_right',

@@ -178,6 +178,16 @@ class Tonometry(models.Model):
     def __unicode__(self):
         return self.name
 
+class IOPControl(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
 class Patient(models.Model):
     uuid = models.CharField(unique=True, max_length=64, editable=False, blank=True, default=uuid4)
     created_by = models.ForeignKey(User, related_name='patient_created_set', blank=True, null=True, on_delete=models.SET_NULL)
@@ -255,6 +265,7 @@ class Patient(models.Model):
     visual_acuity_correction_right = models.ForeignKey(VisualAcuityCorrection, related_name='patient_rva_correction', verbose_name='Right correction')
     visual_acuity_correction_left = models.ForeignKey(VisualAcuityCorrection, related_name='patient_lva_correction', verbose_name='Left correction')
     visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='patient_beo_correction', verbose_name='Both correction')
+    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control', related_name='patient_outcome_control')
     iop_right = models.IntegerField(verbose_name='Right IOP', validators=[
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
@@ -368,23 +379,13 @@ class Management(models.Model):
     def __unicode__(self):
         return str(self.date)
     
-class IOPControl(models.Model):
-    class Meta:
-        ordering = ['sort','name']
-
-    name = models.CharField(max_length=64)
-    sort = models.IntegerField(default=10)
-    
-    def __unicode__(self):
-        return self.name
-
 class Outcome(models.Model):
     created_by = models.ForeignKey(User, related_name='outcome_created_set', blank=True, null=True, on_delete=models.SET_NULL)
     updated_by = models.ForeignKey(User, related_name='outcome_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
-    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control')
+    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control', related_name='outcome_iop_control')
     iop_right = models.IntegerField(verbose_name='Right IOP', validators=[
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
