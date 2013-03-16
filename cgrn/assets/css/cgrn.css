@@ -199,10 +199,23 @@ form label.error {
 form input,
 form select,
 form textarea,
-form .data {
+form .data,
+form .inline_fields {
 	float: left;
 	max-width: 350px;
 	margin-right: 5px;
+}
+
+form .inline_fields input,
+form .inline_fields select,
+form .inline_fields textarea,
+form .inline_fields .data {
+	float: none;
+}
+
+form .inline_fields .errorlist {
+	float: none;
+	display: inline-block;
 }
 
 form .read-only {

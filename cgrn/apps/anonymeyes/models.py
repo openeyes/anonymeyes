@@ -179,7 +179,7 @@ class Tonometry(models.Model):
     def __unicode__(self):
         return self.name
 
-class IOPControl(models.Model):
+class IOPAgents(models.Model):
     class Meta:
         ordering = ['sort','name']
 
@@ -261,6 +261,7 @@ class Patient(models.Model):
     lens_extraction_date_left = models.DateField(verbose_name='Left Extraction date', blank=True, null=True)
     visual_acuity_date = models.DateField(verbose_name='Date')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Method')
+    visual_acuity_method_comment = models.TextField(verbose_name='Method Comment', blank=True)
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='patient_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='patient_lva', verbose_name='LVA')
     visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo', verbose_name='BEO')
@@ -270,7 +271,6 @@ class Patient(models.Model):
                                                       , verbose_name='Left correction', blank=True, null=True)
     visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='patient_beo_correction'
                                                       , verbose_name='Both correction', blank=True, null=True)
-    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control', related_name='patient_outcome_control')
     iop_right = models.IntegerField(verbose_name='Right IOP', validators=[
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
@@ -279,6 +279,8 @@ class Patient(models.Model):
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
                                                                      ])
+    iop_agents_right = models.ForeignKey(IOPAgents, related_name='patient_iop_agents_right')
+    iop_agents_left = models.ForeignKey(IOPAgents, related_name='patient_iop_agents_left')
     tonometry = models.ForeignKey(Tonometry)
     eua = models.ForeignKey(Anaesthesia, verbose_name='EUA')
     
@@ -362,14 +364,7 @@ class Management(models.Model):
     complication = models.ForeignKey(Complication, blank=True, null=True)
     adjuvant = models.ForeignKey(Adjuvant, blank=True, null=True)
     surgery_stage = models.ForeignKey(SurgeryStage, blank=True, null=True)
-    AGENTS_CHOICES = (
-                     (1, '1 Agent'),
-                     (2, '2 Agents'),
-                     (3, '3 Agents'),
-                     (4, '4 Agents'),
-                     (5, '5 Agents'),
-                     )
-    agents = models.IntegerField(choices=AGENTS_CHOICES, blank=True, null=True)
+    agents = models.ForeignKey(IOPAgents, blank=True, null=True)
     comments = models.TextField(blank=True)
     patient = models.ForeignKey(Patient)
     @property
@@ -390,7 +385,8 @@ class Outcome(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
-    iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control', related_name='outcome_iop_control')
+    iop_control_right = models.BooleanField(verbose_name='Right IOP Control')
+    iop_control_left = models.BooleanField(verbose_name='Left IOP Control')
     iop_right = models.IntegerField(verbose_name='Right IOP', validators=[
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
@@ -399,9 +395,12 @@ class Outcome(models.Model):
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
                                                                      ])
+    iop_agents_right = models.ForeignKey(IOPAgents, related_name='outcome_iop_agents_right')
+    iop_agents_left = models.ForeignKey(IOPAgents, related_name='outcome_iop_agents_left')
     tonometry = models.ForeignKey(Tonometry)
     eua = models.ForeignKey(Anaesthesia, verbose_name='EUA')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
+    visual_acuity_method_comment = models.TextField(verbose_name='Method Comment', blank=True)
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')
     visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo', verbose_name='BEO')

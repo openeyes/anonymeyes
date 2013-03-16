@@ -53,12 +53,10 @@
 			<dd>{{ patient.visual_acuity_left }} {% if patient.visual_acuity_correction_left %}({{ patient.visual_acuity_correction_left }}){% endif %}</dd>
 			<dt>BEO:</dt>
 			<dd>{{ patient.visual_acuity_both }} {% if patient.visual_acuity_correction_both %}({{ patient.visual_acuity_correction_both }}){% endif %}</dd>
-			<dt>IOP Control:</dt>
-			<dd>{{ patient.iop_control }}</dd>
 			<dt>Right IOP:</dt>
-			<dd>{{ patient.iop_right }}</dd>
+			<dd>{{ patient.iop_right }} ({{ patient.iop_agents_right }})</dd>
 			<dt>Left IOP:</dt>
-			<dd>{{ patient.iop_left }}</dd>
+			<dd>{{ patient.iop_left }} ({{ patient.iop_agents_left }})</dd>
 			<dt>Tonometry:</dt>
 			<dd>{{ patient.tonometry }}</dd>
 			<dt>EUA:</dt>
@@ -100,7 +98,7 @@
 						{% endif %}
 						{% endif %}
 						{% if management.complication %}{{ management.complication }}{% endif %}
-						{% if management.agents %}{{ management.get_agents_display }}{% endif %}
+						{% if management.agents %}{{ management.agents }}{% endif %}
 					</td>
 					<td>{{ management.comments }}</td>
 				</tr>
@@ -128,10 +126,9 @@
 					<td>{{ outcome.date }}</td>
 					<td>
 						<ul>
-							<li>Control: {{ outcome.iop_control }}</li>
+							<li>Right: {{ outcome.iop_right }} mmHg ({{ outcome.iop_agents_right }}, {{ outcome.iop_control_right|yesno:"Controlled,Uncontrolled" }})</li>
+							<li>Left: {{ outcome.iop_left }} mmHg ({{ outcome.iop_agents_left }}, {{ outcome.iop_control_left|yesno:"Controlled,Uncontrolled" }})</li>
 							<li>Tonometry: {{ outcome.tonometry }}</li>
-							<li>Right: {{ outcome.iop_right }} mmHg,
-								Left: {{ outcome.iop_left }} mmHg</li>
 							<li>EUA: {{ outcome.eua }}</li>
 						</ul>
 					</td>

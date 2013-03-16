@@ -97,7 +97,9 @@ class PatientForm(BetterModelForm):
                                                'visual_acuity_both', 'visual_acuity_correction_both', ],
                                    }),
                      ('iop', {
-                                   'fields': [ 'iop_control', 'iop_right', 'iop_left', 'tonometry', 'eua'],
+                                   'fields': [ 'iop_right', 'iop_agents_right',
+                                              'iop_left', 'iop_agents_left',
+                                              'tonometry', 'eua'],
                                    }),
                      ('lens', {
                                    'fields': [ 'lens_status_right', 'lens_extraction_date_right',
@@ -270,6 +272,15 @@ class PatientManagementForm(forms.ModelForm):
             return None
         return complication
 
+    def clean_agents(self):
+        agents = self.cleaned_data.get('agents')
+        type = self.cleaned_data.get('type')
+        if type and type.name == 'Medication' and not agents:
+            raise forms.ValidationError("Medication detail required")
+        elif type and type.name != 'Medication':
+            return None
+        return agents
+
     def clean_adjuvant(self):
         adjuvant = self.cleaned_data.get('adjuvant')
         surgery = self.cleaned_data.get('surgery')
@@ -301,6 +312,14 @@ class PatientManagementForm(forms.ModelForm):
         return comments
 
 class PatientOutcomeForm(forms.ModelForm):
+    IOP_CONTROL_CHOICES = (
+                 ('', '---'),
+                 (True, 'Controlled'),
+                 (False, 'Uncontrolled')
+                 )
+    iop_control_right = forms.fields.TypedChoiceField(choices=IOP_CONTROL_CHOICES, required=True, coerce=lambda x: x =='True')
+    iop_control_left = forms.fields.TypedChoiceField(choices=IOP_CONTROL_CHOICES, required=True, coerce=lambda x: x =='True')
+    
     class Meta:
         model = Outcome
         widgets = {

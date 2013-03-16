@@ -151,12 +151,38 @@
 			<fieldset>
 				<legend>Intraocular Pressure</legend>
 				<ul>
-	 				{% for field in form.fieldsets.iop %}
-					<li {{ field.row_attrs }}>
-						<label for="{{ field.auto_id }}"{% if field.errors %} class="error"{% endif %} ><span>{{ field.label }}</span>:</label>
-						{{ field }} <span>{{ field.errors }}</span>
+					<li {{ form.iop_right.row_attrs }}>
+						<label for="{{ form.iop_right.auto_id }}"{% if form.iop_right.errors %} class="error"{% endif %}>
+							<span>{{ form.iop_right.label }}</span>:</label>
+						<div class="inline_fields">
+							{{ form.iop_right }} mmHg
+							<span>{{ form.iop_right.errors }}</span>,
+							{{ form.iop_agents_right }}
+							<span>{{ form.iop_agents_right.errors }}</span>
+						</div>
 					</li>
-					{% endfor %}
+					<li {{ form.iop_left.row_attrs }}>
+						<label for="{{ form.iop_left.auto_id }}"{% if form.iop_left.errors %} class="error"{% endif %}>
+							<span>{{ form.iop_left.label }}</span>:</label>
+						<div class="inline_fields">
+							{{ form.iop_left }} mmHg
+							<span>{{ form.iop_left.errors }}</span>,
+							{{ form.iop_agents_left }}
+							<span>{{ form.iop_agents_left.errors }}</span>
+						</div>
+					</li>
+					<li {{ form.tonometry.row_attrs }}>
+						<label for="{{ form.tonometry.auto_id }}"{% if form.tonometry.errors %} class="error"{% endif %}>
+						<span>{{ form.tonometry.label }}</span>:</label>
+						{{ form.tonometry }}
+						<span>{{ form.tonometry.errors }}</span>
+					</li>
+					<li {{ form.eua.row_attrs }}>
+						<label for="{{ form.eua.auto_id }}"{% if form.eua.errors %} class="error"{% endif %}>
+						<span>{{ form.eua.label }}</span>:</label>
+						{{ form.eua }}
+						<span>{{ form.eua.errors }}</span>
+					</li>
 				</ul>
 			</fieldset>
 
