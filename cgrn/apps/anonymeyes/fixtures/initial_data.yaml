@@ -389,25 +389,51 @@
   model: anonymeyes.managementtype
   pk: 3
 
+# Lens Status Group
+- fields: {name: Clear, sort: 10}
+  model: anonymeyes.lensstatusgroup
+  pk: 1
+- fields: {name: Cataractous, sort: 20}
+  model: anonymeyes.lensstatusgroup
+  pk: 2
+- fields: {name: Aphakia, sort: 30}
+  model: anonymeyes.lensstatusgroup
+  pk: 3
+- fields: {name: Pseudophakia, sort: 40}
+  model: anonymeyes.lensstatusgroup
+  pk: 4
+
 # Lens Status
-- fields: {name: Central}
+- fields: {name: "Clear: Central", group: 1, sort: 10}
   model: anonymeyes.lensstatus
   pk: 1
-- fields: {name: Subluxed}
+- fields: {name: "Clear: Subluxed", group: 1, sort: 20}
   model: anonymeyes.lensstatus
   pk: 2
-- fields: {name: Dislocated}
+- fields: {name: "Clear: Dislocated", group: 1, sort: 30}
   model: anonymeyes.lensstatus
   pk: 3
-- fields: {name: Microspherophakia}
+- fields: {name: "Clear: Microspherophakia", group: 1, sort: 40}
   model: anonymeyes.lensstatus
   pk: 4
-- fields: {name: Aphakia}
+- fields: {name: "Cataractous: Central", group: 2, sort: 10}
   model: anonymeyes.lensstatus
   pk: 5
-- fields: {name: Pseudophakia}
+- fields: {name: "Cataractous: Subluxed", group: 2, sort: 20}
   model: anonymeyes.lensstatus
   pk: 6
+- fields: {name: "Cataractous: Dislocated", group: 2, sort: 30}
+  model: anonymeyes.lensstatus
+  pk: 7
+- fields: {name: "Cataractous: Microspherophakia", group: 2, sort: 40}
+  model: anonymeyes.lensstatus
+  pk: 8
+- fields: {name: Aphakia, group: 3, sort: 10}
+  model: anonymeyes.lensstatus
+  pk: 9
+- fields: {name: Pseudophakia, group: 4, sort: 10}
+  model: anonymeyes.lensstatus
+  pk: 10
 
 # Diagnosis Group
 - fields: {name: Primary Congenital Glaucoma (PCG), sort: 10}

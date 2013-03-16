@@ -118,10 +118,24 @@ class Anaesthesia(models.Model):
     def __unicode__(self):
         return self.name
 
+class LensStatusGroup(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=255)
+    sort = models.IntegerField(default=10)
+    
+    def __unicode__(self):
+        return self.name
+
 class LensStatus(models.Model):
     class Meta:
+        ordering = ['group__sort','sort','name']
         verbose_name_plural = 'lens statuses'
+        
     name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    group = models.ForeignKey(LensStatusGroup)
     
     def __unicode__(self):
         return self.name

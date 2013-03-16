@@ -7,7 +7,7 @@ from django.conf import settings
 from captcha.fields import ReCaptchaField
 from apps.anonymeyes.models import Patient, Management, Outcome, \
     VisualAcuityReading, VisualAcuityMethod, Diagnosis, DiagnosisGroup, \
-    UserProfile, EthnicGroup
+    UserProfile, EthnicGroup, LensStatus
 from form_utils.forms import BetterModelForm
 from itertools import groupby
 import datetime
@@ -75,6 +75,8 @@ class PatientForm(BetterModelForm):
     diagnosis_group_right = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'right'}))
     diagnosis_group_left = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'left'}))
     ethnic_group = GroupedModelChoiceField(queryset=EthnicGroup.objects.all(), group_by_field='group')
+    lens_status_left = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group')
+    lens_status_right = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group')
     
     class Meta:
         model = Patient
