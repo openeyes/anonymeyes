@@ -129,10 +129,10 @@
 - fields: {name: Goniotomy, sort: 10}
   model: anonymeyes.surgery
   pk: 1
-- fields: {name: Trabeculotomy - Conv, adjuvant: true, sort: 20}
+- fields: {name: Trabeculotomy - Conv, sort: 20}
   model: anonymeyes.surgery
   pk: 2
-- fields: {name: Trabeculotomy - 360, adjuvant: true, sort: 30}
+- fields: {name: Trabeculotomy - 360, sort: 30}
   model: anonymeyes.surgery
   pk: 3
 - fields: {name: Trabeculectomy, adjuvant: true, sort: 40}
@@ -228,6 +228,12 @@
 - fields: {name: Other, requires_comment: True, sort: 9999}
   model: anonymeyes.surgery
   pk: 35
+- fields: {name: Secondary IOL, sort: 205}
+  model: anonymeyes.surgery
+  pk: 36
+- fields: {name: Tube occlusion, sort: 245}
+  model: anonymeyes.surgery
+  pk: 37
 
 # Ethnic Group Group
 - fields: {name: White, description: "A person having origins in any of the original peoples of Europe", sort: 10}
@@ -332,6 +338,9 @@
 - fields: {name: Mixed, requires_comment: True, group: 9, sort: 10}
   model: anonymeyes.ethnicgroup
   pk: 24
+- fields: {name: North American, group: 1, sort: 40}
+  model: anonymeyes.ethnicgroup
+  pk: 25
   
   # Eye
 - fields: {name: Left, single: true, sort: 20}
