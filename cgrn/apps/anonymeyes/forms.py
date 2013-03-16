@@ -223,7 +223,7 @@ class PatientForm(BetterModelForm):
     def clean_ethnic_group_comments(self):
         ethnic_group = self.cleaned_data.get('ethnic_group')
         ethnic_group_comments = self.cleaned_data.get('ethnic_group_comments')
-        if ethnic_group.requires_comment and not ethnic_group_comments.strip():
+        if ethnic_group and ethnic_group.requires_comment and not ethnic_group_comments.strip():
             raise forms.ValidationError("Selected ethnic group requires comment")
         return ethnic_group_comments
 
@@ -231,8 +231,9 @@ class PatientForm(BetterModelForm):
         comments = self.cleaned_data.get('comments')
         diagnosis_left = self.cleaned_data.get('diagnosis_left')
         diagnosis_right = self.cleaned_data.get('diagnosis_right')
-        if (diagnosis_left.requires_comment or diagnosis_right.requires_comment) \
-        and not comments.strip():
+        if ((diagnosis_left and diagnosis_left.requires_comment) \
+            or (diagnosis_right and diagnosis_right.requires_comment) \
+            ) and not comments.strip():
             raise forms.ValidationError("Selected diagnosis requires comment")
         return comments
 
