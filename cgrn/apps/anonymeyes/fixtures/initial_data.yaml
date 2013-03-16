@@ -584,7 +584,7 @@
   pk: 6
 
 # Visual Acuity Correction
-- fields: {name: None, sort: 10}
+- fields: {name: No Correction, sort: 10}
   model: anonymeyes.visualacuitycorrection
   pk: 1
 - fields: {name: Glasses, sort: 20}
@@ -660,6 +660,9 @@
 
 # Visual Acuity Reading
 
+- fields: {name: 'Not recorded', not_recorded: True, scale: 5, sort: 1}
+  model: anonymeyes.visualacuityreading
+  pk: 68
 - fields: {name: '12.5', scale: 5, sort: 10}
   model: anonymeyes.visualacuityreading
   pk: 59
@@ -681,6 +684,9 @@
 - fields: {name: '0.18', scale: 5, sort: 70}
   model: anonymeyes.visualacuityreading
   pk: 65
+- fields: {name: 'Not recorded', not_recorded: True, scale: 1, sort: 1}
+  model: anonymeyes.visualacuityreading
+  pk: 69
 - fields: {name: '-0.3', scale: 1, sort: 10}
   model: anonymeyes.visualacuityreading
   pk: 3
@@ -744,12 +750,18 @@
 - fields: {name: NPL, scale: 1, sort: 200}
   model: anonymeyes.visualacuityreading
   pk: 22
+- fields: {name: 'Not recorded', not_recorded: True, scale: 2, sort: 1}
+  model: anonymeyes.visualacuityreading
+  pk: 70
 - fields: {name: Fixes and follows, scale: 2, sort: 10}
   model: anonymeyes.visualacuityreading
   pk: 1
 - fields: {name: Does not fix and follow, scale: 2, sort: 20}
   model: anonymeyes.visualacuityreading
   pk: 2
+- fields: {name: 'Not recorded', not_recorded: True, scale: 4, sort: 1}
+  model: anonymeyes.visualacuityreading
+  pk: 71
 - fields: {name: 20/10, scale: 4, sort: 10}
   model: anonymeyes.visualacuityreading
   pk: 39
@@ -810,6 +822,9 @@
 - fields: {name: NPL, scale: 4, sort: 200}
   model: anonymeyes.visualacuityreading
   pk: 58
+- fields: {name: 'Not recorded', not_recorded: True, scale: 3, sort: 1}
+  model: anonymeyes.visualacuityreading
+  pk: 72
 - fields: {name: 6/3, scale: 3, sort: 10}
   model: anonymeyes.visualacuityreading
   pk: 23

@@ -118,6 +118,9 @@ class PatientForm(BetterModelForm):
                    'visual_acuity_right': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_left': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_both': forms.Select(attrs={'class':'visualacuity'}),
+                   'visual_acuity_correction_right': forms.Select(attrs={'class':'visualacuitycorrection'}),
+                   'visual_acuity_correction_left': forms.Select(attrs={'class':'visualacuitycorrection'}),
+                   'visual_acuity_correction_both': forms.Select(attrs={'class':'visualacuitycorrection'}),
                    'iop_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
                    'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
         }
@@ -171,6 +174,33 @@ class PatientForm(BetterModelForm):
             return None
         return lens_extraction_date_left
 
+    def clean_visual_acuity_correction_right(self):
+        visual_acuity_correction_right = self.cleaned_data.get('visual_acuity_correction_right')
+        visual_acuity_right = self.cleaned_data.get('visual_acuity_right')
+        if visual_acuity_right and visual_acuity_right.not_recorded:
+            return None
+        if not visual_acuity_correction_right:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_correction_right
+    
+    def clean_visual_acuity_correction_left(self):
+        visual_acuity_correction_left = self.cleaned_data.get('visual_acuity_correction_left')
+        visual_acuity_left = self.cleaned_data.get('visual_acuity_left')
+        if visual_acuity_left and visual_acuity_left.not_recorded:
+            return None
+        if not visual_acuity_correction_left:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_correction_left
+    
+    def clean_visual_acuity_correction_both(self):
+        visual_acuity_correction_both = self.cleaned_data.get('visual_acuity_correction_both')
+        visual_acuity_both = self.cleaned_data.get('visual_acuity_both')
+        if visual_acuity_both and visual_acuity_both.not_recorded:
+            return None
+        if not visual_acuity_correction_both:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_correction_both
+    
     def clean_dob_month(self):
         dob_month = self.cleaned_data.get('dob_month')
         dob_day = self.cleaned_data.get('dob_day')
@@ -192,13 +222,6 @@ class PatientForm(BetterModelForm):
         if ethnic_group.requires_comment and not ethnic_group_comments.strip():
             raise forms.ValidationError("Selected ethnic group requires comment")
         return ethnic_group_comments
-
-    def clean_visual_acuity_correction_both(self):
-        visual_acuity_correction_both = self.cleaned_data.get('visual_acuity_correction_both')
-        visual_acuity_both = self.cleaned_data.get('visual_acuity_both')
-        if visual_acuity_both and not visual_acuity_correction_both:
-            raise forms.ValidationError("This field is required")
-        return visual_acuity_correction_both
 
     def clean_comments(self):
         comments = self.cleaned_data.get('comments')
@@ -286,6 +309,9 @@ class PatientOutcomeForm(forms.ModelForm):
                    'visual_acuity_right': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_left': forms.Select(attrs={'class':'visualacuity'}),
                    'visual_acuity_both': forms.Select(attrs={'class':'visualacuity'}),
+                   'visual_acuity_correction_right': forms.Select(attrs={'class':'visualacuitycorrection'}),
+                   'visual_acuity_correction_left': forms.Select(attrs={'class':'visualacuitycorrection'}),
+                   'visual_acuity_correction_both': forms.Select(attrs={'class':'visualacuitycorrection'}),
                    'iop_left': forms.TextInput(attrs={'class':'small'}),
                    'iop_right': forms.TextInput(attrs={'class':'small'}),
         }
@@ -317,10 +343,30 @@ class PatientOutcomeForm(forms.ModelForm):
             return None
         return iop_agents
 
+    def clean_visual_acuity_correction_right(self):
+        visual_acuity_correction_right = self.cleaned_data.get('visual_acuity_correction_right')
+        visual_acuity_right = self.cleaned_data.get('visual_acuity_right')
+        if visual_acuity_right and visual_acuity_right.not_recorded:
+            return None
+        if not visual_acuity_correction_right:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_correction_right
+    
+    def clean_visual_acuity_correction_left(self):
+        visual_acuity_correction_left = self.cleaned_data.get('visual_acuity_correction_left')
+        visual_acuity_left = self.cleaned_data.get('visual_acuity_left')
+        if visual_acuity_left and visual_acuity_left.not_recorded:
+            return None
+        if not visual_acuity_correction_left:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_correction_left
+    
     def clean_visual_acuity_correction_both(self):
         visual_acuity_correction_both = self.cleaned_data.get('visual_acuity_correction_both')
         visual_acuity_both = self.cleaned_data.get('visual_acuity_both')
-        if visual_acuity_both and not visual_acuity_correction_both:
+        if visual_acuity_both and visual_acuity_both.not_recorded:
+            return None
+        if not visual_acuity_correction_both:
             raise forms.ValidationError("This field is required")
         return visual_acuity_correction_both
 

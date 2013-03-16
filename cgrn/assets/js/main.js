@@ -41,6 +41,14 @@ $(document).ready(function() {
 		}
 	});
 	
+	// Visual Acuity not recorded
+	$('.visualacuity').each(function() {
+		updateCorrection(this);
+	});
+	$('body').delegate('.visualacuity', 'change', function() {
+		updateCorrection(this)
+	});
+	
 	// Diagnosis cascade
 	$('.diagnosisgroup').each(function() {
 		updateDiagnosis(this);
@@ -153,6 +161,16 @@ $(document).ready(function() {
 	});
 
 });
+
+function updateCorrection(element) {
+	var wrapper = $(element).closest('li');
+	if($('option:selected', element).text() == 'Not recorded') {
+		$('select.visualacuitycorrection', wrapper).val('');
+		$('select.visualacuitycorrection', wrapper).hide();
+	} else {
+		$('select.visualacuitycorrection', wrapper).show();
+	}
+}
 
 function updateDiagnosis(element) {
 	var wrapper = $(element).closest('li');

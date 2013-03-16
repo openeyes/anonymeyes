@@ -154,6 +154,7 @@ class VisualAcuityReading(models.Model):
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
     scale = models.ForeignKey(VisualAcuityScale, related_name='readings')
+    not_recorded = models.BooleanField(default=False)
     
     def __unicode__(self):
         return self.name
@@ -262,12 +263,11 @@ class Patient(models.Model):
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Method')
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='patient_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='patient_lva', verbose_name='LVA')
-    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo'
-                                           , verbose_name='BEO', blank=True, null=True)
+    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo', verbose_name='BEO')
     visual_acuity_correction_right = models.ForeignKey(VisualAcuityCorrection, related_name='patient_rva_correction'
-                                                       , verbose_name='Right correction')
+                                                       , verbose_name='Right correction', blank=True, null=True)
     visual_acuity_correction_left = models.ForeignKey(VisualAcuityCorrection, related_name='patient_lva_correction'
-                                                      , verbose_name='Left correction')
+                                                      , verbose_name='Left correction', blank=True, null=True)
     visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='patient_beo_correction'
                                                       , verbose_name='Both correction', blank=True, null=True)
     iop_control = models.ForeignKey(IOPControl, verbose_name='IOP Control', related_name='patient_outcome_control')
@@ -404,12 +404,11 @@ class Outcome(models.Model):
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')
-    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo'
-                                           , verbose_name='BEO', blank=True, null=True)
+    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo', verbose_name='BEO')
     visual_acuity_correction_right = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_rva_correction'
-                                                       , verbose_name='Right correction')
+                                                       , verbose_name='Right correction', blank=True, null=True)
     visual_acuity_correction_left = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_lva_correction'
-                                                      , verbose_name='Left correction')
+                                                      , verbose_name='Left correction', blank=True, null=True)
     visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_beo_correction'
                                                       , verbose_name='Both correction', blank=True, null=True)
     patient = models.ForeignKey(Patient)
