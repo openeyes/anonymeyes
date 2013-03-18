@@ -74,9 +74,10 @@ class CaptchaContactForm(ContactForm):
 class PatientForm(BetterModelForm):
     diagnosis_group_right = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'right'}))
     diagnosis_group_left = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'left'}))
-    ethnic_group = GroupedModelChoiceField(queryset=EthnicGroup.objects.all(), group_by_field='group')
-    lens_status_left = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group')
-    lens_status_right = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group')
+    # FIXME: Shouldn't have to set the labels here, something is wrong with the label passthrough
+    ethnic_group = GroupedModelChoiceField(queryset=EthnicGroup.objects.all(), group_by_field='group', label='Ethnic group / Race')
+    lens_status_right = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group', label='Right lens status')
+    lens_status_left = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group', label='Left lens status')
     
     class Meta:
         model = Patient

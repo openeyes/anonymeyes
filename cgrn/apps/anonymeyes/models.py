@@ -30,6 +30,7 @@ post_save.connect(create_user_profile, sender=User)
 
 class EthnicGroupGroup(models.Model):
     class Meta:
+        verbose_name = 'Ethnic group / Race'
         ordering = ['sort','name']
 
     name = models.CharField(max_length=64)
