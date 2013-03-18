@@ -377,7 +377,10 @@
 - fields: {name: Inhalational, sort: 50}
   model: anonymeyes.anaesthesia
   pk: 5
-  
+- fields: {name: Benzodiazepine, sort: 60}
+  model: anonymeyes.anaesthesia
+  pk: 6
+
 # Management Type
 - fields: {name: Medication, sort: 10}
   model: anonymeyes.managementtype
