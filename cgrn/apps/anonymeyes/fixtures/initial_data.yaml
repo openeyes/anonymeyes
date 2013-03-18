@@ -466,6 +466,9 @@
 - fields: {name: Other, sort: 90}
   model: anonymeyes.diagnosisgroup
   pk: 9
+- fields: {name: Unknown, sort: 75}
+  model: anonymeyes.diagnosisgroup
+  pk: 10
 
 # Diagnosis
 - fields: {group: 1, name: Neonatal or newborn onset (0-1 month), sort: 10}
@@ -597,6 +600,9 @@
 - fields: {group: 9, requires_comment: True, name: Other, sort: 10}
   model: anonymeyes.diagnosis
   pk: 43
+- fields: {group: 10, requires_comment: True, name: Unknown, sort: 10}
+  model: anonymeyes.diagnosis
+  pk: 44
 
 # Tonometry
 - fields: {name: Goldmann, sort: 10}
