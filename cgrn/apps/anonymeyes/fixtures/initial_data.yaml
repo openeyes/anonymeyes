@@ -692,9 +692,6 @@
 - fields: {name: LogMAR, sort: 130, scale: 1}
   model: anonymeyes.visualacuitymethod
   pk: 13
-- fields: {name: Other, sort: 140, scale: 1}
-  model: anonymeyes.visualacuitymethod
-  pk: 14
 - fields: {name: Unknown, sort: 150, scale: 1}
   model: anonymeyes.visualacuitymethod
   pk: 15
