@@ -250,7 +250,7 @@ class Patient(models.Model):
         return dob
 
     postcode = models.CharField(
-                                verbose_name='Postcode Prefix',
+                                verbose_name='Post/Zip Code Prefix',
                                 max_length=4,
                                 validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z]{1,2}[0-9]{1,2}[A-Za-z]?$')
                                                                        , message='First part of postcode only (e.g. AB12)') ],
@@ -263,8 +263,8 @@ class Patient(models.Model):
     UNKNOWN = 2
     TRISTATE_CHOICES = (
                             (UNKNOWN, 'Unknown'),
-                            (YES, 'Yes'),
                             (NO, 'No'),
+                            (YES, 'Yes'),
     )
     consanguinity = models.IntegerField(choices=TRISTATE_CHOICES)
     diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
