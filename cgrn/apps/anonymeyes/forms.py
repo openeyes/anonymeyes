@@ -109,7 +109,7 @@ class PatientForm(BetterModelForm):
                                    }),
                      ]
         widgets = {
-                   'postcode': forms.TextInput(attrs={'size':'10'}),
+                   'postcode': forms.TextInput(attrs={'class':'small', 'size':'10'}),
                    'dob_day': forms.TextInput(attrs={'size':'10'}),
                    'dob_year': forms.TextInput(attrs={'size':'10'}),
                    'diagnosis_right': forms.Select(attrs={'class':'diagnosis', 'data-side':'right'}),
