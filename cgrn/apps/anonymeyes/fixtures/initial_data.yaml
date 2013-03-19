@@ -659,22 +659,22 @@
 - fields: {name: Keeler / Teller Acuity Cards, sort: 20, scales: [1] }
   model: anonymeyes.visualacuitymethod
   pk: 2
-- fields: {name: Cardiff Cards, sort: 30, scales: [1] }
+- fields: {name: Cardiff Cards, sort: 30, scales: [1,3,4] }
   model: anonymeyes.visualacuitymethod
   pk: 3
-- fields: {name: Allen pictures, sort: 40, scales: [1] }
+- fields: {name: Allen pictures, sort: 40, scales: [1,3,4] }
   model: anonymeyes.visualacuitymethod
   pk: 4
-- fields: {name: Crowded Kay Pictures, sort: 50, scales: [1] }
+- fields: {name: Crowded Kay Pictures, sort: 50, scales: [1,3,4] }
   model: anonymeyes.visualacuitymethod
   pk: 5
-- fields: {name: Uncrowded Kay Pictures, sort: 60, scales: [1] }
+- fields: {name: Uncrowded Kay Pictures, sort: 60, scales: [1,3,4] }
   model: anonymeyes.visualacuitymethod
   pk: 6
-- fields: {name: Lea symbols, sort: 70, scales: [1] }
+- fields: {name: Lea symbols, sort: 70, scales: [1,3,4] }
   model: anonymeyes.visualacuitymethod
   pk: 7
-- fields: {name: HOTV, sort: 80, scales: [1] }
+- fields: {name: HOTV, sort: 80, scales: [1,3,4] }
   model: anonymeyes.visualacuitymethod
   pk: 8
 - fields: {name: Crowded Keeler LogMAR, sort: 90, scales: [1] }
