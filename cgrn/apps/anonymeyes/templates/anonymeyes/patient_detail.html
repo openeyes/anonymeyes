@@ -46,7 +46,7 @@
 			<dt>Left Diagnosis:</dt>
 			<dd>{{ patient.diagnosis_left.description }}{% if patient.diagnosis_left_comment %} ({{ patient.diagnosis_left_comment }}){% endif %}</dd>
 			<dt>Visual Acuity Method:</dt>
-			<dd>{{ patient.visual_acuity_method }}</dd>
+			<dd>{{ patient.visual_acuity_method }}{% if patient.visual_acuity_method.scales.count > 1 %} ({{ patient.visual_acuity_scale }}){% endif %}</dd>
 			<dt>RVA:</dt>
 			<dd>{{ patient.visual_acuity_right }} {% if patient.visual_acuity_correction_right %}({{ patient.visual_acuity_correction_right }}){% endif %}</dd>
 			<dt>LVA:</dt>
@@ -134,7 +134,7 @@
 					</td>
 					<td>
 						<ul>
-							<li>Method: {{ outcome.visual_acuity_method }}</li>
+							<li>Method: {{ outcome.visual_acuity_method }}{% if outcome.visual_acuity_method.scales.count > 1 %} ({{ outcome.visual_acuity_scale }}){% endif %}</li>
 							<li>RVA: {{ outcome.visual_acuity_right }} {% if patient.visual_acuity_correction_right %}({{ outcome.visual_acuity_correction_right }}){% endif %}</li>
 							<li>LVA: {{ outcome.visual_acuity_left }} {% if patient.visual_acuity_correction_left %}({{ outcome.visual_acuity_correction_left }}){% endif %}</li>
 							<li>BEO: {{ outcome.visual_acuity_both }} {% if patient.visual_acuity_correction_both %}({{ outcome.visual_acuity_correction_both }}){% endif %}</li>

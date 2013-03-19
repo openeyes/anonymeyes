@@ -24,21 +24,16 @@ $(document).ready(function() {
 	});
 	
 	// Visual Acuity scale changes
-	$('body').delegate('.visualacuitymethod', 'change', function() {
-		var wrapper = $(this).closest('fieldset, tr');
-		var empty_option = $('select.visualacuity option[value=""]', wrapper).first();
-		if($(this).val()) {
-			$.ajax({
-				url: '/anonymeyes/visualacuityreadings/'+$(this).val()+'/',
-				success: function(data) {
-					$('select.visualacuity', wrapper).html(empty_option.clone()).append(data);
-					$('select.visualacuity', wrapper).val('');
-				},
-			});
-		} else {
-			$('select.visualacuity', wrapper).html(empty_option.clone());
-			$('select.visualacuity', wrapper).val('');
+	$('.visualacuityscale').each(function() {
+		if($('option', this).length <= 2) {
+			$(this).closest('.visualacuityscalewrapper').hide();
 		}
+	});
+	$('body').delegate('.visualacuitymethod', 'change', function() {
+		updateVisualAcuityScales(this);
+	});
+	$('body').delegate('.visualacuityscale', 'change', function() {
+		updateVisualAcuityReadings(this);
 	});
 	
 	// Visual Acuity not recorded
@@ -173,6 +168,51 @@ $(document).ready(function() {
 	});
 
 });
+
+function updateVisualAcuityScales(element) {
+	var wrapper = $(element).closest('fieldset, tr');
+	var method_id = $(element).val();
+	var empty_option = $('select.visualacuityscale option[value=""]', wrapper).first();
+	if(method_id) {
+		$.ajax({
+			url: '/anonymeyes/visualacuityscales/'+method_id+'/',
+			success: function(data) {
+				var scale_field = $('select.visualacuityscale', wrapper);
+				scale_field.html(empty_option.clone()).append(data);
+				scale_field.val('');
+				if($('select.visualacuityscale option', wrapper).length == 2) {
+					$('.visualacuityscalewrapper', wrapper).hide();
+					scale_field.val($('option[value!=""]:first', scale_field).val());
+					scale_field.trigger('change');
+				} else {
+					$('.visualacuityscalewrapper', wrapper).show();
+				}
+			},
+		});
+	} else {
+		$('select.visualacuityscale', wrapper).html(empty_option.clone());
+		$('select.visualacuityscale', wrapper).val('');
+		$('.visualacuityscalewrapper', wrapper).hide();
+	}
+}
+
+function updateVisualAcuityReadings(element) {
+	var wrapper = $(element).closest('fieldset, tr');
+	var scale_id = $(element).val();
+	var empty_option = $('select.visualacuity option[value=""]', wrapper).first();
+	if(scale_id) {
+		$.ajax({
+			url: '/anonymeyes/visualacuityreadings/'+scale_id+'/',
+			success: function(data) {
+				$('select.visualacuity', wrapper).html(empty_option.clone()).append(data);
+				$('select.visualacuity', wrapper).val('');
+			},
+		});
+	} else {
+		$('select.visualacuity', wrapper).html(empty_option.clone());
+		$('select.visualacuity', wrapper).val('');
+	}	
+}
 
 function updateCorrection(element) {
 	var wrapper = $(element).closest('li');

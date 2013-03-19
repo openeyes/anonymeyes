@@ -13,7 +13,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.sites.models import get_current_site
 from apps.anonymeyes.admin import PatientAdminForm
 from apps.anonymeyes.forms import *
-from apps.anonymeyes.models import Patient, Management, VisualAcuityReading
+from apps.anonymeyes.models import Patient, Management, VisualAcuityReading, VisualAcuityScale
 
 class ProfileDetailView(DetailView):
     template_name = 'anonymeyes/profile_detail.html'
@@ -209,7 +209,15 @@ class VisualAcuityReadingsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(VisualAcuityReadingsView, self).get_context_data(**kwargs)
         # current_reading_id=(self.request.GET.get('reading_pk')) and int(self.request.GET.get('reading_pk')) or None
-        context['readings'] = VisualAcuityMethod.objects.get(pk=int(self.kwargs.get('method_pk'))).scale.readings.all()
+        context['readings'] = VisualAcuityScale.objects.get(pk=int(self.kwargs.get('scale_pk'))).readings.all()
+        return context
+
+class VisualAcuityScalesView(TemplateView):
+    template_name = 'anonymeyes/visual_acuity_scales.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(VisualAcuityScalesView, self).get_context_data(**kwargs)
+        context['scales'] = VisualAcuityMethod.objects.get(pk=int(self.kwargs.get('method_pk'))).scales.all()
         return context
 
 class PatientListView(ListView):

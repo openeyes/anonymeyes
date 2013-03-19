@@ -23,7 +23,8 @@
 <td class="outcome_visual_acuity">
 	<ul>
 		<li><span class="required">Method</span>: {{ inlineform.visual_acuity_method }}
-			<span>{{ inlineform.visual_acuity_method.errors }}</span></li>
+			<span class="visualacuityscalewrapper">{{ inlineform.visual_acuity_scale }}</span>
+			<span>{{ inlineform.visual_acuity_method.errors }}{{ inlineform.visual_acuity_scale.errors }}</span></li>
 		<li><span class="required">RVA</span>: {{ inlineform.visual_acuity_right }} {{ inlineform.visual_acuity_correction_right }}
 			<span>{{ inlineform.visual_acuity_right.errors }}{{ inlineform.visual_acuity_correction_right.errors }}</span></li>
 		<li><span class="required">LVA</span>: {{ inlineform.visual_acuity_left }} {{ inlineform.visual_acuity_correction_left }}

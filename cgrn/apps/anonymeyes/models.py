@@ -157,7 +157,7 @@ class VisualAcuityMethod(models.Model):
 
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
-    scale = models.ForeignKey(VisualAcuityScale)
+    scales = models.ManyToManyField(VisualAcuityScale)
     
     def __unicode__(self):
         return self.name
@@ -292,6 +292,7 @@ class Patient(models.Model):
     visual_acuity_date = models.DateField(verbose_name='Date')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Method')
     visual_acuity_method_comment = models.TextField(verbose_name='Method Comment', blank=True)
+    visual_acuity_scale = models.ForeignKey(VisualAcuityScale, related_name='patient_visualacuity_scale',verbose_name='Scale')
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='patient_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='patient_lva', verbose_name='LVA')
     visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo', verbose_name='BEO')
@@ -431,6 +432,7 @@ class Outcome(models.Model):
     eua = models.ForeignKey(Anaesthesia, verbose_name='EUA')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
     visual_acuity_method_comment = models.TextField(verbose_name='Method Comment', blank=True)
+    visual_acuity_scale = models.ForeignKey(VisualAcuityScale, related_name='outcome_visualacuity_scale', verbose_name='Scale')
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')
     visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo', verbose_name='BEO')

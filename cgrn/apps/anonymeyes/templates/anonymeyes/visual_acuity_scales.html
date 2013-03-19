@@ -1,0 +1,3 @@
+{% for scale in scales %}
+<option value="{{ scale.id }}"{% if scale.id == selected %} selected="selected"{% endif %}>{{ scale.name }}</option>
+{% endfor %}
