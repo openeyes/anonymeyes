@@ -230,6 +230,13 @@ class PatientForm(BetterModelForm):
             raise forms.ValidationError("Selected ethnic group requires comment")
         return ethnic_group_comment
 
+    def clean_history_comment(self):
+        history = self.cleaned_data.get('history')
+        history_comment = self.cleaned_data.get('history_comment')
+        if history == Patient.YES and not history_comment.strip():
+            raise forms.ValidationError("Requires comment")
+        return history_comment
+
     def clean_diagnosis_right_comment(self):
         diagnosis_right_comment = self.cleaned_data.get('diagnosis_right_comment')
         diagnosis_right = self.cleaned_data.get('diagnosis_right')
