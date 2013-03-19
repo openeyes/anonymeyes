@@ -77,6 +77,13 @@
 					<label for="{{ form.consanguinity.auto_id }}"{% if form.consanguinity.errors %} class="error"{% endif %} ><span>{{ form.consanguinity.label }}</span>:</label>
 					{{ form.consanguinity }} <span>{{ form.consanguinity.errors }}</span>
 				</li>
+				<li {{ form.history.row_attrs }}>
+					<label for="{{ form.history.auto_id }}"{% if form.history.errors or form.history_comment.errors %} class="error"{% endif %} >
+						<span>{{ form.history.label }}</span>:</label>
+					{{ form.history }}
+					{{ form.history_comment }}
+					<span>{{ form.history.errors }} {{ form.history_comment.errors }}</span>
+				</li>
 			</ul>
 		</fieldset>
 		

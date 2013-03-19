@@ -66,7 +66,7 @@ class PatientAdmin(admin.ModelAdmin):
                          'fields': ('created_by', 'updated_by', 'created_at', 'updated_at',
                                     'sex', 'dob_day', 'dob_month', 'dob_year',
                                     'postcode', 'ethnic_group', 'ethnic_group_comment',
-                                    'consanguinity')
+                                    'consanguinity', 'history', 'history_comment' )
                          }),
                  ('Baseline Assessment', {
                          'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_right_comment', 'diagnosis_left', 'diagnosis_left_comment',

@@ -24,14 +24,16 @@
 			<dd>{{ patient.dob }}</dd>
 			<dt>Country:</dt>
 			<dd>{{ patient.country }}</dd>
-			<dt>Post/Zip Code Prefix:</dt>
+			<dt>Post / Zip Code Prefix:</dt>
 			<dd>{{ patient.postcode }}</dd>
-			<dt>Health Care Coverage:</dt>
+			<dt>Healthcare Coverage:</dt>
 			<dd>{{ patient.health_care }}</dd>
 			<dt>Ethnic Group / Race:</dt>
 			<dd>{{ patient.ethnic_group }}{% if patient.ethnic_group_comment %} ({{ patient.ethnic_group_comment }}){% endif %}</dd>
 			<dt>Consanguinity:</dt>
 			<dd>{{ patient.get_consanguinity_display }}</dd>
+			<dt>Family History of Childhood Onset Glaucoma:</dt>
+			<dd>{{ patient.get_history_display }}{% if patient.history_comment %} ({{ patient.history_comment }}){% endif %}</dd>
 		</dl>
 	</div>
 	<div class="data-section">

@@ -270,23 +270,25 @@ class Patient(models.Model):
     health_care = models.ForeignKey(HealthCare, verbose_name='Health Care Coverage')
     ethnic_group = models.ForeignKey(EthnicGroup, verbose_name='Ethnic Group / Race')
     ethnic_group_comment = models.CharField(max_length=255, blank=True)
+    UNKNOWN = 2
     NO = 0
     YES = 1
-    UNKNOWN = 2
     TRISTATE_CHOICES = (
                             (UNKNOWN, 'Unknown'),
                             (NO, 'No'),
                             (YES, 'Yes'),
     )
     consanguinity = models.IntegerField(choices=TRISTATE_CHOICES)
-    diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
-    diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left diagnosis')
+    history = models.IntegerField(choices=TRISTATE_CHOICES, verbose_name='Family History of Childhood Onset Glaucoma')
+    history_comment = models.TextField(blank=True)
+    diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right Diagnosis')
+    diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left Diagnosis')
     diagnosis_right_comment = models.TextField(verbose_name='Right Diagnosis comment', blank=True)
     diagnosis_left_comment = models.TextField(verbose_name='Left Diagnosis comment', blank=True)
-    lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
-    lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left lens status')
-    lens_extraction_date_right = models.DateField(verbose_name='Right Extraction date', blank=True, null=True)
-    lens_extraction_date_left = models.DateField(verbose_name='Left Extraction date', blank=True, null=True)
+    lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right Lens Status')
+    lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left Lens Status')
+    lens_extraction_date_right = models.DateField(verbose_name='Right Extraction Date', blank=True, null=True)
+    lens_extraction_date_left = models.DateField(verbose_name='Left Extraction Date', blank=True, null=True)
     visual_acuity_date = models.DateField(verbose_name='Date')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod,verbose_name='Method')
     visual_acuity_method_comment = models.TextField(verbose_name='Method Comment', blank=True)

@@ -75,9 +75,9 @@ class PatientForm(BetterModelForm):
     diagnosis_group_right = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'right'}))
     diagnosis_group_left = forms.ModelChoiceField(queryset=DiagnosisGroup.objects.all(), widget=forms.Select(attrs={'class':'diagnosisgroup', 'data-side':'left'}))
     # FIXME: Shouldn't have to set the labels here, something is wrong with the label passthrough
-    ethnic_group = GroupedModelChoiceField(queryset=EthnicGroup.objects.all(), group_by_field='group', label='Ethnic group / Race')
-    lens_status_right = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group', label='Right lens status')
-    lens_status_left = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group', label='Left lens status')
+    ethnic_group = GroupedModelChoiceField(queryset=EthnicGroup.objects.all(), group_by_field='group', label='Ethnic Group / Race')
+    lens_status_right = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group', label='Right Lens Status')
+    lens_status_left = GroupedModelChoiceField(queryset=LensStatus.objects.all(), group_by_field='group', label='Left Lens Status')
     
     class Meta:
         model = Patient
@@ -86,7 +86,7 @@ class PatientForm(BetterModelForm):
                                   'fields': [ 'sex', 'dob_day', 'dob_month',
                                              'dob_year', 'country', 'postcode', 'health_care',
                                              'ethnic_group', 'ethnic_group_comment',
-                                             'consanguinity', ],
+                                             'consanguinity', 'history', 'history_comment' ],
                                   }),
                      ('baseline', {
                                    'fields': [ 'visual_acuity_date',
@@ -113,6 +113,7 @@ class PatientForm(BetterModelForm):
                    'postcode': forms.TextInput(attrs={'class':'small', 'size':'10'}),
                    'dob_day': forms.TextInput(attrs={'size':'10'}),
                    'dob_year': forms.TextInput(attrs={'size':'10'}),
+                   'history_comment': forms.Textarea(attrs={'rows':1, 'class':'autosize'}),
                    'diagnosis_right': forms.Select(attrs={'class':'diagnosis', 'data-side':'right'}),
                    'diagnosis_left': forms.Select(attrs={'class':'diagnosis', 'data-side':'left'}),
                    'diagnosis_right_comment': forms.Textarea(attrs={'rows':1, 'class':'diagnosis_comment autosize'}),

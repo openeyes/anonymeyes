@@ -63,6 +63,12 @@ $(document).ready(function() {
 		updateEthnicGroupComment()
 	});
 	
+	// History
+	updateHistoryComment();
+	$('#id_history').change(function() {
+		updateHistoryComment()
+	});
+
 	// Datatables
 	var datasets = $('#datasets').dataTable({
 		bJQueryUI: true,
@@ -175,6 +181,16 @@ function updateCorrection(element) {
 		$('select.visualacuitycorrection', wrapper).hide();
 	} else {
 		$('select.visualacuitycorrection', wrapper).show();
+	}
+}
+
+function updateHistoryComment() {
+	var history = $('#id_history option:selected').text().toLowerCase();
+	if(history == 'yes') {
+		$('#id_history_comment').show();
+	} else {
+		$('#id_history_comment').hide();
+		$('#id_history_comment').val('');
 	}
 }
 

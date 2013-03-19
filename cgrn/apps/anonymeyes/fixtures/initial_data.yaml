@@ -396,7 +396,7 @@
 - fields: {name: Clear, sort: 10}
   model: anonymeyes.lensstatusgroup
   pk: 1
-- fields: {name: Cataractous, sort: 20}
+- fields: {name: Cataract, sort: 20}
   model: anonymeyes.lensstatusgroup
   pk: 2
 - fields: {name: Aphakia, sort: 30}
