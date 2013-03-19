@@ -54,6 +54,10 @@
 					<span class="field_wrapper" id="dob_month_wrapper"> - {{ form.dob_month }}</span><span>{{ form.dob_month.errors }}</span>
 					<span class="field_wrapper" id="dob_day_wrapper"> - {{ form.dob_day }}</span><span>{{ form.dob_day.errors }}</span>
 				</li>
+				<li {{ form.country.row_attrs }}>
+					<label for="{{ form.country.auto_id }}"{% if form.country.errors %} class="error"{% endif %} ><span>{{ form.country.label }}</span>:</label>
+					{{ form.country }} <span>{{ form.country.errors }}</span>
+				</li>
 				<li {{ form.postcode.row_attrs }}>
 					<label for="{{ form.postcode.auto_id }}"{% if form.postcode.errors %} class="error"{% endif %} ><span>{{ form.postcode.label }}</span>:</label>
 					{{ form.postcode }} <span>{{ form.postcode.errors }}</span>

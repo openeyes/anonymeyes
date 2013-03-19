@@ -204,6 +204,17 @@ class IOPAgents(models.Model):
     def __unicode__(self):
         return self.name
 
+class Country(models.Model):
+    class Meta:
+        ordering = ['sort','name']
+
+    name = models.CharField(max_length=64)
+    sort = models.IntegerField(default=10)
+    iso = models.CharField(max_length=2)
+
+    def __unicode__(self):
+        return self.name
+
 class Patient(models.Model):
     uuid = models.CharField(unique=True, max_length=64, editable=False, blank=True, default=uuid4)
     created_by = models.ForeignKey(User, related_name='patient_created_set', blank=True, null=True, on_delete=models.SET_NULL)
@@ -249,6 +260,7 @@ class Patient(models.Model):
             dob = dob + '-' + str(self.dob_day).zfill(2)
         return dob
 
+    country = models.ForeignKey(Country)
     postcode = models.CharField(
                                 verbose_name='Post/Zip Code Prefix',
                                 max_length=4,

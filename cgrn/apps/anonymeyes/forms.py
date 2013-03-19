@@ -84,7 +84,7 @@ class PatientForm(BetterModelForm):
         fieldsets = [
                      ('patient', {
                                   'fields': [ 'sex', 'dob_day', 'dob_month',
-                                             'dob_year', 'postcode', 'health_care',
+                                             'dob_year', 'country', 'postcode', 'health_care',
                                              'ethnic_group', 'ethnic_group_comments',
                                              'consanguinity', ],
                                   }),

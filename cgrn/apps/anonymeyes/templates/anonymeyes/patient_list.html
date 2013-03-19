@@ -11,7 +11,7 @@
 			<th><abbr title="Universally Unique IDentifier">UUID</abbr></th>
 			<th>Sex</th>
 			<th>DOB</th>
-			<th>Post / Zip Code</th>
+			<th>Location</th>
 			<th>Created</th>
 			<th>Last Updated</th>
 			<th></th>
@@ -23,7 +23,7 @@
 			<td><a href="{% url detail patient.id %}">{{ patient.uuid }}</a></td>
 			<td>{{ patient.get_sex_display }}</td>
 			<td><span title="{{ patient.dob|date:'U' }}">{{ patient.dob }}</span></td>
-			<td>{{ patient.postcode }}</td>
+			<td>{{ patient.country }}, {{ patient.postcode }}</td>
 			<td><span title="{{ patient.created_at|date:'U' }}">{{ patient.created_at }}</span></td>
 			<td><span title="{{ patient.updated_at|date:'U' }}">{{ patient.updated_at }}</span></td>
 			<td class="row_actions">

@@ -914,3 +914,737 @@
 - fields: {name: NPL, scale: 3, sort: 160}
   model: anonymeyes.visualacuityreading
   pk: 38
+  
+# Country
+- fields: {iso: AU, name: Australia, sort: 10}
+  model: anonymeyes.country
+  pk: 6
+- fields: {iso: FR, name: France, sort: 10}
+  model: anonymeyes.country
+  pk: 5
+- fields: {iso: DE, name: Germany, sort: 10}
+  model: anonymeyes.country
+  pk: 4
+- fields: {iso: IN, name: India, sort: 10}
+  model: anonymeyes.country
+  pk: 3
+- fields: {iso: GB, name: United Kingdom, sort: 10}
+  model: anonymeyes.country
+  pk: 1
+- fields: {iso: US, name: United States, sort: 10}
+  model: anonymeyes.country
+  pk: 2
+- fields: {iso: AF, name: Afghanistan, sort: 9999}
+  model: anonymeyes.country
+  pk: 7
+- fields: {iso: AL, name: Albania, sort: 9999}
+  model: anonymeyes.country
+  pk: 9
+- fields: {iso: DZ, name: Algeria, sort: 9999}
+  model: anonymeyes.country
+  pk: 10
+- fields: {iso: AS, name: American Samoa, sort: 9999}
+  model: anonymeyes.country
+  pk: 11
+- fields: {iso: AD, name: Andorra, sort: 9999}
+  model: anonymeyes.country
+  pk: 12
+- fields: {iso: AO, name: Angola, sort: 9999}
+  model: anonymeyes.country
+  pk: 13
+- fields: {iso: AI, name: Anguilla, sort: 9999}
+  model: anonymeyes.country
+  pk: 14
+- fields: {iso: AQ, name: Antarctica, sort: 9999}
+  model: anonymeyes.country
+  pk: 15
+- fields: {iso: AG, name: Antigua and Barbuda, sort: 9999}
+  model: anonymeyes.country
+  pk: 16
+- fields: {iso: AR, name: Argentina, sort: 9999}
+  model: anonymeyes.country
+  pk: 17
+- fields: {iso: AM, name: Armenia, sort: 9999}
+  model: anonymeyes.country
+  pk: 18
+- fields: {iso: AW, name: Aruba, sort: 9999}
+  model: anonymeyes.country
+  pk: 19
+- fields: {iso: AT, name: Austria, sort: 9999}
+  model: anonymeyes.country
+  pk: 20
+- fields: {iso: AZ, name: Azerbaijan, sort: 9999}
+  model: anonymeyes.country
+  pk: 21
+- fields: {iso: BS, name: Bahamas, sort: 9999}
+  model: anonymeyes.country
+  pk: 22
+- fields: {iso: BH, name: Bahrain, sort: 9999}
+  model: anonymeyes.country
+  pk: 23
+- fields: {iso: BD, name: Bangladesh, sort: 9999}
+  model: anonymeyes.country
+  pk: 24
+- fields: {iso: BB, name: Barbados, sort: 9999}
+  model: anonymeyes.country
+  pk: 25
+- fields: {iso: BY, name: Belarus, sort: 9999}
+  model: anonymeyes.country
+  pk: 26
+- fields: {iso: BE, name: Belgium, sort: 9999}
+  model: anonymeyes.country
+  pk: 27
+- fields: {iso: BZ, name: Belize, sort: 9999}
+  model: anonymeyes.country
+  pk: 28
+- fields: {iso: BJ, name: Benin, sort: 9999}
+  model: anonymeyes.country
+  pk: 29
+- fields: {iso: BM, name: Bermuda, sort: 9999}
+  model: anonymeyes.country
+  pk: 30
+- fields: {iso: BT, name: Bhutan, sort: 9999}
+  model: anonymeyes.country
+  pk: 31
+- fields: {iso: BO, name: Bolivia, sort: 9999}
+  model: anonymeyes.country
+  pk: 32
+- fields: {iso: BA, name: Bosnia and Herzegovina, sort: 9999}
+  model: anonymeyes.country
+  pk: 33
+- fields: {iso: BW, name: Botswana, sort: 9999}
+  model: anonymeyes.country
+  pk: 34
+- fields: {iso: BV, name: Bouvet Island, sort: 9999}
+  model: anonymeyes.country
+  pk: 35
+- fields: {iso: BR, name: Brazil, sort: 9999}
+  model: anonymeyes.country
+  pk: 36
+- fields: {iso: IO, name: British Indian Ocean Territory, sort: 9999}
+  model: anonymeyes.country
+  pk: 37
+- fields: {iso: BN, name: Brunei Darussalam, sort: 9999}
+  model: anonymeyes.country
+  pk: 38
+- fields: {iso: BG, name: Bulgaria, sort: 9999}
+  model: anonymeyes.country
+  pk: 39
+- fields: {iso: BF, name: Burkina Faso, sort: 9999}
+  model: anonymeyes.country
+  pk: 40
+- fields: {iso: BI, name: Burundi, sort: 9999}
+  model: anonymeyes.country
+  pk: 41
+- fields: {iso: KH, name: Cambodia, sort: 9999}
+  model: anonymeyes.country
+  pk: 42
+- fields: {iso: CM, name: Cameroon, sort: 9999}
+  model: anonymeyes.country
+  pk: 43
+- fields: {iso: CA, name: Canada, sort: 9999}
+  model: anonymeyes.country
+  pk: 44
+- fields: {iso: CV, name: Cape Verde, sort: 9999}
+  model: anonymeyes.country
+  pk: 45
+- fields: {iso: KY, name: Cayman Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 46
+- fields: {iso: CF, name: Central African Republic, sort: 9999}
+  model: anonymeyes.country
+  pk: 47
+- fields: {iso: TD, name: Chad, sort: 9999}
+  model: anonymeyes.country
+  pk: 48
+- fields: {iso: CL, name: Chile, sort: 9999}
+  model: anonymeyes.country
+  pk: 49
+- fields: {iso: CN, name: China, sort: 9999}
+  model: anonymeyes.country
+  pk: 50
+- fields: {iso: CX, name: Christmas Island, sort: 9999}
+  model: anonymeyes.country
+  pk: 51
+- fields: {iso: CC, name: Cocos (Keeling) Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 52
+- fields: {iso: CO, name: Colombia, sort: 9999}
+  model: anonymeyes.country
+  pk: 53
+- fields: {iso: KM, name: Comoros, sort: 9999}
+  model: anonymeyes.country
+  pk: 54
+- fields: {iso: CG, name: Congo, sort: 9999}
+  model: anonymeyes.country
+  pk: 55
+- fields: {iso: CD, name: 'Congo, The Democratic Republic of The', sort: 9999}
+  model: anonymeyes.country
+  pk: 56
+- fields: {iso: CK, name: Cook Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 57
+- fields: {iso: CR, name: Costa Rica, sort: 9999}
+  model: anonymeyes.country
+  pk: 58
+- fields: {iso: CI, name: Cote D'ivoire, sort: 9999}
+  model: anonymeyes.country
+  pk: 59
+- fields: {iso: HR, name: Croatia, sort: 9999}
+  model: anonymeyes.country
+  pk: 60
+- fields: {iso: CU, name: Cuba, sort: 9999}
+  model: anonymeyes.country
+  pk: 61
+- fields: {iso: CY, name: Cyprus, sort: 9999}
+  model: anonymeyes.country
+  pk: 62
+- fields: {iso: CZ, name: Czech Republic, sort: 9999}
+  model: anonymeyes.country
+  pk: 63
+- fields: {iso: DK, name: Denmark, sort: 9999}
+  model: anonymeyes.country
+  pk: 64
+- fields: {iso: DJ, name: Djibouti, sort: 9999}
+  model: anonymeyes.country
+  pk: 65
+- fields: {iso: DM, name: Dominica, sort: 9999}
+  model: anonymeyes.country
+  pk: 66
+- fields: {iso: DO, name: Dominican Republic, sort: 9999}
+  model: anonymeyes.country
+  pk: 67
+- fields: {iso: EC, name: Ecuador, sort: 9999}
+  model: anonymeyes.country
+  pk: 68
+- fields: {iso: EG, name: Egypt, sort: 9999}
+  model: anonymeyes.country
+  pk: 69
+- fields: {iso: SV, name: El Salvador, sort: 9999}
+  model: anonymeyes.country
+  pk: 70
+- fields: {iso: GQ, name: Equatorial Guinea, sort: 9999}
+  model: anonymeyes.country
+  pk: 71
+- fields: {iso: ER, name: Eritrea, sort: 9999}
+  model: anonymeyes.country
+  pk: 72
+- fields: {iso: EE, name: Estonia, sort: 9999}
+  model: anonymeyes.country
+  pk: 73
+- fields: {iso: ET, name: Ethiopia, sort: 9999}
+  model: anonymeyes.country
+  pk: 74
+- fields: {iso: FK, name: Falkland Islands (Malvinas), sort: 9999}
+  model: anonymeyes.country
+  pk: 75
+- fields: {iso: FO, name: Faroe Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 76
+- fields: {iso: FJ, name: Fiji, sort: 9999}
+  model: anonymeyes.country
+  pk: 77
+- fields: {iso: FI, name: Finland, sort: 9999}
+  model: anonymeyes.country
+  pk: 78
+- fields: {iso: GF, name: French Guiana, sort: 9999}
+  model: anonymeyes.country
+  pk: 79
+- fields: {iso: PF, name: French Polynesia, sort: 9999}
+  model: anonymeyes.country
+  pk: 80
+- fields: {iso: TF, name: French Southern Territories, sort: 9999}
+  model: anonymeyes.country
+  pk: 81
+- fields: {iso: GA, name: Gabon, sort: 9999}
+  model: anonymeyes.country
+  pk: 82
+- fields: {iso: GM, name: Gambia, sort: 9999}
+  model: anonymeyes.country
+  pk: 83
+- fields: {iso: GE, name: Georgia, sort: 9999}
+  model: anonymeyes.country
+  pk: 84
+- fields: {iso: GH, name: Ghana, sort: 9999}
+  model: anonymeyes.country
+  pk: 85
+- fields: {iso: GI, name: Gibraltar, sort: 9999}
+  model: anonymeyes.country
+  pk: 86
+- fields: {iso: GR, name: Greece, sort: 9999}
+  model: anonymeyes.country
+  pk: 87
+- fields: {iso: GL, name: Greenland, sort: 9999}
+  model: anonymeyes.country
+  pk: 88
+- fields: {iso: GD, name: Grenada, sort: 9999}
+  model: anonymeyes.country
+  pk: 89
+- fields: {iso: GP, name: Guadeloupe, sort: 9999}
+  model: anonymeyes.country
+  pk: 90
+- fields: {iso: GU, name: Guam, sort: 9999}
+  model: anonymeyes.country
+  pk: 91
+- fields: {iso: GT, name: Guatemala, sort: 9999}
+  model: anonymeyes.country
+  pk: 92
+- fields: {iso: GG, name: Guernsey, sort: 9999}
+  model: anonymeyes.country
+  pk: 93
+- fields: {iso: GN, name: Guinea, sort: 9999}
+  model: anonymeyes.country
+  pk: 94
+- fields: {iso: GW, name: Guinea-bissau, sort: 9999}
+  model: anonymeyes.country
+  pk: 95
+- fields: {iso: GY, name: Guyana, sort: 9999}
+  model: anonymeyes.country
+  pk: 96
+- fields: {iso: HT, name: Haiti, sort: 9999}
+  model: anonymeyes.country
+  pk: 97
+- fields: {iso: HM, name: Heard Island and Mcdonald Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 98
+- fields: {iso: VA, name: Holy See (Vatican City State), sort: 9999}
+  model: anonymeyes.country
+  pk: 99
+- fields: {iso: HN, name: Honduras, sort: 9999}
+  model: anonymeyes.country
+  pk: 100
+- fields: {iso: HK, name: Hong Kong, sort: 9999}
+  model: anonymeyes.country
+  pk: 101
+- fields: {iso: HU, name: Hungary, sort: 9999}
+  model: anonymeyes.country
+  pk: 102
+- fields: {iso: IS, name: Iceland, sort: 9999}
+  model: anonymeyes.country
+  pk: 103
+- fields: {iso: ID, name: Indonesia, sort: 9999}
+  model: anonymeyes.country
+  pk: 104
+- fields: {iso: IR, name: 'Iran, Islamic Republic of', sort: 9999}
+  model: anonymeyes.country
+  pk: 105
+- fields: {iso: IQ, name: Iraq, sort: 9999}
+  model: anonymeyes.country
+  pk: 106
+- fields: {iso: IE, name: Ireland, sort: 9999}
+  model: anonymeyes.country
+  pk: 107
+- fields: {iso: IM, name: Isle of Man, sort: 9999}
+  model: anonymeyes.country
+  pk: 108
+- fields: {iso: IL, name: Israel, sort: 9999}
+  model: anonymeyes.country
+  pk: 109
+- fields: {iso: IT, name: Italy, sort: 9999}
+  model: anonymeyes.country
+  pk: 110
+- fields: {iso: JM, name: Jamaica, sort: 9999}
+  model: anonymeyes.country
+  pk: 111
+- fields: {iso: JP, name: Japan, sort: 9999}
+  model: anonymeyes.country
+  pk: 112
+- fields: {iso: JE, name: Jersey, sort: 9999}
+  model: anonymeyes.country
+  pk: 113
+- fields: {iso: JO, name: Jordan, sort: 9999}
+  model: anonymeyes.country
+  pk: 114
+- fields: {iso: KZ, name: Kazakhstan, sort: 9999}
+  model: anonymeyes.country
+  pk: 115
+- fields: {iso: KE, name: Kenya, sort: 9999}
+  model: anonymeyes.country
+  pk: 116
+- fields: {iso: KI, name: Kiribati, sort: 9999}
+  model: anonymeyes.country
+  pk: 117
+- fields: {iso: KP, name: 'Korea, Democratic People''s Republic of', sort: 9999}
+  model: anonymeyes.country
+  pk: 118
+- fields: {iso: KR, name: 'Korea, Republic of', sort: 9999}
+  model: anonymeyes.country
+  pk: 119
+- fields: {iso: KW, name: Kuwait, sort: 9999}
+  model: anonymeyes.country
+  pk: 120
+- fields: {iso: KG, name: Kyrgyzstan, sort: 9999}
+  model: anonymeyes.country
+  pk: 121
+- fields: {iso: LA, name: Lao People's Democratic Republic, sort: 9999}
+  model: anonymeyes.country
+  pk: 122
+- fields: {iso: LV, name: Latvia, sort: 9999}
+  model: anonymeyes.country
+  pk: 123
+- fields: {iso: LB, name: Lebanon, sort: 9999}
+  model: anonymeyes.country
+  pk: 124
+- fields: {iso: LS, name: Lesotho, sort: 9999}
+  model: anonymeyes.country
+  pk: 125
+- fields: {iso: LR, name: Liberia, sort: 9999}
+  model: anonymeyes.country
+  pk: 126
+- fields: {iso: LY, name: Libyan Arab Jamahiriya, sort: 9999}
+  model: anonymeyes.country
+  pk: 127
+- fields: {iso: LI, name: Liechtenstein, sort: 9999}
+  model: anonymeyes.country
+  pk: 128
+- fields: {iso: LT, name: Lithuania, sort: 9999}
+  model: anonymeyes.country
+  pk: 129
+- fields: {iso: LU, name: Luxembourg, sort: 9999}
+  model: anonymeyes.country
+  pk: 130
+- fields: {iso: MO, name: Macao, sort: 9999}
+  model: anonymeyes.country
+  pk: 131
+- fields: {iso: MK, name: 'Macedonia, The Former Yugoslav Republic of', sort: 9999}
+  model: anonymeyes.country
+  pk: 132
+- fields: {iso: MG, name: Madagascar, sort: 9999}
+  model: anonymeyes.country
+  pk: 133
+- fields: {iso: MW, name: Malawi, sort: 9999}
+  model: anonymeyes.country
+  pk: 134
+- fields: {iso: MY, name: Malaysia, sort: 9999}
+  model: anonymeyes.country
+  pk: 135
+- fields: {iso: MV, name: Maldives, sort: 9999}
+  model: anonymeyes.country
+  pk: 136
+- fields: {iso: ML, name: Mali, sort: 9999}
+  model: anonymeyes.country
+  pk: 137
+- fields: {iso: MT, name: Malta, sort: 9999}
+  model: anonymeyes.country
+  pk: 138
+- fields: {iso: MH, name: Marshall Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 139
+- fields: {iso: MQ, name: Martinique, sort: 9999}
+  model: anonymeyes.country
+  pk: 140
+- fields: {iso: MR, name: Mauritania, sort: 9999}
+  model: anonymeyes.country
+  pk: 141
+- fields: {iso: MU, name: Mauritius, sort: 9999}
+  model: anonymeyes.country
+  pk: 142
+- fields: {iso: YT, name: Mayotte, sort: 9999}
+  model: anonymeyes.country
+  pk: 143
+- fields: {iso: MX, name: Mexico, sort: 9999}
+  model: anonymeyes.country
+  pk: 144
+- fields: {iso: FM, name: 'Micronesia, Federated States of', sort: 9999}
+  model: anonymeyes.country
+  pk: 145
+- fields: {iso: MD, name: 'Moldova, Republic of', sort: 9999}
+  model: anonymeyes.country
+  pk: 146
+- fields: {iso: MC, name: Monaco, sort: 9999}
+  model: anonymeyes.country
+  pk: 147
+- fields: {iso: MN, name: Mongolia, sort: 9999}
+  model: anonymeyes.country
+  pk: 148
+- fields: {iso: ME, name: Montenegro, sort: 9999}
+  model: anonymeyes.country
+  pk: 149
+- fields: {iso: MS, name: Montserrat, sort: 9999}
+  model: anonymeyes.country
+  pk: 150
+- fields: {iso: MA, name: Morocco, sort: 9999}
+  model: anonymeyes.country
+  pk: 151
+- fields: {iso: MZ, name: Mozambique, sort: 9999}
+  model: anonymeyes.country
+  pk: 152
+- fields: {iso: MM, name: Myanmar, sort: 9999}
+  model: anonymeyes.country
+  pk: 153
+- fields: {iso: NA, name: Namibia, sort: 9999}
+  model: anonymeyes.country
+  pk: 154
+- fields: {iso: NR, name: Nauru, sort: 9999}
+  model: anonymeyes.country
+  pk: 155
+- fields: {iso: NP, name: Nepal, sort: 9999}
+  model: anonymeyes.country
+  pk: 156
+- fields: {iso: NL, name: Netherlands, sort: 9999}
+  model: anonymeyes.country
+  pk: 157
+- fields: {iso: AN, name: Netherlands Antilles, sort: 9999}
+  model: anonymeyes.country
+  pk: 158
+- fields: {iso: NC, name: New Caledonia, sort: 9999}
+  model: anonymeyes.country
+  pk: 159
+- fields: {iso: NZ, name: New Zealand, sort: 9999}
+  model: anonymeyes.country
+  pk: 160
+- fields: {iso: NI, name: Nicaragua, sort: 9999}
+  model: anonymeyes.country
+  pk: 161
+- fields: {iso: NE, name: Niger, sort: 9999}
+  model: anonymeyes.country
+  pk: 162
+- fields: {iso: NG, name: Nigeria, sort: 9999}
+  model: anonymeyes.country
+  pk: 163
+- fields: {iso: NU, name: Niue, sort: 9999}
+  model: anonymeyes.country
+  pk: 164
+- fields: {iso: NF, name: Norfolk Island, sort: 9999}
+  model: anonymeyes.country
+  pk: 165
+- fields: {iso: MP, name: Northern Mariana Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 166
+- fields: {iso: 'NO', name: Norway, sort: 9999}
+  model: anonymeyes.country
+  pk: 167
+- fields: {iso: OM, name: Oman, sort: 9999}
+  model: anonymeyes.country
+  pk: 168
+- fields: {iso: PK, name: Pakistan, sort: 9999}
+  model: anonymeyes.country
+  pk: 169
+- fields: {iso: PW, name: Palau, sort: 9999}
+  model: anonymeyes.country
+  pk: 170
+- fields: {iso: PS, name: 'Palestinian Territory, Occupied', sort: 9999}
+  model: anonymeyes.country
+  pk: 171
+- fields: {iso: PA, name: Panama, sort: 9999}
+  model: anonymeyes.country
+  pk: 172
+- fields: {iso: PG, name: Papua New Guinea, sort: 9999}
+  model: anonymeyes.country
+  pk: 173
+- fields: {iso: PY, name: Paraguay, sort: 9999}
+  model: anonymeyes.country
+  pk: 174
+- fields: {iso: PE, name: Peru, sort: 9999}
+  model: anonymeyes.country
+  pk: 175
+- fields: {iso: PH, name: Philippines, sort: 9999}
+  model: anonymeyes.country
+  pk: 176
+- fields: {iso: PN, name: Pitcairn, sort: 9999}
+  model: anonymeyes.country
+  pk: 177
+- fields: {iso: PL, name: Poland, sort: 9999}
+  model: anonymeyes.country
+  pk: 178
+- fields: {iso: PT, name: Portugal, sort: 9999}
+  model: anonymeyes.country
+  pk: 179
+- fields: {iso: PR, name: Puerto Rico, sort: 9999}
+  model: anonymeyes.country
+  pk: 180
+- fields: {iso: QA, name: Qatar, sort: 9999}
+  model: anonymeyes.country
+  pk: 181
+- fields: {iso: RE, name: Reunion, sort: 9999}
+  model: anonymeyes.country
+  pk: 182
+- fields: {iso: RO, name: Romania, sort: 9999}
+  model: anonymeyes.country
+  pk: 183
+- fields: {iso: RU, name: Russian Federation, sort: 9999}
+  model: anonymeyes.country
+  pk: 184
+- fields: {iso: RW, name: Rwanda, sort: 9999}
+  model: anonymeyes.country
+  pk: 185
+- fields: {iso: SH, name: Saint Helena, sort: 9999}
+  model: anonymeyes.country
+  pk: 186
+- fields: {iso: KN, name: Saint Kitts and Nevis, sort: 9999}
+  model: anonymeyes.country
+  pk: 187
+- fields: {iso: LC, name: Saint Lucia, sort: 9999}
+  model: anonymeyes.country
+  pk: 188
+- fields: {iso: PM, name: Saint Pierre and Miquelon, sort: 9999}
+  model: anonymeyes.country
+  pk: 189
+- fields: {iso: VC, name: Saint Vincent and The Grenadines, sort: 9999}
+  model: anonymeyes.country
+  pk: 190
+- fields: {iso: WS, name: Samoa, sort: 9999}
+  model: anonymeyes.country
+  pk: 191
+- fields: {iso: SM, name: San Marino, sort: 9999}
+  model: anonymeyes.country
+  pk: 192
+- fields: {iso: ST, name: Sao Tome and Principe, sort: 9999}
+  model: anonymeyes.country
+  pk: 193
+- fields: {iso: SA, name: Saudi Arabia, sort: 9999}
+  model: anonymeyes.country
+  pk: 194
+- fields: {iso: SN, name: Senegal, sort: 9999}
+  model: anonymeyes.country
+  pk: 195
+- fields: {iso: RS, name: Serbia, sort: 9999}
+  model: anonymeyes.country
+  pk: 196
+- fields: {iso: SC, name: Seychelles, sort: 9999}
+  model: anonymeyes.country
+  pk: 197
+- fields: {iso: SL, name: Sierra Leone, sort: 9999}
+  model: anonymeyes.country
+  pk: 198
+- fields: {iso: SG, name: Singapore, sort: 9999}
+  model: anonymeyes.country
+  pk: 199
+- fields: {iso: SK, name: Slovakia, sort: 9999}
+  model: anonymeyes.country
+  pk: 200
+- fields: {iso: SI, name: Slovenia, sort: 9999}
+  model: anonymeyes.country
+  pk: 201
+- fields: {iso: SB, name: Solomon Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 202
+- fields: {iso: SO, name: Somalia, sort: 9999}
+  model: anonymeyes.country
+  pk: 203
+- fields: {iso: ZA, name: South Africa, sort: 9999}
+  model: anonymeyes.country
+  pk: 204
+- fields: {iso: GS, name: South Georgia and The South Sandwich Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 205
+- fields: {iso: ES, name: Spain, sort: 9999}
+  model: anonymeyes.country
+  pk: 206
+- fields: {iso: LK, name: Sri Lanka, sort: 9999}
+  model: anonymeyes.country
+  pk: 207
+- fields: {iso: SD, name: Sudan, sort: 9999}
+  model: anonymeyes.country
+  pk: 208
+- fields: {iso: SR, name: Suriname, sort: 9999}
+  model: anonymeyes.country
+  pk: 209
+- fields: {iso: SJ, name: Svalbard and Jan Mayen, sort: 9999}
+  model: anonymeyes.country
+  pk: 210
+- fields: {iso: SZ, name: Swaziland, sort: 9999}
+  model: anonymeyes.country
+  pk: 211
+- fields: {iso: SE, name: Sweden, sort: 9999}
+  model: anonymeyes.country
+  pk: 212
+- fields: {iso: CH, name: Switzerland, sort: 9999}
+  model: anonymeyes.country
+  pk: 213
+- fields: {iso: SY, name: Syrian Arab Republic, sort: 9999}
+  model: anonymeyes.country
+  pk: 214
+- fields: {iso: TW, name: 'Taiwan, Province of China', sort: 9999}
+  model: anonymeyes.country
+  pk: 215
+- fields: {iso: TJ, name: Tajikistan, sort: 9999}
+  model: anonymeyes.country
+  pk: 216
+- fields: {iso: TZ, name: 'Tanzania, United Republic of', sort: 9999}
+  model: anonymeyes.country
+  pk: 217
+- fields: {iso: TH, name: Thailand, sort: 9999}
+  model: anonymeyes.country
+  pk: 218
+- fields: {iso: TL, name: Timor-leste, sort: 9999}
+  model: anonymeyes.country
+  pk: 219
+- fields: {iso: TG, name: Togo, sort: 9999}
+  model: anonymeyes.country
+  pk: 220
+- fields: {iso: TK, name: Tokelau, sort: 9999}
+  model: anonymeyes.country
+  pk: 221
+- fields: {iso: TO, name: Tonga, sort: 9999}
+  model: anonymeyes.country
+  pk: 222
+- fields: {iso: TT, name: Trinidad and Tobago, sort: 9999}
+  model: anonymeyes.country
+  pk: 223
+- fields: {iso: TN, name: Tunisia, sort: 9999}
+  model: anonymeyes.country
+  pk: 224
+- fields: {iso: TR, name: Turkey, sort: 9999}
+  model: anonymeyes.country
+  pk: 225
+- fields: {iso: TM, name: Turkmenistan, sort: 9999}
+  model: anonymeyes.country
+  pk: 226
+- fields: {iso: TC, name: Turks and Caicos Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 227
+- fields: {iso: TV, name: Tuvalu, sort: 9999}
+  model: anonymeyes.country
+  pk: 228
+- fields: {iso: UG, name: Uganda, sort: 9999}
+  model: anonymeyes.country
+  pk: 229
+- fields: {iso: UA, name: Ukraine, sort: 9999}
+  model: anonymeyes.country
+  pk: 230
+- fields: {iso: AE, name: United Arab Emirates, sort: 9999}
+  model: anonymeyes.country
+  pk: 231
+- fields: {iso: UM, name: United States Minor Outlying Islands, sort: 9999}
+  model: anonymeyes.country
+  pk: 232
+- fields: {iso: UY, name: Uruguay, sort: 9999}
+  model: anonymeyes.country
+  pk: 233
+- fields: {iso: UZ, name: Uzbekistan, sort: 9999}
+  model: anonymeyes.country
+  pk: 234
+- fields: {iso: VU, name: Vanuatu, sort: 9999}
+  model: anonymeyes.country
+  pk: 235
+- fields: {iso: VE, name: Venezuela, sort: 9999}
+  model: anonymeyes.country
+  pk: 236
+- fields: {iso: VN, name: Viet Nam, sort: 9999}
+  model: anonymeyes.country
+  pk: 237
+- fields: {iso: VG, name: 'Virgin Islands, British', sort: 9999}
+  model: anonymeyes.country
+  pk: 238
+- fields: {iso: VI, name: 'Virgin Islands, U.S.', sort: 9999}
+  model: anonymeyes.country
+  pk: 239
+- fields: {iso: WF, name: Wallis and Futuna, sort: 9999}
+  model: anonymeyes.country
+  pk: 240
+- fields: {iso: EH, name: Western Sahara, sort: 9999}
+  model: anonymeyes.country
+  pk: 241
+- fields: {iso: YE, name: Yemen, sort: 9999}
+  model: anonymeyes.country
+  pk: 242
+- fields: {iso: ZM, name: Zambia, sort: 9999}
+  model: anonymeyes.country
+  pk: 243
+- fields: {iso: ZW, name: Zimbabwe, sort: 9999}
+  model: anonymeyes.country
+  pk: 244
+- fields: {iso: AX, name: "\xC5land Islands", sort: 9999}
+  model: anonymeyes.country
+  pk: 8
