@@ -529,6 +529,11 @@ form .inline_form td ul li {
 	list-style: none;
 }
 
+form .diagnosis_comment {
+	margin: 5px 0 0 190px;
+	clear: both;
+}
+
 .qrcode {
 	position: absolute;
 	bottom: 0;

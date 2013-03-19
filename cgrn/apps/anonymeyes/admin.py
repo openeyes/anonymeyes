@@ -65,11 +65,11 @@ class PatientAdmin(admin.ModelAdmin):
                  (None, {
                          'fields': ('created_by', 'updated_by', 'created_at', 'updated_at',
                                     'sex', 'dob_day', 'dob_month', 'dob_year',
-                                    'postcode', 'ethnic_group', 'ethnic_group_comments',
+                                    'postcode', 'ethnic_group', 'ethnic_group_comment',
                                     'consanguinity')
                          }),
                  ('Baseline Assessment', {
-                         'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_left', 'comments',
+                         'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_right_comment', 'diagnosis_left', 'diagnosis_left_comment',
                                     ('visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both'),
                                     ('iop_right', 'iop_left', 'tonometry', 'eua'),
                                     ('lens_status_right', 'lens_extraction_date_right'),

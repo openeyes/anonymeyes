@@ -85,13 +85,13 @@ class PatientForm(BetterModelForm):
                      ('patient', {
                                   'fields': [ 'sex', 'dob_day', 'dob_month',
                                              'dob_year', 'country', 'postcode', 'health_care',
-                                             'ethnic_group', 'ethnic_group_comments',
+                                             'ethnic_group', 'ethnic_group_comment',
                                              'consanguinity', ],
                                   }),
                      ('baseline', {
-                                   'fields': [ 'visual_acuity_date', 'diagnosis_group_right',
-                                              'diagnosis_right', 'diagnosis_group_left',
-                                              'diagnosis_left', 'comments' ],
+                                   'fields': [ 'visual_acuity_date',
+                                              'diagnosis_group_right', 'diagnosis_right', 'diagnosis_right_comment',
+                                              'diagnosis_group_left', 'diagnosis_left', 'diagnosis_left_comment' ],
                                    }),
                      ('visual_acuity', {
                                    'fields': [ 'visual_acuity_method',
@@ -115,7 +115,8 @@ class PatientForm(BetterModelForm):
                    'dob_year': forms.TextInput(attrs={'size':'10'}),
                    'diagnosis_right': forms.Select(attrs={'class':'diagnosis', 'data-side':'right'}),
                    'diagnosis_left': forms.Select(attrs={'class':'diagnosis', 'data-side':'left'}),
-                   'comments': forms.Textarea(attrs={'rows':1, 'class':'autosize'}),
+                   'diagnosis_right_comment': forms.Textarea(attrs={'rows':1, 'class':'diagnosis_comment autosize'}),
+                   'diagnosis_left_comment': forms.Textarea(attrs={'rows':1, 'class':'diagnosis_comment autosize'}),
                    'lens_extraction_date_right': forms.DateInput(attrs={'class':'datepicker past'}),
                    'lens_extraction_date_left': forms.DateInput(attrs={'class':'datepicker past'}),
                    'visual_acuity_date': forms.DateInput(attrs={'class':'datepicker past'}),
@@ -221,22 +222,26 @@ class PatientForm(BetterModelForm):
             raise forms.ValidationError("DOB day required")
         return dob_day
 
-    def clean_ethnic_group_comments(self):
+    def clean_ethnic_group_comment(self):
         ethnic_group = self.cleaned_data.get('ethnic_group')
-        ethnic_group_comments = self.cleaned_data.get('ethnic_group_comments')
-        if ethnic_group and ethnic_group.requires_comment and not ethnic_group_comments.strip():
+        ethnic_group_comment = self.cleaned_data.get('ethnic_group_comment')
+        if ethnic_group and ethnic_group.requires_comment and not ethnic_group_comment.strip():
             raise forms.ValidationError("Selected ethnic group requires comment")
-        return ethnic_group_comments
+        return ethnic_group_comment
 
-    def clean_comments(self):
-        comments = self.cleaned_data.get('comments')
-        diagnosis_left = self.cleaned_data.get('diagnosis_left')
+    def clean_diagnosis_right_comment(self):
+        diagnosis_right_comment = self.cleaned_data.get('diagnosis_right_comment')
         diagnosis_right = self.cleaned_data.get('diagnosis_right')
-        if ((diagnosis_left and diagnosis_left.requires_comment) \
-            or (diagnosis_right and diagnosis_right.requires_comment) \
-            ) and not comments.strip():
+        if diagnosis_right and diagnosis_right.requires_comment and not diagnosis_right_comment.strip():
             raise forms.ValidationError("Selected diagnosis requires comment")
-        return comments
+        return diagnosis_right_comment
+
+    def clean_diagnosis_left_comment(self):
+        diagnosis_left_comment = self.cleaned_data.get('diagnosis_left_comment')
+        diagnosis_left = self.cleaned_data.get('diagnosis_left')
+        if diagnosis_left and diagnosis_left.requires_comment and not diagnosis_left_comment.strip():
+            raise forms.ValidationError("Selected diagnosis requires comment")
+        return diagnosis_left_comment
 
     def clean(self):
         cleaned_data = super(PatientForm, self).clean()

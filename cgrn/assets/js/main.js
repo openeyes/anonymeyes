@@ -57,6 +57,12 @@ $(document).ready(function() {
 		updateDiagnosis(this)
 	});
 	
+	// Ethnic group
+	updateEthnicGroupComment();
+	$('#id_ethnic_group').change(function() {
+		updateEthnicGroupComment()
+	});
+	
 	// Datatables
 	var datasets = $('#datasets').dataTable({
 		bJQueryUI: true,
@@ -172,10 +178,22 @@ function updateCorrection(element) {
 	}
 }
 
+function updateEthnicGroupComment() {
+	var ethnic_group = $('#id_ethnic_group option:selected').text().toLowerCase();
+	if(ethnic_group.indexOf('other') != -1 || ethnic_group.indexOf('mixed') != -1) {
+		$('#id_ethnic_group_comment').show();
+	} else {
+		$('#id_ethnic_group_comment').hide();
+		$('#id_ethnic_group_comment').val('');
+	}
+}
+
 function updateDiagnosis(element) {
 	var wrapper = $(element).closest('li');
 	var side = $(element).attr('data-side');
 	var diagnosis_field = $('.diagnosis[data-side="'+side+'"]', wrapper).first();
+	var diagnosis_comment_field = $('.diagnosis_comment', wrapper).first();
+	var diagnosis_group_text = $('option:selected', element).text();
 	var empty_option = $('<option value="">---------</option>');
 	if($(element).val()) {
 		$.ajax({
@@ -207,12 +225,21 @@ function updateDiagnosis(element) {
 					$(diagnosis_field).replaceWith(new_diagnosis_field);
 				}
 				$(diagnosis_field).show();
+				
+				if(diagnosis_group_text == 'Other' || diagnosis_group_text == 'Unknown') {
+					$(diagnosis_comment_field).show();
+				} else {
+					$(diagnosis_comment_field).val('');
+					$(diagnosis_comment_field).hide();
+				}
 			},
 		});
 	} else {
 		$(diagnosis_field).html(empty_option);
 		$(diagnosis_field).val('');
 		$(diagnosis_field).hide();
+		$(diagnosis_comment_field).val('');
+		$(diagnosis_comment_field).hide();
 	}
 }
 

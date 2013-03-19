@@ -67,11 +67,11 @@
 					{{ form.health_care }} <span>{{ form.health_care.errors }}</span>
 				</li>
 				<li {{ form.ethnic_group.row_attrs }}>
-					<label for="{{ form.ethnic_group.auto_id }}"{% if form.ethnic_group.errors or form.ethnic_group_comments.errors %} class="error"{% endif %} >
+					<label for="{{ form.ethnic_group.auto_id }}"{% if form.ethnic_group.errors or form.ethnic_group_comment.errors %} class="error"{% endif %} >
 					<span>{{ form.ethnic_group.label }}</span>:</label>
 					{{ form.ethnic_group }}
-					{{ form.ethnic_group_comments }}
-					<span>{{ form.ethnic_group.errors }} {{ form.ethnic_group_comments.errors }}</span>
+					{{ form.ethnic_group_comment }}
+					<span>{{ form.ethnic_group.errors }} {{ form.ethnic_group_comment.errors }}</span>
 				</li>
 				<li {{ form.consanguinity.row_attrs }}>
 					<label for="{{ form.consanguinity.auto_id }}"{% if form.consanguinity.errors %} class="error"{% endif %} ><span>{{ form.consanguinity.label }}</span>:</label>
@@ -90,23 +90,20 @@
 						{{ form.visual_acuity_date }} <span>{{ form.visual_acuity_date.errors }}</span>
 					</li>
 					<li {{ form.diagnosis_right.row_attrs }}>
-						<label for="{{ form.diagnosis_right.auto_id }}"{% if form.diagnosis_right.errors %} class="error"{% endif %}>
+						<label for="{{ form.diagnosis_right.auto_id }}"{% if form.diagnosis_right.errors or form.diagnosis_right_comment.errors %} class="error"{% endif %}>
 						<span>{{ form.diagnosis_right.label }}</span>:</label>
 						{{ form.diagnosis_group_right }}
 						{{ form.diagnosis_right }}
-						<span>{{ form.diagnosis_group_right.errors }} {{ form.diagnosis_right.errors }}</span>
+						<span>{{ form.diagnosis_group_right.errors }} {{ form.diagnosis_right.errors }} {{ form.diagnosis_right_comment.errors }}</span>
+						{{ form.diagnosis_right_comment }}
 					</li>
 					<li {{ form.diagnosis_left.row_attrs }}>
-						<label for="{{ form.diagnosis_left.auto_id }}"{% if form.diagnosis_left.errors %} class="error"{% endif %}>
+						<label for="{{ form.diagnosis_left.auto_id }}"{% if form.diagnosis_left.errors or form.diagnosis_left_comment.errors %} class="error"{% endif %}>
 						<span>{{ form.diagnosis_left.label }}</span>:</label>
 						{{ form.diagnosis_group_left }}
 						{{ form.diagnosis_left }}
-						<span>{{ form.diagnosis_group_left.errors }} {{ form.diagnosis_left.errors }}</span>
-					</li>
-					<li {{ form.comments.row_attrs }}>
-						<label for="{{ form.comments.auto_id }}"{% if form.comments.errors %} class="error"{% endif %}>
-						<span>{{ form.comments.label }}</span>:</label>
-						{{ form.comments }} <span>{{ form.comments.errors }}</span>
+						<span>{{ form.diagnosis_group_left.errors }} {{ form.diagnosis_left.errors }} {{ form.diagnosis_left_comment.errors }}</span>
+						{{ form.diagnosis_left_comment }}
 					</li>
 				</ul>
 			</fieldset>

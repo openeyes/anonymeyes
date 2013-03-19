@@ -29,7 +29,7 @@
 			<dt>Health Care Coverage:</dt>
 			<dd>{{ patient.health_care }}</dd>
 			<dt>Ethnic Group / Race:</dt>
-			<dd>{{ patient.ethnic_group }}{% if patient.ethnic_group_comments %} ({{ patient.ethnic_group_comments }}){% endif %}</dd>
+			<dd>{{ patient.ethnic_group }}{% if patient.ethnic_group_comment %} ({{ patient.ethnic_group_comment }}){% endif %}</dd>
 			<dt>Consanguinity:</dt>
 			<dd>{{ patient.get_consanguinity_display }}</dd>
 		</dl>
@@ -40,13 +40,9 @@
 			<dt>Date:</dt>
 			<dd>{{ patient.visual_acuity_date }}</dd>
 			<dt>Right Diagnosis:</dt>
-			<dd>{{ patient.diagnosis_right.description }}</dd>
+			<dd>{{ patient.diagnosis_right.description }}{% if patient.diagnosis_right_comment %} ({{ patient.diagnosis_right_comment }}){% endif %}</dd>
 			<dt>Left Diagnosis:</dt>
-			<dd>{{ patient.diagnosis_left.description }}</dd>
-			{% if patient.comments %}
-			<dt>Comments:</dt>
-			<dd>{{ patient.comments }}</dd>
-			{% endif %}
+			<dd>{{ patient.diagnosis_left.description }}{% if patient.diagnosis_left_comment %} ({{ patient.diagnosis_left_comment }}){% endif %}</dd>
 			<dt>Visual Acuity Method:</dt>
 			<dd>{{ patient.visual_acuity_method }}</dd>
 			<dt>RVA:</dt>

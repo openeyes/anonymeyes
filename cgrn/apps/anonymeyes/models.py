@@ -269,7 +269,7 @@ class Patient(models.Model):
                                 )
     health_care = models.ForeignKey(HealthCare, verbose_name='Health Care Coverage')
     ethnic_group = models.ForeignKey(EthnicGroup, verbose_name='Ethnic Group / Race')
-    ethnic_group_comments = models.CharField(max_length=255, blank=True)
+    ethnic_group_comment = models.CharField(max_length=255, blank=True)
     NO = 0
     YES = 1
     UNKNOWN = 2
@@ -281,7 +281,8 @@ class Patient(models.Model):
     consanguinity = models.IntegerField(choices=TRISTATE_CHOICES)
     diagnosis_right = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Right diagnosis')
     diagnosis_left = models.ForeignKey(Diagnosis, related_name='+', verbose_name='Left diagnosis')
-    comments = models.TextField(verbose_name='Diagnosis comments', blank=True)
+    diagnosis_right_comment = models.TextField(verbose_name='Right Diagnosis comment', blank=True)
+    diagnosis_left_comment = models.TextField(verbose_name='Left Diagnosis comment', blank=True)
     lens_status_right = models.ForeignKey(LensStatus, related_name='+', verbose_name='Right lens status')
     lens_status_left = models.ForeignKey(LensStatus, related_name='+', verbose_name='Left lens status')
     lens_extraction_date_right = models.DateField(verbose_name='Right Extraction date', blank=True, null=True)
