@@ -215,12 +215,23 @@ function updateVisualAcuityReadings(element) {
 }
 
 function updateCorrection(element) {
-	var wrapper = $(element).closest('li');
-	if($('option:selected', element).text() == 'Not recorded') {
-		$('select.visualacuitycorrection', wrapper).val('');
-		$('select.visualacuitycorrection', wrapper).hide();
+	var correction_wrapper = $(element).closest('li').find('.correctionwrapper');
+	var fixation_wrapper = null;
+	if(correction_wrapper.hasClass('both')) {
+		fixation_wrapper = $(element).closest('fieldset,tr').find('.fixationwrapper');
+	}
+	if(!$(element).val() || $('option:selected', element).text() == 'Not recorded') {
+		$('select', correction_wrapper).val('');
+		correction_wrapper.hide();
+		if(fixation_wrapper) {
+			$('select', fixation_wrapper).val('');
+			fixation_wrapper.hide();
+		}
 	} else {
-		$('select.visualacuitycorrection', wrapper).show();
+		correction_wrapper.show();
+		if(fixation_wrapper) {
+			fixation_wrapper.show();
+		}
 	}
 }
 

@@ -295,13 +295,22 @@ class Patient(models.Model):
     visual_acuity_scale = models.ForeignKey(VisualAcuityScale, related_name='patient_visualacuity_scale',verbose_name='Scale')
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='patient_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='patient_lva', verbose_name='LVA')
-    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo', verbose_name='BEO')
+    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='patient_beo', verbose_name='Both Eyes Open')
     visual_acuity_correction_right = models.ForeignKey(VisualAcuityCorrection, related_name='patient_rva_correction'
                                                        , verbose_name='Right correction', blank=True, null=True)
     visual_acuity_correction_left = models.ForeignKey(VisualAcuityCorrection, related_name='patient_lva_correction'
                                                       , verbose_name='Left correction', blank=True, null=True)
     visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='patient_beo_correction'
                                                       , verbose_name='Both correction', blank=True, null=True)
+    NONE = 1
+    RIGHT = 2
+    LEFT = 3
+    FIXATION_CHOICES = (
+                            (RIGHT, 'Right'),
+                            (LEFT, 'Left'),
+                            (NONE, 'None'),
+    )
+    visual_acuity_fixation_preference = models.IntegerField(choices=FIXATION_CHOICES, verbose_name='Fixation Preference', blank=True, null=True)
     iop_right = models.IntegerField(verbose_name='Right IOP', validators=[
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
@@ -435,13 +444,22 @@ class Outcome(models.Model):
     visual_acuity_scale = models.ForeignKey(VisualAcuityScale, related_name='outcome_visualacuity_scale', verbose_name='Scale')
     visual_acuity_right = models.ForeignKey(VisualAcuityReading, related_name='outcome_rva', verbose_name='RVA')
     visual_acuity_left = models.ForeignKey(VisualAcuityReading, related_name='outcome_lva', verbose_name='LVA')
-    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo', verbose_name='BEO')
+    visual_acuity_both = models.ForeignKey(VisualAcuityReading, related_name='outcome_beo', verbose_name='Both Eyes Open')
     visual_acuity_correction_right = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_rva_correction'
                                                        , verbose_name='Right correction', blank=True, null=True)
     visual_acuity_correction_left = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_lva_correction'
                                                       , verbose_name='Left correction', blank=True, null=True)
     visual_acuity_correction_both = models.ForeignKey(VisualAcuityCorrection, related_name='outcome_beo_correction'
                                                       , verbose_name='Both correction', blank=True, null=True)
+    NONE = 1
+    RIGHT = 2
+    LEFT = 3
+    FIXATION_CHOICES = (
+                            (RIGHT, 'Right'),
+                            (LEFT, 'Left'),
+                            (NONE, 'None'),
+    )
+    visual_acuity_fixation_preference = models.IntegerField(choices=FIXATION_CHOICES, verbose_name='Fixation Preference', blank=True, null=True)
     patient = models.ForeignKey(Patient)
 
     def __unicode__(self):

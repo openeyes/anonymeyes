@@ -51,8 +51,12 @@
 			<dd>{{ patient.visual_acuity_right }} {% if patient.visual_acuity_correction_right %}({{ patient.visual_acuity_correction_right }}){% endif %}</dd>
 			<dt>LVA:</dt>
 			<dd>{{ patient.visual_acuity_left }} {% if patient.visual_acuity_correction_left %}({{ patient.visual_acuity_correction_left }}){% endif %}</dd>
-			<dt>BEO:</dt>
+			<dt>Both Eyes Open:</dt>
 			<dd>{{ patient.visual_acuity_both }} {% if patient.visual_acuity_correction_both %}({{ patient.visual_acuity_correction_both }}){% endif %}</dd>
+			{% if patient.visual_acuity_fixation_preference %}
+			<dt>Fixation Preference:</dt>
+			<dd>{{ patient.get_visual_acuity_fixation_preference_display }}</dd>
+			{% endif %}
 			<dt>Right IOP:</dt>
 			<dd>{{ patient.iop_right }} ({{ patient.iop_agents_right }})</dd>
 			<dt>Left IOP:</dt>
@@ -137,7 +141,10 @@
 							<li>Method: {{ outcome.visual_acuity_method }}{% if outcome.visual_acuity_method.scales.count > 1 %} ({{ outcome.visual_acuity_scale }}){% endif %}</li>
 							<li>RVA: {{ outcome.visual_acuity_right }} {% if patient.visual_acuity_correction_right %}({{ outcome.visual_acuity_correction_right }}){% endif %}</li>
 							<li>LVA: {{ outcome.visual_acuity_left }} {% if patient.visual_acuity_correction_left %}({{ outcome.visual_acuity_correction_left }}){% endif %}</li>
-							<li>BEO: {{ outcome.visual_acuity_both }} {% if patient.visual_acuity_correction_both %}({{ outcome.visual_acuity_correction_both }}){% endif %}</li>
+							<li>Both Eyes Open: {{ outcome.visual_acuity_both }} {% if patient.visual_acuity_correction_both %}({{ outcome.visual_acuity_correction_both }}){% endif %}</li>
+							{% if outcome.visual_acuity_fixation_preference %}
+							<li>Fixation Preference: {{ outcome.get_visual_acuity_fixation_preference_display }}</li>
+							{% endif %}
 						</ul>
 					</td>
 				</tr>

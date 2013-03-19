@@ -133,30 +133,44 @@
 						<span>{{ form.visual_acuity_right.label }}</span>:</label>
 						{{ form.visual_acuity_right }}
 						<span>{{ form.visual_acuity_right.errors }}</span>
-						<label for="{{ form.visual_acuity_correction_right.auto_id }}" class="inline{% if form.visual_acuity_correction_right.errors %} error{% endif %}">
-						<span>Correction</span>:</label>
-						{{ form.visual_acuity_correction_right }}
-						<span>{{ form.visual_acuity_correction_right.errors }}</span>
+						<span class="correctionwrapper">
+							<label for="{{ form.visual_acuity_correction_right.auto_id }}" class="inline{% if form.visual_acuity_correction_right.errors %} error{% endif %}">
+							<span>Correction</span>:</label>
+							{{ form.visual_acuity_correction_right }}
+							<span>{{ form.visual_acuity_correction_right.errors }}</span>
+						</span>
 					</li>
 					<li {{ form.visual_acuity_left.row_attrs }}>
 						<label for="{{ form.visual_acuity_left.auto_id }}"{% if form.visual_acuity_left.errors %} class="error"{% endif %}>
 						<span>{{ form.visual_acuity_left.label }}</span>:</label>
 						{{ form.visual_acuity_left }}
 						<span>{{ form.visual_acuity_left.errors }}</span>
-						<label for="{{ form.visual_acuity_correction_left.auto_id }}" class="inline{% if form.visual_acuity_correction_left.errors %} error{% endif %}">
-						<span>Correction</span>:</label>
-						{{ form.visual_acuity_correction_left }}
-						<span>{{ form.visual_acuity_correction_left.errors }}</span>
+						<span class="correctionwrapper">
+							<label for="{{ form.visual_acuity_correction_left.auto_id }}" class="inline{% if form.visual_acuity_correction_left.errors %} error{% endif %}">
+							<span>Correction</span>:</label>
+							{{ form.visual_acuity_correction_left }}
+							<span>{{ form.visual_acuity_correction_left.errors }}</span>
+						</span>
 					</li>
 					<li {{ form.visual_acuity_both.row_attrs }}>
 						<label for="{{ form.visual_acuity_both.auto_id }}"{% if form.visual_acuity_both.errors %} class="error"{% endif %}>
 						<span>{{ form.visual_acuity_both.label }}</span>:</label>
 						{{ form.visual_acuity_both }}
 						<span>{{ form.visual_acuity_both.errors }}</span>
-						<label for="{{ form.visual_acuity_correction_both.auto_id }}" class="inline{% if form.visual_acuity_correction_both.errors %} error{% endif %}">
-						<span>Correction</span>:</label>
-						{{ form.visual_acuity_correction_both }}
-						<span>{{ form.visual_acuity_correction_both.errors }}</span>
+						<span class="correctionwrapper both">
+							<label for="{{ form.visual_acuity_correction_both.auto_id }}" class="inline{% if form.visual_acuity_correction_both.errors %} error{% endif %}">
+							<span>Correction</span>:</label>
+							{{ form.visual_acuity_correction_both }}
+							<span>{{ form.visual_acuity_correction_both.errors }}</span>
+						</span>
+					</li>
+					<li {{ form.visual_acuity_fixation_preference.row_attrs }}>
+						<span class="fixationwrapper">
+							<label for="{{ form.visual_acuity_fixation_preference.auto_id }}"{% if form.visual_acuity_fixation_preference.errors %} class="error"{% endif %}>
+							<span class="required">Fixation Preference</span>:</label>
+							{{ form.visual_acuity_fixation_preference }}
+							<span>{{ form.visual_acuity_fixation_preference.errors }}</span>
+						</span>
 					</li>
 				</ul>
 			</fieldset>

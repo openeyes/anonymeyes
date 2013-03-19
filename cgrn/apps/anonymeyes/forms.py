@@ -97,7 +97,8 @@ class PatientForm(BetterModelForm):
                                    'fields': [ 'visual_acuity_method', 'visual_acuity_scale',
                                                'visual_acuity_right', 'visual_acuity_correction_right',
                                                'visual_acuity_left', 'visual_acuity_correction_left',
-                                               'visual_acuity_both', 'visual_acuity_correction_both', ],
+                                               'visual_acuity_both', 'visual_acuity_correction_both',
+                                               'visual_acuity_fixation_preference', ],
                                    }),
                      ('iop', {
                                    'fields': [ 'iop_right', 'iop_agents_right',
@@ -219,6 +220,15 @@ class PatientForm(BetterModelForm):
         if not visual_acuity_correction_both:
             raise forms.ValidationError("This field is required")
         return visual_acuity_correction_both
+    
+    def clean_visual_acuity_fixation_preference(self):
+        visual_acuity_fixation_preference = self.cleaned_data.get('visual_acuity_fixation_preference')
+        visual_acuity_both = self.cleaned_data.get('visual_acuity_both')
+        if visual_acuity_both and visual_acuity_both.not_recorded:
+            return None
+        if not visual_acuity_fixation_preference:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_fixation_preference
     
     def clean_dob_month(self):
         dob_month = self.cleaned_data.get('dob_month')
@@ -431,6 +441,15 @@ class PatientOutcomeForm(forms.ModelForm):
         if not visual_acuity_correction_both:
             raise forms.ValidationError("This field is required")
         return visual_acuity_correction_both
+
+    def clean_visual_acuity_fixation_preference(self):
+        visual_acuity_fixation_preference = self.cleaned_data.get('visual_acuity_fixation_preference')
+        visual_acuity_both = self.cleaned_data.get('visual_acuity_both')
+        if visual_acuity_both and visual_acuity_both.not_recorded:
+            return None
+        if not visual_acuity_fixation_preference:
+            raise forms.ValidationError("This field is required")
+        return visual_acuity_fixation_preference
 
 PatientManagementFormSet = forms.models.inlineformset_factory(Patient, Management, form = PatientManagementForm, extra=1, can_delete=False)
 

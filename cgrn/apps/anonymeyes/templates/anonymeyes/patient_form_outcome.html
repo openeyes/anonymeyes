@@ -25,12 +25,14 @@
 		<li><span class="required">Method</span>: {{ inlineform.visual_acuity_method }}
 			<span class="visualacuityscalewrapper">{{ inlineform.visual_acuity_scale }}</span>
 			<span>{{ inlineform.visual_acuity_method.errors }}{{ inlineform.visual_acuity_scale.errors }}</span></li>
-		<li><span class="required">RVA</span>: {{ inlineform.visual_acuity_right }} {{ inlineform.visual_acuity_correction_right }}
+		<li><span class="required">RVA</span>: {{ inlineform.visual_acuity_right }} <span class="correctionwrapper">{{ inlineform.visual_acuity_correction_right }}</span>
 			<span>{{ inlineform.visual_acuity_right.errors }}{{ inlineform.visual_acuity_correction_right.errors }}</span></li>
-		<li><span class="required">LVA</span>: {{ inlineform.visual_acuity_left }} {{ inlineform.visual_acuity_correction_left }}
+		<li><span class="required">LVA</span>: {{ inlineform.visual_acuity_left }} <span class="correctionwrapper">{{ inlineform.visual_acuity_correction_left }}</span>
 			<span>{{ inlineform.visual_acuity_left.errors }}{{ inlineform.visual_acuity_correction_left.errors }}</span></li>
-		<li><span class="required">BEO</span>: {{ inlineform.visual_acuity_both }} {{ inlineform.visual_acuity_correction_both }}
+		<li><span class="required">Both Eyes Open</span>: {{ inlineform.visual_acuity_both }} <span class="correctionwrapper both">{{ inlineform.visual_acuity_correction_both }}</span>
 			<span>{{ inlineform.visual_acuity_both.errors }}{{ inlineform.visual_acuity_correction_both.errors }}</span></li>
+		<li class="fixationwrapper"><span class="required">Fixation Preference</span>: {{ inlineform.visual_acuity_fixation_preference }}
+			<span>{{ inlineform.visual_acuity_fixation_preference.errors }}</span></li>
 	</ul>
 	{% for hidden in inlineform.hidden_fields %}{{ hidden }}{% endfor %}
 </td>
