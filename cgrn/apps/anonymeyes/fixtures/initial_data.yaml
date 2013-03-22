@@ -911,9 +911,12 @@
 - fields: {name: 'Not recorded', not_recorded: True, scale: 3, sort: 9999}
   model: anonymeyes.visualacuityreading
   pk: 72
-- fields: {name: 'Perception of light or better', scale: 2, sort: 30}
+- fields: {name: 'Reacts to light', scale: 2, sort: 30}
   model: anonymeyes.visualacuityreading
   pk: 73
+- fields: {name: "Doesn't react to light", scale: 2, sort: 40}
+  model: anonymeyes.visualacuityreading
+  pk: 74
   
 # Country
 - fields: {iso: AU, name: Australia, sort: 10}
