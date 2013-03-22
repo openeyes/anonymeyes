@@ -419,16 +419,16 @@
 - fields: {name: "Clear: Microspherophakia", group: 1, sort: 40}
   model: anonymeyes.lensstatus
   pk: 4
-- fields: {name: "Cataractous: Central", group: 2, sort: 10}
+- fields: {name: "Cataract: Central", group: 2, sort: 10}
   model: anonymeyes.lensstatus
   pk: 5
-- fields: {name: "Cataractous: Subluxed", group: 2, sort: 20}
+- fields: {name: "Cataract: Subluxed", group: 2, sort: 20}
   model: anonymeyes.lensstatus
   pk: 6
-- fields: {name: "Cataractous: Dislocated", group: 2, sort: 30}
+- fields: {name: "Cataract: Dislocated", group: 2, sort: 30}
   model: anonymeyes.lensstatus
   pk: 7
-- fields: {name: "Cataractous: Microspherophakia", group: 2, sort: 40}
+- fields: {name: "Cataract: Microspherophakia", group: 2, sort: 40}
   model: anonymeyes.lensstatus
   pk: 8
 - fields: {name: Aphakia, group: 3, sort: 10}
