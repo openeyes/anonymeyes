@@ -848,9 +848,6 @@
 - fields: {name: NPL, scale: 4, sort: 200}
   model: anonymeyes.visualacuityreading
   pk: 58
-- fields: {name: 6/3, scale: 3, sort: 10}
-  model: anonymeyes.visualacuityreading
-  pk: 23
 - fields: {name: 6/4, scale: 3, sort: 20}
   model: anonymeyes.visualacuityreading
   pk: 24
