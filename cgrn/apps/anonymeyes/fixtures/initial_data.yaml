@@ -634,6 +634,12 @@
 - fields: {name: Contact lens(es), sort: 30}
   model: anonymeyes.visualacuitycorrection
   pk: 3
+- fields: {name: Right Contact lens only, beo: True, sort: 40}
+  model: anonymeyes.visualacuitycorrection
+  pk: 4
+- fields: {name: Left Contact lens only, beo: True, sort: 50}
+  model: anonymeyes.visualacuitycorrection
+  pk: 5
 
 # Visual Acuity Scale
 - fields: {name: Log MAR, sort: 10}
