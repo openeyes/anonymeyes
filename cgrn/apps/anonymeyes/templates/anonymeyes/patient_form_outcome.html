@@ -6,13 +6,19 @@
 	<ul>
 		<li><span class="required">Right</span>:
 			{{ inlineform.iop_right }} mmHg <span>{{ inlineform.iop_right.errors }}</span>,
-			{{ inlineform.iop_agents_right }} <span>{{ inlineform.iop_agents_right.errors }}</span>,
 			{{ inlineform.iop_control_right }} <span>{{ inlineform.iop_control_right.errors }}</span>
+		</li>
+		<li>
+			<div class="iopagents">{{ inlineform.iop_agents_right }}</div>
+			<span>{{ inlineform.iop_agents_right.errors }}</span>
 		</li>
 		<li><span class="required">Left</span>:
 			{{ inlineform.iop_left }}mmHg <span>{{ inlineform.iop_left.errors }}</span>,
-			{{ inlineform.iop_agents_left }} <span>{{ inlineform.iop_agents_left.errors }}</span>,
 			{{ inlineform.iop_control_left }} <span>{{ inlineform.iop_control_left.errors }}</span>
+		</li>
+		<li>
+			<div class="iopagents">{{ inlineform.iop_agents_left }}</div>
+			<span>{{ inlineform.iop_agents_left.errors }}</span>
 		</li>
 		<li><span class="required">Tonometry</span>: {{ inlineform.tonometry }}
 			<span>{{ inlineform.tonometry.errors }}</span></li>

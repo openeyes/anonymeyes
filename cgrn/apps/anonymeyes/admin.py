@@ -4,6 +4,7 @@ from django import forms
 
 from apps.anonymeyes.models import *
 
+admin.site.register(IOPAgent)
 admin.site.register(EthnicGroupGroup)
 admin.site.register(Country)
 admin.site.register(DiagnosisGroup)

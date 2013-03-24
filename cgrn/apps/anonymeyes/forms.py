@@ -132,6 +132,8 @@ class PatientForm(BetterModelForm):
                    'visual_acuity_correction_both': forms.Select(attrs={'class':'visualacuitycorrection'}),
                    'iop_right': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
                    'iop_left': forms.TextInput(attrs={'class': 'small', 'size':'10'}),
+                   'iop_agents_right': forms.CheckboxSelectMultiple(),
+                   'iop_agents_left': forms.CheckboxSelectMultiple(),
         }
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None) # Set request for access by DOB clean methods
@@ -290,6 +292,7 @@ class PatientManagementForm(forms.ModelForm):
         widgets = {
                    'date': forms.DateInput(attrs={'class':'datepicker past'}),
                    'comments': forms.Textarea(attrs={'rows':1, 'class':'autosize'}),
+                   'agents': forms.CheckboxSelectMultiple(),
         }
         exclude = { 'patient', 'created_by', 'updated_by', }
         
@@ -317,7 +320,7 @@ class PatientManagementForm(forms.ModelForm):
         if type and type.name == 'Medication' and not agents:
             raise forms.ValidationError("Medication detail required")
         elif type and type.name != 'Medication':
-            return None
+            return []
         return agents
 
     def clean_adjuvant(self):
@@ -373,6 +376,8 @@ class PatientOutcomeForm(forms.ModelForm):
                    'visual_acuity_correction_both': forms.Select(attrs={'class':'visualacuitycorrection'}),
                    'iop_left': forms.TextInput(attrs={'class':'small'}),
                    'iop_right': forms.TextInput(attrs={'class':'small'}),
+                   'iop_agents_right': forms.CheckboxSelectMultiple(),
+                   'iop_agents_left': forms.CheckboxSelectMultiple(),
         }
         exclude = { 'patient', 'created_by', 'updated_by', }
 
@@ -405,15 +410,6 @@ class PatientOutcomeForm(forms.ModelForm):
             self.fields['visual_acuity_'+side].queryset=filtered
 
 
-
-    def clean_iop_agents(self):
-        iop_agents = self.cleaned_data.get('iop_agents')
-        iop_control = self.cleaned_data.get('iop_control')
-        if iop_control and iop_agents == None:
-            raise forms.ValidationError("IOP control agents required")
-        elif not iop_control:
-            return None
-        return iop_agents
 
     def clean_visual_acuity_correction_right(self):
         visual_acuity_correction_right = self.cleaned_data.get('visual_acuity_correction_right')

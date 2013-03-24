@@ -534,6 +534,26 @@ form .diagnosis_comment {
 	clear: both;
 }
 
+form .iopagents {
+	float:left;
+}
+
+form .inline_form .iopagents {
+	float: none;
+	display:inline-block;
+	margin: 0;
+}
+
+form .iopagents ul,
+form .iopagents ul li,
+form .inline_form td .iopagents ul li {
+	margin: 0;
+}
+
+form .iopagents label {
+	text-align: left;
+}
+
 .qrcode {
 	position: absolute;
 	bottom: 0;

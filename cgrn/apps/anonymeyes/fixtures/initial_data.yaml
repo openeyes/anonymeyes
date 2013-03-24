@@ -9,25 +9,28 @@
   model: anonymeyes.dobprecision
   pk: 3
 
-# IOP Agents
-- fields: {name: "No agents", sort: 10}
-  model: anonymeyes.iopagents
+# IOP Agent
+- fields: {name: "No Agents", no_agents: True, sort: 1}
+  model: anonymeyes.iopagent
   pk: 1
-- fields: {name: "1 agent", sort: 20}
-  model: anonymeyes.iopagents
+- fields: {name: "Beta blockers", sort: 10}
+  model: anonymeyes.iopagent
   pk: 2
-- fields: {name: "2 agents", sort: 30}
-  model: anonymeyes.iopagents
+- fields: {name: "Prostaglandin analogues", sort: 20}
+  model: anonymeyes.iopagent
   pk: 3
-- fields: {name: "3 agents", sort: 40}
-  model: anonymeyes.iopagents
+- fields: {name: "Alpha agonist", sort: 30}
+  model: anonymeyes.iopagent
   pk: 4
-- fields: {name: "4 agents", sort: 50}
-  model: anonymeyes.iopagents
+- fields: {name: "Parasympathomimetic", sort: 40}
+  model: anonymeyes.iopagent
   pk: 5
-- fields: {name: "5 agents", sort: 60}
-  model: anonymeyes.iopagents
+- fields: {name: "Topical CIA", sort: 50}
+  model: anonymeyes.iopagent
   pk: 6
+- fields: {name: "Oral CIA", sort: 60}
+  model: anonymeyes.iopagent
+  pk: 7
 
 # Adjuvant
 - fields: {name: None, sort: 10}

@@ -181,22 +181,26 @@
 					<li {{ form.iop_right.row_attrs }}>
 						<label for="{{ form.iop_right.auto_id }}"{% if form.iop_right.errors %} class="error"{% endif %}>
 							<span>{{ form.iop_right.label }}</span>:</label>
-						<div class="inline_fields">
-							{{ form.iop_right }} mmHg
-							<span>{{ form.iop_right.errors }}</span>,
-							{{ form.iop_agents_right }}
-							<span>{{ form.iop_agents_right.errors }}</span>
-						</div>
+						{{ form.iop_right }} mmHg
+						<span>{{ form.iop_right.errors }}</span>
+					</li>
+					<li {{ form.iop_agents_right.row_attrs }}>
+						<label for="{{ form.iop_agents_right.auto_id }}"{% if form.iop_agents_right.errors %} class="error"{% endif %}>
+							<span>{{ form.iop_agents_right.label }}</span>:</label>
+						<div class="iopagents">{{ form.iop_agents_right }}</div>
+						<span>{{ form.iop_agents_right.errors }}</span>
 					</li>
 					<li {{ form.iop_left.row_attrs }}>
 						<label for="{{ form.iop_left.auto_id }}"{% if form.iop_left.errors %} class="error"{% endif %}>
 							<span>{{ form.iop_left.label }}</span>:</label>
-						<div class="inline_fields">
 							{{ form.iop_left }} mmHg
-							<span>{{ form.iop_left.errors }}</span>,
-							{{ form.iop_agents_left }}
-							<span>{{ form.iop_agents_left.errors }}</span>
-						</div>
+							<span>{{ form.iop_left.errors }}</span>
+					</li>
+					<li {{ form.iop_left.row_attrs }}>
+						<label for="{{ form.iop_agents_left.auto_id }}"{% if form.iop_agents_left.errors %} class="error"{% endif %}>
+							<span>{{ form.iop_agents_left.label }}</span>:</label>
+						<div class="iopagents">{{ form.iop_agents_left }}</div>
+						<span>{{ form.iop_agents_left.errors }}</span>
 					</li>
 					<li {{ form.tonometry.row_attrs }}>
 						<label for="{{ form.tonometry.auto_id }}"{% if form.tonometry.errors %} class="error"{% endif %}>

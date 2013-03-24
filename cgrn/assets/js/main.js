@@ -154,6 +154,20 @@ $(document).ready(function() {
 		updateExtractionDate(this);
 	});
 	
+	// No IOP Agents
+	$('.iopagents input').change(function() {
+		var wrapper = $(this).closest('.iopagents');
+		if($(this).val() == 1 && $(this).is(':checked')) {
+			$('input:not([value="1"])', wrapper).prop('checked', false);
+		} else if($(this).val() != 1 && $(this).is(':checked')) {
+			$('input[value="1"]', wrapper).prop('checked', false);
+		} else if($(this).val() != 1 && $(this).is(':not(:checked)')) {
+			if($('input:checked', wrapper).length == 0) {
+				$('input[value=1]', wrapper).prop('checked', true);
+			}
+		}
+	});
+	
 	// Inline forms
 	initialiseInlineForms();
 

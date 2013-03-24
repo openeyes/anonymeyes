@@ -195,12 +195,13 @@ class Tonometry(models.Model):
     def __unicode__(self):
         return self.name
 
-class IOPAgents(models.Model):
+class IOPAgent(models.Model):
     class Meta:
         ordering = ['sort','name']
 
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
+    no_agents = models.BooleanField(default=False)
     
     def __unicode__(self):
         return self.name
@@ -322,8 +323,8 @@ class Patient(models.Model):
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
                                                                      ])
-    iop_agents_right = models.ForeignKey(IOPAgents, related_name='patient_iop_agents_right')
-    iop_agents_left = models.ForeignKey(IOPAgents, related_name='patient_iop_agents_left')
+    iop_agents_right = models.ManyToManyField(IOPAgent, related_name='patient_iop_agents_right', verbose_name='Right IOP Agents')
+    iop_agents_left = models.ManyToManyField(IOPAgent, related_name='patient_iop_agents_left', verbose_name='Left IOP Agents')
     tonometry = models.ForeignKey(Tonometry)
     eua = models.ForeignKey(Anaesthesia, verbose_name='EUA')
     
@@ -407,7 +408,7 @@ class Management(models.Model):
     complication = models.ForeignKey(Complication, blank=True, null=True)
     adjuvant = models.ForeignKey(Adjuvant, blank=True, null=True)
     surgery_stage = models.ForeignKey(SurgeryStage, blank=True, null=True)
-    agents = models.ForeignKey(IOPAgents, blank=True, null=True)
+    agents = models.ManyToManyField(IOPAgent, verbose_name='IOP Agents', blank=True, limit_choices_to = {'no_agents': False})
     comments = models.TextField(blank=True)
     patient = models.ForeignKey(Patient)
     @property
@@ -438,8 +439,8 @@ class Outcome(models.Model):
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
                                                                      ])
-    iop_agents_right = models.ForeignKey(IOPAgents, related_name='outcome_iop_agents_right')
-    iop_agents_left = models.ForeignKey(IOPAgents, related_name='outcome_iop_agents_left')
+    iop_agents_right = models.ManyToManyField(IOPAgent, related_name='outcome_iop_agents_right', verbose_name='IOP Agents Right')
+    iop_agents_left = models.ManyToManyField(IOPAgent, related_name='outcome_iop_agents_left', verbose_name='IOP Agents Left')
     tonometry = models.ForeignKey(Tonometry)
     eua = models.ForeignKey(Anaesthesia, verbose_name='EUA')
     visual_acuity_method = models.ForeignKey(VisualAcuityMethod)
