@@ -262,12 +262,12 @@ class Patient(models.Model):
             dob = dob + '-' + str(self.dob_day).zfill(2)
         return dob
 
-    country = models.ForeignKey(Country)
+    country = models.ForeignKey(Country, verbose_name='Country of Residence')
     postcode = models.CharField(
-                                verbose_name='Post/Zip Code Prefix',
+                                verbose_name='Post/Zip Code',
                                 max_length=4,
-                                validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z0-9]{2,4}$')
-                                                                       , message='First part of postcode only (e.g. AB12)') ],
+                                validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z0-9]{2,5}$')
+                                                                       , message='First part of post/zip code only (e.g. AB12)') ],
                                 )
     health_care = models.ForeignKey(HealthCare, verbose_name='Health Care Coverage')
     ethnic_group = models.ForeignKey(EthnicGroup, verbose_name='Ethnic Group / Race')

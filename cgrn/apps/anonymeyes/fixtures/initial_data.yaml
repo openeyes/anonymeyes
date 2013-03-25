@@ -946,7 +946,7 @@
 - fields: {iso: AU, name: Australia, sort: 10}
   model: anonymeyes.country
   pk: 6
-- fields: {iso: FR, name: France, sort: 10}
+- fields: {iso: FR, name: France, sort: 9999}
   model: anonymeyes.country
   pk: 5
 - fields: {iso: DE, name: Germany, sort: 10}
@@ -955,6 +955,9 @@
 - fields: {iso: IN, name: India, sort: 10}
   model: anonymeyes.country
   pk: 3
+- fields: {iso: SA, name: Saudi Arabia, sort: 10}
+  model: anonymeyes.country
+  pk: 194
 - fields: {iso: GB, name: United Kingdom, sort: 10}
   model: anonymeyes.country
   pk: 1
@@ -1519,9 +1522,6 @@
 - fields: {iso: ST, name: Sao Tome and Principe, sort: 9999}
   model: anonymeyes.country
   pk: 193
-- fields: {iso: SA, name: Saudi Arabia, sort: 9999}
-  model: anonymeyes.country
-  pk: 194
 - fields: {iso: SN, name: Senegal, sort: 9999}
   model: anonymeyes.country
   pk: 195
