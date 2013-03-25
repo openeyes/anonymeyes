@@ -13,10 +13,10 @@
 - fields: {name: "No Agents", no_agents: True, sort: 1}
   model: anonymeyes.iopagent
   pk: 1
-- fields: {name: "Beta blockers", sort: 10}
+- fields: {name: "Beta blocker", sort: 10}
   model: anonymeyes.iopagent
   pk: 2
-- fields: {name: "Prostaglandin analogues", sort: 20}
+- fields: {name: "Prostaglandin analogue", sort: 20}
   model: anonymeyes.iopagent
   pk: 3
 - fields: {name: "Alpha agonist", sort: 30}
