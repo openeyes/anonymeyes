@@ -797,10 +797,10 @@
 - fields: {name: Doesn't fix and follow, scale: 2, sort: 20}
   model: anonymeyes.visualacuityreading
   pk: 2
-- fields: {name: 20/10, scale: 4, sort: 10}
+- fields: {name: 20/13, scale: 4, sort: 10}
   model: anonymeyes.visualacuityreading
   pk: 39
-- fields: {name: 20/15, scale: 4, sort: 20}
+- fields: {name: 20/16, scale: 4, sort: 20}
   model: anonymeyes.visualacuityreading
   pk: 40
 - fields: {name: 20/20, scale: 4, sort: 30}
@@ -821,9 +821,6 @@
 - fields: {name: 20/60, scale: 4, sort: 80}
   model: anonymeyes.visualacuityreading
   pk: 46
-- fields: {name: 20/70, scale: 4, sort: 90}
-  model: anonymeyes.visualacuityreading
-  pk: 47
 - fields: {name: 20/80, scale: 4, sort: 100}
   model: anonymeyes.visualacuityreading
   pk: 48
@@ -839,10 +836,13 @@
 - fields: {name: 20/200, scale: 4, sort: 140}
   model: anonymeyes.visualacuityreading
   pk: 52
+- fields: {name: 20/250, scale: 4, sort: 143}
+  model: anonymeyes.visualacuityreading
+  pk: 47
 - fields: {name: 20/400, scale: 4, sort: 150}
   model: anonymeyes.visualacuityreading
   pk: 53
-- fields: {name: 20/1000, scale: 4, sort: 160}
+- fields: {name: 10/400, scale: 4, sort: 160}
   model: anonymeyes.visualacuityreading
   pk: 54
 - fields: {name: CF, scale: 4, sort: 170}
@@ -878,7 +878,7 @@
 - fields: {name: 6/24, scale: 3, sort: 80}
   model: anonymeyes.visualacuityreading
   pk: 30
-- fields: {name: 6/36, scale: 3, sort: 90}
+- fields: {name: 6/30, scale: 3, sort: 90}
   model: anonymeyes.visualacuityreading
   pk: 31
 - fields: {name: 6/60, scale: 3, sort: 100}
@@ -926,6 +926,21 @@
 - fields: {name: "Doesn't react to light", scale: 2, sort: 40}
   model: anonymeyes.visualacuityreading
   pk: 74
+- fields: {name: 20/320, scale: 4, sort: 146}
+  model: anonymeyes.visualacuityreading
+  pk: 75
+- fields: {name: 5/400, scale: 4, sort: 165}
+  model: anonymeyes.visualacuityreading
+  pk: 76
+- fields: {name: 6/76, scale: 3, sort: 103}
+  model: anonymeyes.visualacuityreading
+  pk: 77
+- fields: {name: 6/96, scale: 3, sort: 106}
+  model: anonymeyes.visualacuityreading
+  pk: 78
+- fields: {name: 6/36, scale: 3, sort: 95}
+  model: anonymeyes.visualacuityreading
+  pk: 79
   
 # Country
 - fields: {iso: AU, name: Australia, sort: 10}
