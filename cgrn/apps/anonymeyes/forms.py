@@ -354,14 +354,6 @@ class PatientManagementForm(forms.ModelForm):
         return comments
 
 class PatientOutcomeForm(forms.ModelForm):
-    IOP_CONTROL_CHOICES = (
-                 ('', '---'),
-                 (True, 'Controlled'),
-                 (False, 'Uncontrolled')
-                 )
-    iop_control_right = forms.fields.TypedChoiceField(choices=IOP_CONTROL_CHOICES, required=True, coerce=lambda x: x =='True')
-    iop_control_left = forms.fields.TypedChoiceField(choices=IOP_CONTROL_CHOICES, required=True, coerce=lambda x: x =='True')
-    
     class Meta:
         model = Outcome
         widgets = {

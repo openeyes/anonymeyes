@@ -134,9 +134,9 @@
 					<td>{{ outcome.date }}</td>
 					<td>
 						<ul>
-							<li>Right: {{ outcome.iop_right }} mmHg, {{ outcome.iop_control_right|yesno:"Controlled,Uncontrolled" }}
+							<li>Right: {{ outcome.iop_right }} mmHg, {{ outcome.get_iop_control_right_display }}
 								({% for iop_agent in outcome.iop_agents_right.all %}{{ iop_agent }}{% if not forloop.last %}, {% endif %}{% endfor %})</li>
-							<li>Left: {{ outcome.iop_left }} mmHg, {{ outcome.iop_control_left|yesno:"Controlled,Uncontrolled" }}
+							<li>Left: {{ outcome.iop_left }} mmHg, {{ outcome.get_iop_control_left_display }}
 								({% for iop_agent in outcome.iop_agents_left.all %}{{ iop_agent }}{% if not forloop.last %}, {% endif %}{% endfor %})</li>
 							<li>Tonometry: {{ outcome.tonometry }}</li>
 							<li>EUA: {{ outcome.eua }}</li>

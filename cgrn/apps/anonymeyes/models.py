@@ -429,8 +429,16 @@ class Outcome(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     date = models.DateField()
-    iop_control_right = models.BooleanField(verbose_name='Right IOP Control')
-    iop_control_left = models.BooleanField(verbose_name='Left IOP Control')
+    IOP_CONTROLLED = 1
+    IOP_UNCONTROLLED = 2
+    IOP_CONTROL_NA = 3
+    IOP_CONTROL_CHOICES = (
+                            (IOP_CONTROLLED, 'Controlled'),
+                            (IOP_UNCONTROLLED, 'Uncontrolled'),
+                            (IOP_CONTROL_NA, 'Not applicable'),
+    )
+    iop_control_right = models.IntegerField(choices=IOP_CONTROL_CHOICES, verbose_name='Right IOP Control')
+    iop_control_left = models.IntegerField(choices=IOP_CONTROL_CHOICES, verbose_name='Left IOP Control')
     iop_right = models.IntegerField(verbose_name='Right IOP', validators=[
                                                                      validators.MaxValueValidator(99),
                                                                      validators.MinValueValidator(1)
