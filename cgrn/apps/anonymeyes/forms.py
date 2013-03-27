@@ -294,7 +294,7 @@ class PatientManagementForm(forms.ModelForm):
                    'comments': forms.Textarea(attrs={'rows':1, 'class':'autosize'}),
                    'agents': forms.CheckboxSelectMultiple(),
         }
-        exclude = { 'patient', 'created_by', 'updated_by', }
+        exclude = ( 'patient', 'created_by', 'updated_by', )
         
     def clean_surgery(self):
         surgery = self.cleaned_data.get('surgery')
@@ -371,7 +371,7 @@ class PatientOutcomeForm(forms.ModelForm):
                    'iop_agents_right': forms.CheckboxSelectMultiple(),
                    'iop_agents_left': forms.CheckboxSelectMultiple(),
         }
-        exclude = { 'patient', 'created_by', 'updated_by', }
+        exclude = ( 'patient', 'created_by', 'updated_by', )
 
     def __init__(self, *args, **kwargs):
         super(PatientOutcomeForm, self).__init__(*args, **kwargs)

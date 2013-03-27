@@ -1,4 +1,7 @@
-import collections
+try:
+    from collections import OrderedDict
+except ImportError:
+    from ordereddict import OrderedDict
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.core import serializers
@@ -144,7 +147,7 @@ class PatientCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(PatientCreateView, self).get_context_data(**kwargs)
         if 'formsets' not in context:
-            context['formsets'] = collections.OrderedDict()
+            context['formsets'] = OrderedDict()
         if self.request.POST:
             context['formsets']['Management'] = PatientManagementFormSet(self.request.POST)
             context['formsets']['Outcome'] = PatientOutcomeFormSet(self.request.POST)
@@ -196,7 +199,7 @@ class PatientUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(PatientUpdateView, self).get_context_data(**kwargs)
         if 'formsets' not in context:
-            context['formsets'] = collections.OrderedDict()
+            context['formsets'] = OrderedDict()
         if self.request.POST:
             context['formsets']['Management'] = PatientUpdateManagementFormSet(self.request.POST, instance=self.object, prefix='managements')
             context['formsets']['Outcome'] = PatientUpdateOutcomeFormSet(self.request.POST, instance=self.object, prefix='outcomes')
