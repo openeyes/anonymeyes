@@ -236,14 +236,14 @@ class PatientForm(BetterModelForm):
         dob_month = self.cleaned_data.get('dob_month')
         dob_day = self.cleaned_data.get('dob_day')
         precision = self.request.user.get_profile().dob_precision
-        if ((precision and precision.name != 'Year') or dob_day) and dob_month == None:
+        if ((precision and precision.css_class != 'year') or dob_day) and dob_month == None:
             raise forms.ValidationError("DOB month required")
         return dob_month
 
     def clean_dob_day(self):
         dob_day = self.cleaned_data.get('dob_day')
         precision = self.request.user.get_profile().dob_precision
-        if precision and precision.name == 'Day' and dob_day == None:
+        if precision and precision.css_class == 'day' and dob_day == None:
             raise forms.ValidationError("DOB day required")
         return dob_day
 
