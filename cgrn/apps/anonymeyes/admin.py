@@ -82,7 +82,10 @@ class PatientAdmin(admin.ModelAdmin):
         ManagementInline,
         OutcomeInline,
     ]
-    list_display = ('uuid','sex', 'dob_year', 'postcode','created_at', 'updated_at')
+    list_display = ('uuid','sex', 'dob_year', 'postcode', 'updated_by_name', 'updated_at')
+    def updated_by_name(self, obj):
+        return '%s %s' % (obj.updated_by.first_name, obj.updated_by.last_name)
+    updated_by_name.short_description = 'Updated by'
     list_filter = ('sex','dob_year','created_at','updated_at')
     search_fields = ('postcode','diagnosis_right__name','diagnosis_left__name')
     
