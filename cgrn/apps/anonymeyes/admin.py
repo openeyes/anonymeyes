@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 from django import forms
 
@@ -21,8 +22,12 @@ class EthnicGroupAdmin(admin.ModelAdmin):
 
 admin.site.register(EthnicGroup, EthnicGroupAdmin)
 
+class UserProfileInline(admin.StackedInline):
+    model = UserProfile
+
 class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'first_name', 'last_name', 'email', 'last_login', 'is_active', 'is_staff')
+    inlines = [ UserProfileInline, ]
     
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
