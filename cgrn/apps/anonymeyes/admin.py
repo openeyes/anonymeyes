@@ -17,7 +17,7 @@ admin.site.register(Adjuvant)
 admin.site.register(Tonometry)
 
 class EthnicGroupAdmin(admin.ModelAdmin):
-    list_display = ('name','group','sort')
+    list_display = ('name', 'group', 'sort')
     list_filter = ('group',)
 
 admin.site.register(EthnicGroup, EthnicGroupAdmin)
@@ -71,39 +71,54 @@ class PatientAdmin(admin.ModelAdmin):
                  (None, {
                          'fields': ('created_by', 'updated_by', 'created_at', 'updated_at',
                                     'sex', 'dob_day', 'dob_month', 'dob_year',
-                                    'postcode', 'ethnic_group', 'ethnic_group_comment',
-                                    'consanguinity', 'history', 'history_comment' )
+                                    'country', 'postcode', 'health_care',
+                                    'ethnic_group', 'ethnic_group_comment',
+                                    'consanguinity', 'history', 'history_comment',
+                                     )
                          }),
-                 ('Baseline Assessment', {
-                         'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_right_comment', 'diagnosis_left', 'diagnosis_left_comment',
-                                    ('visual_acuity_method', 'visual_acuity_right', 'visual_acuity_left', 'visual_acuity_both'),
-                                    ('iop_right', 'iop_left', 'tonometry', 'eua'),
+                 ('Diagnosis', {
+                         'fields': ('visual_acuity_date', 'diagnosis_right', 'diagnosis_right_comment',
+                                    'diagnosis_left', 'diagnosis_left_comment')
+                         }),
+                 ('Lens Status', {
+                         'fields': (
                                     ('lens_status_right', 'lens_extraction_date_right'),
                                     ('lens_status_left', 'lens_extraction_date_left')
                                     )
+                         }),
+                 ('Visual Acuity', {
+                         'fields': ('visual_acuity_method', 'visual_acuity_method_comment',
+                                     'visual_acuity_right', 'visual_acuity_correction_right',
+                                     'visual_acuity_left', 'visual_acuity_correction_left',
+                                     'visual_acuity_both', 'visual_acuity_correction_both',
+                                     'visual_acuity_scale', 'visual_acuity_fixation_preference')
+                         }),
+                 ('IOP', {
+                         'fields': ('iop_right', 'iop_left', 'tonometry',
+                                     'iop_agents_right', 'iop_agents_left', 'eua')
                          }),
     )
     inlines = [
         ManagementInline,
         OutcomeInline,
     ]
-    list_display = ('uuid','sex', 'dob_year', 'postcode', 'updated_by_name', 'updated_at')
+    list_display = ('uuid', 'sex', 'dob_year', 'postcode', 'updated_by_name', 'updated_at')
     def updated_by_name(self, obj):
         return '%s %s' % (obj.updated_by.first_name, obj.updated_by.last_name)
     updated_by_name.short_description = 'Updated by'
-    list_filter = ('sex','dob_year','created_at','updated_at')
-    search_fields = ('postcode','diagnosis_right__name','diagnosis_left__name')
+    list_filter = ('sex', 'dob_year', 'created_at', 'updated_at')
+    search_fields = ('postcode', 'diagnosis_right__name', 'diagnosis_left__name')
     
 admin.site.register(Patient, PatientAdmin)
 
 class SurgeryAdmin(admin.ModelAdmin):
-    list_display = ('name','adjuvant','sort')
+    list_display = ('name', 'adjuvant', 'sort')
     list_filter = ('adjuvant',)
 
 admin.site.register(Surgery, SurgeryAdmin)
     
 class DiagnosisAdmin(admin.ModelAdmin):
-    list_display = ('name','group','sort')
+    list_display = ('name', 'group', 'sort')
     list_filter = ('group',)
 
 admin.site.register(Diagnosis, DiagnosisAdmin)
