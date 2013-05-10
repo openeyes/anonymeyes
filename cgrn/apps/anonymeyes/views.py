@@ -135,11 +135,13 @@ class PatientCreateView(CreateView):
                 management_instance.created_by = self.request.user
                 management_instance.updated_by = self.request.user
                 management_instance.save()
+            management_formset.save_m2m()
             outcome_formset.instance = self.object
             for outcome_instance in outcome_formset.save(commit=False):
                 outcome_instance.created_by = self.request.user
                 outcome_instance.updated_by = self.request.user
                 outcome_instance.save()
+            outcome_formset.save_m2m()
             return response
         else:
             return self.render_to_response(self.get_context_data(form=form, formsets_invalid=True))
@@ -149,11 +151,11 @@ class PatientCreateView(CreateView):
         if 'formsets' not in context:
             context['formsets'] = OrderedDict()
         if self.request.POST:
-            context['formsets']['Management'] = PatientManagementFormSet(self.request.POST)
-            context['formsets']['Outcome'] = PatientOutcomeFormSet(self.request.POST)
+            context['formsets']['Management'] = PatientManagementFormSet(self.request.POST, prefix='managements')
+            context['formsets']['Outcome'] = PatientOutcomeFormSet(self.request.POST, prefix='outcomes')
         else:
-            context['formsets']['Management'] = PatientManagementFormSet()
-            context['formsets']['Outcome'] = PatientOutcomeFormSet()
+            context['formsets']['Management'] = PatientManagementFormSet(prefix='managements')
+            context['formsets']['Outcome'] = PatientOutcomeFormSet(prefix='outcomes')
         return context
 
 class PatientUpdateView(UpdateView):

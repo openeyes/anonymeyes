@@ -457,7 +457,7 @@
 - fields: {name: Glaucoma Associated with Acquired Condition, sort: 50}
   model: anonymeyes.diagnosisgroup
   pk: 5
-- fields: {name: "Glaucoma Following Congenital Cataract Surgery (excludes cataract:acquired or with Lowe syn, Cong Rubella, Aniridia, Pers Fetal Vasculature)", sort: 60}
+- fields: {name: "Glaucoma Following Cataract Surgery", sort: 60}
   model: anonymeyes.diagnosisgroup
   pk: 6
 - fields: {name: Glaucoma suspect, sort: 70}
@@ -585,7 +585,7 @@
 - fields: {group: 5, name: Retinopathy of Prematurity, sort: 50}
   model: anonymeyes.diagnosis
   pk: 37
-- fields: {group: 6, name: "Glaucoma Following Congenital Cataract Surgery (excludes cataract:acquired or with Lowe syn, Cong Rubella, Aniridia, Pers Fetal Vasculature)", sort: 10}
+- fields: {group: 6, name: "Congenital idiopathic cataract", sort: 10}
   model: anonymeyes.diagnosis
   pk: 38
 - fields: {group: 7, name: Elevated IOP, sort: 10}
@@ -606,6 +606,12 @@
 - fields: {group: 10, requires_comment: True, name: Unknown, sort: 10}
   model: anonymeyes.diagnosis
   pk: 44
+- fields: {group: 6, name: "Congenital cataract associated with ocular anomalies / systemic disease (no previous glaucoma)", sort: 20}
+  model: anonymeyes.diagnosis
+  pk: 45
+- fields: {group: 6, name: "Acquired cataract (no previous glaucoma)", sort: 30}
+  model: anonymeyes.diagnosis
+  pk: 46
 
 # Tonometry
 - fields: {name: Goldmann, sort: 10}
