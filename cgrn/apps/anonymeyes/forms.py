@@ -10,7 +10,7 @@ from apps.anonymeyes.models import Patient, Management, Outcome, \
     UserProfile, EthnicGroup, LensStatus
 from form_utils.forms import BetterModelForm
 from itertools import groupby
-import datetime
+import datetime, re
 
 class GroupedModelChoiceIterator(forms.models.ModelChoiceIterator):
     def __iter__(self):
@@ -282,6 +282,15 @@ class PatientForm(BetterModelForm):
         if diagnosis_left and diagnosis_left.requires_comment and not diagnosis_left_comment.strip():
             raise forms.ValidationError("Selected diagnosis requires comment")
         return diagnosis_left_comment
+
+    def clean_postcode(self):
+        postcode = self.cleaned_data.get('postcode')
+        country = self.cleaned_data.get('country')
+        if country:
+            pattern = re.compile(country.postcode_validator.pattern)
+            if not pattern.match(postcode):
+                raise forms.ValidationError(country.postcode_validator.error)
+        return postcode
 
     def clean(self):
         cleaned_data = super(PatientForm, self).clean()

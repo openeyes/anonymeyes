@@ -207,6 +207,10 @@ class IOPAgent(models.Model):
     def __unicode__(self):
         return self.name
 
+class PostcodeValidator(models.Model):
+    pattern = models.CharField(max_length=64)
+    error = models.CharField(max_length=255)
+
 class Country(models.Model):
     class Meta:
         ordering = ['sort','name']
@@ -214,6 +218,7 @@ class Country(models.Model):
     name = models.CharField(max_length=64)
     sort = models.IntegerField(default=10)
     iso = models.CharField(max_length=2)
+    postcode_validator = models.ForeignKey(PostcodeValidator)
 
     def __unicode__(self):
         return self.name
@@ -266,9 +271,7 @@ class Patient(models.Model):
     country = models.ForeignKey(Country, verbose_name='Country of Residence')
     postcode = models.CharField(
                                 verbose_name='Post/Zip Code',
-                                max_length=4,
-                                validators=[ validators.RegexValidator(regex=re.compile('^[A-Za-z0-9]{2,5}$')
-                                                                       , message='First part of post/zip code only (e.g. AB12)') ],
+                                max_length=5,
                                 )
     health_care = models.ForeignKey(HealthCare, verbose_name='Health Care Coverage')
     ethnic_group = models.ForeignKey(EthnicGroup, verbose_name='Ethnic Group / Race')
