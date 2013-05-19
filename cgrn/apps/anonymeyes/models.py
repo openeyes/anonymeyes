@@ -20,7 +20,8 @@ class DOBPrecision(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    dob_precision = models.ForeignKey(DOBPrecision, default=1)
+    dob_precision = models.ForeignKey(DOBPrecision, related_name='+', default=1, verbose_name='DOB Maximum Precision')
+    dob_min_precision = models.ForeignKey(DOBPrecision, related_name='+', default=1, verbose_name='DOB Minimum Precision')
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:

@@ -56,6 +56,14 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user',)
+
+    def clean_dob_min_precision(self):
+        dob_min_precision = self.cleaned_data.get('dob_min_precision')
+        dob_precision = self.cleaned_data.get('dob_precision')
+        if (dob_precision.css_class == 'year' and dob_min_precision.css_class != 'year') \
+            or (dob_precision.css_class == 'month' and dob_min_precision.css_class == 'day'):
+            raise forms.ValidationError("DOB minimum precision must be the same or less than the DOB maximum precision")
+        return dob_min_precision
     
 class ContactForm(forms.Form):
     name = forms.CharField()
@@ -235,14 +243,14 @@ class PatientForm(BetterModelForm):
     def clean_dob_month(self):
         dob_month = self.cleaned_data.get('dob_month')
         dob_day = self.cleaned_data.get('dob_day')
-        precision = self.request.user.get_profile().dob_precision
+        precision = self.request.user.get_profile().dob_min_precision
         if ((precision and precision.css_class != 'year') or dob_day) and dob_month == None:
             raise forms.ValidationError("DOB month required")
         return dob_month
 
     def clean_dob_day(self):
         dob_day = self.cleaned_data.get('dob_day')
-        precision = self.request.user.get_profile().dob_precision
+        precision = self.request.user.get_profile().dob_min_precision
         if precision and precision.css_class == 'day' and dob_day == None:
             raise forms.ValidationError("DOB day required")
         return dob_day
