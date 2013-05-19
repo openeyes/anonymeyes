@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block nav-help %}
+<li class="active"><a href="{% url help %}"><strong>Help</strong></a></li>
+{% endblock %}
+{% block title %}Help{% endblock %}
+{% block content %}
+<h1>Help</h1>
+<p>You can either download the <a href="{{STATIC_URL}}pdf/ipsocg-summary-instructions.pdf" target="_blank">summary investigator's manual</a>
+	or the <a href="{{STATIC_URL}}pdf/ipsocg-investigators-manual.pdf" target="_blank">full investigator's manual</a>.</p>
+<p>If you need further assistance, please use the <a href="{% url contact %}">contact form</a> to send us an email.</p>
+{% endblock %}

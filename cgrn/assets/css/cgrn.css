@@ -58,6 +58,10 @@ body {
 	text-decoration: none;
 }
 
+.header-container nav li.highlight a {
+	background: #cb7461;
+}
+
 .header-container nav li.active,
 .header-container nav li.hover {
 	border: 1px solid #ddd;

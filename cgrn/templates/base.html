@@ -33,7 +33,7 @@
 			<nav>
 				<ul class="clearfix">
 					{% block nav-index %}<li><a href="{% url index %}">Home</a></li>{% endblock %}
-					{% block nav-about %}<li><a href="{% url about %}">About</a></li>{% endblock %}
+					{% block nav-about %}<!-- <li><a href="{% url about %}">About</a></li> -->{% endblock %}
 					{% block nav-contact %}<li><a href="{% url contact %}">Contact</a></li>{% endblock %}
 					{% if user.is_authenticated %}
 					{% block nav-list %}<li><a href="{% url list %}"><strong>Manage</strong> Datasets</a></li>{% endblock %}
@@ -41,6 +41,7 @@
 					{% if user.is_staff %}
 					<li><a href="/admin/">Admin</a></li>
 					{% endif %}
+					{% block nav-help %}<li class="highlight"><a href="{% url help %}"><strong>Help</strong></a></li>{% endblock %}
 					{% endif %}
 				</ul>
 			</nav>

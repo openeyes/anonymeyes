@@ -55,6 +55,9 @@ class IndexView(TemplateView):
 class AboutView(TemplateView):
     template_name = 'anonymeyes/about.html'
 
+class HelpView(TemplateView):
+    template_name = 'anonymeyes/help.html'
+
 class ContactView(FormView):
     template_name = 'anonymeyes/contact.html'
     success_url = '/anonymeyes/thanks/'
