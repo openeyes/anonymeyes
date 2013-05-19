@@ -264,3 +264,18 @@
 		
 	</form>
 {% endblock %}
+{% block body-end %}
+<script type="text/javascript">
+// Try to prevent click away from form
+$(document).ready(function() {
+	$('body').delegate('input, textarea, select', 'change', function() {
+		window.onbeforeunload = function() {
+			return "WARNING, you will lose all unsaved changes to this form by navigating away.";
+		};
+	});
+	$('form').on('submit', function() {
+		window.onbeforeunload = null;
+	});
+});
+</script>
+{% endblock %}
