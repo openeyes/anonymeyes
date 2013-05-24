@@ -27,6 +27,9 @@
 		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 	<![endif]-->
 	
+	{% load banner %}
+	{% banner %}
+	
 	<div class="header-container">
 		<header class="wrapper clearfix">
 			<div class="logo"><a href="{% url index %}">CGRN – International Pilot Survey of Childhood Glaucoma (IPSOCG)</a></div>
@@ -77,6 +80,8 @@
 	<script src="{{ STATIC_URL }}js/vendor/jquery.hoverIntent.minified.js"></script>
 	<script src="{{ STATIC_URL }}js/vendor/jquery.dataTables.min.js"></script>
 	<script src="{{ STATIC_URL }}js/vendor/jquery.autosize-min.js"></script>
+	<script src="{{ STATIC_URL }}js/vendor/waypoints.min.js"></script>
+	<script src="{{ STATIC_URL }}js/vendor/waypoints-sticky.min.js"></script>
 	<script src="{{ STATIC_URL }}js/main.js"></script>
 	{% endcompress %}
 	

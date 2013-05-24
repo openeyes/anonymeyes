@@ -256,4 +256,6 @@ WSGI_APPLICATION = 'wsgi.application'
 
 AUTH_PROFILE_MODULE = 'anonymeyes.UserProfile'
 
+SITE_BANNER = ''
+
 from settings_local import *

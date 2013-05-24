@@ -2,6 +2,8 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
+	$('.header-banner').waypoint('sticky');
+	
 	// Print
 	$('.print_page').click(function(e) {
 		window.print();
