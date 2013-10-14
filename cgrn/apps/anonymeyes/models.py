@@ -227,8 +227,9 @@ class Patient(models.Model):
     uuid = models.CharField(unique=True, max_length=64, editable=False, blank=True, default=uuid4)
     created_by = models.ForeignKey(User, related_name='patient_created_set', blank=True, null=True, on_delete=models.SET_NULL)
     updated_by = models.ForeignKey(User, related_name='patient_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    next_reminder = models.DateField(blank=True, null=True)
     MALE = 0
     FEMALE = 1
     SEX_CHOICES = (
