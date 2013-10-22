@@ -1,1 +1,7 @@
-In two weeks one of your IPSOCG datasets can have an outcome added. You will have a two month window to enter the data.
+This is an automated reminder from the IPSOCG Coordinating Center.
+
+In two weeks it will be time to record {{ month }} month OUTCOMES DATA (IOP and visual acuity) for your patient with
+UUID {{ patient.uuid }} who you enrolled on {{ patient.created_at }}.
+
+Outcome data can be recorded from {{ start_date }} ({{ month|add:-1 }} months from enrollment), and MUST be completed by
+{{ end_date }} ({{ month|add:1 }} months after enrollment).

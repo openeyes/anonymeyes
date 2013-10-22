@@ -1,1 +1,23 @@
-One of your IPSOCG datasets can now have an outcome added. You have only two weeks left to enter the data.
+This is an automated reminder from the IPSOCG Coordinating Center.
+
+You have only two weeks remaining to enter {{ month }} month OUTCOMES DATA for your patient with UUID {{ patient.uuid }} who you
+enrolled on {{ patient.created_at }}.
+
+Outcome data can be recorded from {{ start_date }} ({{ month|add:-1 }} months from enrollment), and MUST be completed by
+{{ end_date }} ({{ month|add:1 }} months after enrollment).
+
+You can access the update page for this dataset here:
+
+{{ patient_url }}
+
+Click 'Update' to edit and then 'Add' in the Outcomes section.
+
+Please note:
+ - In judging whether IOP is 'controlled' or 'uncontrolled' your assessment should be determined not just be the IOP
+measurement but, as indicated, by the whole clinical scenario taking into account optic disc appearance, corneal
+diameter, axial length, refraction, visual field stability etc.
+ - Regarding medications, remember to record combination drops as 2 meds.
+ - Measurements by “reliable referring doctor” are allowed.
+
+Please take this opportunity to review the patient's notes to ensure you have recorded ALL surgeries and/or
+complications that have occurred since enrollment.
