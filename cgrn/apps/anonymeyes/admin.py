@@ -102,10 +102,32 @@ class PatientAdmin(admin.ModelAdmin):
         ManagementInline,
         OutcomeInline,
     ]
-    list_display = ('uuid', 'sex', 'dob_year', 'postcode', 'updated_by_name', 'updated_at')
-    def updated_by_name(self, obj):
-        return '%s %s' % (obj.updated_by.first_name, obj.updated_by.last_name)
-    updated_by_name.short_description = 'Updated by'
+    list_display = ('uuid', 'sex', 'dob_year', 'postcode', 'outcome_status', 'created_by_name', 'created_at', 'updated_at')
+
+    def created_by_name(self, obj):
+        return '%s %s' % (obj.created_by.first_name, obj.created_by.last_name)
+    created_by_name.short_description = 'Created by'
+
+    def outcome_status(self, obj):
+        if obj.outcome_overdue:
+            text = 'Overdue'
+            background = 'red'
+            color = 'white'
+        elif not obj.next_reminder:
+            text = 'Complete'
+            background = 'grey'
+            color = 'white'
+        elif obj.outcome_due:
+            text = 'Due'
+            background = 'orange'
+            color = 'white'
+        else:
+            text = 'Not due'
+            background = 'green'
+            color = 'white'
+        return '<div style="background-color:%s; padding: 3px; color: %s">%s</div>' % (background, color, text)
+    outcome_status.allow_tags = True
+
     list_filter = ('sex', 'dob_year', 'created_at', 'updated_at')
     search_fields = ('postcode', 'diagnosis_right__name', 'diagnosis_left__name')
     

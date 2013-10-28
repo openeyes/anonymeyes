@@ -6,8 +6,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.core.mail import send_mail
 from django.conf import settings
-import datetime, dateutil.relativedelta as relativedelta
-import pprint
+import datetime, dateutil.relativedelta as relativedelta, pprint
 
 
 class Command(BaseCommand):
@@ -90,20 +89,28 @@ class Command(BaseCommand):
 
             # Default next reminder is None, which means that there are no more reminders
             patient.next_reminder = None
+            patient.outcome_overdue = False
 
-            next_window = window_step
-            while not patient.next_reminder and next_window <= window_last:
+            window = window_step
+            while not patient.next_reminder and window <= window_last:
 
                 # Step through the reminder points in the window until we find one that hasn't yet been sent
                 for reminder in reminders:
-                    next_reminder = patient.created_at.date() + relativedelta.relativedelta(months=next_window) + reminder['delta']
+                    next_reminder = patient.created_at.date() + relativedelta.relativedelta(months=window) + reminder['delta']
                     if next_reminder > today:
                         # Set next reminder
-                        self.stdout.write('- Setting next reminder to %s (%s/%s)\n' % (next_reminder, next_window, reminder['message']))
+                        self.stdout.write('- Setting next reminder to %s (%s/%s)\n' % (next_reminder, window, reminder['message']))
                         patient.next_reminder = next_reminder
                         break
 
-                next_window += window_step
+                if not patient.next_reminder and not patient.outcome_overdue:
+                    # Check that we have a valid outcome for this window before moving on
+                    outcomes = patient.outcome_set.filter(created_at__gte = patient.created_at + relativedelta.relativedelta(months=window-1), created_at__lte = patient.created_at + relativedelta.relativedelta(months=window+1))
+                    if not outcomes:
+                        patient.outcome_overdue = True
+                        self.stdout.write('- Window expired without outcome being entered. Marking as overdue\n')
+
+                window += window_step
 
             if not patient.next_reminder:
                 self.stdout.write('- Clearing next reminder (no more reminders due)\n')

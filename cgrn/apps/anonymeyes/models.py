@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 from django.core import validators 
 from uuid import uuid4
 from datetime import date
-import re
+from dateutil import relativedelta
 
 class DOBPrecision(models.Model):
     class Meta:
@@ -230,6 +230,7 @@ class Patient(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     next_reminder = models.DateField(blank=True, null=True)
+    outcome_overdue = models.BooleanField(default=False)
     MALE = 0
     FEMALE = 1
     SEX_CHOICES = (
@@ -268,6 +269,16 @@ class Patient(models.Model):
         if self.dob_day:
             dob = dob + '-' + str(self.dob_day).zfill(2)
         return dob
+
+    @property
+    def outcome_due(self):
+        window_step = 6
+        window_last = 18
+        today = date.today()
+        for window in range(window_step,window_last,window_step):
+            if self.created_at.date() + relativedelta.relativedelta(months=window-1, weeks=-2) <= today and self.created_at.date() + relativedelta.relativedelta(months=window+1) >= today:
+                return True
+        return False
 
     country = models.ForeignKey(Country, verbose_name='Country of Residence')
     postcode = models.CharField(
