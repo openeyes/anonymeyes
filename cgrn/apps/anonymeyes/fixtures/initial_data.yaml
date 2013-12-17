@@ -967,6 +967,9 @@
 - fields: {pattern: "^[0-9]{1,3}$", error: "First 1 to 3 digits only"}
   model: anonymeyes.postcodevalidator
   pk: 6
+- fields: {pattern: "^[0-9]{6}$", error: "First 6 digits only"}
+  model: anonymeyes.postcodevalidator
+  pk: 7
 
 # Country
 - fields: {postcode_validator: 4, iso: AU, name: Australia, sort: 10}
@@ -978,7 +981,7 @@
 - fields: {postcode_validator: 6, iso: DE, name: Germany, sort: 10}
   model: anonymeyes.country
   pk: 4
-- fields: {postcode_validator: 5, iso: IN, name: India, sort: 10}
+- fields: {postcode_validator: 7, iso: IN, name: India, sort: 10}
   model: anonymeyes.country
   pk: 3
 - fields: {postcode_validator: 5, iso: SA, name: Saudi Arabia, sort: 10}

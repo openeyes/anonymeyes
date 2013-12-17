@@ -211,6 +211,9 @@ class PostcodeValidator(models.Model):
     pattern = models.CharField(max_length=64)
     error = models.CharField(max_length=255)
 
+    def __unicode__(self):
+        return self.pattern
+
 class Country(models.Model):
     class Meta:
         ordering = ['sort','name']

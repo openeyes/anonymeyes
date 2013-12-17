@@ -70,7 +70,7 @@ class Command(BaseCommand):
                                     'start_date': patient.created_at.date() + relativedelta.relativedelta(months=window-1),
                                     'end_date': patient.created_at.date() + relativedelta.relativedelta(months=window+1),
                                 })
-                                #send_mail('IPSOCG Outcomes Data: '+window+' months', body.render(d), settings.CONTACT_SENDER, patient.created_by.email)
+                                send_mail('IPSOCG Outcomes Data: '+str(window)+' months', body.render(d), settings.CONTACT_SENDER, [patient.created_by.email])
                                 pprint.pprint(body.render(d))
                                 reminder_sent = True
                                 break
