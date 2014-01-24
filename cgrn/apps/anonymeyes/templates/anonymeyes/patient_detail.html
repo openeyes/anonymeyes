@@ -45,6 +45,8 @@
 			<dd>{{ patient.diagnosis_right.description }}{% if patient.diagnosis_right_comment %} ({{ patient.diagnosis_right_comment }}){% endif %}</dd>
 			<dt>Left Diagnosis:</dt>
 			<dd>{{ patient.diagnosis_left.description }}{% if patient.diagnosis_left_comment %} ({{ patient.diagnosis_left_comment }}){% endif %}</dd>
+			<dt>Comments:</dt>
+			<dd>{{ patient.comments }}</dd>
 			<dt>Visual Acuity Method:</dt>
 			<dd>{{ patient.visual_acuity_method }}{% if patient.visual_acuity_method.scales.count > 1 %} ({{ patient.visual_acuity_scale }}){% endif %}</dd>
 			<dt>RVA:</dt>

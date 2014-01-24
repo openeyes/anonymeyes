@@ -74,6 +74,7 @@ class PatientAdmin(admin.ModelAdmin):
                                     'country', 'postcode', 'health_care',
                                     'ethnic_group', 'ethnic_group_comment',
                                     'consanguinity', 'history', 'history_comment',
+                                    'comments',
                                      )
                          }),
                  ('Diagnosis', {

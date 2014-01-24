@@ -112,6 +112,10 @@
 						<span>{{ form.diagnosis_group_left.errors }} {{ form.diagnosis_left.errors }} {{ form.diagnosis_left_comment.errors }}</span>
 						{{ form.diagnosis_left_comment }}
 					</li>
+                    <li {{ form.comments.row_attrs }}>
+					    <label for="{{ form.comments.auto_id }}"{% if form.comments.errors %} class="error"{% endif %} ><span>{{ form.comments.label }}</span>:</label>
+					    {{ form.comments }} <span>{{ form.comments.errors }}</span>
+				    </li>
 				</ul>
 			</fieldset>
 
@@ -228,6 +232,7 @@
 					{% endfor %}
 				</ul>
 			</fieldset>
+
 		</fieldset>
 		
 		{% for formset_name, formset in formsets.items %}

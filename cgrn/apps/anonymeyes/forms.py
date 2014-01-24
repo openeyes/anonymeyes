@@ -99,7 +99,8 @@ class PatientForm(BetterModelForm):
                      ('baseline', {
                                    'fields': [ 'visual_acuity_date',
                                               'diagnosis_group_right', 'diagnosis_right', 'diagnosis_right_comment',
-                                              'diagnosis_group_left', 'diagnosis_left', 'diagnosis_left_comment' ],
+                                              'diagnosis_group_left', 'diagnosis_left', 'diagnosis_left_comment',
+                                              'comments', ],
                                    }),
                      ('visual_acuity', {
                                    'fields': [ 'visual_acuity_method', 'visual_acuity_scale',
@@ -123,6 +124,7 @@ class PatientForm(BetterModelForm):
                    'dob_day': forms.TextInput(attrs={'size':'10'}),
                    'dob_year': forms.TextInput(attrs={'size':'10'}),
                    'history_comment': forms.Textarea(attrs={'rows':1, 'class':'autosize'}),
+                   'comments': forms.Textarea(attrs={'rows':3, 'class':'autosize'}),
                    'diagnosis_right': forms.Select(attrs={'class':'diagnosis', 'data-side':'right'}),
                    'diagnosis_left': forms.Select(attrs={'class':'diagnosis', 'data-side':'left'}),
                    'diagnosis_right_comment': forms.Textarea(attrs={'rows':1, 'class':'diagnosis_comment autosize'}),

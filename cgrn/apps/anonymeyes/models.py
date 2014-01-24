@@ -346,6 +346,7 @@ class Patient(models.Model):
     iop_agents_left = models.ManyToManyField(IOPAgent, related_name='patient_iop_agents_left', verbose_name='Left IOP Agents')
     tonometry = models.ForeignKey(Tonometry)
     eua = models.ForeignKey(Anaesthesia, verbose_name='EUA')
+    comments = models.TextField(blank=True)
     
     class Meta:
         ordering = ['-updated_at']
