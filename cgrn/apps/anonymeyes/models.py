@@ -286,7 +286,7 @@ class Patient(models.Model):
     country = models.ForeignKey(Country, verbose_name='Country of Residence')
     postcode = models.CharField(
                                 verbose_name='Post/Zip Code',
-                                max_length=5,
+                                max_length=6,
                                 )
     health_care = models.ForeignKey(HealthCare, verbose_name='Health Care Coverage')
     ethnic_group = models.ForeignKey(EthnicGroup, verbose_name='Ethnic Group / Race')
