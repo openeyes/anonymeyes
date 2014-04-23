@@ -232,7 +232,7 @@ class Patient(models.Model):
     updated_by = models.ForeignKey(User, related_name='patient_updated_set', blank=True, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    next_reminder = models.DateField(blank=True, null=True)
+    next_reminder = models.DateField(auto_now_add=True, blank=True, null=True)
     outcome_overdue = models.BooleanField(default=False)
     MALE = 0
     FEMALE = 1

@@ -42,12 +42,12 @@ class Command(BaseCommand):
         patients = Patient.objects.filter(Q(next_reminder__lte=today)).order_by('visual_acuity_date')
         for patient in patients:
 
-            self.stdout.write('Processing patient UUID %s, date %s, next reminder is %s\n' % (patient.uuid, patient.visual_acuity_date.date(), patient.next_reminder))
+            self.stdout.write('Processing patient UUID %s, date %s, next reminder is %s\n' % (patient.uuid, patient.visual_acuity_date, patient.next_reminder))
 
             reminder_sent = False
             for window in range(window_step,window_last,window_step):
                 # See if we are inside the reminder window
-                if patient.visual_acuity_date.date() + relativedelta.relativedelta(months=window-1, weeks=-2) <= today and patient.visual_acuity_date.date() + relativedelta.relativedelta(months=window+1) >= today:
+                if patient.visual_acuity_date + relativedelta.relativedelta(months=window-1, weeks=-2) <= today and patient.visual_acuity_date + relativedelta.relativedelta(months=window+1) >= today:
                     self.stdout.write('- Inside %s month window\n' % (window))
                     # See if we have an outcome for the current_window
                     outcomes = patient.outcome_set.filter(date__gte = patient.visual_acuity_date + relativedelta.relativedelta(months=window-1), date__lte = patient.visual_acuity_date + relativedelta.relativedelta(months=window+1))
@@ -57,7 +57,7 @@ class Command(BaseCommand):
                         ''' Send reminder '''
 
                         for reminder in reversed(reminders):
-                            if patient.visual_acuity_date.date() + relativedelta.relativedelta(months=window) + reminder['delta'] <= today:
+                            if patient.visual_acuity_date + relativedelta.relativedelta(months=window) + reminder['delta'] <= today:
                                 self.stdout.write('- Sending reminder: template=%s, recipient=%s\n' % (
                                     reminder['message'],
                                     patient.created_by.email
@@ -67,11 +67,10 @@ class Command(BaseCommand):
                                     'month': window,
                                     'patient': patient,
                                     'patient_url': 'http://' + Site.objects.get_current().domain + '/anonymeyes/uuid/' + patient.uuid.lower(),
-                                    'start_date': patient.visual_acuity_date.date() + relativedelta.relativedelta(months=window-1),
-                                    'end_date': patient.visual_acuity_date.date() + relativedelta.relativedelta(months=window+1),
+                                    'start_date': patient.visual_acuity_date + relativedelta.relativedelta(months=window-1),
+                                    'end_date': patient.visual_acuity_date + relativedelta.relativedelta(months=window+1),
                                 })
-                                self.stdout.write('- DEBUG suppress sending email\n')
-                                #send_mail('IPSOCG Outcomes Data: '+str(window)+' months', body.render(d), settings.CONTACT_SENDER, [patient.created_by.email])
+                                send_mail('IPSOCG Outcomes Data: '+str(window)+' months', body.render(d), settings.CONTACT_SENDER, [patient.created_by.email])
                                 pprint.pprint(body.render(d))
                                 reminder_sent = True
                                 break
@@ -97,7 +96,7 @@ class Command(BaseCommand):
 
                 # Step through the reminder points in the window until we find one that hasn't yet been sent
                 for reminder in reminders:
-                    next_reminder = patient.visual_acuity_date.date() + relativedelta.relativedelta(months=window) + reminder['delta']
+                    next_reminder = patient.visual_acuity_date + relativedelta.relativedelta(months=window) + reminder['delta']
                     if next_reminder > today:
                         # Set next reminder
                         self.stdout.write('- Setting next reminder to %s (%s/%s)\n' % (next_reminder, window, reminder['message']))
@@ -116,7 +115,6 @@ class Command(BaseCommand):
             if not patient.next_reminder:
                 self.stdout.write('- Clearing next reminder (no more reminders due)\n')
 
-            self.stdout.write('- DEBUG Supressing patient save\n')
-            #patient.save()
+            patient.save()
 
 
