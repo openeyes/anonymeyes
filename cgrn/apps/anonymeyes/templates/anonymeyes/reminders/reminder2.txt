@@ -3,8 +3,8 @@ This is an automated reminder from the IPSOCG Coordinating Center.
 It is time to record {{ month }} month OUTCOMES DATA (IOP and visual acuity) for your patient with UUID {{ patient.uuid }} who
 you enrolled on {{ patient.created_at }}.
 
-Outcome data can be recorded from {{ start_date }} ({{ month|add:-1 }} months from enrollment), and MUST be completed by
-{{ end_date }} ({{ month|add:1 }} months after enrollment).
+Outcome data can be recorded from {{ start_date }} ({{ month|add:-1 }} months from baseline assessment date), and MUST be completed by
+{{ end_date }} ({{ month|add:1 }} months after baseline assessment date).
 
 You can access the page for this dataset here:
 
@@ -20,4 +20,4 @@ diameter, axial length, refraction, visual field stability etc.
  - Measurements by “reliable referring doctor” are allowed.
 
 Please take this opportunity to review the patient's notes to ensure you have recorded ALL surgeries and/or
-complications that have occurred since enrollment.
+complications that have occurred since baseline assessment date.
