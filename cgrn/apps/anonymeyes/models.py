@@ -279,8 +279,10 @@ class Patient(models.Model):
         window_last = 18
         today = date.today()
         for window in range(window_step,window_last,window_step):
-            if self.visual_acuity_date + relativedelta.relativedelta(months=window-1, weeks=-2) <= today and self.visual_acuity_date + relativedelta.relativedelta(months=window+1) >= today:
-                return True
+            if self.visual_acuity_date + relativedelta.relativedelta(months=window-1) <= today and self.visual_acuity_date + relativedelta.relativedelta(months=window+1) >= today:
+                outcomes = self.outcome_set.filter(date__gte = self.visual_acuity_date + relativedelta.relativedelta(months=window-1), date__lte = self.visual_acuity_date + relativedelta.relativedelta(months=window+1))
+                if not outcomes:
+                    return True
         return False
 
     country = models.ForeignKey(Country, verbose_name='Country of Residence')
