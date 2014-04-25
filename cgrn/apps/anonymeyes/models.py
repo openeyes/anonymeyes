@@ -279,7 +279,7 @@ class Patient(models.Model):
         window_last = 18
         today = date.today()
         for window in range(window_step,window_last,window_step):
-            if self.created_at.date() + relativedelta.relativedelta(months=window-1, weeks=-2) <= today and self.created_at.date() + relativedelta.relativedelta(months=window+1) >= today:
+            if self.visual_acuity_date + relativedelta.relativedelta(months=window-1, weeks=-2) <= today and self.visual_acuity_date + relativedelta.relativedelta(months=window+1) >= today:
                 return True
         return False
 

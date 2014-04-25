@@ -103,10 +103,10 @@ class PatientAdmin(admin.ModelAdmin):
         ManagementInline,
         OutcomeInline,
     ]
-    list_display = ('uuid', 'sex', 'dob_year', 'postcode', 'outcome_status', 'created_by_name', 'created_at', 'updated_at')
+    list_display = ('uuid', 'sex', 'dob_year', 'postcode', 'outcome_status', 'created_by_name', 'visual_acuity_date', 'created_at', 'updated_at')
 
     def created_by_name(self, obj):
-        return '%s %s' % (obj.created_by.first_name, obj.created_by.last_name)
+        return '%s %s (%s)' % (obj.created_by.first_name, obj.created_by.last_name, obj.created_by.email)
     created_by_name.short_description = 'Created by'
 
     def outcome_status(self, obj):
